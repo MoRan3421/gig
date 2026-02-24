@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NovaServe｜自由职业平台 · Freelance Marketplace</title>
+<style>
+body{margin:0;font-family:Inter,Segoe UI;background:#0d0d20;color:#fff;overflow-x:hidden;position:relative;}
+header{background:linear-gradient(90deg,#1f2bff,#6a1bff);color:#fff;padding:16px 24px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;position:sticky;top:0;z-index:100}
+header h1{margin:0;font-size:22px;cursor:default}
+header input{flex:1;padding:10px 16px;border-radius:20px;border:none;outline:none;}
+header button{background:#fff;color:#1f2bff;border:none;padding:8px 14px;border-radius:20px;cursor:pointer;transition:.3s}
+header button:hover{transform:scale(1.05)}
+nav{background:rgba(255,255,255,.05);padding:12px 24px;display:flex;flex-wrap:wrap;gap:10px;box-shadow:0 2px 8px rgba(0,0,0,.2)}
+nav button{border:none;background:rgba(255,255,255,.1);padding:8px 14px;border-radius:20px;cursor:pointer;transition:.3s;color:#fff}
+nav button:hover{background:rgba(255,255,255,.2)}
+.container{max-width:1200px;margin:auto;padding:24px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:20px}
+.card{background:linear-gradient(135deg,#1f2bff,#6a1bff);border-radius:18px;padding:18px;box-shadow:0 10px 25px rgba(0,0,0,.3);cursor:pointer;transition:.5s;position:relative;overflow:hidden}
+.card:hover{transform:translateY(-6px) scale(1.03);box-shadow:0 15px 35px rgba(0,0,0,.5)}
+.card::before{content:"";position:absolute;top:0;left:-75%;width:50%;height:100%;background:linear-gradient(120deg,rgba(255,255,255,0.3),rgba(255,255,255,0));transform:skewX(-25deg);transition:.7s}
+.card:hover::before{left:125%}
+.tag{font-size:12px;background:rgba(255,255,255,.2);padding:4px 10px;border-radius:20px;display:inline-block;margin-bottom:6px}
+.price{color:#ffd700;font-weight:bold;font-size:16px}
+.orderCount{font-size:12px;color:#ccc;margin-top:6px}
+.modal{position:fixed;inset:0;background:rgba(0,0,0,.7);display:none;align-items:center;justify-content:center;z-index:9999}
+.modal.active{display:flex}
+.box{background:#111138;border-radius:20px;padding:20px;width:90%;max-width:600px;max-height:90vh;overflow:auto;position:relative;animation:fadeIn .5s}
+@keyframes fadeIn{from{opacity:0;transform:scale(0.9)}to{opacity:1;transform:scale(1)}}
+.pkg{border:1px solid #444;border-radius:14px;padding:10px;margin-top:8px;transition:.3s}
+.pkg:hover{transform:scale(1.03);box-shadow:0 8px 20px rgba(255,255,255,.2)}
+button.primary{background:#ffd700;color:#0d0d20;border:none;padding:10px 16px;border-radius:20px;cursor:pointer;transition:.3s}
+button.primary:hover{transform:scale(1.05)}
+footer{text-align:center;padding:30px;color:#aaa;font-size:14px}
+small{color:#888}
+.language-selector{position:fixed;top:10px;left:10px;z-index:200;}
+.language-selector select{padding:6px 10px;border-radius:10px;}
+#particles{position:fixed;top:0;left:0;width:100%;height:100%;z-index:-1;background:#0d0d20;}
+</style>
+</head>
+<body>
+
+<canvas id="particles"></canvas>
+
+<div class="language-selector">
+<select id="langSelect" onchange="setLang(this.value)">
+<option value="zh">中文</option>
+<option value="en">English</option>
+<option value="ms">Bahasa Melayu</option>
+</select>
+</div>
+
+<header>
+<h1 id="title">NovaServe</h1>
+<input id="search" placeholder="搜索服务 / Search gigs..." oninput="render()">
+<button onclick="openLogin()">登录 / 注册</button>
+<button onclick="openSeller()">发布 Gig</button>
+<button onclick="openTarot()">塔罗牌 🔮</button>
+<button onclick="openPay()">支付模拟 💳</button>
+</header>
+
+<nav id="navBar"></nav>
+
+<div class="container">
+<div class="grid" id="list"></div>
+</div>
+
+<!-- Gig Modal -->
+<div class="modal" id="gigModal">
+<div class="box">
+<h3 id="gTitle"></h3>
+<p id="gDesc"></p>
+<p id="gStars"></p>
+<div class="pkg"><h4>Basic</h4><p id="p1"></p></div>
+<div class="pkg"><h4>Standard</h4><p id="p2"></p></div>
+<div class="pkg"><h4>Premium</h4><p id="p3"></p></div>
+<p id="totalPrice"></p>
+<p id="orderCountDisplay"></p>
+<button class="primary" onclick="order()">WhatsApp 下单</button>
+<button onclick="closeModal()">关闭</button>
+</div>
+</div>
+
+<!-- 登录 Modal -->
+<div class="modal" id="loginModal">
+<div class="box">
+<h3 id="loginTitle">登录 / 注册</h3>
+<input placeholder="手机 / Email" style="width:100%;margin-bottom:8px" id="loginUser">
+<input placeholder="密码" type="password" style="width:100%;margin-bottom:8px" id="loginPass">
+<button class="primary" onclick="login()">登录</button>
+<p>或使用</p>
+<button onclick="alert('Google 登录模拟')">Google</button>
+<button onclick="alert('Facebook 登录模拟')">Facebook</button>
+<button onclick="alert('WhatsApp 登录模拟')">WhatsApp</button>
+</div>
+</div>
+
+<!-- 发布 Gig Modal -->
+<div class="modal" id="sellerModal">
+<div class="box">
+<h3 id="sellerTitle">发布 Gig</h3>
+<input id="sTitle" placeholder="服务标题" style="width:100%">
+<select id="sCat" style="width:100%;margin-top:6px"></select>
+<input id="sPrice" type="number" placeholder="起价 RM" style="width:100%;margin-top:6px">
+<input id="sWa" placeholder="WhatsApp" style="width:100%;margin-top:6px">
+<button class="primary" onclick="publish()">发布</button>
+</div>
+</div>
+
+<!-- 塔罗牌 Modal -->
+<div class="modal" id="tarotModal">
+<div class="box">
+<h3>🔮 塔罗牌（娱乐指引）</h3>
+<button class="primary" onclick="drawTarot()">抽三张 / Draw</button>
+<div id="tarotResult" style="white-space:pre-wrap;margin-top:10px;font-weight:bold"></div>
+<small>仅供娱乐与自我反思，不构成任何决定建议</small>
+<button onclick="closeTarot()">关闭</button>
+</div>
+</div>
+
+<!-- 支付 Modal -->
+<div class="modal" id="payModal">
+<div class="box">
+<h3>💳 支付模拟</h3>
+<select id="payMethod" style="width:100%;margin-bottom:8px">
+<option value="bank">银行卡</option>
+<option value="duitnow">DuitNow</option>
+<option value="tng">Touch n Go / Boost</option>
+<option value="grabpay">GrabPay</option>
+<option value="googlepay">Google Pay</option>
+</select>
+<input type="number" placeholder="金额 RM" id="payAmount" style="width:100%;margin-bottom:8px">
+<button class="primary" onclick="simulatePay()">支付</button>
+<p id="payResult"></p>
+</div>
+</div>
+
+<footer>
+<p id="footerText">自由职业者服务展示平台 · 非公司</p>
+<p>所有服务为数字 / 娱乐 / 技术服务</p>
+<p>浏览器打印即可导出 PDF 用于说明</p>
+</footer>
+
+<script>
+// ---------- 数据 ----------
+let cat='all';
+let langs = 'zh';
+let categories=[
+{key:'all',zh:'全部',en:'All',ms:'Semua'},
+{key:'boost',zh:'🎮 代打',en:'Game Boost',ms:'Naik Level'},
+{key:'topup',zh:'💎 代充',en:'Top Up',ms:'Top Up'},
+{key:'code',zh:'💻 编程',en:'Coding',ms:'Kod'},
+{key:'bot',zh:'🤖 Bot',en:'Bot',ms:'Bot'},
+{key:'tarot',zh:'🔮 塔罗',en:'Tarot',ms:'Tarot'},
+{key:'design',zh:'🎨 设计',en:'Design',ms:'Reka Bentuk'},
+{key:'write',zh:'✍️ 写作',en:'Writing',ms:'Menulis'},
+{key:'marketing',zh:'📈 营销',en:'Marketing',ms:'Pemasaran'}
+];
+let gigs=JSON.parse(localStorage.gigs||'null')||[
+{cat:'boost',title:'王者段位代打',desc:'人工安全代打',price:[300,600,1000],star:5,orderCount:0},
+{cat:'topup',title:'游戏代充服务',desc:'代付 + 服务费',price:[50,80,120],star:4,orderCount:0},
+{cat:'code',title:'网页开发 HTML/JS',desc:'展示 / 作业 / 平台',price:[300,600,1200],star:5,orderCount:0},
+{cat:'bot',title:'Discord Bot',desc:'定制机器人',price:[400,800,1500],star:5,orderCount:0},
+{cat:'tarot',title:'塔罗牌占卜',desc:'娱乐与指引',price:[30,60,100],star:4,orderCount:0},
+{cat:'design',title:'Logo 设计',desc:'品牌 Logo / 平面设计',price:[100,200,400],star:4,orderCount:0},
+{cat:'write',title:'文章写作',desc:'内容创作与编辑',price:[80,150,300],star:4,orderCount:0},
+{cat:'marketing',title:'社交媒体营销',desc:'推广 / 广告 / 运营',price:[200,400,800],star:5,orderCount:0}
+];
+
+let tarotCards=[["愚者","新开始、自由"],["魔术师","行动、创造"],["女祭司","直觉、洞察"],["皇后","滋养、丰盛"],["皇帝","掌控、稳定"],["教皇","信念、指引"],["恋人","选择、关系"],["战车","胜利、前进"],["力量","勇气、耐心"],["隐者","内省、智慧"],["命运之轮","变化、机会"],["正义","公平、真相"],["倒吊人","等待、顿悟"],["死神","结束与重生"],["节制","平衡、协调"],["恶魔","束缚、欲望"],["塔","冲击、觉醒"],["星星","希望、疗愈"],["月亮","迷惘、潜意识"],["太阳","成功、喜悦"],["审判","觉醒、决定"],["世界","完成、圆满"]];
+
+let current=null;
+
+// ---------- 渲染 ----------
+const listEl=document.getElementById('list');
+const navBar=document.getElementById('navBar');
+const sCat=document.getElementById('sCat');
+
+function renderNav(){
+navBar.innerHTML='';
+sCat.innerHTML='';
+categories.forEach(c=>{
+navBar.innerHTML+=`<button onclick="setCat('${c.key}')">${c[langs]}</button>`;
+sCat.innerHTML+=`<option value="${c.key}">${c[langs]}</option>`;
+});
+}
+renderNav();
+
+function render(){
+const q=document.getElementById('search').value.toLowerCase();
+listEl.innerHTML='';
+gigs.filter(g=>(cat==='all'||g.cat===cat)&&g.title.toLowerCase().includes(q))
+.forEach(g=>{
+listEl.innerHTML+=`
+<div class="card" onclick="openGig('${g.title}')">
+<span class="tag">${g.cat}</span>
+<h3>${g.title}</h3>
+<p>${g.desc}</p>
+<p class="price">RM ${g.price[0]}+</p>
+<p class="orderCount">接单次数: ${g.orderCount}</p>
+</div>`;
+});
+}
+render();
+
+function setCat(c){cat=c;render();}
+
+// ---------- Gig Modal ----------
+function openGig(t){
+current=gigs.find(g=>g.title===t);
+gTitle.innerText=current.title;
+gDesc.innerText=current.desc;
+gStars.innerHTML='⭐'.repeat(current.star);
+p1.innerText='RM '+current.price[0];
+p2.innerText='RM '+current.price[1];
+p3.innerText='RM '+current.price[2];
+let total = current.price[0]*1.05*1.06; 
+totalPrice.innerText=`总价（含手续费5%+税6%）: RM ${total.toFixed(2)}`;
+orderCountDisplay.innerText='已接单次数: '+current.orderCount;
+gigModal.classList.add('active');
+}
+function closeModal(){gigModal.classList.remove('active')}
+function order(){
+current.orderCount+=1;
+localStorage.gigs=JSON.stringify(gigs);
+alert('已生成 WhatsApp 下单链接，卖家接单次数 +1');
+window.open("https://wa.me/?text="+encodeURIComponent("我要下单："+current.title));
+render();
+}
+
+// ---------- 登录 ----------
+function openLogin(){loginModal.classList.add('active')}
+function login(){alert("登录成功（模拟）");loginModal.classList.remove('active')}
+
+// ---------- 发布 Gig ----------
+function openSeller(){sellerModal.classList.add('active')}
+function publish(){
+gigs.push({cat:sCat.value,title:sTitle.value,desc:'卖家发布服务',price:[+sPrice.value,+sPrice.value*2,+sPrice.value*3],star:5,orderCount:0});
+localStorage.gigs=JSON.stringify(gigs);
+render();
+sellerModal.classList.remove('active');
+}
+
+// ---------- 塔罗牌 ----------
+function openTarot(){tarotModal.classList.add('active')}
+function closeTarot(){tarotModal.classList.remove('active')}
+function drawTarot(){
+let results=[];
+for(let i=0;i<3;i++){
+let c=tarotCards[Math.floor(Math.random()*tarotCards.length)];
+results.push(c[0]+"："+c[1]);
+}
+tarotResult.innerText=results.join('\n');
+}
+
+// ---------- 支付模拟 ----------
+function openPay(){payModal.classList.add('active')}
+function simulatePay(){
+let m=document.getElementById('payMethod').value;
+let amt=+document.getElementById('payAmount').value;
+if(!amt){payResult.innerText='请输入金额';return;}
+let tax=amt*0.06;
+let fee=amt*0.02;
+payResult.innerText=`支付方式: ${m}\n金额: RM ${amt.toFixed(2)}\n税费 6%: RM ${tax.toFixed(2)}\n手续费 2%: RM ${fee.toFixed(2)}\n总计: RM ${(amt+tax+fee).toFixed(2)}`;
+}
+
+// ---------- PDF ----------
+function openPDF(){window.print()}
+
+// ---------- 多语言 ----------
+function setLang(l){langs=l;renderNav();render();if(l=='en'){title.innerText='NovaServe';footerText.innerText='Freelance Service Platform · Non-Company';loginTitle.innerText='Login / Register';sellerTitle.innerText='Publish Gig'} 
+else if(l=='ms'){title.innerText='NovaServe';footerText.innerText='Platform Perkhidmatan Freelancer · Bukan Syarikat';loginTitle.innerText='Log Masuk / Daftar';sellerTitle.innerText='Terbitkan Gig'}
+else{title.innerText='NovaServe';footerText.innerText='自由职业者服务展示平台 · 非公司';loginTitle.innerText='登录 / 注册';sellerTitle.innerText='发布 Gig'}}
+
+// ---------- 粒子效果 ----------
+const canvas=document.getElementById('particles');
+const ctx=canvas.getContext('2d');
+canvas.width=window.innerWidth;
+canvas.height=window.innerHeight;
+let particles=[];
+for(let i=0;i<150;i++){
+particles.push({x:Math.random()*canvas.width,y:Math.random()*canvas.height,r:Math.random()*2+1,speed:Math.random()*0.5+0.2,direction:Math.random()*360});
+}
+function drawParticles(){
+ctx.clearRect(0,0,canvas.width,canvas.height);
+particles.forEach(p=>{
+ctx.beginPath();
+ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+ctx.fillStyle='rgba(255,255,255,0.6)';
+ctx.fill();
+p.x+=Math.cos(p.direction)*p.speed;
+p.y+=Math.sin(p.direction)*p.speed;
+if(p.x>canvas.width)p.x=0;
+if(p.y>canvas.height)p.y=0;
+});
+requestAnimationFrame(drawParticles);
+}
+drawParticles();
+window.addEventListener('resize',()=>{canvas.width=window.innerWidth;canvas.height=window.innerHeight});
+</script>
+</body>
+</html>
