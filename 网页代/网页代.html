@@ -3,117 +3,189 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NovaServe 星域接单平台｜Game · Code · Digital Service</title>
+<title>NovaServe 星域自由职业平台｜Game · Code · Digital Gigs</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:Poppins,system-ui;background:radial-gradient(circle at top,#1a1a3d,#050512);color:#fff}
-header{display:flex;align-items:center;gap:16px;padding:20px 32px;border-bottom:1px solid rgba(255,255,255,.1)}
+header{display:flex;align-items:center;justify-content:space-between;padding:20px 32px;border-bottom:1px solid rgba(255,255,255,.1)}
+.logo-wrap{display:flex;align-items:center;gap:14px}
 .logo{width:52px;height:52px;border-radius:14px;background:linear-gradient(135deg,#6cf,#c9f);display:flex;align-items:center;justify-content:center;font-weight:700;color:#000;font-size:22px}
-header h1{font-size:1.4rem}
-header span{font-size:.9rem;color:#ccc}
-main{max-width:1200px;margin:30px auto;padding:0 20px}
-section{margin-bottom:50px}
+nav a{margin-left:20px;color:#ccc;text-decoration:none;font-size:.9rem}
+nav a:hover{color:#fff}
+main{max-width:1300px;margin:30px auto;padding:0 20px}
+section{margin-bottom:60px}
 .card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:18px;padding:22px;box-shadow:0 10px 40px rgba(0,0,0,.4)}
-.grid{display:grid;gap:20px}
+.grid{display:grid;gap:22px}
+.grid-2{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
 .grid-3{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
-button,.btn{border:none;border-radius:14px;padding:12px 18px;background:linear-gradient(135deg,#6cf,#c9f);font-weight:600;cursor:pointer;color:#000}
+button{border:none;border-radius:14px;padding:12px 18px;background:linear-gradient(135deg,#6cf,#c9f);font-weight:600;cursor:pointer;color:#000}
 button.alt{background:rgba(255,255,255,.15);color:#fff}
-input,select{width:100%;padding:10px;border-radius:10px;border:none;margin-top:6px}
+input,select,textarea{width:100%;padding:10px;border-radius:10px;border:none;margin-top:6px}
 label{font-size:.85rem;color:#ccc}
-.badge{display:inline-block;padding:4px 10px;border-radius:999px;font-size:.7rem;background:rgba(255,255,255,.15)}
+.badge{display:inline-block;padding:4px 10px;border-radius:999px;font-size:.7rem;background:rgba(255,255,255,.15);margin-bottom:6px}
+.gig-card:hover{transform:translateY(-6px) scale(1.02);transition:.3s}
 footer{text-align:center;color:#aaa;font-size:.8rem;padding:40px 0;border-top:1px solid rgba(255,255,255,.1)}
+hr{border:none;border-top:1px solid rgba(255,255,255,.12);margin:20px 0}
 </style>
 </head>
 <body>
 <header>
-  <div class="logo">NS</div>
-  <div>
-    <h1>NovaServe 星域接单平台</h1>
-    <span>Freelancer Game · Code · Digital Service Hub</span>
+  <div class="logo-wrap">
+    <div class="logo">NS</div>
+    <div>
+      <strong>NovaServe</strong><br><span style="font-size:.8rem;color:#ccc">星域自由职业平台</span>
+    </div>
   </div>
+  <nav>
+    <a href="#market">市场</a>
+    <a href="#seller">发布 Gig</a>
+    <a href="#orders">订单</a>
+    <a href="#account">账号</a>
+  </nav>
 </header>
 
 <main>
 
-<section class="card">
+<section id="account" class="card">
 <h2>🔐 登录 / 注册</h2>
-<div class="grid grid-3">
+<div class="grid grid-2">
 <div>
-<label>手机 / Gmail</label>
+<label>手机号码 / Gmail</label>
 <input placeholder="example@gmail.com">
 </div>
 <div>
 <label>密码</label>
 <input type="password">
 </div>
-<div style="display:flex;align-items:end;gap:10px">
+</div>
+<div style="margin-top:14px;display:flex;gap:12px;flex-wrap:wrap">
 <button>登录</button>
 <button class="alt">注册</button>
+<button class="alt">Google</button>
+<button class="alt">Facebook</button>
+<button class="alt">WhatsApp</button>
 </div>
-</div>
-<p style="margin-top:14px;font-size:.85rem;color:#aaa">也可使用 Google / Facebook / WhatsApp 登录（模拟）</p>
 </section>
 
-<section>
-<h2 style="margin-bottom:16px">🧩 服务市场（Fiverr 风格）</h2>
+<section id="market">
+<h2 style="margin-bottom:16px">🧩 Gig 服务市场（Fiverr 风格）</h2>
 <div class="grid grid-3">
 
-<div class="card">
+<div class="card gig-card">
 <span class="badge">🎮 游戏代打</span>
 <h3>MOBA / FPS 排位代打</h3>
-<p>安全手打，段位提升</p>
-<p>起价 RM 50</p>
+<p>安全手打｜段位提升｜按级计费</p>
+<p><strong>起价 RM 50</strong></p>
 <button onclick="order('游戏代打',50)">下单</button>
 </div>
 
-<div class="card">
+<div class="card gig-card">
 <span class="badge">💎 游戏代充</span>
 <h3>手游 / PC 点数充值</h3>
-<p>快速到账，数字服务</p>
-<p>起价 RM 20</p>
+<p>DuitNow / TNG / Boost / 银行</p>
+<p><strong>起价 RM 20</strong></p>
 <button onclick="order('游戏代充',20)">下单</button>
 </div>
 
-<div class="card">
+<div class="card gig-card">
 <span class="badge">💻 编程</span>
 <h3>网页 / Bot / 自动化</h3>
-<p>HTML / JS / Python / Bot</p>
-<p>起价 RM 80</p>
+<p>HTML / JS / Python / Discord Bot</p>
+<p><strong>起价 RM 80</strong></p>
 <button onclick="order('编程服务',80)">下单</button>
 </div>
 
-<div class="card">
-<span class="badge">🔮 塔罗</span>
-<h3>塔罗牌运势解读</h3>
-<p>感情 / 事业 / 财运</p>
-<p>RM 30</p>
-<button onclick="order('塔罗牌',30)">抽牌</button>
+<div class="card gig-card">
+<span class="badge">🧠 编程进阶</span>
+<h3>系统设计 / UI / 优化</h3>
+<p>复杂需求，按项目报价</p>
+<p><strong>起价 RM 150</strong></p>
+<button onclick="order('编程进阶',150)">下单</button>
+</div>
+
+<div class="card gig-card">
+<span class="badge">🔮 塔罗牌</span>
+<h3>塔罗牌占卜解读</h3>
+<p>感情｜事业｜财运｜三张牌</p>
+<p><strong>RM 30</strong></p>
+<button onclick="drawTarot()">抽牌</button>
 </div>
 
 </div>
 </section>
 
-<section class="card">
-<h2>📦 订单与费用计算</h2>
-<p id="orderInfo">尚未下单</p>
-</section>
-
-<section class="card">
-<h2>📄 服务与税务说明</h2>
-<ul style="line-height:1.8;font-size:.9rem">
-<li>本平台为<strong>自由职业者</strong>服务展示页，非公司</li>
-<li>所有价格为服务示例，非强制收费</li>
-<li>税费显示为 SST 6% 参考</li>
-<li>最终报税责任由接单者本人承担</li>
+<section id="messages" class="card">
+<h2>💬 私信 / 聊天（平台内）</h2>
+<div class="grid grid-2">
+<div style="border-right:1px solid rgba(255,255,255,.12);padding-right:10px">
+<h4>联系人</h4>
+<ul id="chatList" style="list-style:none;margin-top:10px;line-height:2">
+<li onclick="openChat('客服')">🛎️ 平台客服</li>
+<li onclick="openChat('卖家_A')">🎮 卖家_A（代打）</li>
+<li onclick="openChat('卖家_B')">💻 卖家_B（编程）</li>
 </ul>
-<button onclick="window.print()">导出 PDF</button>
+</div>
+<div>
+<h4 id="chatTitle">请选择联系人</h4>
+<div id="chatBox" style="height:220px;overflow-y:auto;background:rgba(0,0,0,.3);border-radius:10px;padding:10px;margin:10px 0;font-size:.85rem"></div>
+<div style="display:flex;gap:8px">
+<input id="chatInput" placeholder="输入消息…">
+<button onclick="sendMsg()">发送</button>
+</div>
+<p style="font-size:.75rem;color:#aaa;margin-top:6px">提示：当下单后，卖家也会收到 WhatsApp 通知</p>
+</div>
+</div>
+</section>
+
+<section id="seller" class="card"> class="card">
+<h2>📢 发布你的 Gig（卖家）</h2>
+<label>Gig 分类</label>
+<select>
+<option>游戏代打</option>
+<option>游戏代充</option>
+<option>编程</option>
+<option>设计</option>
+<option>塔罗牌</option>
+</select>
+<label>服务标题</label>
+<input placeholder="例如：王者荣耀 星耀→王者">
+<label>价格（RM）</label>
+<input type="number" placeholder="100">
+<label>WhatsApp 联系</label>
+<input placeholder="+6012xxxxxx">
+<button style="margin-top:12px">发布 Gig</button>
+<p style="font-size:.8rem;color:#aaa;margin-top:8px">发布后将显示在市场（前端模拟）</p>
+</section>
+
+<section id="orders" class="card">
+<h2>📦 订单详情 / 费用计算</h2>
+<p id="orderInfo">尚未选择服务</p>
+<hr>
+<h3>💳 支付方式（模拟）</h3>
+<ul style="line-height:1.8;font-size:.9rem">
+<li>银行卡（Maybank / CIMB / Public Bank 等）</li>
+<li>DuitNow</li>
+<li>TNG / Boost / GrabPay</li>
+<li>Google Pay</li>
+</ul>
+</section>
+
+<section class="card">
+<h2>📄 税务与法律说明</h2>
+<ul style="line-height:1.8;font-size:.9rem">
+<li>本平台为<strong>自由职业者个人展示</strong>，非注册公司</li>
+<li>价格为服务示例，最终价格双方协商</li>
+<li>系统显示 SST 6% 仅作参考</li>
+<li>接单者需自行处理报税义务</li>
+</ul>
+<button onclick="window.print()">导出 PDF（政府用）</button>
 </section>
 
 </main>
 
 <footer>
-© NovaServe Freelancer Platform · 非商业演示 · HTML 单页
+© NovaServe Freelancer Platform · 单页 HTML 演示 · 非商业
 </footer>
 
 <script>
@@ -122,9 +194,54 @@ function order(name,base){
  let tax=base*0.06;
  let total=base+fee+tax;
  document.getElementById('orderInfo').innerText=
- `服务：${name}\n基础价：RM ${base}\n手续费：RM ${fee.toFixed(2)}\n税费：RM ${tax.toFixed(2)}\n合计：RM ${total.toFixed(2)}`;
+ `服务：${name}\n基础价：RM ${base}\n平台手续费(5%)：RM ${fee.toFixed(2)}\n税费(6%)：RM ${tax.toFixed(2)}\n合计：RM ${total.toFixed(2)}`;
  let msg=`NovaServe 接单通知\n服务：${name}\n合计 RM ${total.toFixed(2)}`;
  window.open('https://wa.me/?text='+encodeURIComponent(msg));
+}
+
+let currentChat='';
+let chats={};
+
+function openChat(name){
+ currentChat=name;
+ document.getElementById('chatTitle').innerText='与 '+name+' 私信中';
+ if(!chats[name]) chats[name]=[];
+ renderChat();
+}
+
+function sendMsg(){
+ if(!currentChat) return alert('请先选择联系人');
+ let input=document.getElementById('chatInput');
+ if(!input.value) return;
+ chats[currentChat].push({me:true,text:input.value});
+ input.value='';
+ setTimeout(()=>{chats[currentChat].push({me:false,text:'已收到，我们会尽快回复。'});renderChat();},800);
+ renderChat();
+}
+
+function renderChat(){
+ let box=document.getElementById('chatBox');
+ box.innerHTML='';
+ chats[currentChat].forEach(m=>{
+  let div=document.createElement('div');
+  div.style.margin='6px 0';
+  div.style.textAlign=m.me?'right':'left';
+  div.innerHTML=`<span style="display:inline-block;padding:6px 10px;border-radius:10px;background:${m.me?'#6cf':'rgba(255,255,255,.15)'};color:${m.me?'#000':'#fff'}">${m.text}</span>`;
+  box.appendChild(div);
+ });
+ box.scrollTop=box.scrollHeight;
+}
+
+function drawTarot(){
+ const cards=[
+  '愚者：新的开始，勇敢尝试',
+  '魔术师：能力与机会并存',
+  '女祭司：倾听内心直觉',
+  '皇帝：稳定与掌控',
+  '恋人：关系与选择'
+ ];
+ let pick=cards[Math.floor(Math.random()*cards.length)];
+ alert('🔮 塔罗结果：\n'+pick);
 }
 </script>
 </body>
