@@ -481,6 +481,8 @@
             width: 90%;
             border: 1px solid var(--hologram);
             box-shadow: var(--hologram-glow);
+            max-height: 80vh;
+            overflow-y: auto;
         }
 
         /* ===== 通知 ===== */
@@ -501,6 +503,17 @@
         @keyframes slideIn {
             from { transform: translateX(100%); opacity: 0; }
             to { transform: translateX(0); opacity: 1; }
+        }
+
+        /* ===== 钱包显示 ===== */
+        .wallet-display {
+            background: rgba(0,0,0,0.3);
+            border-radius: var(--radius-xl);
+            padding: 8px 20px;
+            border: 1px solid var(--hologram);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
         }
     </style>
 </head>
@@ -531,7 +544,11 @@
                         </div>
                     </div>
                     
-                    <div style="display: flex; gap: 12px;">
+                    <div style="display: flex; gap: 12px; align-items: center;">
+                        <div class="wallet-display">
+                            <i class="fas fa-coins" style="color: var(--nft);"></i>
+                            <span id="userBalance">12,500</span> H$
+                        </div>
                         <div class="hologram-btn primary" onclick="showNotification('全息警报已启动')"><i class="fas fa-bell"></i> 全息警报</div>
                         <div class="hologram-btn" onclick="openModal('consciousnessModal')"><i class="fas fa-user-astronaut"></i> 意识舱</div>
                     </div>
@@ -866,6 +883,8 @@
             <p>量子纠缠态: 99.99%</p>
             <p>量子比特: 512</p>
             <p>量子算法: 正在优化中...</p>
+            <p>量子纠缠对: 1,024对</p>
+            <p>量子隐形传态: 就绪</p>
             <button class="hologram-btn primary" style="margin-top: 20px;" onclick="closeModal('quantumModal')">关闭</button>
         </div>
     </div>
@@ -873,11 +892,13 @@
     <div class="modal-overlay" id="consciousnessModal">
         <div class="modal-content">
             <h2 style="margin-bottom: 20px;">🧠 意识上传舱</h2>
-            <p>当前进度: 87%</p>
+            <p>当前进度: <span id="consciousnessProgress">87</span>%</p>
             <p>备份宇宙: α-7, β-2, γ-9</p>
             <p>数字永生: 已激活</p>
+            <p>意识副本: 3个</p>
+            <p>上次备份: 5分钟前</p>
             <div class="consciousness-bar" style="margin: 20px 0;">
-                <div class="consciousness-fill" style="width: 87%;"></div>
+                <div class="consciousness-fill" id="consciousnessModalBar" style="width: 87%;"></div>
             </div>
             <button class="hologram-btn primary" onclick="continueUpload()">继续上传</button>
             <button class="hologram-btn" style="margin-left: 10px;" onclick="closeModal('consciousnessModal')">关闭</button>
@@ -890,6 +911,8 @@
             <p>已探索: 7/42 个宇宙</p>
             <p>当前宇宙: α-7</p>
             <p>下一个目标: β-2 (匹配度 89%)</p>
+            <p>可用能量: 100%</p>
+            <p>跨维度稳定度: 98%</p>
             <button class="hologram-btn primary" style="margin-top: 20px;" onclick="jumpToUniverse()">跳跃</button>
             <button class="hologram-btn" onclick="closeModal('parallelModal')">关闭</button>
         </div>
@@ -899,7 +922,8 @@
         <div class="modal-content">
             <h2 style="margin-bottom: 20px;" id="missionModalTitle">任务详情</h2>
             <div id="missionModalContent"></div>
-            <button class="hologram-btn primary" style="margin-top: 20px;" onclick="closeModal('missionModal')">关闭</button>
+            <button class="hologram-btn primary" style="margin-top: 20px;" onclick="bidMission(currentMissionId)">投标任务</button>
+            <button class="hologram-btn" style="margin-left: 10px;" onclick="closeModal('missionModal')">关闭</button>
         </div>
     </div>
 
@@ -907,8 +931,19 @@
         <div class="modal-content">
             <h2 style="margin-bottom: 20px;" id="fighterModalTitle">战机详情</h2>
             <div id="fighterModalContent"></div>
-            <button class="hologram-btn primary" style="margin-top: 20px;" onclick="hireFighter(currentFighterId)">意识锁定</button>
+            <button class="hologram-btn primary" style="margin-top: 20px;" onclick="hireFighter(currentFighterId)">意识锁定 (雇佣)</button>
             <button class="hologram-btn" style="margin-left: 10px;" onclick="closeModal('fighterModal')">关闭</button>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="createMissionModal">
+        <div class="modal-content">
+            <h2 style="margin-bottom: 20px;">📋 发布新任务</h2>
+            <input type="text" id="newMissionTitle" placeholder="任务标题" style="width: 100%; padding: 12px; margin-bottom: 12px; background: rgba(0,0,0,0.3); border: 1px solid var(--border); color: var(--text); border-radius: var(--radius-sm);">
+            <textarea id="newMissionDesc" placeholder="任务描述" rows="3" style="width: 100%; padding: 12px; margin-bottom: 12px; background: rgba(0,0,0,0.3); border: 1px solid var(--border); color: var(--text); border-radius: var(--radius-sm);"></textarea>
+            <input type="number" id="newMissionBudget" placeholder="预算 H$" style="width: 100%; padding: 12px; margin-bottom: 12px; background: rgba(0,0,0,0.3); border: 1px solid var(--border); color: var(--text); border-radius: var(--radius-sm);">
+            <button class="hologram-btn primary" onclick="publishMission()">发布任务</button>
+            <button class="hologram-btn" style="margin-left: 10px;" onclick="closeModal('createMissionModal')">取消</button>
         </div>
     </div>
 
@@ -933,20 +968,20 @@
                 consciousness: 87
             },
             fighters: [
-                { id: 'f1', name: 'Jessica Tan', avatar: 'JT', title: '全息UI/UX设计', rating: 4.9, price: 380, match: 98, level: '黄金', emoji: '🎨', description: '5年经验，专注于全息界面设计，曾为多个元宇宙项目提供设计服务。' },
-                { id: 'f2', name: 'Wei Chen', avatar: 'WC', title: '量子全栈开发', rating: 4.8, price: 650, match: 96, level: '铂金', emoji: '💻', description: '全栈开发专家，精通React、Node.js、量子计算框架。' },
-                { id: 'f3', name: 'Mei Ling', avatar: 'ML', title: '神经网络营销', rating: 4.7, price: 420, match: 94, level: '黄金', emoji: '📈', description: 'AI营销专家，帮助品牌在元宇宙中建立影响力。' },
-                { id: 'f4', name: 'Priya Kaur', avatar: 'PK', title: '元宇宙视频剪辑', rating: 4.9, price: 550, match: 92, level: '金牌', emoji: '🎬', description: '专业视频剪辑师，专注于元宇宙空间视频制作。' },
-                { id: 'f5', name: 'Quantum AI', avatar: 'AI', title: '智能合约审计', rating: 5.0, price: 890, match: 99, level: '量子核心', emoji: '🤖', description: 'AI驱动的智能合约审计系统，确保代码安全。' },
-                { id: 'f6', name: 'Uploaded Mind', avatar: 'UP', title: '数字永生设计', rating: 5.0, price: 1200, match: 100, level: '意识上传', emoji: '🧠', description: '意识上传专家，帮助您实现数字永生。' }
+                { id: 'f1', name: 'Jessica Tan', avatar: 'JT', title: '全息UI/UX设计', rating: 4.9, price: 380, match: 98, level: '黄金', emoji: '🎨', description: '5年经验，专注于全息界面设计，曾为多个元宇宙项目提供设计服务。', completed: 156, response: '98%' },
+                { id: 'f2', name: 'Wei Chen', avatar: 'WC', title: '量子全栈开发', rating: 4.8, price: 650, match: 96, level: '铂金', emoji: '💻', description: '全栈开发专家，精通React、Node.js、量子计算框架。', completed: 94, response: '95%' },
+                { id: 'f3', name: 'Mei Ling', avatar: 'ML', title: '神经网络营销', rating: 4.7, price: 420, match: 94, level: '黄金', emoji: '📈', description: 'AI营销专家，帮助品牌在元宇宙中建立影响力。', completed: 187, response: '99%' },
+                { id: 'f4', name: 'Priya Kaur', avatar: 'PK', title: '元宇宙视频剪辑', rating: 4.9, price: 550, match: 92, level: '金牌', emoji: '🎬', description: '专业视频剪辑师，专注于元宇宙空间视频制作。', completed: 78, response: '97%' },
+                { id: 'f5', name: 'Quantum AI', avatar: 'AI', title: '智能合约审计', rating: 5.0, price: 890, match: 99, level: '量子核心', emoji: '🤖', description: 'AI驱动的智能合约审计系统，确保代码安全。', completed: 234, response: '100%' },
+                { id: 'f6', name: 'Uploaded Mind', avatar: 'UP', title: '数字永生设计', rating: 5.0, price: 1200, match: 100, level: '意识上传', emoji: '🧠', description: '意识上传专家，帮助您实现数字永生。', completed: 45, response: '100%' }
             ],
             missions: [
-                { id: 'm1', title: '跨境电商网站开发', budget: 8000, bids: 12, match: 98, tags: ['React', 'Node.js'], status: '进行中', description: '需要开发一个支持多货币、多语言的跨境电商平台。' },
-                { id: 'm2', title: 'Logo设计 + 品牌VI', budget: 1500, bids: 5, match: 96, tags: ['Figma', '品牌设计'], status: '新', description: '为新兴元宇宙品牌设计Logo和全套VI系统。' },
-                { id: 'm3', title: '智能合约开发', budget: 12000, bids: 8, match: 99, tags: ['Solidity', 'Web3'], status: '量子优选', description: '开发跨链智能合约，支持NFT铸造和交易。' },
-                { id: 'm4', title: '元宇宙空间设计', budget: 5000, bids: 6, match: 95, tags: ['Blender', 'Unity'], status: 'NFT', description: '设计元宇宙虚拟展厅，支持多人实时交互。' },
-                { id: 'm5', title: '平行宇宙桥接协议', budget: 25000, bids: 3, match: 100, tags: ['量子物理', '时空编码'], status: '新', description: '开发平行宇宙间数据桥接协议，实现跨维度通信。' },
-                { id: 'm6', title: '意识上传协议', budget: 50000, bids: 2, match: 99, tags: ['神经科学', '量子意识'], status: '紧急', description: '实现人类意识数字化上传，达到数字永生。' }
+                { id: 'm1', title: '跨境电商网站开发', budget: 8000, bids: 12, match: 98, tags: ['React', 'Node.js'], status: '进行中', description: '需要开发一个支持多货币、多语言的跨境电商平台。', posted: '2小时前' },
+                { id: 'm2', title: 'Logo设计 + 品牌VI', budget: 1500, bids: 5, match: 96, tags: ['Figma', '品牌设计'], status: '新', description: '为新兴元宇宙品牌设计Logo和全套VI系统。', posted: '30分钟前' },
+                { id: 'm3', title: '智能合约开发', budget: 12000, bids: 8, match: 99, tags: ['Solidity', 'Web3'], status: '量子优选', description: '开发跨链智能合约，支持NFT铸造和交易。', posted: '5小时前' },
+                { id: 'm4', title: '元宇宙空间设计', budget: 5000, bids: 6, match: 95, tags: ['Blender', 'Unity'], status: 'NFT', description: '设计元宇宙虚拟展厅，支持多人实时交互。', posted: '1天前' },
+                { id: 'm5', title: '平行宇宙桥接协议', budget: 25000, bids: 3, match: 100, tags: ['量子物理', '时空编码'], status: '新', description: '开发平行宇宙间数据桥接协议，实现跨维度通信。', posted: '10分钟前' },
+                { id: 'm6', title: '意识上传协议', budget: 50000, bids: 2, match: 99, tags: ['神经科学', '量子意识'], status: '紧急', description: '实现人类意识数字化上传，达到数字永生。', posted: '15分钟前' }
             ],
             universes: [
                 { name: 'α-7', match: 98, tasks: 12, status: '当前' },
@@ -971,6 +1006,7 @@
         };
 
         let currentFighterId = null;
+        let currentMissionId = null;
 
         // ========== 初始化渲染 ==========
         function renderAll() {
@@ -980,6 +1016,7 @@
             renderLogs();
             updateStats();
             updateTrends();
+            updateUserInfo();
         }
 
         function renderFighters() {
@@ -1001,6 +1038,10 @@
                             <span style="color: #fbbf24;"><i class="fas fa-star"></i> ${f.rating}</span>
                             <span style="font-weight: 700; color: var(--hologram);">H$ ${f.price}</span>
                         </div>
+                        <div style="display: flex; justify-content: space-between; margin-top: 8px; font-size: 0.8rem;">
+                            <span>✅ ${f.completed}单</span>
+                            <span>⚡ ${f.response}</span>
+                        </div>
                         <button class="hologram-btn block" style="margin-top: 12px;" onclick="hireFighter('${f.id}'); event.stopPropagation();">意识锁定</button>
                     </div>
                 </div>
@@ -1018,6 +1059,7 @@
                     <div style="display: flex; gap: 12px; color: var(--text-muted); margin-bottom: 8px;">
                         <span>预算: H$ ${m.budget.toLocaleString()}</span>
                         <span>投标: ${m.bids}</span>
+                        <span>${m.posted}</span>
                     </div>
                     <div style="display: flex; gap: 6px; flex-wrap: wrap;">
                         <span class="hologram-badge badge-quantum">AI匹配${m.match}%</span>
@@ -1069,8 +1111,7 @@
             document.getElementById('activeFighters').textContent = appState.stats.fighters;
             document.getElementById('quantumBits').textContent = '512';
             document.getElementById('parallelUniverses').textContent = appState.stats.universes;
-            document.getElementById('consciousnessBadge').innerHTML = `<i class="fas fa-brain"></i> 意识上传 ${appState.user.consciousness}%`;
-            document.getElementById('consciousnessDisplay').textContent = `意识上传中 ${appState.user.consciousness}%`;
+            document.getElementById('userBalance').textContent = appState.user.balance.toLocaleString();
         }
 
         function updateTrends() {
@@ -1082,6 +1123,13 @@
             document.getElementById('trend3Bar').style.width = appState.trends.web3 + '%';
             document.getElementById('trend4').textContent = '+' + appState.trends.consciousness + '%';
             document.getElementById('trend4Bar').style.width = appState.trends.consciousness + '%';
+        }
+
+        function updateUserInfo() {
+            document.getElementById('consciousnessBadge').innerHTML = `<i class="fas fa-brain"></i> 意识上传 ${appState.user.consciousness}%`;
+            document.getElementById('consciousnessDisplay').textContent = `意识上传中 ${appState.user.consciousness}%`;
+            document.getElementById('consciousnessProgress').textContent = appState.user.consciousness;
+            document.getElementById('consciousnessModalBar').style.width = appState.user.consciousness + '%';
         }
 
         // ========== 功能函数 ==========
@@ -1108,6 +1156,7 @@
         function startUpload() {
             appState.user.consciousness += 1;
             if (appState.user.consciousness > 100) appState.user.consciousness = 100;
+            updateUserInfo();
             updateStats();
             showNotification(`意识上传进度: ${appState.user.consciousness}%`);
         }
@@ -1122,18 +1171,23 @@
 
         function scanAll() {
             showNotification('全维度扫描完成，发现3个新目标');
+            appState.stats.missions += 3;
+            updateStats();
         }
 
         function startAIConversation() {
-            showNotification('量子AI对话已启动');
+            showNotification('量子AI对话已启动: "您好，舰长。今日有12个高匹配任务推荐。"');
         }
 
         function linkConsciousness() {
-            showNotification('意识链接已建立');
+            showNotification('意识链接已建立，正在同步量子态');
         }
 
         function exploreNewUniverse() {
-            showNotification('探索新平行宇宙... 发现 γ-9 宇宙');
+            showNotification('探索新平行宇宙... 发现 δ-4 宇宙');
+            appState.universes.push({ name: 'δ-4', match: 92, tasks: 0, status: '新发现' });
+            appState.stats.universes++;
+            renderUniverses();
         }
 
         function selectUniverse(name) {
@@ -1141,19 +1195,52 @@
         }
 
         function createMission() {
-            showNotification('发布新任务功能开发中');
+            openModal('createMissionModal');
+        }
+
+        function publishMission() {
+            const title = document.getElementById('newMissionTitle').value;
+            const desc = document.getElementById('newMissionDesc').value;
+            const budget = document.getElementById('newMissionBudget').value;
+            
+            if (!title || !budget) {
+                showNotification('请填写完整信息');
+                return;
+            }
+            
+            const newMission = {
+                id: 'm' + (appState.missions.length + 1),
+                title: title,
+                budget: parseInt(budget),
+                bids: 0,
+                match: 95,
+                tags: ['新任务'],
+                status: '新',
+                description: desc,
+                posted: '刚刚'
+            };
+            
+            appState.missions.push(newMission);
+            appState.stats.missions++;
+            renderMissions();
+            updateStats();
+            closeModal('createMissionModal');
+            showNotification('任务发布成功');
         }
 
         function mintNFT() {
-            showNotification('铸造意识NFT成功');
+            showNotification('铸造意识NFT成功 · 获得永生徽章');
+            appState.stats.nft += 1;
+            appState.user.nfts.push('永生徽章');
+            updateStats();
         }
 
         function enterMetaverse() {
-            showNotification('进入元宇宙空间');
+            showNotification('进入元宇宙空间 · 当前在线: 1,234人');
         }
 
         function bookRoom() {
-            showNotification('会议室预定成功');
+            showNotification('会议室预定成功 · 会议室 #42');
         }
 
         function copyAPIKey() {
@@ -1162,10 +1249,11 @@
         }
 
         function showAPIDetail(type) {
-            showNotification(`API ${type} 详情`);
+            showNotification(`API ${type} 详情: 今日调用 ${Math.floor(Math.random() * 100)} 次`);
         }
 
         function viewMission(missionId) {
+            currentMissionId = missionId;
             const mission = appState.missions.find(m => m.id === missionId);
             if (mission) {
                 document.getElementById('missionModalTitle').textContent = mission.title;
@@ -1175,8 +1263,20 @@
                     <p>投标: ${mission.bids}</p>
                     <p>AI匹配度: ${mission.match}%</p>
                     <p>状态: ${mission.status}</p>
+                    <p>发布时间: ${mission.posted}</p>
+                    <p>技术要求: ${mission.tags.join(', ')}</p>
                 `;
                 openModal('missionModal');
+            }
+        }
+
+        function bidMission(missionId) {
+            const mission = appState.missions.find(m => m.id === missionId);
+            if (mission) {
+                mission.bids++;
+                renderMissions();
+                showNotification(`成功投标任务: ${mission.title}`);
+                closeModal('missionModal');
             }
         }
 
@@ -1191,6 +1291,8 @@
                     <p>价格: H$ ${fighter.price}</p>
                     <p>匹配度: ${fighter.match}%</p>
                     <p>等级: ${fighter.level}</p>
+                    <p>完成项目: ${fighter.completed}</p>
+                    <p>响应率: ${fighter.response}</p>
                 `;
                 openModal('fighterModal');
             }
@@ -1201,7 +1303,9 @@
             if (fighter) {
                 if (appState.user.balance >= fighter.price) {
                     appState.user.balance -= fighter.price;
+                    appState.stats.volume += fighter.price / 1000000;
                     showNotification(`成功雇佣 ${fighter.name}，消耗 H$ ${fighter.price}`);
+                    updateStats();
                     closeModal('fighterModal');
                 } else {
                     showNotification('余额不足，请充值');
@@ -1211,6 +1315,7 @@
 
         function continueUpload() {
             startUpload();
+            closeModal('consciousnessModal');
         }
 
         function jumpToUniverse() {
@@ -1222,7 +1327,14 @@
         document.getElementById('searchInput').addEventListener('input', function(e) {
             const query = e.target.value.toLowerCase();
             if (query.length > 2) {
-                showNotification(`搜索: ${query}`);
+                const fighterResults = appState.fighters.filter(f => 
+                    f.name.toLowerCase().includes(query) || 
+                    f.title.toLowerCase().includes(query)
+                ).length;
+                const missionResults = appState.missions.filter(m => 
+                    m.title.toLowerCase().includes(query)
+                ).length;
+                showNotification(`找到 ${fighterResults} 个战机，${missionResults} 个任务`);
             }
         });
 
@@ -1233,9 +1345,11 @@
         setInterval(() => {
             if (appState.user.consciousness < 100) {
                 appState.user.consciousness += 0.1;
+                updateUserInfo();
+                appState.stats.consciousness = Math.floor(appState.user.consciousness);
                 updateStats();
             }
-        }, 10000);
+        }, 30000);
     </script>
 </body>
 </html>
