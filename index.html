@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-    <title>NovaServe · 自由职业者平台 (2026创立) · 宇宙全息终极版</title>
+    <title>NovaServe · 自由职业者平台 (2026创立) · 全功能量子全息终极版</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
@@ -300,22 +300,12 @@
             position: relative;
             transform-style: preserve-3d;
             transition: all 0.3s;
+            cursor: pointer;
         }
 
         .data-core:hover {
             transform: translateZ(20px);
             border-color: var(--hologram);
-        }
-
-        .data-core::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: radial-gradient(circle at 50% 50%, rgba(56,189,248,0.1), transparent 70%);
-            pointer-events: none;
         }
 
         .data-value {
@@ -394,6 +384,13 @@
             border-radius: var(--radius-md);
             padding: 20px;
             border: 1px solid rgba(255,255,255,0.05);
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .hologram-mission:hover {
+            border-color: var(--hologram);
+            transform: translateY(-2px);
         }
 
         /* ===== 意识上传进度 ===== */
@@ -417,38 +414,6 @@
         @keyframes consciousness-pulse {
             0%, 100% { opacity: 0.8; }
             50% { opacity: 1; }
-        }
-
-        /* ===== 数字永生特效 ===== */
-        .immortal-glow {
-            animation: immortal 3s ease-in-out infinite;
-        }
-
-        @keyframes immortal {
-            0%, 100% { filter: brightness(1); }
-            50% { filter: brightness(1.2) hue-rotate(10deg); }
-        }
-
-        /* ===== 意识上传波纹 ===== */
-        .consciousness-ripple {
-            position: relative;
-            overflow: hidden;
-        }
-
-        .consciousness-ripple::after {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(251,113,133,0.2) 0%, transparent 70%);
-            animation: ripple 4s linear infinite;
-        }
-
-        @keyframes ripple {
-            0% { transform: scale(0.5); opacity: 0.5; }
-            100% { transform: scale(2); opacity: 0; }
         }
 
         /* ===== 全息门户 ===== */
@@ -484,6 +449,59 @@
             background: rgba(0,0,0,0.5);
             backdrop-filter: blur(20px);
         }
+
+        /* ===== 模态框 ===== */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.8);
+            backdrop-filter: blur(20px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+        }
+
+        .modal-overlay.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            background: var(--surface);
+            border-radius: var(--radius-lg);
+            padding: 32px;
+            max-width: 500px;
+            width: 90%;
+            border: 1px solid var(--hologram);
+            box-shadow: var(--hologram-glow);
+        }
+
+        /* ===== 通知 ===== */
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: var(--surface);
+            border-left: 4px solid var(--hologram);
+            border-radius: var(--radius-sm);
+            padding: 16px 24px;
+            color: var(--text);
+            box-shadow: var(--hologram-glow);
+            z-index: 2000;
+            animation: slideIn 0.3s ease;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
     </style>
 </head>
 <body>
@@ -502,20 +520,20 @@
                                 <span style="font-weight: 900; font-size: 2.8rem; background: linear-gradient(145deg, var(--primary), var(--secondary), var(--quantum), var(--hologram)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 0 20px rgba(79,70,229,0.5));">NovaServe</span>
                                 <span class="hologram-badge badge-quantum"><i class="fas fa-infinity"></i> 量子纠缠 99.999%</span>
                                 <span class="hologram-badge badge-hologram"><i class="fas fa-cube"></i> 全息投影 v3.0</span>
-                                <span class="hologram-badge badge-consciousness"><i class="fas fa-brain"></i> 意识上传 87%</span>
+                                <span class="hologram-badge badge-consciousness" id="consciousnessBadge"><i class="fas fa-brain"></i> 意识上传 87%</span>
                             </div>
                             <div style="display: flex; gap: 28px; margin-top: 12px;">
-                                <span><i class="fas fa-users" style="color: var(--primary);"></i> 1,234 联邦舰员</span>
-                                <span><i class="fas fa-rocket" style="color: var(--secondary);"></i> 89 艘战机在线</span>
-                                <span><i class="fas fa-infinity" style="color: var(--quantum);"></i> 512 量子比特</span>
-                                <span><i class="fas fa-crown" style="color: var(--nft);"></i> 7 个平行宇宙</span>
+                                <span><i class="fas fa-users" style="color: var(--primary);"></i> <span id="totalUsers">1,234</span> 联邦舰员</span>
+                                <span><i class="fas fa-rocket" style="color: var(--secondary);"></i> <span id="activeFighters">89</span> 艘战机在线</span>
+                                <span><i class="fas fa-infinity" style="color: var(--quantum);"></i> <span id="quantumBits">512</span> 量子比特</span>
+                                <span><i class="fas fa-crown" style="color: var(--nft);"></i> <span id="parallelUniverses">7</span> 个平行宇宙</span>
                             </div>
                         </div>
                     </div>
                     
                     <div style="display: flex; gap: 12px;">
-                        <div class="hologram-btn primary"><i class="fas fa-bell"></i> 全息警报</div>
-                        <div class="hologram-btn"><i class="fas fa-user-astronaut"></i> 意识舱</div>
+                        <div class="hologram-btn primary" onclick="showNotification('全息警报已启动')"><i class="fas fa-bell"></i> 全息警报</div>
+                        <div class="hologram-btn" onclick="openModal('consciousnessModal')"><i class="fas fa-user-astronaut"></i> 意识舱</div>
                     </div>
                 </div>
             </div>
@@ -524,17 +542,17 @@
             <div style="padding: 24px; border-bottom: 1px solid rgba(255,255,255,0.05);">
                 <div style="display: flex; gap: 20px; align-items: center; flex-wrap: wrap;">
                     <div style="flex: 1; position: relative; min-width: 350px;">
-                        <input type="text" placeholder="🌌 全息跨维度搜索 · 输入任务、舰员、平行宇宙、意识上传..." style="width: 100%; padding: 20px 32px; border-radius: var(--radius-xl); background: rgba(0,0,0,0.5); border: 2px solid rgba(255,255,255,0.1); color: var(--text); font-size: 1rem; backdrop-filter: blur(10px);">
+                        <input type="text" id="searchInput" placeholder="🌌 全息跨维度搜索 · 输入任务、舰员、平行宇宙、意识上传..." style="width: 100%; padding: 20px 32px; border-radius: var(--radius-xl); background: rgba(0,0,0,0.5); border: 2px solid rgba(255,255,255,0.1); color: var(--text); font-size: 1rem; backdrop-filter: blur(10px);">
                         <span style="position: absolute; right: 24px; top: 50%; transform: translateY(-50%); width: 14px; height: 14px; background: var(--hologram); border-radius: 50%; animation: quantum-pulse 2s infinite;"></span>
                     </div>
                     <div style="display: flex; gap: 10px; flex-wrap: wrap;">
-                        <div class="hologram-btn primary">指挥中心</div>
-                        <div class="hologram-btn">战机集市</div>
-                        <div class="hologram-btn">任务控制</div>
-                        <div class="hologram-btn quantum">量子舱</div>
-                        <div class="hologram-btn">元宇宙港</div>
-                        <div class="hologram-btn">平行宇宙</div>
-                        <div class="hologram-btn">意识上传</div>
+                        <div class="hologram-btn primary" onclick="navigateTo('command')">指挥中心</div>
+                        <div class="hologram-btn" onclick="navigateTo('market')">战机集市</div>
+                        <div class="hologram-btn" onclick="navigateTo('missions')">任务控制</div>
+                        <div class="hologram-btn quantum" onclick="openModal('quantumModal')">量子舱</div>
+                        <div class="hologram-btn" onclick="navigateTo('metaverse')">元宇宙港</div>
+                        <div class="hologram-btn" onclick="openModal('parallelModal')">平行宇宙</div>
+                        <div class="hologram-btn" onclick="openModal('consciousnessModal')">意识上传</div>
                     </div>
                 </div>
             </div>
@@ -548,17 +566,17 @@
                     <div style="display: flex; justify-content: space-between; align-items: center; padding: 28px;">
                         <div>
                             <h1 style="font-size: 2.6rem; margin-bottom: 12px; display: flex; align-items: center; gap: 20px;">
-                                舰长 Alex，欢迎进入全息宇宙 👨‍🚀
-                                <span class="hologram-badge badge-consciousness" style="font-size: 1rem;">意识上传中 87%</span>
-                                <span class="hologram-badge badge-immortal" style="font-size: 1rem;">数字永生 已激活</span>
+                                舰长 <span id="userName">Alex</span>，欢迎进入全息宇宙 👨‍🚀
+                                <span class="hologram-badge badge-consciousness" style="font-size: 1rem;" id="consciousnessDisplay">意识上传中 87%</span>
+                                <span class="hologram-badge badge-immortal" style="font-size: 1rem;" id="immortalDisplay">数字永生 已激活</span>
                             </h1>
-                            <p style="color: var(--text-light); font-size: 1.1rem;">全息雷达锁定 <span class="hologram-badge badge-primary" style="font-size: 1rem;">98.7% 匹配度</span> · 今日12个高优先级任务 · 7个平行宇宙待探索 · 意识备份已完成</p>
+                            <p style="color: var(--text-light); font-size: 1.1rem;">全息雷达锁定 <span class="hologram-badge badge-primary" style="font-size: 1rem;" id="matchRate">98.7% 匹配度</span> · 今日<span id="todayTasks">12</span>个高优先级任务 · <span id="universesCount">7</span>个平行宇宙待探索 · 意识备份已完成</p>
                         </div>
                         <div style="display: flex; gap: 16px;">
-                            <button class="hologram-btn quantum" style="padding: 18px 36px; font-size: 1.1rem;">
+                            <button class="hologram-btn quantum" style="padding: 18px 36px; font-size: 1.1rem;" onclick="startUpload()">
                                 <i class="fas fa-infinity"></i> 启动意识上传
                             </button>
-                            <button class="hologram-btn" style="padding: 18px 36px;">
+                            <button class="hologram-btn" style="padding: 18px 36px;" onclick="toggleHologram()">
                                 <i class="fas fa-cube"></i> 全息投影
                             </button>
                         </div>
@@ -570,36 +588,36 @@
             <div class="span-18">
                 <div class="hologram-ship">
                     <div class="hologram-data">
-                        <div class="data-core">
-                            <div class="data-value">1,234</div>
+                        <div class="data-core" onclick="showDetail('fighters')">
+                            <div class="data-value" id="statFighters">1,234</div>
                             <div class="data-label">活跃战机</div>
                         </div>
-                        <div class="data-core">
-                            <div class="data-value">56</div>
+                        <div class="data-core" onclick="showDetail('missions')">
+                            <div class="data-value" id="statMissions">56</div>
                             <div class="data-label">星际任务</div>
                         </div>
-                        <div class="data-core">
-                            <div class="data-value">892</div>
+                        <div class="data-core" onclick="showDetail('crew')">
+                            <div class="data-value" id="statCrew">892</div>
                             <div class="data-label">舰员在线</div>
                         </div>
-                        <div class="data-core">
-                            <div class="data-value">98%</div>
+                        <div class="data-core" onclick="showDetail('match')">
+                            <div class="data-value" id="statMatch">98%</div>
                             <div class="data-label">量子匹配</div>
                         </div>
-                        <div class="data-core">
-                            <div class="data-value">2.5k</div>
+                        <div class="data-core" onclick="showDetail('nft')">
+                            <div class="data-value" id="statNFT">2.5k</div>
                             <div class="data-label">NFT勋章</div>
                         </div>
-                        <div class="data-core">
-                            <div class="data-value">1.2M</div>
+                        <div class="data-core" onclick="showDetail('volume')">
+                            <div class="data-value" id="statVolume">1.2M</div>
                             <div class="data-label">交易总额</div>
                         </div>
-                        <div class="data-core">
-                            <div class="data-value">7</div>
+                        <div class="data-core" onclick="showDetail('universes')">
+                            <div class="data-value" id="statUniverses">7</div>
                             <div class="data-label">平行宇宙</div>
                         </div>
-                        <div class="data-core">
-                            <div class="data-value">87%</div>
+                        <div class="data-core" onclick="showDetail('consciousness')">
+                            <div class="data-value" id="statConsciousness">87%</div>
                             <div class="data-label">意识上传</div>
                         </div>
                     </div>
@@ -616,135 +634,11 @@
                             <span class="hologram-badge badge-quantum">量子纠缠 98%</span>
                             <span class="hologram-badge badge-hologram">全息投影 12架</span>
                         </div>
-                        <button class="hologram-btn primary">全维度扫描 →</button>
+                        <button class="hologram-btn primary" onclick="scanAll()">全维度扫描 →</button>
                     </div>
 
-                    <div class="hologram-fleet">
-                        <!-- 战机1 -->
-                        <div class="hologram-fighter immortal-glow">
-                            <div class="hologram-cockpit">
-                                🎨
-                                <span class="hologram-scanner">匹配 98%</span>
-                            </div>
-                            <div class="hologram-cabin">
-                                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 10px;">
-                                    <span style="width: 28px; height: 28px; background: var(--primary); border-radius: 28px; display: flex; align-items: center; justify-content: center; font-size: 0.8rem;">JT</span>
-                                    <span>Jessica Tan</span>
-                                    <span class="hologram-badge badge-primary" style="margin-left: auto;">黄金</span>
-                                </div>
-                                <div style="font-weight: 600; margin-bottom: 10px;">全息UI/UX设计</div>
-                                <div style="display: flex; justify-content: space-between;">
-                                    <span style="color: #fbbf24;"><i class="fas fa-star"></i> 4.9</span>
-                                    <span style="font-weight: 700; color: var(--hologram);">H$ 380</span>
-                                </div>
-                                <button class="hologram-btn block" style="margin-top: 12px;">意识锁定</button>
-                            </div>
-                        </div>
-
-                        <!-- 战机2 -->
-                        <div class="hologram-fighter">
-                            <div class="hologram-cockpit">
-                                💻
-                                <span class="hologram-scanner">匹配 96%</span>
-                            </div>
-                            <div class="hologram-cabin">
-                                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 10px;">
-                                    <span style="width: 28px; height: 28px; background: var(--primary); border-radius: 28px; display: flex; align-items: center; justify-content: center; font-size: 0.8rem;">WC</span>
-                                    <span>Wei Chen</span>
-                                    <span class="hologram-badge badge-primary" style="margin-left: auto;">铂金</span>
-                                </div>
-                                <div style="font-weight: 600; margin-bottom: 10px;">量子全栈开发</div>
-                                <div style="display: flex; justify-content: space-between;">
-                                    <span style="color: #fbbf24;"><i class="fas fa-star"></i> 4.8</span>
-                                    <span style="font-weight: 700; color: var(--hologram);">H$ 650</span>
-                                </div>
-                                <button class="hologram-btn block" style="margin-top: 12px;">意识锁定</button>
-                            </div>
-                        </div>
-
-                        <!-- 战机3 -->
-                        <div class="hologram-fighter">
-                            <div class="hologram-cockpit">
-                                📈
-                                <span class="hologram-scanner">匹配 94%</span>
-                            </div>
-                            <div class="hologram-cabin">
-                                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 10px;">
-                                    <span style="width: 28px; height: 28px; background: var(--primary); border-radius: 28px; display: flex; align-items: center; justify-content: center; font-size: 0.8rem;">ML</span>
-                                    <span>Mei Ling</span>
-                                    <span class="hologram-badge badge-primary" style="margin-left: auto;">黄金</span>
-                                </div>
-                                <div style="font-weight: 600; margin-bottom: 10px;">神经网络营销</div>
-                                <div style="display: flex; justify-content: space-between;">
-                                    <span style="color: #fbbf24;"><i class="fas fa-star"></i> 4.7</span>
-                                    <span style="font-weight: 700; color: var(--hologram);">H$ 420</span>
-                                </div>
-                                <button class="hologram-btn block" style="margin-top: 12px;">意识锁定</button>
-                            </div>
-                        </div>
-
-                        <!-- 战机4 -->
-                        <div class="hologram-fighter">
-                            <div class="hologram-cockpit">
-                                🎬
-                                <span class="hologram-scanner">匹配 92%</span>
-                            </div>
-                            <div class="hologram-cabin">
-                                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 10px;">
-                                    <span style="width: 28px; height: 28px; background: var(--primary); border-radius: 28px; display: flex; align-items: center; justify-content: center; font-size: 0.8rem;">PK</span>
-                                    <span>Priya Kaur</span>
-                                    <span class="hologram-badge badge-primary" style="margin-left: auto;">金牌</span>
-                                </div>
-                                <div style="font-weight: 600; margin-bottom: 10px;">元宇宙视频剪辑</div>
-                                <div style="display: flex; justify-content: space-between;">
-                                    <span style="color: #fbbf24;"><i class="fas fa-star"></i> 4.9</span>
-                                    <span style="font-weight: 700; color: var(--hologram);">H$ 550</span>
-                                </div>
-                                <button class="hologram-btn block" style="margin-top: 12px;">意识锁定</button>
-                            </div>
-                        </div>
-
-                        <!-- 战机5 -->
-                        <div class="hologram-fighter">
-                            <div class="hologram-cockpit">
-                                🤖
-                                <span class="hologram-scanner">匹配 99%</span>
-                            </div>
-                            <div class="hologram-cabin">
-                                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 10px;">
-                                    <span style="width: 28px; height: 28px; background: var(--primary); border-radius: 28px; display: flex; align-items: center; justify-content: center; font-size: 0.8rem;">AI</span>
-                                    <span>Quantum AI</span>
-                                    <span class="hologram-badge badge-quantum" style="margin-left: auto;">量子核心</span>
-                                </div>
-                                <div style="font-weight: 600; margin-bottom: 10px;">智能合约审计</div>
-                                <div style="display: flex; justify-content: space-between;">
-                                    <span style="color: #fbbf24;"><i class="fas fa-star"></i> 5.0</span>
-                                    <span style="font-weight: 700; color: var(--hologram);">H$ 890</span>
-                                </div>
-                                <button class="hologram-btn block" style="margin-top: 12px;">意识锁定</button>
-                            </div>
-                        </div>
-
-                        <!-- 战机6 (新增) -->
-                        <div class="hologram-fighter consciousness-ripple">
-                            <div class="hologram-cockpit">
-                                🧠
-                                <span class="hologram-scanner">匹配 100%</span>
-                            </div>
-                            <div class="hologram-cabin">
-                                <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 10px;">
-                                    <span style="width: 28px; height: 28px; background: var(--consciousness); border-radius: 28px; display: flex; align-items: center; justify-content: center; font-size: 0.8rem;">UP</span>
-                                    <span>Uploaded Mind</span>
-                                    <span class="hologram-badge badge-consciousness" style="margin-left: auto;">意识上传</span>
-                                </div>
-                                <div style="font-weight: 600; margin-bottom: 10px;">数字永生设计</div>
-                                <div style="display: flex; justify-content: space-between;">
-                                    <span style="color: #fbbf24;"><i class="fas fa-star"></i> 5.0</span>
-                                    <span style="font-weight: 700; color: var(--consciousness);">H$ 1,200</span>
-                                </div>
-                                <button class="hologram-btn block" style="margin-top: 12px;">意识融合</button>
-                            </div>
-                        </div>
+                    <div class="hologram-fleet" id="fighterFleet">
+                        <!-- 战机将通过JS动态生成 -->
                     </div>
                 </div>
             </div>
@@ -755,16 +649,16 @@
                     <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
                         <i class="fas fa-robot" style="color: var(--hologram); font-size: 2rem;"></i>
                         <h3>量子AI全息舱</h3>
-                        <span class="hologram-badge badge-hologram" style="margin-left: auto;">全息在线</span>
+                        <span class="hologram-badge badge-hologram" style="margin-left: auto;" id="aiStatus">全息在线</span>
                     </div>
                     <div style="background: rgba(56,189,248,0.1); border-radius: var(--radius-md); padding: 20px;">
-                        <p style="font-size: 1rem; margin-bottom: 16px;">512量子比特 · 实时全息分析 · 跨维度意识通信</p>
+                        <p style="font-size: 1rem; margin-bottom: 16px;"><span id="quantumBitsAI">512</span>量子比特 · 实时全息分析 · 跨维度意识通信</p>
                         <div class="consciousness-bar">
-                            <div class="consciousness-fill" style="width: 98%;"></div>
+                            <div class="consciousness-fill" id="aiProgress" style="width: 98%;"></div>
                         </div>
                         <div style="display: flex; gap: 10px; margin-top: 20px;">
-                            <button class="hologram-btn quantum" style="flex: 1;">全息对话</button>
-                            <button class="hologram-btn" style="flex: 1;">意识链接</button>
+                            <button class="hologram-btn quantum" style="flex: 1;" onclick="startAIConversation()">全息对话</button>
+                            <button class="hologram-btn" style="flex: 1;" onclick="linkConsciousness()">意识链接</button>
                         </div>
                     </div>
                 </div>
@@ -776,38 +670,11 @@
                             <i class="fas fa-brain" style="color: var(--consciousness);"></i>
                             <h3>意识上传日志</h3>
                         </div>
-                        <span class="hologram-badge badge-consciousness">实时同步</span>
+                        <span class="hologram-badge badge-consciousness" id="logStatus">实时同步</span>
                     </div>
                     
-                    <div class="activity-stream">
-                        <div class="nebula-entry" style="padding: 12px;">
-                            <div class="nebula-avatar" style="background: var(--consciousness);">JT</div>
-                            <div>
-                                <p style="font-weight: 500;">Jessica Tan 意识上传完成</p>
-                                <span style="font-size: 0.75rem; color: var(--text-muted);">2分钟前 · 备份至平行宇宙 α-7</span>
-                            </div>
-                        </div>
-                        <div class="nebula-entry" style="padding: 12px;">
-                            <div class="nebula-avatar" style="background: var(--consciousness);">WC</div>
-                            <div>
-                                <p style="font-weight: 500;">Wei Chen 意识同步中 92%</p>
-                                <span style="font-size: 0.75rem; color: var(--text-muted);">15分钟前 · 量子纠缠确认</span>
-                            </div>
-                        </div>
-                        <div class="nebula-entry" style="padding: 12px;">
-                            <div class="nebula-avatar" style="background: var(--consciousness);">ML</div>
-                            <div>
-                                <p style="font-weight: 500;">Mei Ling 创建意识副本</p>
-                                <span style="font-size: 0.75rem; color: var(--text-muted);">1小时前 · 平行宇宙 β-2</span>
-                            </div>
-                        </div>
-                        <div class="nebula-entry" style="padding: 12px;">
-                            <div class="nebula-avatar" style="background: var(--consciousness);">PK</div>
-                            <div>
-                                <p style="font-weight: 500;">Priya Kaur 数字永生激活</p>
-                                <span style="font-size: 0.75rem; color: var(--text-muted);">3小时前 · 永生成就</span>
-                            </div>
-                        </div>
+                    <div class="activity-stream" id="consciousnessLogs">
+                        <!-- 日志将通过JS动态生成 -->
                     </div>
                 </div>
             </div>
@@ -820,38 +687,11 @@
                         <h3>平行宇宙状态</h3>
                     </div>
 
-                    <div style="display: grid; gap: 12px; margin-bottom: 16px;">
-                        <div style="background: rgba(255,255,255,0.05); border-radius: var(--radius-sm); padding: 12px;">
-                            <div style="display: flex; justify-content: space-between;">
-                                <span style="font-weight: 700;">宇宙 α-7</span>
-                                <span class="hologram-badge badge-primary">当前</span>
-                            </div>
-                            <div style="font-size: 0.8rem;">匹配度 98% · 12任务</div>
-                        </div>
-                        <div style="background: rgba(255,255,255,0.05); border-radius: var(--radius-sm); padding: 12px;">
-                            <div style="display: flex; justify-content: space-between;">
-                                <span style="font-weight: 700;">宇宙 β-2</span>
-                                <span class="hologram-badge badge-quantum">探索中</span>
-                            </div>
-                            <div style="font-size: 0.8rem;">匹配度 89% · 5任务</div>
-                        </div>
-                        <div style="background: rgba(255,255,255,0.05); border-radius: var(--radius-sm); padding: 12px;">
-                            <div style="display: flex; justify-content: space-between;">
-                                <span style="font-weight: 700;">宇宙 γ-9</span>
-                                <span class="hologram-badge badge-hologram">新发现</span>
-                            </div>
-                            <div style="font-size: 0.8rem;">匹配度 76% · 3任务</div>
-                        </div>
-                        <div style="background: rgba(255,255,255,0.05); border-radius: var(--radius-sm); padding: 12px;">
-                            <div style="display: flex; justify-content: space-between;">
-                                <span style="font-weight: 700;">宇宙 δ-4</span>
-                                <span class="hologram-badge badge-consciousness">意识上传中</span>
-                            </div>
-                            <div style="font-size: 0.8rem;">匹配度 92% · 8任务</div>
-                        </div>
+                    <div style="display: grid; gap: 12px; margin-bottom: 16px;" id="universesList">
+                        <!-- 宇宙状态将通过JS动态生成 -->
                     </div>
 
-                    <button class="hologram-btn block" style="background: linear-gradient(145deg, var(--parallel), var(--temporal));">
+                    <button class="hologram-btn block" style="background: linear-gradient(145deg, var(--parallel), var(--temporal));" onclick="exploreNewUniverse()">
                         <i class="fas fa-infinity"></i> 探索新宇宙
                     </button>
                 </div>
@@ -865,111 +705,11 @@
                             <i class="fas fa-tasks" style="color: var(--success); font-size: 1.8rem;"></i>
                             <h2 style="font-size: 1.6rem;">全息任务中心</h2>
                         </div>
-                        <button class="hologram-btn primary">发布新任务</button>
+                        <button class="hologram-btn primary" onclick="createMission()">发布新任务</button>
                     </div>
 
-                    <div class="hologram-missions">
-                        <!-- 任务1 -->
-                        <div class="hologram-mission">
-                            <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
-                                <span style="font-weight: 600;">跨境电商网站开发</span>
-                                <span class="hologram-badge badge-warning">进行中</span>
-                            </div>
-                            <div style="display: flex; gap: 12px; color: var(--text-muted); margin-bottom: 8px;">
-                                <span>预算: H$ 8,000</span>
-                                <span>投标: 12</span>
-                            </div>
-                            <div style="display: flex; gap: 6px; flex-wrap: wrap;">
-                                <span class="hologram-badge badge-quantum">AI匹配98%</span>
-                                <span class="hologram-badge badge-primary">React</span>
-                                <span class="hologram-badge badge-primary">Node.js</span>
-                            </div>
-                        </div>
-
-                        <!-- 任务2 -->
-                        <div class="hologram-mission">
-                            <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
-                                <span style="font-weight: 600;">Logo设计 + 品牌VI</span>
-                                <span class="hologram-badge badge-success">新</span>
-                            </div>
-                            <div style="display: flex; gap: 12px; color: var(--text-muted); margin-bottom: 8px;">
-                                <span>预算: H$ 1,500</span>
-                                <span>投标: 5</span>
-                            </div>
-                            <div style="display: flex; gap: 6px; flex-wrap: wrap;">
-                                <span class="hologram-badge badge-quantum">AI匹配96%</span>
-                                <span class="hologram-badge badge-primary">Figma</span>
-                                <span class="hologram-badge badge-primary">品牌设计</span>
-                            </div>
-                        </div>
-
-                        <!-- 任务3 -->
-                        <div class="hologram-mission">
-                            <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
-                                <span style="font-weight: 600;">智能合约开发</span>
-                                <span class="hologram-badge badge-primary">量子优选</span>
-                            </div>
-                            <div style="display: flex; gap: 12px; color: var(--text-muted); margin-bottom: 8px;">
-                                <span>预算: H$ 12,000</span>
-                                <span>投标: 8</span>
-                            </div>
-                            <div style="display: flex; gap: 6px; flex-wrap: wrap;">
-                                <span class="hologram-badge badge-quantum">AI匹配99%</span>
-                                <span class="hologram-badge badge-primary">Solidity</span>
-                                <span class="hologram-badge badge-primary">Web3</span>
-                            </div>
-                        </div>
-
-                        <!-- 任务4 -->
-                        <div class="hologram-mission">
-                            <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
-                                <span style="font-weight: 600;">元宇宙空间设计</span>
-                                <span class="hologram-badge badge-nft">NFT</span>
-                            </div>
-                            <div style="display: flex; gap: 12px; color: var(--text-muted); margin-bottom: 8px;">
-                                <span>预算: H$ 5,000</span>
-                                <span>投标: 6</span>
-                            </div>
-                            <div style="display: flex; gap: 6px; flex-wrap: wrap;">
-                                <span class="hologram-badge badge-quantum">AI匹配95%</span>
-                                <span class="hologram-badge badge-primary">Blender</span>
-                                <span class="hologram-badge badge-primary">Unity</span>
-                            </div>
-                        </div>
-
-                        <!-- 任务5 -->
-                        <div class="hologram-mission">
-                            <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
-                                <span style="font-weight: 600;">平行宇宙桥接协议</span>
-                                <span class="hologram-badge badge-parallel">新</span>
-                            </div>
-                            <div style="display: flex; gap: 12px; color: var(--text-muted); margin-bottom: 8px;">
-                                <span>预算: H$ 25,000</span>
-                                <span>投标: 3</span>
-                            </div>
-                            <div style="display: flex; gap: 6px; flex-wrap: wrap;">
-                                <span class="hologram-badge badge-quantum">AI匹配100%</span>
-                                <span class="hologram-badge badge-primary">量子物理</span>
-                                <span class="hologram-badge badge-primary">时空编码</span>
-                            </div>
-                        </div>
-
-                        <!-- 任务6 -->
-                        <div class="hologram-mission">
-                            <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
-                                <span style="font-weight: 600;">意识上传协议</span>
-                                <span class="hologram-badge badge-consciousness">紧急</span>
-                            </div>
-                            <div style="display: flex; gap: 12px; color: var(--text-muted); margin-bottom: 8px;">
-                                <span>预算: H$ 50,000</span>
-                                <span>投标: 2</span>
-                            </div>
-                            <div style="display: flex; gap: 6px; flex-wrap: wrap;">
-                                <span class="hologram-badge badge-quantum">AI匹配99%</span>
-                                <span class="hologram-badge badge-primary">神经科学</span>
-                                <span class="hologram-badge badge-primary">量子意识</span>
-                            </div>
-                        </div>
+                    <div class="hologram-missions" id="missionsList">
+                        <!-- 任务将通过JS动态生成 -->
                     </div>
                 </div>
             </div>
@@ -985,40 +725,40 @@
                     <div style="margin-bottom: 16px;">
                         <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
                             <span>量子计算需求</span>
-                            <span style="color: var(--quantum);">+95%</span>
+                            <span style="color: var(--quantum);" id="trend1">+95%</span>
                         </div>
                         <div class="consciousness-bar">
-                            <div class="consciousness-fill" style="width: 95%;"></div>
+                            <div class="consciousness-fill" id="trend1Bar" style="width: 95%;"></div>
                         </div>
                     </div>
 
                     <div style="margin-bottom: 16px;">
                         <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
                             <span>元宇宙设计</span>
-                            <span style="color: var(--neural);">+89%</span>
+                            <span style="color: var(--neural);" id="trend2">+89%</span>
                         </div>
                         <div class="consciousness-bar">
-                            <div class="consciousness-fill" style="width: 89%; background: linear-gradient(90deg, var(--neural), var(--meta));"></div>
+                            <div class="consciousness-fill" id="trend2Bar" style="width: 89%; background: linear-gradient(90deg, var(--neural), var(--meta));"></div>
                         </div>
                     </div>
 
                     <div style="margin-bottom: 16px;">
                         <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
                             <span>Web3开发</span>
-                            <span style="color: var(--nft);">+92%</span>
+                            <span style="color: var(--nft);" id="trend3">+92%</span>
                         </div>
                         <div class="consciousness-bar">
-                            <div class="consciousness-fill" style="width: 92%; background: linear-gradient(90deg, var(--nft), var(--primary));"></div>
+                            <div class="consciousness-fill" id="trend3Bar" style="width: 92%; background: linear-gradient(90deg, var(--nft), var(--primary));"></div>
                         </div>
                     </div>
 
                     <div>
                         <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
                             <span>意识上传需求</span>
-                            <span style="color: var(--consciousness);">+99%</span>
+                            <span style="color: var(--consciousness);" id="trend4">+99%</span>
                         </div>
                         <div class="consciousness-bar">
-                            <div class="consciousness-fill" style="width: 99%; background: linear-gradient(90deg, var(--consciousness), var(--immortal));"></div>
+                            <div class="consciousness-fill" id="trend4Bar" style="width: 99%; background: linear-gradient(90deg, var(--consciousness), var(--immortal));"></div>
                         </div>
                     </div>
                 </div>
@@ -1030,7 +770,7 @@
                             <i class="fas fa-image" style="color: var(--nft);"></i>
                             <h3>NFT · 意识机库</h3>
                         </div>
-                        <span class="hologram-badge badge-nft">2,345枚</span>
+                        <span class="hologram-badge badge-nft" id="nftCount">2,345枚</span>
                     </div>
 
                     <div style="display: flex; align-items: center; gap: 20px; margin-bottom: 20px;">
@@ -1043,14 +783,14 @@
                         </div>
                     </div>
 
-                    <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px;">
+                    <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px;" id="nftBadges">
                         <span class="hologram-badge badge-nft">创世意识</span>
                         <span class="hologram-badge badge-nft">上传者勋章</span>
                         <span class="hologram-badge badge-consciousness">永生徽章</span>
                         <span class="hologram-badge badge-immortal">不朽者</span>
                     </div>
 
-                    <button class="hologram-btn block" style="border-color: var(--consciousness); color: var(--consciousness);">
+                    <button class="hologram-btn block" style="border-color: var(--consciousness); color: var(--consciousness);" onclick="mintNFT()">
                         <i class="fas fa-plus-circle"></i> 铸造意识NFT
                     </button>
                 </div>
@@ -1062,18 +802,18 @@
                     <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 16px;">
                         <i class="fas fa-vr-cardboard" style="color: var(--meta);"></i>
                         <h3>元宇宙指挥舱</h3>
-                        <span class="hologram-badge badge-meta" style="margin-left: auto;">1,234人</span>
+                        <span class="hologram-badge badge-meta" style="margin-left: auto;" id="metaUsers">1,234人</span>
                     </div>
 
                     <div style="text-align: center; margin-bottom: 16px;">
                         <div style="font-size: 3rem; margin-bottom: 8px;">🌐</div>
                         <p style="font-weight: 600;">虚拟作战室</p>
-                        <p style="color: var(--text-muted);">56间会议室空闲</p>
+                        <p style="color: var(--text-muted);" id="availableRooms">56间会议室空闲</p>
                     </div>
 
                     <div style="display: flex; gap: 8px;">
-                        <button class="hologram-btn quantum" style="flex: 1;">进入</button>
-                        <button class="hologram-btn" style="flex: 1;">预定</button>
+                        <button class="hologram-btn quantum" style="flex: 1;" onclick="enterMetaverse()">进入</button>
+                        <button class="hologram-btn" style="flex: 1;" onclick="bookRoom()">预定</button>
                     </div>
                 </div>
 
@@ -1082,20 +822,21 @@
                     <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 16px;">
                         <i class="fas fa-code" style="color: var(--primary);"></i>
                         <h3>开发者星港</h3>
-                        <span class="hologram-badge badge-primary" style="margin-left: auto;">API</span>
+                        <span class="hologram-badge badge-primary" style="margin-left: auto;" id="apiStatus">API就绪</span>
                     </div>
 
                     <div style="background: rgba(0,0,0,0.4); border-radius: var(--radius-md); padding: 16px; margin-bottom: 16px;">
-                        <code style="color: var(--hologram);">dev_consciousness_2026</code>
+                        <code style="color: var(--hologram);" id="apiKey">dev_consciousness_2026</code>
+                        <button class="hologram-btn btn-sm" style="margin-left: 8px;" onclick="copyAPIKey()">复制</button>
                     </div>
 
                     <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; text-align: center;">
-                        <div>
-                            <div style="font-weight: 700; color: var(--quantum);">2.1k</div>
+                        <div onclick="showAPIDetail('calls')">
+                            <div style="font-weight: 700; color: var(--quantum);" id="apiCalls">2.1k</div>
                             <div style="font-size: 0.7rem;">API调用</div>
                         </div>
-                        <div>
-                            <div style="font-weight: 700; color: var(--consciousness);">567</div>
+                        <div onclick="showAPIDetail('contracts')">
+                            <div style="font-weight: 700; color: var(--consciousness);" id="apiContracts">567</div>
                             <div style="font-size: 0.7rem;">意识合约</div>
                         </div>
                     </div>
@@ -1118,27 +859,383 @@
         </footer>
     </div>
 
+    <!-- 模态框 -->
+    <div class="modal-overlay" id="quantumModal">
+        <div class="modal-content">
+            <h2 style="margin-bottom: 20px;">⚛️ 量子舱</h2>
+            <p>量子纠缠态: 99.99%</p>
+            <p>量子比特: 512</p>
+            <p>量子算法: 正在优化中...</p>
+            <button class="hologram-btn primary" style="margin-top: 20px;" onclick="closeModal('quantumModal')">关闭</button>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="consciousnessModal">
+        <div class="modal-content">
+            <h2 style="margin-bottom: 20px;">🧠 意识上传舱</h2>
+            <p>当前进度: 87%</p>
+            <p>备份宇宙: α-7, β-2, γ-9</p>
+            <p>数字永生: 已激活</p>
+            <div class="consciousness-bar" style="margin: 20px 0;">
+                <div class="consciousness-fill" style="width: 87%;"></div>
+            </div>
+            <button class="hologram-btn primary" onclick="continueUpload()">继续上传</button>
+            <button class="hologram-btn" style="margin-left: 10px;" onclick="closeModal('consciousnessModal')">关闭</button>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="parallelModal">
+        <div class="modal-content">
+            <h2 style="margin-bottom: 20px;">🌌 平行宇宙传送门</h2>
+            <p>已探索: 7/42 个宇宙</p>
+            <p>当前宇宙: α-7</p>
+            <p>下一个目标: β-2 (匹配度 89%)</p>
+            <button class="hologram-btn primary" style="margin-top: 20px;" onclick="jumpToUniverse()">跳跃</button>
+            <button class="hologram-btn" onclick="closeModal('parallelModal')">关闭</button>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="missionModal">
+        <div class="modal-content">
+            <h2 style="margin-bottom: 20px;" id="missionModalTitle">任务详情</h2>
+            <div id="missionModalContent"></div>
+            <button class="hologram-btn primary" style="margin-top: 20px;" onclick="closeModal('missionModal')">关闭</button>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="fighterModal">
+        <div class="modal-content">
+            <h2 style="margin-bottom: 20px;" id="fighterModalTitle">战机详情</h2>
+            <div id="fighterModalContent"></div>
+            <button class="hologram-btn primary" style="margin-top: 20px;" onclick="hireFighter(currentFighterId)">意识锁定</button>
+            <button class="hologram-btn" style="margin-left: 10px;" onclick="closeModal('fighterModal')">关闭</button>
+        </div>
+    </div>
+
     <script>
-        // 全息交互
-        document.querySelectorAll('.hologram-fighter, .hologram-mission').forEach(card => {
-            card.addEventListener('click', function(e) {
-                if(!e.target.classList.contains('hologram-btn')) {
-                    this.style.transform = 'scale(0.98) rotateX(2deg)';
-                    setTimeout(() => this.style.transform = '', 100);
+        // ========== 全功能数据模型 ==========
+        let appState = {
+            user: {
+                name: 'Alex',
+                consciousness: 87,
+                immortal: true,
+                balance: 12500,
+                nfts: ['创世意识', '上传者勋章']
+            },
+            stats: {
+                fighters: 1234,
+                missions: 56,
+                crew: 892,
+                match: 98,
+                nft: 2500,
+                volume: 1.2,
+                universes: 7,
+                consciousness: 87
+            },
+            fighters: [
+                { id: 'f1', name: 'Jessica Tan', avatar: 'JT', title: '全息UI/UX设计', rating: 4.9, price: 380, match: 98, level: '黄金', emoji: '🎨', description: '5年经验，专注于全息界面设计，曾为多个元宇宙项目提供设计服务。' },
+                { id: 'f2', name: 'Wei Chen', avatar: 'WC', title: '量子全栈开发', rating: 4.8, price: 650, match: 96, level: '铂金', emoji: '💻', description: '全栈开发专家，精通React、Node.js、量子计算框架。' },
+                { id: 'f3', name: 'Mei Ling', avatar: 'ML', title: '神经网络营销', rating: 4.7, price: 420, match: 94, level: '黄金', emoji: '📈', description: 'AI营销专家，帮助品牌在元宇宙中建立影响力。' },
+                { id: 'f4', name: 'Priya Kaur', avatar: 'PK', title: '元宇宙视频剪辑', rating: 4.9, price: 550, match: 92, level: '金牌', emoji: '🎬', description: '专业视频剪辑师，专注于元宇宙空间视频制作。' },
+                { id: 'f5', name: 'Quantum AI', avatar: 'AI', title: '智能合约审计', rating: 5.0, price: 890, match: 99, level: '量子核心', emoji: '🤖', description: 'AI驱动的智能合约审计系统，确保代码安全。' },
+                { id: 'f6', name: 'Uploaded Mind', avatar: 'UP', title: '数字永生设计', rating: 5.0, price: 1200, match: 100, level: '意识上传', emoji: '🧠', description: '意识上传专家，帮助您实现数字永生。' }
+            ],
+            missions: [
+                { id: 'm1', title: '跨境电商网站开发', budget: 8000, bids: 12, match: 98, tags: ['React', 'Node.js'], status: '进行中', description: '需要开发一个支持多货币、多语言的跨境电商平台。' },
+                { id: 'm2', title: 'Logo设计 + 品牌VI', budget: 1500, bids: 5, match: 96, tags: ['Figma', '品牌设计'], status: '新', description: '为新兴元宇宙品牌设计Logo和全套VI系统。' },
+                { id: 'm3', title: '智能合约开发', budget: 12000, bids: 8, match: 99, tags: ['Solidity', 'Web3'], status: '量子优选', description: '开发跨链智能合约，支持NFT铸造和交易。' },
+                { id: 'm4', title: '元宇宙空间设计', budget: 5000, bids: 6, match: 95, tags: ['Blender', 'Unity'], status: 'NFT', description: '设计元宇宙虚拟展厅，支持多人实时交互。' },
+                { id: 'm5', title: '平行宇宙桥接协议', budget: 25000, bids: 3, match: 100, tags: ['量子物理', '时空编码'], status: '新', description: '开发平行宇宙间数据桥接协议，实现跨维度通信。' },
+                { id: 'm6', title: '意识上传协议', budget: 50000, bids: 2, match: 99, tags: ['神经科学', '量子意识'], status: '紧急', description: '实现人类意识数字化上传，达到数字永生。' }
+            ],
+            universes: [
+                { name: 'α-7', match: 98, tasks: 12, status: '当前' },
+                { name: 'β-2', match: 89, tasks: 5, status: '探索中' },
+                { name: 'γ-9', match: 76, tasks: 3, status: '新发现' },
+                { name: 'δ-4', match: 92, tasks: 8, status: '意识上传中' }
+            ],
+            logs: [
+                { user: 'JT', action: '意识上传完成', time: '2分钟前', location: 'α-7' },
+                { user: 'WC', action: '意识同步中 92%', time: '15分钟前', location: '量子纠缠' },
+                { user: 'ML', action: '创建意识副本', time: '1小时前', location: 'β-2' },
+                { user: 'PK', action: '数字永生激活', time: '3小时前', location: '永生成就' },
+                { user: 'AI', action: '发现新平行宇宙', time: '5分钟前', location: 'γ-9' }
+            ],
+            trends: {
+                quantum: 95,
+                metaverse: 89,
+                web3: 92,
+                consciousness: 99
+            },
+            notifications: []
+        };
+
+        let currentFighterId = null;
+
+        // ========== 初始化渲染 ==========
+        function renderAll() {
+            renderFighters();
+            renderMissions();
+            renderUniverses();
+            renderLogs();
+            updateStats();
+            updateTrends();
+        }
+
+        function renderFighters() {
+            const container = document.getElementById('fighterFleet');
+            container.innerHTML = appState.fighters.map(f => `
+                <div class="hologram-fighter ${f.match >= 98 ? 'immortal-glow' : ''}" onclick="viewFighter('${f.id}')">
+                    <div class="hologram-cockpit">
+                        ${f.emoji}
+                        <span class="hologram-scanner">匹配 ${f.match}%</span>
+                    </div>
+                    <div class="hologram-cabin">
+                        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 10px;">
+                            <span style="width: 28px; height: 28px; background: var(--primary); border-radius: 28px; display: flex; align-items: center; justify-content: center; font-size: 0.8rem;">${f.avatar}</span>
+                            <span>${f.name}</span>
+                            <span class="hologram-badge badge-primary" style="margin-left: auto;">${f.level}</span>
+                        </div>
+                        <div style="font-weight: 600; margin-bottom: 10px;">${f.title}</div>
+                        <div style="display: flex; justify-content: space-between;">
+                            <span style="color: #fbbf24;"><i class="fas fa-star"></i> ${f.rating}</span>
+                            <span style="font-weight: 700; color: var(--hologram);">H$ ${f.price}</span>
+                        </div>
+                        <button class="hologram-btn block" style="margin-top: 12px;" onclick="hireFighter('${f.id}'); event.stopPropagation();">意识锁定</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function renderMissions() {
+            const container = document.getElementById('missionsList');
+            container.innerHTML = appState.missions.map(m => `
+                <div class="hologram-mission" onclick="viewMission('${m.id}')">
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                        <span style="font-weight: 600;">${m.title}</span>
+                        <span class="hologram-badge ${m.status === '新' ? 'badge-success' : m.status === '紧急' ? 'badge-consciousness' : 'badge-primary'}">${m.status}</span>
+                    </div>
+                    <div style="display: flex; gap: 12px; color: var(--text-muted); margin-bottom: 8px;">
+                        <span>预算: H$ ${m.budget.toLocaleString()}</span>
+                        <span>投标: ${m.bids}</span>
+                    </div>
+                    <div style="display: flex; gap: 6px; flex-wrap: wrap;">
+                        <span class="hologram-badge badge-quantum">AI匹配${m.match}%</span>
+                        ${m.tags.map(tag => `<span class="hologram-badge badge-primary">${tag}</span>`).join('')}
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function renderUniverses() {
+            const container = document.getElementById('universesList');
+            container.innerHTML = appState.universes.map(u => `
+                <div style="background: rgba(255,255,255,0.05); border-radius: var(--radius-sm); padding: 12px; cursor: pointer;" onclick="selectUniverse('${u.name}')">
+                    <div style="display: flex; justify-content: space-between;">
+                        <span style="font-weight: 700;">宇宙 ${u.name}</span>
+                        <span class="hologram-badge ${u.status === '当前' ? 'badge-primary' : u.status === '新发现' ? 'badge-hologram' : 'badge-quantum'}">${u.status}</span>
+                    </div>
+                    <div style="font-size: 0.8rem;">匹配度 ${u.match}% · ${u.tasks}任务</div>
+                </div>
+            `).join('');
+        }
+
+        function renderLogs() {
+            const container = document.getElementById('consciousnessLogs');
+            container.innerHTML = appState.logs.map(log => `
+                <div style="padding: 12px; background: rgba(0,0,0,0.2); border-radius: var(--radius-sm); margin-bottom: 8px;">
+                    <div style="display: flex; gap: 12px;">
+                        <div style="width: 36px; height: 36px; background: var(--consciousness); border-radius: 50%; display: flex; align-items: center; justify-content: center;">${log.user}</div>
+                        <div>
+                            <p style="font-weight: 500;">${log.action}</p>
+                            <span style="font-size: 0.7rem; color: var(--text-muted);">${log.time} · ${log.location}</span>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function updateStats() {
+            document.getElementById('statFighters').textContent = appState.stats.fighters.toLocaleString();
+            document.getElementById('statMissions').textContent = appState.stats.missions;
+            document.getElementById('statCrew').textContent = appState.stats.crew;
+            document.getElementById('statMatch').textContent = appState.stats.match + '%';
+            document.getElementById('statNFT').textContent = (appState.stats.nft / 1000).toFixed(1) + 'k';
+            document.getElementById('statVolume').textContent = appState.stats.volume + 'M';
+            document.getElementById('statUniverses').textContent = appState.stats.universes;
+            document.getElementById('statConsciousness').textContent = appState.stats.consciousness + '%';
+            
+            document.getElementById('totalUsers').textContent = appState.stats.crew;
+            document.getElementById('activeFighters').textContent = appState.stats.fighters;
+            document.getElementById('quantumBits').textContent = '512';
+            document.getElementById('parallelUniverses').textContent = appState.stats.universes;
+            document.getElementById('consciousnessBadge').innerHTML = `<i class="fas fa-brain"></i> 意识上传 ${appState.user.consciousness}%`;
+            document.getElementById('consciousnessDisplay').textContent = `意识上传中 ${appState.user.consciousness}%`;
+        }
+
+        function updateTrends() {
+            document.getElementById('trend1').textContent = '+' + appState.trends.quantum + '%';
+            document.getElementById('trend1Bar').style.width = appState.trends.quantum + '%';
+            document.getElementById('trend2').textContent = '+' + appState.trends.metaverse + '%';
+            document.getElementById('trend2Bar').style.width = appState.trends.metaverse + '%';
+            document.getElementById('trend3').textContent = '+' + appState.trends.web3 + '%';
+            document.getElementById('trend3Bar').style.width = appState.trends.web3 + '%';
+            document.getElementById('trend4').textContent = '+' + appState.trends.consciousness + '%';
+            document.getElementById('trend4Bar').style.width = appState.trends.consciousness + '%';
+        }
+
+        // ========== 功能函数 ==========
+        function showNotification(message) {
+            const notification = document.createElement('div');
+            notification.className = 'notification';
+            notification.innerHTML = message;
+            document.body.appendChild(notification);
+            setTimeout(() => notification.remove(), 3000);
+        }
+
+        function openModal(modalId) {
+            document.getElementById(modalId).classList.add('show');
+        }
+
+        function closeModal(modalId) {
+            document.getElementById(modalId).classList.remove('show');
+        }
+
+        function navigateTo(destination) {
+            showNotification(`导航到 ${destination} 区域`);
+        }
+
+        function startUpload() {
+            appState.user.consciousness += 1;
+            if (appState.user.consciousness > 100) appState.user.consciousness = 100;
+            updateStats();
+            showNotification(`意识上传进度: ${appState.user.consciousness}%`);
+        }
+
+        function toggleHologram() {
+            showNotification('全息投影模式已切换');
+        }
+
+        function showDetail(type) {
+            showNotification(`查看${type}详情`);
+        }
+
+        function scanAll() {
+            showNotification('全维度扫描完成，发现3个新目标');
+        }
+
+        function startAIConversation() {
+            showNotification('量子AI对话已启动');
+        }
+
+        function linkConsciousness() {
+            showNotification('意识链接已建立');
+        }
+
+        function exploreNewUniverse() {
+            showNotification('探索新平行宇宙... 发现 γ-9 宇宙');
+        }
+
+        function selectUniverse(name) {
+            showNotification(`切换到宇宙 ${name}`);
+        }
+
+        function createMission() {
+            showNotification('发布新任务功能开发中');
+        }
+
+        function mintNFT() {
+            showNotification('铸造意识NFT成功');
+        }
+
+        function enterMetaverse() {
+            showNotification('进入元宇宙空间');
+        }
+
+        function bookRoom() {
+            showNotification('会议室预定成功');
+        }
+
+        function copyAPIKey() {
+            navigator.clipboard.writeText('dev_consciousness_2026');
+            showNotification('API密钥已复制');
+        }
+
+        function showAPIDetail(type) {
+            showNotification(`API ${type} 详情`);
+        }
+
+        function viewMission(missionId) {
+            const mission = appState.missions.find(m => m.id === missionId);
+            if (mission) {
+                document.getElementById('missionModalTitle').textContent = mission.title;
+                document.getElementById('missionModalContent').innerHTML = `
+                    <p>${mission.description}</p>
+                    <p>预算: H$ ${mission.budget.toLocaleString()}</p>
+                    <p>投标: ${mission.bids}</p>
+                    <p>AI匹配度: ${mission.match}%</p>
+                    <p>状态: ${mission.status}</p>
+                `;
+                openModal('missionModal');
+            }
+        }
+
+        function viewFighter(fighterId) {
+            currentFighterId = fighterId;
+            const fighter = appState.fighters.find(f => f.id === fighterId);
+            if (fighter) {
+                document.getElementById('fighterModalTitle').textContent = fighter.name;
+                document.getElementById('fighterModalContent').innerHTML = `
+                    <p>${fighter.description}</p>
+                    <p>评分: ${fighter.rating} ⭐</p>
+                    <p>价格: H$ ${fighter.price}</p>
+                    <p>匹配度: ${fighter.match}%</p>
+                    <p>等级: ${fighter.level}</p>
+                `;
+                openModal('fighterModal');
+            }
+        }
+
+        function hireFighter(fighterId) {
+            const fighter = appState.fighters.find(f => f.id === fighterId);
+            if (fighter) {
+                if (appState.user.balance >= fighter.price) {
+                    appState.user.balance -= fighter.price;
+                    showNotification(`成功雇佣 ${fighter.name}，消耗 H$ ${fighter.price}`);
+                    closeModal('fighterModal');
+                } else {
+                    showNotification('余额不足，请充值');
                 }
-            });
+            }
+        }
+
+        function continueUpload() {
+            startUpload();
+        }
+
+        function jumpToUniverse() {
+            showNotification('跳跃到平行宇宙 β-2');
+            closeModal('parallelModal');
+        }
+
+        // 搜索功能
+        document.getElementById('searchInput').addEventListener('input', function(e) {
+            const query = e.target.value.toLowerCase();
+            if (query.length > 2) {
+                showNotification(`搜索: ${query}`);
+            }
         });
 
+        // 初始化
+        renderAll();
+
         // 意识上传进度模拟
-        let consciousness = 87;
         setInterval(() => {
-            consciousness = 87 + Math.random() * 5;
-            document.querySelectorAll('.consciousness-fill').forEach(fill => {
-                if(fill.style.width) {
-                    fill.style.width = consciousness + '%';
-                }
-            });
-        }, 5000);
+            if (appState.user.consciousness < 100) {
+                appState.user.consciousness += 0.1;
+                updateStats();
+            }
+        }, 10000);
     </script>
 </body>
 </html>
