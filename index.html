@@ -767,6 +767,10 @@
                             <span style="color: var(--hologram);">jessica@example.com / pass456</span>
                         </div>
                         <div style="display: flex; justify-content: space-between;">
+                            <span>👤 Agent:</span>
+                            <span style="color: var(--hologram);">wei@example.com / dev123</span>
+                        </div>
+                        <div style="display: flex; justify-content: space-between;">
                             <span>👑 Chairman:</span>
                             <span style="color: var(--nft);">chairman@novaserve.com / chairman2026</span>
                         </div>
@@ -862,6 +866,7 @@
                             <div class="hologram-btn" onclick="openModal('taxModal')">LHDN</div>
                             <div class="hologram-btn" onclick="openModal('invoiceModal')">Invoice</div>
                             <div class="hologram-btn" onclick="openModal('daoModal')">DAO</div>
+                            <div class="hologram-btn" onclick="openModal('agentModal')">Agent System</div>
                         </div>
                     </div>
                 </div>
@@ -1238,7 +1243,7 @@
                         <div style="margin-bottom: 16px;">
                             <p>Active Contracts: 1,234</p>
                             <p>Total Value Locked: RM 2.5M</p>
-                            <p>Chains: Ethereum, BSC, Polygon</p>
+                            <p>Chains: Ethereum, BSC, Polygon, Solana</p>
                         </div>
                         
                         <div style="display: flex; gap: 8px;">
@@ -1440,8 +1445,9 @@
                     <div>1%</div>
                 </div>
             </div>
-            <p style="margin-top: 16px;">Total Commission: RM 234</p>
-            <p>Total Downline: 15 agents</p>
+            <p style="margin-top: 16px;">Your Commission: RM 234</p>
+            <p>Your Downline: 15 agents</p>
+            <p>Total Volume: RM 45,678</p>
             <button class="hologram-btn primary" style="margin-top: 20px;" onclick="closeModal('agentModal')">Close</button>
         </div>
     </div>
@@ -1451,6 +1457,7 @@
         let users = [
             { email: 'alex@example.com', password: 'password123', name: 'Alex', role: 'buyer', balance: 15800, consciousness: 87 },
             { email: 'jessica@example.com', password: 'pass456', name: 'Jessica', role: 'freelancer', balance: 8320, consciousness: 92 },
+            { email: 'wei@example.com', password: 'dev123', name: 'Wei', role: 'agent', balance: 12500, consciousness: 88 },
             { email: 'chairman@novaserve.com', password: 'chairman2026', name: 'Chairman', role: 'chairman', balance: 1000000, consciousness: 99 }
         ];
 
