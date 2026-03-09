@@ -229,6 +229,7 @@
         .badge-immortal { background: rgba(163,230,53,0.3); color: var(--immortal); }
         .badge-malaysia { background: rgba(249,115,22,0.3); color: var(--malaysia); }
         .badge-owner { background: linear-gradient(145deg, #f59e0b, #b45309); color: white; }
+        .badge-dao { background: linear-gradient(145deg, var(--dao), #047857); color: white; }
 
         /* ===== 全息按钮 ===== */
         .hologram-btn {
@@ -570,6 +571,22 @@
             gap: 6px;
             box-shadow: 0 0 20px rgba(245,158,11,0.5);
         }
+
+        /* ===== 代理层级 ===== */
+        .agent-tree {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+            margin: 16px 0;
+        }
+
+        .agent-node {
+            background: rgba(0,0,0,0.3);
+            border-radius: var(--radius-sm);
+            padding: 12px;
+            text-align: center;
+            border: 1px solid var(--border);
+        }
     </style>
 </head>
 <body>
@@ -633,6 +650,7 @@
                         <div class="hologram-btn" onclick="openModal('parallelModal')">Alam Selari</div>
                         <div class="hologram-btn" onclick="openModal('taxModal')">LHDN</div>
                         <div class="hologram-btn" onclick="openModal('invoiceModal')">Invoice</div>
+                        <div class="hologram-btn" onclick="openModal('daoModal')">DAO</div>
                     </div>
                 </div>
             </div>
@@ -928,10 +946,102 @@
             </div>
         </div>
 
+        <!-- 第五行：代理制度 + DAO治理 + 智能合约 -->
+        <div class="hologram-grid">
+            <div class="span-6">
+                <div class="hologram-ship">
+                    <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 16px;">
+                        <i class="fas fa-sitemap" style="color: var(--dao);"></i>
+                        <h3>Sistem Ejen Berbilang Peringkat</h3>
+                    </div>
+                    
+                    <div class="agent-tree">
+                        <div class="agent-node">
+                            <i class="fas fa-crown" style="color: var(--nft);"></i>
+                            <div>Chairman</div>
+                            <div style="font-size: 0.7rem;">5%</div>
+                        </div>
+                        <div class="agent-node">
+                            <i class="fas fa-star" style="color: var(--success);"></i>
+                            <div>Ejen Utama</div>
+                            <div style="font-size: 0.7rem;">2%</div>
+                        </div>
+                        <div class="agent-node">
+                            <i class="fas fa-user" style="color: var(--primary);"></i>
+                            <div>Ejen Biasa</div>
+                            <div style="font-size: 0.7rem;">1%</div>
+                        </div>
+                    </div>
+                    
+                    <div style="margin-top: 16px;">
+                        <p><span class="hologram-badge badge-dao">Komisen Anda: RM 234</span></p>
+                        <p><span class="hologram-badge badge-primary">Ejen Bawah: 12 orang</span></p>
+                    </div>
+                    
+                    <button class="hologram-btn block" style="margin-top: 16px;" onclick="showAgentDetail()">Lihat Struktur Ejen</button>
+                </div>
+            </div>
+
+            <div class="span-6">
+                <div class="hologram-ship">
+                    <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 16px;">
+                        <i class="fas fa-vote-yea" style="color: var(--dao);"></i>
+                        <h3>DAO Governance</h3>
+                        <span class="hologram-badge badge-dao">Voting Power: 1,234</span>
+                    </div>
+                    
+                    <div style="margin-bottom: 16px;">
+                        <p>Cadangan Aktif: 3</p>
+                        <div style="margin-top: 8px;">
+                            <div style="display: flex; justify-content: space-between;">
+                                <span>Kadar Platform 5%</span>
+                                <span>78% Setuju</span>
+                            </div>
+                            <div class="consciousness-bar">
+                                <div class="consciousness-fill" style="width: 78%; background: var(--dao);"></div>
+                            </div>
+                        </div>
+                        <div style="margin-top: 8px;">
+                            <div style="display: flex; justify-content: space-between;">
+                                <span>Treasury NFT</span>
+                                <span>92% Setuju</span>
+                            </div>
+                            <div class="consciousness-bar">
+                                <div class="consciousness-fill" style="width: 92%; background: var(--dao);"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button class="hologram-btn block" onclick="openModal('daoModal')">Pergi ke DAO</button>
+                </div>
+            </div>
+
+            <div class="span-6">
+                <div class="hologram-ship">
+                    <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 16px;">
+                        <i class="fas fa-file-signature" style="color: var(--quantum);"></i>
+                        <h3>Kontrak Pintar</h3>
+                        <span class="hologram-badge badge-quantum">Cross-chain</span>
+                    </div>
+                    
+                    <div style="margin-bottom: 16px;">
+                        <p>Kontrak Aktif: 1,234</p>
+                        <p>Jumlah Nilai Terkunci: RM 2.5M</p>
+                        <p>Rantaian: Ethereum, BSC, Polygon</p>
+                    </div>
+                    
+                    <div style="display: flex; gap: 8px;">
+                        <button class="hologram-btn primary" style="flex: 1;" onclick="createSmartContract()">Bina Kontrak</button>
+                        <button class="hologram-btn" style="flex: 1;" onclick="viewContracts()">Lihat Kontrak</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- 宇宙底部 -->
         <footer class="universe-footer">
             <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;">
-                <div>© 2026 NovaServe Malaysia · Platform Freelance · LHDN Auto · FPX · Platform Fee 5% · Chairman: tuantuanxiongmaoyouxizhubo</div>
+                <div>© 2026 NovaServe Malaysia · Platform Freelance · LHDN Auto · FPX · Platform Fee 5% · Chairman: tuantuanxiongmaoyouxizhubo · DAO Governance · Smart Contract</div>
                 <div style="display: flex; gap: 24px; flex-wrap: wrap;">
                     <span><i class="fas fa-shield-alt"></i> Keselamatan Kuantum</span>
                     <span><i class="fas fa-infinity"></i> Keterikatan Kuantum</span>
@@ -1004,17 +1114,10 @@
     <div class="modal-overlay" id="invoiceModal">
         <div class="modal-content">
             <h2 style="margin-bottom: 20px;">📄 Invoice Auto · LHDN</h2>
-            <p>No. Invoice: INV-2026-001234</p>
-            <p>Jumlah: RM 1,234.56</p>
-            <p>Platform Fee (5%): RM 61.73</p>
-            <p>SST (6%): RM 74.07</p>
-            <p>Jumlah Termasuk Cukai: RM 1,370.36</p>
-            <p>LHDN Rujukan: LHDN-2026-001234</p>
-            <p>Status: Dihantar Auto ke LHDN</p>
-            <div class="consciousness-bar" style="margin: 20px 0;">
-                <div class="consciousness-fill" style="width: 100%; background: linear-gradient(90deg, var(--success), var(--hologram));"></div>
+            <div id="invoiceList" style="max-height: 300px; overflow-y: auto;">
+                <!-- 发票将通过JS动态生成 -->
             </div>
-            <button class="hologram-btn primary" onclick="downloadInvoice()">Muat Turun Invoice</button>
+            <button class="hologram-btn primary" style="margin-top: 20px;" onclick="generateInvoice()">Cipta Invoice Baru</button>
             <button class="hologram-btn" style="margin-left: 10px;" onclick="closeModal('invoiceModal')">Tutup</button>
         </div>
     </div>
@@ -1032,8 +1135,44 @@
             <p><i class="fas fa-envelope" style="color: var(--hologram);"></i> tuantuanxiongmaoyouxizhubo@gmail.com</p>
             <p><i class="fas fa-phone" style="color: var(--hologram);"></i> 011-56649657</p>
             <p><i class="fas fa-crown" style="color: var(--nft);"></i> Platform Fee: 5% (untuk pembangunan)</p>
+            <p><i class="fas fa-sitemap" style="color: var(--dao);"></i> Multi-level Agent: 5% - 2% - 1%</p>
             <p><i class="fas fa-file-invoice" style="color: var(--success);"></i> Invoice Auto & LHDN Auto</p>
+            <p><i class="fas fa-vote-yea" style="color: var(--dao);"></i> DAO Governance Active</p>
+            <p><i class="fas fa-file-signature" style="color: var(--quantum);"></i> Smart Contract: Cross-chain</p>
             <button class="hologram-btn primary" style="margin-top: 20px;" onclick="closeModal('chairmanModal')">Tutup</button>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="daoModal">
+        <div class="modal-content">
+            <h2 style="margin-bottom: 20px;">🗳️ DAO Governance</h2>
+            <p>Voting Power: 1,234</p>
+            <p>Cadangan Aktif:</p>
+            <div style="margin: 16px 0;">
+                <div style="margin-bottom: 12px;">
+                    <p>1. Kurangkan Platform Fee kepada 4%</p>
+                    <div class="consciousness-bar">
+                        <div class="consciousness-fill" style="width: 45%; background: var(--dao);"></div>
+                    </div>
+                    <p style="font-size: 0.8rem;">45% Setuju · 35% Menentang · 20% Belum Undi</p>
+                </div>
+                <div style="margin-bottom: 12px;">
+                    <p>2. Tambah Rantaian Baru (Solana)</p>
+                    <div class="consciousness-bar">
+                        <div class="consciousness-fill" style="width: 78%; background: var(--dao);"></div>
+                    </div>
+                    <p style="font-size: 0.8rem;">78% Setuju · 12% Menentang · 10% Belum Undi</p>
+                </div>
+                <div>
+                    <p>3. Agihan Treasury NFT</p>
+                    <div class="consciousness-bar">
+                        <div class="consciousness-fill" style="width: 92%; background: var(--dao);"></div>
+                    </div>
+                    <p style="font-size: 0.8rem;">92% Setuju · 5% Menentang · 3% Belum Undi</p>
+                </div>
+            </div>
+            <button class="hologram-btn primary" onclick="voteDAO()">Undi Sekarang</button>
+            <button class="hologram-btn" style="margin-left: 10px;" onclick="closeModal('daoModal')">Tutup</button>
         </div>
     </div>
 
@@ -1051,6 +1190,7 @@
             <h2 style="margin-bottom: 20px;" id="fighterModalTitle">Butiran Freelancer</h2>
             <div id="fighterModalContent"></div>
             <p style="margin-top: 10px; padding: 10px; background: rgba(249,115,22,0.1); border-radius: var(--radius-sm);">Platform Fee 5%: RM <span id="platformFeeAmount">0</span></p>
+            <p style="margin-top: 5px; padding: 5px; background: rgba(52,211,153,0.1); border-radius: var(--radius-sm);">Komisen Ejen: RM <span id="agentCommission">0</span> (1% - 2% - 5%)</p>
             <button class="hologram-btn primary" style="margin-top: 20px;" onclick="hireFighter(currentFighterId)">Upah (RM)</button>
             <button class="hologram-btn" style="margin-left: 10px;" onclick="closeModal('fighterModal')">Tutup</button>
         </div>
@@ -1068,6 +1208,32 @@
         </div>
     </div>
 
+    <div class="modal-overlay" id="agentModal">
+        <div class="modal-content">
+            <h2 style="margin-bottom: 20px;">📊 Struktur Ejen</h2>
+            <div class="agent-tree">
+                <div class="agent-node">
+                    <i class="fas fa-crown"></i>
+                    <div>Chairman</div>
+                    <div>5%</div>
+                </div>
+                <div class="agent-node">
+                    <i class="fas fa-star"></i>
+                    <div>Ejen Utama (3 orang)</div>
+                    <div>2%</div>
+                </div>
+                <div class="agent-node">
+                    <i class="fas fa-user"></i>
+                    <div>Ejen Biasa (12 orang)</div>
+                    <div>1%</div>
+                </div>
+            </div>
+            <p style="margin-top: 16px;">Jumlah Komisen Anda: RM 234</p>
+            <p>Jumlah Ejen Bawah: 15 orang</p>
+            <button class="hologram-btn primary" style="margin-top: 20px;" onclick="closeModal('agentModal')">Tutup</button>
+        </div>
+    </div>
+
     <script>
         // ========== 全功能数据模型 - Malaysia Version ==========
         let appState = {
@@ -1076,7 +1242,11 @@
                 consciousness: 87,
                 immortal: true,
                 balance: 15800,
-                nfts: ['Kesedaran Asal', 'Lencana Upload']
+                nfts: ['Kesedaran Asal', 'Lencana Upload'],
+                agentLevel: 'Ejen Biasa',
+                commission: 234,
+                downline: 15,
+                votingPower: 1234
             },
             stats: {
                 fighters: 1234,
@@ -1087,7 +1257,10 @@
                 volume: 1.2,
                 universes: 7,
                 platformFee: 45678,
-                tax: 98
+                tax: 98,
+                tvl: 2.5,
+                activeContracts: 1234,
+                daoProposals: 3
             },
             fighters: [
                 { id: 'f1', name: 'Jessica Tan', avatar: 'JT', title: 'Pereka UI/UX', rating: 4.9, price: 380, match: 98, level: 'Emas', emoji: '🎨', description: '5 tahun pengalaman, reka bentuk antara muka holografik.', completed: 156, response: '98%', location: 'Kuala Lumpur' },
@@ -1126,6 +1299,11 @@
             },
             invoices: [],
             platformFee: 0.05,
+            agentCommission: {
+                level1: 0.05, // Chairman
+                level2: 0.02, // Ejen Utama
+                level3: 0.01  // Ejen Biasa
+            },
             notifications: []
         };
 
@@ -1138,6 +1316,7 @@
             renderMissions();
             renderUniverses();
             renderLogs();
+            renderInvoices();
             updateStats();
             updateTrends();
             updateUserInfo();
@@ -1221,6 +1400,20 @@
                     </div>
                 </div>
             `).join('');
+        }
+
+        function renderInvoices() {
+            const container = document.getElementById('invoiceList');
+            if (container) {
+                container.innerHTML = appState.invoices.length ? appState.invoices.map(inv => `
+                    <div style="padding: 12px; background: rgba(0,0,0,0.2); border-radius: var(--radius-sm); margin-bottom: 8px;">
+                        <p><strong>${inv.id}</strong></p>
+                        <p>Jumlah: RM ${inv.amount} | Platform Fee: RM ${inv.platformFee} | SST: RM ${inv.sst}</p>
+                        <p>Total: RM ${inv.total} | LHDN: ${inv.lhdnRef}</p>
+                        <p style="font-size: 0.7rem;">${inv.date}</p>
+                    </div>
+                `).join('') : '<p>Tiada invoice</p>';
+            }
         }
 
         function updateStats() {
@@ -1390,8 +1583,43 @@
             showNotification('Laporan LHDN dimuat turun');
         }
 
-        function downloadInvoice() {
-            showNotification('Invoice dimuat turun');
+        function generateInvoice() {
+            const amount = Math.floor(Math.random() * 1000) + 100;
+            const platformFee = amount * 0.05;
+            const sst = amount * 0.06;
+            const total = amount + platformFee + sst;
+            
+            const invoice = {
+                id: 'INV-' + Date.now(),
+                amount: amount,
+                platformFee: platformFee.toFixed(2),
+                sst: sst.toFixed(2),
+                total: total.toFixed(2),
+                date: new Date().toLocaleString(),
+                lhdnRef: 'LHDN-' + Date.now()
+            };
+            
+            appState.invoices.push(invoice);
+            appState.stats.platformFee += platformFee;
+            renderInvoices();
+            updateStats();
+            showNotification('Invoice baru dicipta · LHDN auto');
+        }
+
+        function showAgentDetail() {
+            openModal('agentModal');
+        }
+
+        function createSmartContract() {
+            showNotification('Kontrak pintar baru dicipta di rantai Ethereum');
+        }
+
+        function viewContracts() {
+            showNotification('Lihat semua kontrak pintar');
+        }
+
+        function voteDAO() {
+            showNotification('Undi anda telah direkodkan');
         }
 
         function viewMission(missionId) {
@@ -1440,6 +1668,7 @@
                     <p>Lokasi: ${fighter.location}</p>
                 `;
                 document.getElementById('platformFeeAmount').textContent = (fighter.price * 0.05).toFixed(2);
+                document.getElementById('agentCommission').textContent = (fighter.price * 0.01).toFixed(2);
                 openModal('fighterModal');
             }
         }
@@ -1453,20 +1682,22 @@
                     appState.stats.volume += fighter.price / 1000000;
                     appState.stats.platformFee += fighter.price * 0.05;
                     appState.stats.tax = Math.min(100, appState.stats.tax + 0.1);
+                    appState.user.commission += fighter.price * 0.01; // Agent commission
                     
                     // Create invoice
                     const invoice = {
                         id: 'INV-' + Date.now(),
                         amount: fighter.price,
-                        platformFee: fighter.price * 0.05,
-                        sst: fighter.price * 0.06,
-                        total: fighter.price * 1.11,
+                        platformFee: (fighter.price * 0.05).toFixed(2),
+                        sst: (fighter.price * 0.06).toFixed(2),
+                        total: (fighter.price * 1.11).toFixed(2),
                         date: new Date().toLocaleString(),
                         lhdnRef: 'LHDN-' + Date.now()
                     };
                     appState.invoices.push(invoice);
                     
-                    showNotification(`Berjaya upah ${fighter.name} · RM ${fighter.price} · Platform fee RM ${(fighter.price * 0.05).toFixed(2)} · LHDN auto · Invoice dihantar`);
+                    showNotification(`Berjaya upah ${fighter.name} · RM ${fighter.price} · Platform fee RM ${(fighter.price * 0.05).toFixed(2)} · Komisen RM ${(fighter.price * 0.01).toFixed(2)} · LHDN auto`);
+                    renderInvoices();
                     updateStats();
                     closeModal('fighterModal');
                 } else {
