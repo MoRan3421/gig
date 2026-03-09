@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html lang="ms">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-    <title>NovaServe · 平台 Freelance Malaysia (2026) · 董事长 tuantuanxiongmaoyouxizhubo</title>
+    <title>NovaServe · Malaysia Freelance Platform (2026) · Chairman: tuantuanxiongmaoyouxizhubo</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        /* ===== 宇宙变量 ===== */
+        /* ===== Cosmic Variables ===== */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { font-size: 16px; }
         body {
@@ -24,7 +24,7 @@
             overflow-x: hidden;
         }
 
-        /* 全息网格背景 */
+        /* Holographic Grid Background */
         body::after {
             content: '';
             position: fixed;
@@ -82,7 +82,7 @@
             --hologram-glow: 0 0 40px rgba(56,189,248,0.6);
         }
 
-        /* ===== 全息容器 ===== */
+        /* ===== Holographic Container ===== */
         .hologram-universe {
             max-width: 2200px;
             margin: 0 auto;
@@ -95,7 +95,7 @@
             perspective: 1000px;
         }
 
-        /* ===== 全息星舰 ===== */
+        /* ===== Holographic Starship ===== */
         .hologram-ship {
             background: var(--surface);
             backdrop-filter: blur(20px);
@@ -141,7 +141,7 @@
             background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent), var(--quantum), var(--hologram));
         }
 
-        /* ===== 全息桥 ===== */
+        /* ===== Holographic Bridge ===== */
         .hologram-bridge {
             padding: 28px;
             background: linear-gradient(145deg, rgba(79,70,229,0.15), rgba(56,189,248,0.15));
@@ -149,7 +149,7 @@
             position: relative;
         }
 
-        /* ===== 十八宫格全息网格 ===== */
+        /* ===== 18-Column Holographic Grid ===== */
         .hologram-grid {
             display: grid;
             grid-template-columns: repeat(18, 1fr);
@@ -190,7 +190,7 @@
             .span-1, .span-2, .span-3, .span-4, .span-5, .span-6, .span-7, .span-8, .span-9, .span-10, .span-11, .span-12, .span-13, .span-14, .span-15, .span-16, .span-17, .span-18 { grid-column: span 1; }
         }
 
-        /* ===== 全息徽章 ===== */
+        /* ===== Holographic Badges ===== */
         .hologram-badge {
             display: inline-flex;
             align-items: center;
@@ -231,7 +231,7 @@
         .badge-owner { background: linear-gradient(145deg, #f59e0b, #b45309); color: white; }
         .badge-dao { background: linear-gradient(145deg, var(--dao), #047857); color: white; }
 
-        /* ===== 全息按钮 ===== */
+        /* ===== Holographic Buttons ===== */
         .hologram-btn {
             padding: 12px 28px;
             border-radius: var(--radius-xl);
@@ -293,7 +293,7 @@
             justify-content: center;
         }
 
-        /* ===== 全息数据核心 ===== */
+        /* ===== Holographic Data Core ===== */
         .hologram-data {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -328,7 +328,7 @@
             text-shadow: 0 0 20px rgba(79,70,229,0.5);
         }
 
-        /* ===== 全息战机 ===== */
+        /* ===== Holographic Fighter ===== */
         .hologram-fleet {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -381,7 +381,7 @@
             padding: 18px;
         }
 
-        /* ===== 全息任务 ===== */
+        /* ===== Holographic Missions ===== */
         .hologram-missions {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -403,7 +403,7 @@
             transform: translateY(-2px);
         }
 
-        /* ===== 意识上传进度 ===== */
+        /* ===== Consciousness Upload Progress ===== */
         .consciousness-bar {
             height: 10px;
             background: rgba(255,255,255,0.05);
@@ -426,7 +426,7 @@
             50% { opacity: 1; }
         }
 
-        /* ===== 全息门户 ===== */
+        /* ===== Holographic Portal ===== */
         .hologram-portal {
             position: relative;
             overflow: hidden;
@@ -451,7 +451,7 @@
             100% { transform: rotate(360deg); }
         }
 
-        /* ===== 宇宙底部 ===== */
+        /* ===== Universe Footer ===== */
         .universe-footer {
             border-top: 2px solid rgba(255,255,255,0.05);
             margin-top: 40px;
@@ -460,7 +460,7 @@
             backdrop-filter: blur(20px);
         }
 
-        /* ===== 模态框 ===== */
+        /* ===== Modal ===== */
         .modal-overlay {
             position: fixed;
             top: 0;
@@ -495,7 +495,7 @@
             overflow-y: auto;
         }
 
-        /* ===== 通知 ===== */
+        /* ===== Notification ===== */
         .notification {
             position: fixed;
             top: 20px;
@@ -515,7 +515,7 @@
             to { transform: translateX(0); opacity: 1; }
         }
 
-        /* ===== 钱包显示 ===== */
+        /* ===== Wallet Display ===== */
         .wallet-display {
             background: rgba(0,0,0,0.3);
             border-radius: var(--radius-xl);
@@ -526,7 +526,7 @@
             gap: 8px;
         }
 
-        /* ===== 联系信息 ===== */
+        /* ===== Contact Info ===== */
         .contact-info {
             position: fixed;
             bottom: 20px;
@@ -558,7 +558,7 @@
             text-decoration: underline;
         }
 
-        /* ===== 董事长标识 ===== */
+        /* ===== Chairman Badge ===== */
         .chairman-badge {
             background: linear-gradient(145deg, #f59e0b, #b45309);
             color: white;
@@ -572,7 +572,7 @@
             box-shadow: 0 0 20px rgba(245,158,11,0.5);
         }
 
-        /* ===== 代理层级 ===== */
+        /* ===== Agent Tree ===== */
         .agent-tree {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
@@ -590,16 +590,16 @@
     </style>
 </head>
 <body>
-    <!-- 联系信息浮层 -->
+    <!-- Contact Info Floating Bar -->
     <div class="contact-info">
         <span><i class="fas fa-phone"></i> <a href="tel:+601156649657">011-56649657</a></span>
         <span><i class="fas fa-envelope"></i> <a href="mailto:tuantuanxiongmaoyouxizhubo@gmail.com">tuantuanxiongmaoyouxizhubo@gmail.com</a></span>
         <span class="chairman-badge"><i class="fas fa-crown"></i> Chairman & Developer</span>
     </div>
 
-    <!-- 全息宇宙 -->
+    <!-- Holographic Universe -->
     <div class="hologram-universe">
-        <!-- 主全息舰桥 -->
+        <!-- Main Holographic Bridge -->
         <div class="hologram-ship hologram-portal">
             <div class="hologram-bridge">
                 <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px;">
@@ -610,15 +610,15 @@
                         <div>
                             <div style="display: flex; align-items: center; gap: 20px; flex-wrap: wrap;">
                                 <span style="font-weight: 900; font-size: 2.8rem; background: linear-gradient(145deg, var(--primary), var(--secondary), var(--quantum), var(--hologram)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 0 20px rgba(79,70,229,0.5));">NovaServe Malaysia</span>
-                                <span class="hologram-badge badge-malaysia"><i class="fas fa-flag"></i> Platform Freelance Malaysia</span>
-                                <span class="hologram-badge badge-quantum"><i class="fas fa-infinity"></i> Kuantum 99.999%</span>
+                                <span class="hologram-badge badge-malaysia"><i class="fas fa-flag"></i> Freelance Platform Malaysia</span>
+                                <span class="hologram-badge badge-quantum"><i class="fas fa-infinity"></i> Quantum 99.999%</span>
                                 <span class="hologram-badge badge-owner"><i class="fas fa-crown"></i> Chairman: tuantuanxiongmaoyouxizhubo</span>
                             </div>
                             <div style="display: flex; gap: 28px; margin-top: 12px;">
-                                <span><i class="fas fa-users" style="color: var(--primary);"></i> <span id="totalUsers">12,345</span>  freelancer Malaysia</span>
-                                <span><i class="fas fa-rocket" style="color: var(--secondary);"></i> <span id="activeFighters">892</span>  perkhidmatan aktif</span>
+                                <span><i class="fas fa-users" style="color: var(--primary);"></i> <span id="totalUsers">12,345</span>  freelancers Malaysia</span>
+                                <span><i class="fas fa-rocket" style="color: var(--secondary);"></i> <span id="activeFighters">892</span>  active services</span>
                                 <span><i class="fas fa-coins" style="color: var(--nft);"></i> <span id="platformFee">RM 45,678</span>  platform fee</span>
-                                <span><i class="fas fa-crown" style="color: var(--nft);"></i> <span id="parallelUniverses">7</span>  alam selari</span>
+                                <span><i class="fas fa-crown" style="color: var(--nft);"></i> <span id="parallelUniverses">7</span>  parallel universes</span>
                             </div>
                         </div>
                     </div>
@@ -628,26 +628,26 @@
                             <i class="fas fa-coins" style="color: var(--nft);"></i>
                             <span id="userBalance">15,800</span> RM
                         </div>
-                        <div class="hologram-btn primary" onclick="showNotification('Amaran hologram diaktifkan')"><i class="fas fa-bell"></i> Amaran</div>
+                        <div class="hologram-btn primary" onclick="showNotification('Holographic alert activated')"><i class="fas fa-bell"></i> Alert</div>
                         <div class="hologram-btn chairman-badge" onclick="openModal('chairmanModal')"><i class="fas fa-crown"></i> Chairman</div>
                     </div>
                 </div>
             </div>
             
-            <!-- 全息搜索走廊 -->
+            <!-- Holographic Search Corridor -->
             <div style="padding: 24px; border-bottom: 1px solid rgba(255,255,255,0.05);">
                 <div style="display: flex; gap: 20px; align-items: center; flex-wrap: wrap;">
                     <div style="flex: 1; position: relative; min-width: 350px;">
-                        <input type="text" id="searchInput" placeholder="🌌  Cari perkhidmatan, freelancer, projek...  搜索服务、自由职业者、项目..." style="width: 100%; padding: 20px 32px; border-radius: var(--radius-xl); background: rgba(0,0,0,0.5); border: 2px solid rgba(255,255,255,0.1); color: var(--text); font-size: 1rem; backdrop-filter: blur(10px);">
+                        <input type="text" id="searchInput" placeholder="🌌  Search services, freelancers, projects..." style="width: 100%; padding: 20px 32px; border-radius: var(--radius-xl); background: rgba(0,0,0,0.5); border: 2px solid rgba(255,255,255,0.1); color: var(--text); font-size: 1rem; backdrop-filter: blur(10px);">
                         <span style="position: absolute; right: 24px; top: 50%; transform: translateY(-50%); width: 14px; height: 14px; background: var(--hologram); border-radius: 50%; animation: quantum-pulse 2s infinite;"></span>
                     </div>
                     <div style="display: flex; gap: 10px; flex-wrap: wrap;">
-                        <div class="hologram-btn primary" onclick="navigateTo('command')">Pusat Perintah</div>
-                        <div class="hologram-btn" onclick="navigateTo('market')">Pasaran</div>
-                        <div class="hologram-btn" onclick="navigateTo('missions')">Kawalan Misi</div>
-                        <div class="hologram-btn quantum" onclick="openModal('quantumModal')">Ruang Kuantum</div>
+                        <div class="hologram-btn primary" onclick="navigateTo('command')">Command Center</div>
+                        <div class="hologram-btn" onclick="navigateTo('market')">Marketplace</div>
+                        <div class="hologram-btn" onclick="navigateTo('missions')">Mission Control</div>
+                        <div class="hologram-btn quantum" onclick="openModal('quantumModal')">Quantum Space</div>
                         <div class="hologram-btn" onclick="navigateTo('metaverse')">Metaverse</div>
-                        <div class="hologram-btn" onclick="openModal('parallelModal')">Alam Selari</div>
+                        <div class="hologram-btn" onclick="openModal('parallelModal')">Parallel Universe</div>
                         <div class="hologram-btn" onclick="openModal('taxModal')">LHDN</div>
                         <div class="hologram-btn" onclick="openModal('invoiceModal')">Invoice</div>
                         <div class="hologram-btn" onclick="openModal('daoModal')">DAO</div>
@@ -656,24 +656,24 @@
             </div>
         </div>
 
-        <!-- 十八宫格全息网格 -->
+        <!-- 18-Column Holographic Grid -->
         <div class="hologram-grid">
-            <!-- 第一行：欢迎全息桥 + 意识核心 (18列) -->
+            <!-- Row 1: Welcome Bridge + Consciousness Core (18 columns) -->
             <div class="span-18">
                 <div class="hologram-ship hologram-portal" style="background: linear-gradient(145deg, rgba(79,70,229,0.2), rgba(56,189,248,0.2));">
                     <div style="display: flex; justify-content: space-between; align-items: center; padding: 28px;">
                         <div>
                             <h1 style="font-size: 2.6rem; margin-bottom: 12px; display: flex; align-items: center; gap: 20px;">
-                                Selamat datang, <span id="userName">Alex</span> 👨‍🚀
-                                <span class="hologram-badge badge-consciousness" style="font-size: 1rem;" id="consciousnessDisplay">Kesedaran 87%</span>
-                                <span class="hologram-badge badge-immortal" style="font-size: 1rem;" id="immortalDisplay">Keabadian Digital</span>
+                                Welcome, <span id="userName">Alex</span> 👨‍🚀
+                                <span class="hologram-badge badge-consciousness" style="font-size: 1rem;" id="consciousnessDisplay">Consciousness 87%</span>
+                                <span class="hologram-badge badge-immortal" style="font-size: 1rem;" id="immortalDisplay">Digital Immortality</span>
                                 <span class="hologram-badge badge-malaysia" style="font-size: 1rem;">Malaysia</span>
                             </h1>
-                            <p style="color: var(--text-light); font-size: 1.1rem;">Padanan kuantum <span class="hologram-badge badge-primary" style="font-size: 1rem;" id="matchRate">98.7%</span> · <span id="todayTasks">12</span> misi keutamaan hari ini · <span id="universesCount">7</span> alam selari · LHDN siap</p>
+                            <p style="color: var(--text-light); font-size: 1.1rem;">Quantum match <span class="hologram-badge badge-primary" style="font-size: 1rem;" id="matchRate">98.7%</span> · <span id="todayTasks">12</span> high priority missions today · <span id="universesCount">7</span> parallel universes · LHDN ready</p>
                         </div>
                         <div style="display: flex; gap: 16px;">
                             <button class="hologram-btn quantum" style="padding: 18px 36px; font-size: 1.1rem;" onclick="startUpload()">
-                                <i class="fas fa-infinity"></i> Mula Upload Kesedaran
+                                <i class="fas fa-infinity"></i> Start Consciousness Upload
                             </button>
                             <button class="hologram-btn" style="padding: 18px 36px;" onclick="toggleHologram()">
                                 <i class="fas fa-cube"></i> Hologram
@@ -683,33 +683,33 @@
                 </div>
             </div>
 
-            <!-- 第二行：全息数据核心 (18列) -->
+            <!-- Row 2: Holographic Data Core (18 columns) -->
             <div class="span-18">
                 <div class="hologram-ship">
                     <div class="hologram-data">
                         <div class="data-core" onclick="showDetail('fighters')">
                             <div class="data-value" id="statFighters">1,234</div>
-                            <div class="data-label">Perkhidmatan Aktif</div>
+                            <div class="data-label">Active Services</div>
                         </div>
                         <div class="data-core" onclick="showDetail('missions')">
                             <div class="data-value" id="statMissions">56</div>
-                            <div class="data-label">Projek Tender</div>
+                            <div class="data-label">Project Tenders</div>
                         </div>
                         <div class="data-core" onclick="showDetail('crew')">
                             <div class="data-value" id="statCrew">892</div>
-                            <div class="data-label">Freelancer Online</div>
+                            <div class="data-label">Freelancers Online</div>
                         </div>
                         <div class="data-core" onclick="showDetail('match')">
                             <div class="data-value" id="statMatch">98%</div>
-                            <div class="data-label">Padanan Kuantum</div>
+                            <div class="data-label">Quantum Match</div>
                         </div>
                         <div class="data-core" onclick="showDetail('nft')">
                             <div class="data-value" id="statNFT">2.5k</div>
-                            <div class="data-label">NFT Lencana</div>
+                            <div class="data-label">NFT Badges</div>
                         </div>
                         <div class="data-core" onclick="showDetail('volume')">
                             <div class="data-value" id="statVolume">1.2M</div>
-                            <div class="data-label">Jumlah Transaksi</div>
+                            <div class="data-label">Total Volume</div>
                         </div>
                         <div class="data-core" onclick="showDetail('platformFee')">
                             <div class="data-value" id="statPlatformFee">45.6k</div>
@@ -717,113 +717,113 @@
                         </div>
                         <div class="data-core" onclick="showDetail('tax')">
                             <div class="data-value" id="statTax">98%</div>
-                            <div class="data-label">LHDN Pematuhan</div>
+                            <div class="data-label">LHDN Compliance</div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- 第三行：全息战机中队 + 意识日志 + 平行宇宙状态 -->
+            <!-- Row 3: Holographic Fighter Squadron + Consciousness Logs + Parallel Universe Status -->
             <div class="span-10">
                 <div class="hologram-ship">
                     <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
                         <div style="display: flex; align-items: center; gap: 16px;">
                             <i class="fas fa-fighter-jet" style="color: var(--hologram); font-size: 1.8rem;"></i>
-                            <h2 style="font-size: 1.6rem;">Perkhidmatan Freelance</h2>
-                            <span class="hologram-badge badge-quantum">Padanan 98%</span>
+                            <h2 style="font-size: 1.6rem;">Freelance Services</h2>
+                            <span class="hologram-badge badge-quantum">Match 98%</span>
                             <span class="hologram-badge badge-malaysia">Malaysia</span>
                         </div>
-                        <button class="hologram-btn primary" onclick="scanAll()">Imbasan Penuh →</button>
+                        <button class="hologram-btn primary" onclick="scanAll()">Full Scan →</button>
                     </div>
 
                     <div class="hologram-fleet" id="fighterFleet">
-                        <!-- 战机将通过JS动态生成 -->
+                        <!-- Fighters will be dynamically generated by JS -->
                     </div>
                 </div>
             </div>
 
             <div class="span-5">
-                <!-- 量子AI全息舱 -->
+                <!-- Quantum AI Holographic Chamber -->
                 <div class="hologram-ship" style="margin-bottom: 24px;">
                     <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
                         <i class="fas fa-robot" style="color: var(--hologram); font-size: 2rem;"></i>
-                        <h3>AI Kuantum</h3>
+                        <h3>Quantum AI</h3>
                         <span class="hologram-badge badge-hologram" style="margin-left: auto;" id="aiStatus">Online</span>
                     </div>
                     <div style="background: rgba(56,189,248,0.1); border-radius: var(--radius-md); padding: 20px;">
-                        <p style="font-size: 1rem; margin-bottom: 16px;"><span id="quantumBitsAI">512</span> quantum bit · Analisis masa nyata</p>
+                        <p style="font-size: 1rem; margin-bottom: 16px;"><span id="quantumBitsAI">512</span> quantum bits · Real-time analysis</p>
                         <div class="consciousness-bar">
                             <div class="consciousness-fill" id="aiProgress" style="width: 98%;"></div>
                         </div>
                         <div style="display: flex; gap: 10px; margin-top: 20px;">
-                            <button class="hologram-btn quantum" style="flex: 1;" onclick="startAIConversation()">Dialog AI</button>
-                            <button class="hologram-btn" style="flex: 1;" onclick="linkConsciousness()">Sambung Kesedaran</button>
+                            <button class="hologram-btn quantum" style="flex: 1;" onclick="startAIConversation()">AI Dialog</button>
+                            <button class="hologram-btn" style="flex: 1;" onclick="linkConsciousness()">Link Consciousness</button>
                         </div>
                     </div>
                 </div>
 
-                <!-- 意识上传日志 -->
+                <!-- Consciousness Upload Logs -->
                 <div class="hologram-ship">
                     <div style="display: flex; justify-content: space-between; margin-bottom: 16px;">
                         <div style="display: flex; align-items: center; gap: 8px;">
                             <i class="fas fa-brain" style="color: var(--consciousness);"></i>
-                            <h3>Log Kesedaran</h3>
+                            <h3>Consciousness Logs</h3>
                         </div>
-                        <span class="hologram-badge badge-consciousness" id="logStatus">Masa Nyata</span>
+                        <span class="hologram-badge badge-consciousness" id="logStatus">Real-time</span>
                     </div>
                     
                     <div class="activity-stream" id="consciousnessLogs">
-                        <!-- 日志将通过JS动态生成 -->
+                        <!-- Logs will be dynamically generated by JS -->
                     </div>
                 </div>
             </div>
 
             <div class="span-3">
-                <!-- 平行宇宙状态 -->
+                <!-- Parallel Universe Status -->
                 <div class="hologram-ship hologram-portal" style="height: 100%;">
                     <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 16px;">
                         <i class="fas fa-clock" style="color: var(--parallel);"></i>
-                        <h3>Alam Selari</h3>
+                        <h3>Parallel Universes</h3>
                     </div>
 
                     <div style="display: grid; gap: 12px; margin-bottom: 16px;" id="universesList">
-                        <!-- 宇宙状态将通过JS动态生成 -->
+                        <!-- Universe status will be dynamically generated by JS -->
                     </div>
 
                     <button class="hologram-btn block" style="background: linear-gradient(145deg, var(--parallel), var(--temporal));" onclick="exploreNewUniverse()">
-                        <i class="fas fa-infinity"></i> Teroka Alam Baru
+                        <i class="fas fa-infinity"></i> Explore New Universe
                     </button>
                 </div>
             </div>
 
-            <!-- 第四行：全息任务中心 + 神经网络/NFT/意识 -->
+            <!-- Row 4: Mission Control Center + Neural Network/NFT/Consciousness -->
             <div class="span-10">
                 <div class="hologram-ship">
                     <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
                         <div style="display: flex; align-items: center; gap: 16px;">
                             <i class="fas fa-tasks" style="color: var(--success); font-size: 1.8rem;"></i>
-                            <h2 style="font-size: 1.6rem;">Pusat Projek Tender</h2>
+                            <h2 style="font-size: 1.6rem;">Project Tender Center</h2>
                         </div>
-                        <button class="hologram-btn primary" onclick="createMission()">Tender Projek Baru</button>
+                        <button class="hologram-btn primary" onclick="createMission()">Post New Tender</button>
                     </div>
 
                     <div class="hologram-missions" id="missionsList">
-                        <!-- 任务将通过JS动态生成 -->
+                        <!-- Missions will be dynamically generated by JS -->
                     </div>
                 </div>
             </div>
 
             <div class="span-5">
-                <!-- 神经网络预测 + NFT + 意识 -->
+                <!-- Neural Network Predictions + NFT + Consciousness -->
                 <div class="hologram-ship" style="margin-bottom: 24px;">
                     <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 16px;">
                         <i class="fas fa-brain" style="color: var(--neural);"></i>
-                        <h3>Ramalan Neural</h3>
+                        <h3>Neural Predictions</h3>
                     </div>
                     
                     <div style="margin-bottom: 16px;">
                         <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
-                            <span>Permintaan Kuantum</span>
+                            <span>Quantum Demand</span>
                             <span style="color: var(--quantum);" id="trend1">+95%</span>
                         </div>
                         <div class="consciousness-bar">
@@ -833,7 +833,7 @@
 
                     <div style="margin-bottom: 16px;">
                         <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
-                            <span>Reka Bentuk Metaverse</span>
+                            <span>Metaverse Design</span>
                             <span style="color: var(--neural);" id="trend2">+89%</span>
                         </div>
                         <div class="consciousness-bar">
@@ -843,7 +843,7 @@
 
                     <div style="margin-bottom: 16px;">
                         <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
-                            <span>Pembangunan Web3</span>
+                            <span>Web3 Development</span>
                             <span style="color: var(--nft);" id="trend3">+92%</span>
                         </div>
                         <div class="consciousness-bar">
@@ -853,7 +853,7 @@
 
                     <div>
                         <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
-                            <span>Kesedaran Digital</span>
+                            <span>Consciousness Upload</span>
                             <span style="color: var(--consciousness);" id="trend4">+99%</span>
                         </div>
                         <div class="consciousness-bar">
@@ -862,14 +862,14 @@
                     </div>
                 </div>
 
-                <!-- NFT意识机库 + LHDN -->
+                <!-- NFT Consciousness Hangar + LHDN -->
                 <div class="hologram-ship">
                     <div style="display: flex; justify-content: space-between; margin-bottom: 16px;">
                         <div style="display: flex; align-items: center; gap: 8px;">
                             <i class="fas fa-image" style="color: var(--nft);"></i>
                             <h3>NFT · LHDN</h3>
                         </div>
-                        <span class="hologram-badge badge-nft" id="nftCount">3,245枚</span>
+                        <span class="hologram-badge badge-nft" id="nftCount">3,245</span>
                     </div>
 
                     <div style="display: flex; align-items: center; gap: 20px; margin-bottom: 20px;">
@@ -877,66 +877,66 @@
                             🧠
                         </div>
                         <div>
-                            <p style="font-weight: 600;">NFT Kesedaran · LHDN Auto</p>
-                            <p style="font-size: 0.85rem;">Cukai automatik, pematuhan LHDN</p>
+                            <p style="font-weight: 600;">Consciousness NFT · LHDN Auto</p>
+                            <p style="font-size: 0.85rem;">Automatic tax, LHDN compliance</p>
                         </div>
                     </div>
 
                     <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px;" id="nftBadges">
-                        <span class="hologram-badge badge-nft">Kesedaran Asal</span>
-                        <span class="hologram-badge badge-nft">Lencana Upload</span>
-                        <span class="hologram-badge badge-consciousness">Lencana LHDN</span>
+                        <span class="hologram-badge badge-nft">Genesis Consciousness</span>
+                        <span class="hologram-badge badge-nft">Upload Badge</span>
+                        <span class="hologram-badge badge-consciousness">LHDN Badge</span>
                         <span class="hologram-badge badge-malaysia">Malaysia</span>
                     </div>
 
                     <button class="hologram-btn block" style="border-color: var(--consciousness); color: var(--consciousness);" onclick="mintNFT()">
-                        <i class="fas fa-plus-circle"></i> Cipta NFT + LHDN
+                        <i class="fas fa-plus-circle"></i> Mint NFT + LHDN
                     </button>
                 </div>
             </div>
 
             <div class="span-3">
-                <!-- 元宇宙指挥舱 + FPX -->
+                <!-- Metaverse Command Center + FPX -->
                 <div class="hologram-ship" style="margin-bottom: 24px;">
                     <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 16px;">
                         <i class="fas fa-vr-cardboard" style="color: var(--meta);"></i>
                         <h3>Metaverse</h3>
-                        <span class="hologram-badge badge-meta" style="margin-left: auto;" id="metaUsers">1,234人</span>
+                        <span class="hologram-badge badge-meta" style="margin-left: auto;" id="metaUsers">1,234</span>
                     </div>
 
                     <div style="text-align: center; margin-bottom: 16px;">
                         <div style="font-size: 3rem; margin-bottom: 8px;">🌐</div>
-                        <p style="font-weight: 600;">Bilik Operasi Maya</p>
-                        <p style="color: var(--text-muted);" id="availableRooms">56 bilik kosong</p>
+                        <p style="font-weight: 600;">Virtual Operations Room</p>
+                        <p style="color: var(--text-muted);" id="availableRooms">56 rooms available</p>
                     </div>
 
                     <div style="display: flex; gap: 8px;">
-                        <button class="hologram-btn quantum" style="flex: 1;" onclick="enterMetaverse()">Masuk</button>
-                        <button class="hologram-btn" style="flex: 1;" onclick="bookRoom()">Tempah</button>
+                        <button class="hologram-btn quantum" style="flex: 1;" onclick="enterMetaverse()">Enter</button>
+                        <button class="hologram-btn" style="flex: 1;" onclick="bookRoom()">Book</button>
                     </div>
                 </div>
 
-                <!-- 开发者星港 + FPX -->
+                <!-- Developer Spaceport + FPX -->
                 <div class="hologram-ship">
                     <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 16px;">
                         <i class="fas fa-code" style="color: var(--primary);"></i>
-                        <h3>Pembangun · FPX</h3>
-                        <span class="hologram-badge badge-primary" style="margin-left: auto;" id="apiStatus">API Sedia</span>
+                        <h3>Developer · FPX</h3>
+                        <span class="hologram-badge badge-primary" style="margin-left: auto;" id="apiStatus">API Ready</span>
                     </div>
 
                     <div style="background: rgba(0,0,0,0.4); border-radius: var(--radius-md); padding: 16px; margin-bottom: 16px;">
                         <code style="color: var(--hologram);" id="apiKey">dev_malaysia_2026</code>
-                        <button class="hologram-btn btn-sm" style="margin-left: 8px;" onclick="copyAPIKey()">Salin</button>
+                        <button class="hologram-btn btn-sm" style="margin-left: 8px;" onclick="copyAPIKey()">Copy</button>
                     </div>
 
                     <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; text-align: center;">
                         <div onclick="showAPIDetail('calls')">
                             <div style="font-weight: 700; color: var(--quantum);" id="apiCalls">2.1k</div>
-                            <div style="font-size: 0.7rem;">Panggilan API</div>
+                            <div style="font-size: 0.7rem;">API Calls</div>
                         </div>
                         <div onclick="showAPIDetail('contracts')">
                             <div style="font-weight: 700; color: var(--consciousness);" id="apiContracts">567</div>
-                            <div style="font-size: 0.7rem;">Kontrak Kesedaran</div>
+                            <div style="font-size: 0.7rem;">Consciousness Contracts</div>
                         </div>
                     </div>
                     <div style="margin-top: 12px; text-align: center;">
@@ -946,13 +946,13 @@
             </div>
         </div>
 
-        <!-- 第五行：代理制度 + DAO治理 + 智能合约 -->
+        <!-- Row 5: Agent System + DAO Governance + Smart Contracts -->
         <div class="hologram-grid">
             <div class="span-6">
                 <div class="hologram-ship">
                     <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 16px;">
                         <i class="fas fa-sitemap" style="color: var(--dao);"></i>
-                        <h3>Sistem Ejen Berbilang Peringkat</h3>
+                        <h3>Multi-Level Agent System</h3>
                     </div>
                     
                     <div class="agent-tree">
@@ -963,22 +963,22 @@
                         </div>
                         <div class="agent-node">
                             <i class="fas fa-star" style="color: var(--success);"></i>
-                            <div>Ejen Utama</div>
+                            <div>Master Agent</div>
                             <div style="font-size: 0.7rem;">2%</div>
                         </div>
                         <div class="agent-node">
                             <i class="fas fa-user" style="color: var(--primary);"></i>
-                            <div>Ejen Biasa</div>
+                            <div>Regular Agent</div>
                             <div style="font-size: 0.7rem;">1%</div>
                         </div>
                     </div>
                     
                     <div style="margin-top: 16px;">
-                        <p><span class="hologram-badge badge-dao">Komisen Anda: RM 234</span></p>
-                        <p><span class="hologram-badge badge-primary">Ejen Bawah: 12 orang</span></p>
+                        <p><span class="hologram-badge badge-dao">Your Commission: RM 234</span></p>
+                        <p><span class="hologram-badge badge-primary">Downline: 12 agents</span></p>
                     </div>
                     
-                    <button class="hologram-btn block" style="margin-top: 16px;" onclick="showAgentDetail()">Lihat Struktur Ejen</button>
+                    <button class="hologram-btn block" style="margin-top: 16px;" onclick="showAgentDetail()">View Agent Structure</button>
                 </div>
             </div>
 
@@ -991,11 +991,11 @@
                     </div>
                     
                     <div style="margin-bottom: 16px;">
-                        <p>Cadangan Aktif: 3</p>
+                        <p>Active Proposals: 3</p>
                         <div style="margin-top: 8px;">
                             <div style="display: flex; justify-content: space-between;">
-                                <span>Kadar Platform 5%</span>
-                                <span>78% Setuju</span>
+                                <span>Platform Fee 5%</span>
+                                <span>78% Agree</span>
                             </div>
                             <div class="consciousness-bar">
                                 <div class="consciousness-fill" style="width: 78%; background: var(--dao);"></div>
@@ -1004,7 +1004,7 @@
                         <div style="margin-top: 8px;">
                             <div style="display: flex; justify-content: space-between;">
                                 <span>Treasury NFT</span>
-                                <span>92% Setuju</span>
+                                <span>92% Agree</span>
                             </div>
                             <div class="consciousness-bar">
                                 <div class="consciousness-fill" style="width: 92%; background: var(--dao);"></div>
@@ -1012,7 +1012,7 @@
                         </div>
                     </div>
                     
-                    <button class="hologram-btn block" onclick="openModal('daoModal')">Pergi ke DAO</button>
+                    <button class="hologram-btn block" onclick="openModal('daoModal')">Go to DAO</button>
                 </div>
             </div>
 
@@ -1020,105 +1020,105 @@
                 <div class="hologram-ship">
                     <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 16px;">
                         <i class="fas fa-file-signature" style="color: var(--quantum);"></i>
-                        <h3>Kontrak Pintar</h3>
+                        <h3>Smart Contracts</h3>
                         <span class="hologram-badge badge-quantum">Cross-chain</span>
                     </div>
                     
                     <div style="margin-bottom: 16px;">
-                        <p>Kontrak Aktif: 1,234</p>
-                        <p>Jumlah Nilai Terkunci: RM 2.5M</p>
-                        <p>Rantaian: Ethereum, BSC, Polygon</p>
+                        <p>Active Contracts: 1,234</p>
+                        <p>Total Value Locked: RM 2.5M</p>
+                        <p>Chains: Ethereum, BSC, Polygon</p>
                     </div>
                     
                     <div style="display: flex; gap: 8px;">
-                        <button class="hologram-btn primary" style="flex: 1;" onclick="createSmartContract()">Bina Kontrak</button>
-                        <button class="hologram-btn" style="flex: 1;" onclick="viewContracts()">Lihat Kontrak</button>
+                        <button class="hologram-btn primary" style="flex: 1;" onclick="createSmartContract()">Create Contract</button>
+                        <button class="hologram-btn" style="flex: 1;" onclick="viewContracts()">View Contracts</button>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- 宇宙底部 -->
+        <!-- Universe Footer -->
         <footer class="universe-footer">
             <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;">
-                <div>© 2026 NovaServe Malaysia · Platform Freelance · LHDN Auto · FPX · Platform Fee 5% · Chairman: tuantuanxiongmaoyouxizhubo · DAO Governance · Smart Contract</div>
+                <div>© 2026 NovaServe Malaysia · Freelance Platform · LHDN Auto · FPX · Platform Fee 5% · Chairman: tuantuanxiongmaoyouxizhubo · DAO Governance · Smart Contract</div>
                 <div style="display: flex; gap: 24px; flex-wrap: wrap;">
-                    <span><i class="fas fa-shield-alt"></i> Keselamatan Kuantum</span>
-                    <span><i class="fas fa-infinity"></i> Keterikatan Kuantum</span>
-                    <span><i class="fas fa-clock"></i> Lipatan Masa</span>
-                    <span><i class="fas fa-file-invoice"></i> Invoice Auto</span>
+                    <span><i class="fas fa-shield-alt"></i> Quantum Security</span>
+                    <span><i class="fas fa-infinity"></i> Quantum Entanglement</span>
+                    <span><i class="fas fa-clock"></i> Time Fold</span>
+                    <span><i class="fas fa-file-invoice"></i> Auto Invoice</span>
                     <span><i class="fas fa-crown"></i> Chairman</span>
                 </div>
             </div>
         </footer>
     </div>
 
-    <!-- 模态框 -->
+    <!-- Modals -->
     <div class="modal-overlay" id="quantumModal">
         <div class="modal-content">
-            <h2 style="margin-bottom: 20px;">⚛️ Ruang Kuantum</h2>
-            <p>Keterikatan kuantum: 99.99%</p>
-            <p>Quantum bit: 512</p>
-            <p>Algoritma kuantum: sedang dioptimumkan</p>
-            <p>Pasangan terikat: 1,024</p>
-            <p>Teleportasi kuantum: Sedia</p>
-            <button class="hologram-btn primary" style="margin-top: 20px;" onclick="closeModal('quantumModal')">Tutup</button>
+            <h2 style="margin-bottom: 20px;">⚛️ Quantum Space</h2>
+            <p>Quantum entanglement: 99.99%</p>
+            <p>Quantum bits: 512</p>
+            <p>Quantum algorithm: optimizing</p>
+            <p>Entangled pairs: 1,024</p>
+            <p>Quantum teleportation: Ready</p>
+            <button class="hologram-btn primary" style="margin-top: 20px;" onclick="closeModal('quantumModal')">Close</button>
         </div>
     </div>
 
     <div class="modal-overlay" id="consciousnessModal">
         <div class="modal-content">
-            <h2 style="margin-bottom: 20px;">🧠 Ruang Upload Kesedaran</h2>
-            <p>Kemajuan: <span id="consciousnessProgress">87</span>%</p>
-            <p>Sandaran alam: α-7, β-2, γ-9</p>
-            <p>Keabadian digital: Diaktifkan</p>
-            <p>Salinan kesedaran: 3</p>
-            <p>Sandaran terakhir: 5 minit lepas</p>
+            <h2 style="margin-bottom: 20px;">🧠 Consciousness Upload Chamber</h2>
+            <p>Progress: <span id="consciousnessProgress">87</span>%</p>
+            <p>Backup universes: α-7, β-2, γ-9</p>
+            <p>Digital immortality: Activated</p>
+            <p>Consciousness copies: 3</p>
+            <p>Last backup: 5 minutes ago</p>
             <div class="consciousness-bar" style="margin: 20px 0;">
                 <div class="consciousness-fill" id="consciousnessModalBar" style="width: 87%;"></div>
             </div>
-            <button class="hologram-btn primary" onclick="continueUpload()">Teruskan Upload</button>
-            <button class="hologram-btn" style="margin-left: 10px;" onclick="closeModal('consciousnessModal')">Tutup</button>
+            <button class="hologram-btn primary" onclick="continueUpload()">Continue Upload</button>
+            <button class="hologram-btn" style="margin-left: 10px;" onclick="closeModal('consciousnessModal')">Close</button>
         </div>
     </div>
 
     <div class="modal-overlay" id="parallelModal">
         <div class="modal-content">
-            <h2 style="margin-bottom: 20px;">🌌 Portal Alam Selari</h2>
-            <p>Telah diteroka: 7/42 alam</p>
-            <p>Alam semasa: α-7</p>
-            <p>Sasaran seterusnya: β-2 (padanan 89%)</p>
-            <p>Tenaga tersedia: 100%</p>
-            <p>Kestabilan dimensi: 98%</p>
-            <button class="hologram-btn primary" style="margin-top: 20px;" onclick="jumpToUniverse()">Lompat</button>
-            <button class="hologram-btn" onclick="closeModal('parallelModal')">Tutup</button>
+            <h2 style="margin-bottom: 20px;">🌌 Parallel Universe Portal</h2>
+            <p>Explored: 7/42 universes</p>
+            <p>Current universe: α-7</p>
+            <p>Next target: β-2 (match 89%)</p>
+            <p>Available energy: 100%</p>
+            <p>Dimensional stability: 98%</p>
+            <button class="hologram-btn primary" style="margin-top: 20px;" onclick="jumpToUniverse()">Jump</button>
+            <button class="hologram-btn" onclick="closeModal('parallelModal')">Close</button>
         </div>
     </div>
 
     <div class="modal-overlay" id="taxModal">
         <div class="modal-content">
             <h2 style="margin-bottom: 20px;">📊 LHDN Malaysia</h2>
-            <p>Pematuhan cukai: 98%</p>
-            <p>Jumlah dilaporkan: RM 45,678</p>
-            <p>No. Rujukan LHDN: LHDN-2026-001234</p>
-            <p>Status: Patuh</p>
-            <p>Cukai SST: RM 2,740.68</p>
+            <p>Tax compliance: 98%</p>
+            <p>Reported amount: RM 45,678</p>
+            <p>LHDN Reference: LHDN-2026-001234</p>
+            <p>Status: Compliant</p>
+            <p>SST Tax: RM 2,740.68</p>
             <div class="consciousness-bar" style="margin: 20px 0;">
                 <div class="consciousness-fill" style="width: 98%; background: linear-gradient(90deg, var(--malaysia), var(--nft));"></div>
             </div>
-            <button class="hologram-btn primary" onclick="downloadTaxReport()">Muat Turun Laporan</button>
-            <button class="hologram-btn" style="margin-left: 10px;" onclick="closeModal('taxModal')">Tutup</button>
+            <button class="hologram-btn primary" onclick="downloadTaxReport()">Download Report</button>
+            <button class="hologram-btn" style="margin-left: 10px;" onclick="closeModal('taxModal')">Close</button>
         </div>
     </div>
 
     <div class="modal-overlay" id="invoiceModal">
         <div class="modal-content">
-            <h2 style="margin-bottom: 20px;">📄 Invoice Auto · LHDN</h2>
+            <h2 style="margin-bottom: 20px;">📄 Auto Invoice · LHDN</h2>
             <div id="invoiceList" style="max-height: 300px; overflow-y: auto;">
-                <!-- 发票将通过JS动态生成 -->
+                <!-- Invoices will be dynamically generated by JS -->
             </div>
-            <button class="hologram-btn primary" style="margin-top: 20px;" onclick="generateInvoice()">Cipta Invoice Baru</button>
-            <button class="hologram-btn" style="margin-left: 10px;" onclick="closeModal('invoiceModal')">Tutup</button>
+            <button class="hologram-btn primary" style="margin-top: 20px;" onclick="generateInvoice()">Create New Invoice</button>
+            <button class="hologram-btn" style="margin-left: 10px;" onclick="closeModal('invoiceModal')">Close</button>
         </div>
     </div>
 
@@ -1134,12 +1134,12 @@
             </div>
             <p><i class="fas fa-envelope" style="color: var(--hologram);"></i> tuantuanxiongmaoyouxizhubo@gmail.com</p>
             <p><i class="fas fa-phone" style="color: var(--hologram);"></i> 011-56649657</p>
-            <p><i class="fas fa-crown" style="color: var(--nft);"></i> Platform Fee: 5% (untuk pembangunan)</p>
+            <p><i class="fas fa-crown" style="color: var(--nft);"></i> Platform Fee: 5% (for development)</p>
             <p><i class="fas fa-sitemap" style="color: var(--dao);"></i> Multi-level Agent: 5% - 2% - 1%</p>
-            <p><i class="fas fa-file-invoice" style="color: var(--success);"></i> Invoice Auto & LHDN Auto</p>
+            <p><i class="fas fa-file-invoice" style="color: var(--success);"></i> Auto Invoice & LHDN Auto</p>
             <p><i class="fas fa-vote-yea" style="color: var(--dao);"></i> DAO Governance Active</p>
             <p><i class="fas fa-file-signature" style="color: var(--quantum);"></i> Smart Contract: Cross-chain</p>
-            <button class="hologram-btn primary" style="margin-top: 20px;" onclick="closeModal('chairmanModal')">Tutup</button>
+            <button class="hologram-btn primary" style="margin-top: 20px;" onclick="closeModal('chairmanModal')">Close</button>
         </div>
     </div>
 
@@ -1147,70 +1147,70 @@
         <div class="modal-content">
             <h2 style="margin-bottom: 20px;">🗳️ DAO Governance</h2>
             <p>Voting Power: 1,234</p>
-            <p>Cadangan Aktif:</p>
+            <p>Active Proposals:</p>
             <div style="margin: 16px 0;">
                 <div style="margin-bottom: 12px;">
-                    <p>1. Kurangkan Platform Fee kepada 4%</p>
+                    <p>1. Reduce Platform Fee to 4%</p>
                     <div class="consciousness-bar">
                         <div class="consciousness-fill" style="width: 45%; background: var(--dao);"></div>
                     </div>
-                    <p style="font-size: 0.8rem;">45% Setuju · 35% Menentang · 20% Belum Undi</p>
+                    <p style="font-size: 0.8rem;">45% Agree · 35% Against · 20% Not Voted</p>
                 </div>
                 <div style="margin-bottom: 12px;">
-                    <p>2. Tambah Rantaian Baru (Solana)</p>
+                    <p>2. Add New Chain (Solana)</p>
                     <div class="consciousness-bar">
                         <div class="consciousness-fill" style="width: 78%; background: var(--dao);"></div>
                     </div>
-                    <p style="font-size: 0.8rem;">78% Setuju · 12% Menentang · 10% Belum Undi</p>
+                    <p style="font-size: 0.8rem;">78% Agree · 12% Against · 10% Not Voted</p>
                 </div>
                 <div>
-                    <p>3. Agihan Treasury NFT</p>
+                    <p>3. Treasury NFT Distribution</p>
                     <div class="consciousness-bar">
                         <div class="consciousness-fill" style="width: 92%; background: var(--dao);"></div>
                     </div>
-                    <p style="font-size: 0.8rem;">92% Setuju · 5% Menentang · 3% Belum Undi</p>
+                    <p style="font-size: 0.8rem;">92% Agree · 5% Against · 3% Not Voted</p>
                 </div>
             </div>
-            <button class="hologram-btn primary" onclick="voteDAO()">Undi Sekarang</button>
-            <button class="hologram-btn" style="margin-left: 10px;" onclick="closeModal('daoModal')">Tutup</button>
+            <button class="hologram-btn primary" onclick="voteDAO()">Vote Now</button>
+            <button class="hologram-btn" style="margin-left: 10px;" onclick="closeModal('daoModal')">Close</button>
         </div>
     </div>
 
     <div class="modal-overlay" id="missionModal">
         <div class="modal-content">
-            <h2 style="margin-bottom: 20px;" id="missionModalTitle">Butiran Projek</h2>
+            <h2 style="margin-bottom: 20px;" id="missionModalTitle">Project Details</h2>
             <div id="missionModalContent"></div>
-            <button class="hologram-btn primary" style="margin-top: 20px;" onclick="bidMission(currentMissionId)">Tender Projek</button>
-            <button class="hologram-btn" style="margin-left: 10px;" onclick="closeModal('missionModal')">Tutup</button>
+            <button class="hologram-btn primary" style="margin-top: 20px;" onclick="bidMission(currentMissionId)">Bid Project</button>
+            <button class="hologram-btn" style="margin-left: 10px;" onclick="closeModal('missionModal')">Close</button>
         </div>
     </div>
 
     <div class="modal-overlay" id="fighterModal">
         <div class="modal-content">
-            <h2 style="margin-bottom: 20px;" id="fighterModalTitle">Butiran Freelancer</h2>
+            <h2 style="margin-bottom: 20px;" id="fighterModalTitle">Freelancer Details</h2>
             <div id="fighterModalContent"></div>
             <p style="margin-top: 10px; padding: 10px; background: rgba(249,115,22,0.1); border-radius: var(--radius-sm);">Platform Fee 5%: RM <span id="platformFeeAmount">0</span></p>
-            <p style="margin-top: 5px; padding: 5px; background: rgba(52,211,153,0.1); border-radius: var(--radius-sm);">Komisen Ejen: RM <span id="agentCommission">0</span> (1% - 2% - 5%)</p>
-            <button class="hologram-btn primary" style="margin-top: 20px;" onclick="hireFighter(currentFighterId)">Upah (RM)</button>
-            <button class="hologram-btn" style="margin-left: 10px;" onclick="closeModal('fighterModal')">Tutup</button>
+            <p style="margin-top: 5px; padding: 5px; background: rgba(52,211,153,0.1); border-radius: var(--radius-sm);">Agent Commission: RM <span id="agentCommission">0</span> (1% - 2% - 5%)</p>
+            <button class="hologram-btn primary" style="margin-top: 20px;" onclick="hireFighter(currentFighterId)">Hire (RM)</button>
+            <button class="hologram-btn" style="margin-left: 10px;" onclick="closeModal('fighterModal')">Close</button>
         </div>
     </div>
 
     <div class="modal-overlay" id="createMissionModal">
         <div class="modal-content">
-            <h2 style="margin-bottom: 20px;">📋 Tender Projek Baru</h2>
-            <input type="text" id="newMissionTitle" placeholder="Tajuk Projek" style="width: 100%; padding: 12px; margin-bottom: 12px; background: rgba(0,0,0,0.3); border: 1px solid var(--border); color: var(--text); border-radius: var(--radius-sm);">
-            <textarea id="newMissionDesc" placeholder="Penerangan Projek" rows="3" style="width: 100%; padding: 12px; margin-bottom: 12px; background: rgba(0,0,0,0.3); border: 1px solid var(--border); color: var(--text); border-radius: var(--radius-sm);"></textarea>
-            <input type="number" id="newMissionBudget" placeholder="Bajet (RM)" style="width: 100%; padding: 12px; margin-bottom: 12px; background: rgba(0,0,0,0.3); border: 1px solid var(--border); color: var(--text); border-radius: var(--radius-sm);">
-            <p style="margin-bottom: 12px; color: var(--text-light);">Platform Fee 5% akan dikenakan</p>
-            <button class="hologram-btn primary" onclick="publishMission()">Tender Projek</button>
-            <button class="hologram-btn" style="margin-left: 10px;" onclick="closeModal('createMissionModal')">Batal</button>
+            <h2 style="margin-bottom: 20px;">📋 Post New Tender</h2>
+            <input type="text" id="newMissionTitle" placeholder="Project Title" style="width: 100%; padding: 12px; margin-bottom: 12px; background: rgba(0,0,0,0.3); border: 1px solid var(--border); color: var(--text); border-radius: var(--radius-sm);">
+            <textarea id="newMissionDesc" placeholder="Project Description" rows="3" style="width: 100%; padding: 12px; margin-bottom: 12px; background: rgba(0,0,0,0.3); border: 1px solid var(--border); color: var(--text); border-radius: var(--radius-sm);"></textarea>
+            <input type="number" id="newMissionBudget" placeholder="Budget (RM)" style="width: 100%; padding: 12px; margin-bottom: 12px; background: rgba(0,0,0,0.3); border: 1px solid var(--border); color: var(--text); border-radius: var(--radius-sm);">
+            <p style="margin-bottom: 12px; color: var(--text-light);">Platform Fee 5% will be applied</p>
+            <button class="hologram-btn primary" onclick="publishMission()">Post Tender</button>
+            <button class="hologram-btn" style="margin-left: 10px;" onclick="closeModal('createMissionModal')">Cancel</button>
         </div>
     </div>
 
     <div class="modal-overlay" id="agentModal">
         <div class="modal-content">
-            <h2 style="margin-bottom: 20px;">📊 Struktur Ejen</h2>
+            <h2 style="margin-bottom: 20px;">📊 Agent Structure</h2>
             <div class="agent-tree">
                 <div class="agent-node">
                     <i class="fas fa-crown"></i>
@@ -1219,31 +1219,31 @@
                 </div>
                 <div class="agent-node">
                     <i class="fas fa-star"></i>
-                    <div>Ejen Utama (3 orang)</div>
+                    <div>Master Agents (3)</div>
                     <div>2%</div>
                 </div>
                 <div class="agent-node">
                     <i class="fas fa-user"></i>
-                    <div>Ejen Biasa (12 orang)</div>
+                    <div>Regular Agents (12)</div>
                     <div>1%</div>
                 </div>
             </div>
-            <p style="margin-top: 16px;">Jumlah Komisen Anda: RM 234</p>
-            <p>Jumlah Ejen Bawah: 15 orang</p>
-            <button class="hologram-btn primary" style="margin-top: 20px;" onclick="closeModal('agentModal')">Tutup</button>
+            <p style="margin-top: 16px;">Total Commission: RM 234</p>
+            <p>Total Downline: 15 agents</p>
+            <button class="hologram-btn primary" style="margin-top: 20px;" onclick="closeModal('agentModal')">Close</button>
         </div>
     </div>
 
     <script>
-        // ========== 全功能数据模型 - Malaysia Version ==========
+        // ========== Full Function Data Model - Malaysia Version ==========
         let appState = {
             user: {
                 name: 'Alex',
                 consciousness: 87,
                 immortal: true,
                 balance: 15800,
-                nfts: ['Kesedaran Asal', 'Lencana Upload'],
-                agentLevel: 'Ejen Biasa',
+                nfts: ['Genesis Consciousness', 'Upload Badge'],
+                agentLevel: 'Regular Agent',
                 commission: 234,
                 downline: 15,
                 votingPower: 1234
@@ -1263,33 +1263,33 @@
                 daoProposals: 3
             },
             fighters: [
-                { id: 'f1', name: 'Jessica Tan', avatar: 'JT', title: 'Pereka UI/UX', rating: 4.9, price: 380, match: 98, level: 'Emas', emoji: '🎨', description: '5 tahun pengalaman, reka bentuk antara muka holografik.', completed: 156, response: '98%', location: 'Kuala Lumpur' },
-                { id: 'f2', name: 'Wei Chen', avatar: 'WC', title: 'Pembangun Full-stack', rating: 4.8, price: 650, match: 96, level: 'Platinum', emoji: '💻', description: 'Pakar React, Node.js, rangka kerja kuantum.', completed: 94, response: '95%', location: 'Penang' },
-                { id: 'f3', name: 'Mei Ling', avatar: 'ML', title: 'Pemasaran Neural', rating: 4.7, price: 420, match: 94, level: 'Emas', emoji: '📈', description: 'Pakar AI marketing, bantu jenama di Metaverse.', completed: 187, response: '99%', location: 'Johor' },
-                { id: 'f4', name: 'Priya Kaur', avatar: 'PK', title: 'Suntingan Video Metaverse', rating: 4.9, price: 550, match: 92, level: 'Perak', emoji: '🎬', description: 'Pakar suntingan video untuk ruang Metaverse.', completed: 78, response: '97%', location: 'Selangor' },
-                { id: 'f5', name: 'Quantum AI', avatar: 'AI', title: 'Audit Kontrak Pintar', rating: 5.0, price: 890, match: 99, level: 'Teras Kuantum', emoji: '🤖', description: 'Sistem audit kontrak pintar dipacu AI.', completed: 234, response: '100%', location: 'Cyberjaya' },
-                { id: 'f6', name: 'Uploaded Mind', avatar: 'UP', title: 'Reka Bentuk Keabadian', rating: 5.0, price: 1200, match: 100, level: 'Kesedaran', emoji: '🧠', description: 'Pakar upload kesedaran, capai keabadian digital.', completed: 45, response: '100%', location: 'Putrajaya' }
+                { id: 'f1', name: 'Jessica Tan', avatar: 'JT', title: 'UI/UX Designer', rating: 4.9, price: 380, match: 98, level: 'Gold', emoji: '🎨', description: '5 years experience, holographic interface design.', completed: 156, response: '98%', location: 'Kuala Lumpur' },
+                { id: 'f2', name: 'Wei Chen', avatar: 'WC', title: 'Full-stack Developer', rating: 4.8, price: 650, match: 96, level: 'Platinum', emoji: '💻', description: 'React, Node.js, quantum framework expert.', completed: 94, response: '95%', location: 'Penang' },
+                { id: 'f3', name: 'Mei Ling', avatar: 'ML', title: 'Neural Marketing', rating: 4.7, price: 420, match: 94, level: 'Gold', emoji: '📈', description: 'AI marketing expert, Metaverse branding.', completed: 187, response: '99%', location: 'Johor' },
+                { id: 'f4', name: 'Priya Kaur', avatar: 'PK', title: 'Metaverse Video Editor', rating: 4.9, price: 550, match: 92, level: 'Silver', emoji: '🎬', description: 'Video editing for Metaverse spaces.', completed: 78, response: '97%', location: 'Selangor' },
+                { id: 'f5', name: 'Quantum AI', avatar: 'AI', title: 'Smart Contract Auditor', rating: 5.0, price: 890, match: 99, level: 'Quantum Core', emoji: '🤖', description: 'AI-powered smart contract audit system.', completed: 234, response: '100%', location: 'Cyberjaya' },
+                { id: 'f6', name: 'Uploaded Mind', avatar: 'UP', title: 'Digital Immortality Designer', rating: 5.0, price: 1200, match: 100, level: 'Consciousness', emoji: '🧠', description: 'Consciousness upload expert, achieve digital immortality.', completed: 45, response: '100%', location: 'Putrajaya' }
             ],
             missions: [
-                { id: 'm1', title: 'Laman Web E-dagang', budget: 8000, bids: 12, match: 98, tags: ['React', 'Node.js'], status: 'Berjalan', description: 'Bina laman web e-dagang dengan pelbagai mata wang.', posted: '2 jam lepas', location: 'KL' },
-                { id: 'm2', title: 'Reka Bentuk Logo + VI', budget: 1500, bids: 5, match: 96, tags: ['Figma', 'Jenama'], status: 'Baru', description: 'Reka bentuk logo dan VI untuk jenama Metaverse.', posted: '30 minit lepas', location: 'Selangor' },
-                { id: 'm3', title: 'Pembangunan Kontrak Pintar', budget: 12000, bids: 8, match: 99, tags: ['Solidity', 'Web3'], status: 'Pilihan Kuantum', description: 'Bina kontrak pintar cross-chain untuk NFT.', posted: '5 jam lepas', location: 'Cyberjaya' },
-                { id: 'm4', title: 'Reka Bentuk Ruang Metaverse', budget: 5000, bids: 6, match: 95, tags: ['Blender', 'Unity'], status: 'NFT', description: 'Reka dewan pameran maya dengan interaksi masa nyata.', posted: '1 hari lepas', location: 'Penang' },
-                { id: 'm5', title: 'Protokol Jambatan Alam Selari', budget: 25000, bids: 3, match: 100, tags: ['Fizik Kuantum', 'Kod Masa'], status: 'Baru', description: 'Bina protokol data antara alam selari.', posted: '10 minit lepas', location: 'KL' },
-                { id: 'm6', title: 'Protokol Upload Kesedaran', budget: 50000, bids: 2, match: 99, tags: ['Sains Neural', 'Kesedaran Kuantum'], status: 'Segera', description: 'Upload kesedaran manusia untuk keabadian digital.', posted: '15 minit lepas', location: 'Putrajaya' }
+                { id: 'm1', title: 'E-commerce Website', budget: 8000, bids: 12, match: 98, tags: ['React', 'Node.js'], status: 'Ongoing', description: 'Build e-commerce website with multi-currency support.', posted: '2 hours ago', location: 'KL' },
+                { id: 'm2', title: 'Logo Design + VI', budget: 1500, bids: 5, match: 96, tags: ['Figma', 'Branding'], status: 'New', description: 'Logo and VI design for Metaverse brand.', posted: '30 minutes ago', location: 'Selangor' },
+                { id: 'm3', title: 'Smart Contract Development', budget: 12000, bids: 8, match: 99, tags: ['Solidity', 'Web3'], status: 'Quantum Pick', description: 'Cross-chain smart contract for NFT marketplace.', posted: '5 hours ago', location: 'Cyberjaya' },
+                { id: 'm4', title: 'Metaverse Space Design', budget: 5000, bids: 6, match: 95, tags: ['Blender', 'Unity'], status: 'NFT', description: 'Design virtual exhibition hall with real-time interaction.', posted: '1 day ago', location: 'Penang' },
+                { id: 'm5', title: 'Parallel Universe Bridge Protocol', budget: 25000, bids: 3, match: 100, tags: ['Quantum Physics', 'Time Code'], status: 'New', description: 'Build data bridge protocol between parallel universes.', posted: '10 minutes ago', location: 'KL' },
+                { id: 'm6', title: 'Consciousness Upload Protocol', budget: 50000, bids: 2, match: 99, tags: ['Neural Science', 'Quantum Consciousness'], status: 'Urgent', description: 'Upload human consciousness for digital immortality.', posted: '15 minutes ago', location: 'Putrajaya' }
             ],
             universes: [
-                { name: 'α-7', match: 98, tasks: 12, status: 'Semasa' },
-                { name: 'β-2', match: 89, tasks: 5, status: 'Sedang Diteroka' },
-                { name: 'γ-9', match: 76, tasks: 3, status: 'Baru Ditemui' },
-                { name: 'δ-4', match: 92, tasks: 8, status: 'Upload Kesedaran' }
+                { name: 'α-7', match: 98, tasks: 12, status: 'Current' },
+                { name: 'β-2', match: 89, tasks: 5, status: 'Exploring' },
+                { name: 'γ-9', match: 76, tasks: 3, status: 'New Discovery' },
+                { name: 'δ-4', match: 92, tasks: 8, status: 'Consciousness Upload' }
             ],
             logs: [
-                { user: 'JT', action: 'Upload kesedaran siap', time: '2 minit lepas', location: 'α-7' },
-                { user: 'WC', action: 'Segerak kesedaran 92%', time: '15 minit lepas', location: 'Keterikatan Kuantum' },
-                { user: 'ML', action: 'Cipta salinan kesedaran', time: '1 jam lepas', location: 'β-2' },
-                { user: 'PK', action: 'Keabadian digital diaktifkan', time: '3 jam lepas', location: 'Pencapaian Abadi' },
-                { user: 'AI', action: 'Alam selari baru ditemui', time: '5 minit lepas', location: 'γ-9' }
+                { user: 'JT', action: 'Consciousness upload complete', time: '2 minutes ago', location: 'α-7' },
+                { user: 'WC', action: 'Consciousness sync 92%', time: '15 minutes ago', location: 'Quantum Entanglement' },
+                { user: 'ML', action: 'Created consciousness copy', time: '1 hour ago', location: 'β-2' },
+                { user: 'PK', action: 'Digital immortality activated', time: '3 hours ago', location: 'Eternal Achievement' },
+                { user: 'AI', action: 'New parallel universe discovered', time: '5 minutes ago', location: 'γ-9' }
             ],
             trends: {
                 quantum: 95,
@@ -1301,8 +1301,8 @@
             platformFee: 0.05,
             agentCommission: {
                 level1: 0.05, // Chairman
-                level2: 0.02, // Ejen Utama
-                level3: 0.01  // Ejen Biasa
+                level2: 0.02, // Master Agent
+                level3: 0.01  // Regular Agent
             },
             notifications: []
         };
@@ -1310,7 +1310,7 @@
         let currentFighterId = null;
         let currentMissionId = null;
 
-        // ========== 初始化渲染 ==========
+        // ========== Initialization Render ==========
         function renderAll() {
             renderFighters();
             renderMissions();
@@ -1328,7 +1328,7 @@
                 <div class="hologram-fighter ${f.match >= 98 ? 'immortal-glow' : ''}" onclick="viewFighter('${f.id}')">
                     <div class="hologram-cockpit">
                         ${f.emoji}
-                        <span class="hologram-scanner">Padanan ${f.match}%</span>
+                        <span class="hologram-scanner">Match ${f.match}%</span>
                     </div>
                     <div class="hologram-cabin">
                         <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 10px;">
@@ -1342,11 +1342,11 @@
                             <span style="font-weight: 700; color: var(--hologram);">RM ${f.price}</span>
                         </div>
                         <div style="display: flex; justify-content: space-between; margin-top: 8px; font-size: 0.8rem;">
-                            <span>✅ ${f.completed} projek</span>
+                            <span>✅ ${f.completed} projects</span>
                             <span>⚡ ${f.response}</span>
                             <span>📍 ${f.location}</span>
                         </div>
-                        <button class="hologram-btn block" style="margin-top: 12px;" onclick="viewFighter('${f.id}'); event.stopPropagation();">Lihat Butiran</button>
+                        <button class="hologram-btn block" style="margin-top: 12px;" onclick="viewFighter('${f.id}'); event.stopPropagation();">View Details</button>
                     </div>
                 </div>
             `).join('');
@@ -1358,11 +1358,11 @@
                 <div class="hologram-mission" onclick="viewMission('${m.id}')">
                     <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
                         <span style="font-weight: 600;">${m.title}</span>
-                        <span class="hologram-badge ${m.status === 'Baru' ? 'badge-success' : m.status === 'Segera' ? 'badge-consciousness' : 'badge-primary'}">${m.status}</span>
+                        <span class="hologram-badge ${m.status === 'New' ? 'badge-success' : m.status === 'Urgent' ? 'badge-consciousness' : 'badge-primary'}">${m.status}</span>
                     </div>
                     <div style="display: flex; gap: 12px; color: var(--text-muted); margin-bottom: 8px;">
-                        <span>Bajet: RM ${m.budget.toLocaleString()}</span>
-                        <span>Tender: ${m.bids}</span>
+                        <span>Budget: RM ${m.budget.toLocaleString()}</span>
+                        <span>Bids: ${m.bids}</span>
                         <span>${m.posted}</span>
                         <span>📍 ${m.location}</span>
                     </div>
@@ -1379,10 +1379,10 @@
             container.innerHTML = appState.universes.map(u => `
                 <div style="background: rgba(255,255,255,0.05); border-radius: var(--radius-sm); padding: 12px; cursor: pointer;" onclick="selectUniverse('${u.name}')">
                     <div style="display: flex; justify-content: space-between;">
-                        <span style="font-weight: 700;">Alam ${u.name}</span>
-                        <span class="hologram-badge ${u.status === 'Semasa' ? 'badge-primary' : u.status === 'Baru Ditemui' ? 'badge-hologram' : 'badge-quantum'}">${u.status}</span>
+                        <span style="font-weight: 700;">Universe ${u.name}</span>
+                        <span class="hologram-badge ${u.status === 'Current' ? 'badge-primary' : u.status === 'New Discovery' ? 'badge-hologram' : 'badge-quantum'}">${u.status}</span>
                     </div>
-                    <div style="font-size: 0.8rem;">Padanan ${u.match}% · ${u.tasks} misi</div>
+                    <div style="font-size: 0.8rem;">Match ${u.match}% · ${u.tasks} missions</div>
                 </div>
             `).join('');
         }
@@ -1408,11 +1408,11 @@
                 container.innerHTML = appState.invoices.length ? appState.invoices.map(inv => `
                     <div style="padding: 12px; background: rgba(0,0,0,0.2); border-radius: var(--radius-sm); margin-bottom: 8px;">
                         <p><strong>${inv.id}</strong></p>
-                        <p>Jumlah: RM ${inv.amount} | Platform Fee: RM ${inv.platformFee} | SST: RM ${inv.sst}</p>
+                        <p>Amount: RM ${inv.amount} | Platform Fee: RM ${inv.platformFee} | SST: RM ${inv.sst}</p>
                         <p>Total: RM ${inv.total} | LHDN: ${inv.lhdnRef}</p>
                         <p style="font-size: 0.7rem;">${inv.date}</p>
                     </div>
-                `).join('') : '<p>Tiada invoice</p>';
+                `).join('') : '<p>No invoices</p>';
             }
         }
 
@@ -1445,13 +1445,13 @@
         }
 
         function updateUserInfo() {
-            document.getElementById('consciousnessBadge').innerHTML = `<i class="fas fa-brain"></i> Upload Kesedaran ${appState.user.consciousness}%`;
-            document.getElementById('consciousnessDisplay').textContent = `Kesedaran ${appState.user.consciousness}%`;
+            document.getElementById('consciousnessBadge').innerHTML = `<i class="fas fa-brain"></i> Consciousness Upload ${appState.user.consciousness}%`;
+            document.getElementById('consciousnessDisplay').textContent = `Consciousness ${appState.user.consciousness}%`;
             document.getElementById('consciousnessProgress').textContent = appState.user.consciousness;
             document.getElementById('consciousnessModalBar').style.width = appState.user.consciousness + '%';
         }
 
-        // ========== 功能函数 ==========
+        // ========== Function Functions ==========
         function showNotification(message) {
             const notification = document.createElement('div');
             notification.className = 'notification';
@@ -1469,7 +1469,7 @@
         }
 
         function navigateTo(destination) {
-            showNotification(`Navigasi ke ${destination}`);
+            showNotification(`Navigate to ${destination}`);
         }
 
         function startUpload() {
@@ -1477,44 +1477,44 @@
             if (appState.user.consciousness > 100) appState.user.consciousness = 100;
             updateUserInfo();
             updateStats();
-            showNotification(`Upload kesedaran: ${appState.user.consciousness}%`);
+            showNotification(`Consciousness upload: ${appState.user.consciousness}%`);
         }
 
         function toggleHologram() {
-            showNotification('Mod hologram ditukar');
+            showNotification('Hologram mode toggled');
         }
 
         function showDetail(type) {
             if (type === 'platformFee') {
-                showNotification(`Jumlah platform fee: RM ${appState.stats.platformFee.toLocaleString()}`);
+                showNotification(`Total platform fee: RM ${appState.stats.platformFee.toLocaleString()}`);
             } else {
-                showNotification(`Lihat butiran ${type}`);
+                showNotification(`View ${type} details`);
             }
         }
 
         function scanAll() {
-            showNotification('Imbasan penuh siap, jumpa 3 sasaran baru');
+            showNotification('Full scan complete, found 3 new targets');
             appState.stats.missions += 3;
             updateStats();
         }
 
         function startAIConversation() {
-            showNotification('Dialog AI Kuantum: "Ada 12 misi padanan tinggi hari ini."');
+            showNotification('Quantum AI Dialog: "There are 12 high-match missions today."');
         }
 
         function linkConsciousness() {
-            showNotification('Sambungan kesedaran diwujudkan');
+            showNotification('Consciousness link established');
         }
 
         function exploreNewUniverse() {
-            showNotification('Teroka alam selari baru... jumpa δ-4');
-            appState.universes.push({ name: 'δ-4', match: 92, tasks: 0, status: 'Baru Ditemui' });
+            showNotification('Exploring new parallel universe... found δ-4');
+            appState.universes.push({ name: 'δ-4', match: 92, tasks: 0, status: 'New Discovery' });
             appState.stats.universes++;
             renderUniverses();
         }
 
         function selectUniverse(name) {
-            showNotification(`Tukar ke alam ${name}`);
+            showNotification(`Switch to universe ${name}`);
         }
 
         function createMission() {
@@ -1527,7 +1527,7 @@
             const budget = document.getElementById('newMissionBudget').value;
             
             if (!title || !budget) {
-                showNotification('Sila isi maklumat lengkap');
+                showNotification('Please fill in all information');
                 return;
             }
             
@@ -1539,10 +1539,10 @@
                 budget: parseInt(budget),
                 bids: 0,
                 match: 95,
-                tags: ['Projek Baru'],
-                status: 'Baru',
+                tags: ['New Project'],
+                status: 'New',
                 description: desc,
-                posted: 'Baru sahaja',
+                posted: 'Just now',
                 location: 'Malaysia'
             };
             
@@ -1552,35 +1552,35 @@
             renderMissions();
             updateStats();
             closeModal('createMissionModal');
-            showNotification(`Projek tender berjaya diterbitkan · Platform fee RM ${platformFeeAmount.toFixed(2)}`);
+            showNotification(`Project tender posted successfully · Platform fee RM ${platformFeeAmount.toFixed(2)}`);
         }
 
         function mintNFT() {
-            showNotification('Cipta NFT Kesedaran berjaya · LHDN auto');
+            showNotification('Consciousness NFT minted successfully · LHDN auto');
             appState.stats.nft += 1;
-            appState.user.nfts.push('Lencana LHDN');
+            appState.user.nfts.push('LHDN Badge');
             updateStats();
         }
 
         function enterMetaverse() {
-            showNotification('Masuk Metaverse · Online: 1,234');
+            showNotification('Enter Metaverse · Online: 1,234');
         }
 
         function bookRoom() {
-            showNotification('Tempah bilik berjaya · Bilik #42');
+            showNotification('Room booked successfully · Room #42');
         }
 
         function copyAPIKey() {
             navigator.clipboard.writeText('dev_malaysia_2026');
-            showNotification('API key disalin');
+            showNotification('API key copied');
         }
 
         function showAPIDetail(type) {
-            showNotification(`API ${type}: ${Math.floor(Math.random() * 100)} panggilan hari ini`);
+            showNotification(`API ${type}: ${Math.floor(Math.random() * 100)} calls today`);
         }
 
         function downloadTaxReport() {
-            showNotification('Laporan LHDN dimuat turun');
+            showNotification('LHDN report downloaded');
         }
 
         function generateInvoice() {
@@ -1603,7 +1603,7 @@
             appState.stats.platformFee += platformFee;
             renderInvoices();
             updateStats();
-            showNotification('Invoice baru dicipta · LHDN auto');
+            showNotification('New invoice created · LHDN auto');
         }
 
         function showAgentDetail() {
@@ -1611,15 +1611,15 @@
         }
 
         function createSmartContract() {
-            showNotification('Kontrak pintar baru dicipta di rantai Ethereum');
+            showNotification('New smart contract created on Ethereum chain');
         }
 
         function viewContracts() {
-            showNotification('Lihat semua kontrak pintar');
+            showNotification('View all smart contracts');
         }
 
         function voteDAO() {
-            showNotification('Undi anda telah direkodkan');
+            showNotification('Your vote has been recorded');
         }
 
         function viewMission(missionId) {
@@ -1629,13 +1629,13 @@
                 document.getElementById('missionModalTitle').textContent = mission.title;
                 document.getElementById('missionModalContent').innerHTML = `
                     <p>${mission.description}</p>
-                    <p>Bajet: RM ${mission.budget.toLocaleString()}</p>
-                    <p>Tender: ${mission.bids}</p>
-                    <p>Padanan AI: ${mission.match}%</p>
+                    <p>Budget: RM ${mission.budget.toLocaleString()}</p>
+                    <p>Bids: ${mission.bids}</p>
+                    <p>AI Match: ${mission.match}%</p>
                     <p>Status: ${mission.status}</p>
-                    <p>Diterbit: ${mission.posted}</p>
-                    <p>Lokasi: ${mission.location}</p>
-                    <p>Keperluan teknik: ${mission.tags.join(', ')}</p>
+                    <p>Posted: ${mission.posted}</p>
+                    <p>Location: ${mission.location}</p>
+                    <p>Tech requirements: ${mission.tags.join(', ')}</p>
                     <p style="margin-top: 10px; padding: 10px; background: rgba(249,115,22,0.1); border-radius: var(--radius-sm);">Platform Fee 5%: RM ${(mission.budget * 0.05).toFixed(2)}</p>
                 `;
                 openModal('missionModal');
@@ -1647,7 +1647,7 @@
             if (mission) {
                 mission.bids++;
                 renderMissions();
-                showNotification(`Tender projek: ${mission.title}`);
+                showNotification(`Bid placed: ${mission.title}`);
                 closeModal('missionModal');
             }
         }
@@ -1660,12 +1660,12 @@
                 document.getElementById('fighterModalContent').innerHTML = `
                     <p>${fighter.description}</p>
                     <p>Rating: ${fighter.rating} ⭐</p>
-                    <p>Harga: RM ${fighter.price}</p>
-                    <p>Padanan: ${fighter.match}%</p>
-                    <p>Tahap: ${fighter.level}</p>
-                    <p>Projek siap: ${fighter.completed}</p>
-                    <p>Kadar respons: ${fighter.response}</p>
-                    <p>Lokasi: ${fighter.location}</p>
+                    <p>Price: RM ${fighter.price}</p>
+                    <p>Match: ${fighter.match}%</p>
+                    <p>Level: ${fighter.level}</p>
+                    <p>Completed projects: ${fighter.completed}</p>
+                    <p>Response rate: ${fighter.response}</p>
+                    <p>Location: ${fighter.location}</p>
                 `;
                 document.getElementById('platformFeeAmount').textContent = (fighter.price * 0.05).toFixed(2);
                 document.getElementById('agentCommission').textContent = (fighter.price * 0.01).toFixed(2);
@@ -1696,12 +1696,12 @@
                     };
                     appState.invoices.push(invoice);
                     
-                    showNotification(`Berjaya upah ${fighter.name} · RM ${fighter.price} · Platform fee RM ${(fighter.price * 0.05).toFixed(2)} · Komisen RM ${(fighter.price * 0.01).toFixed(2)} · LHDN auto`);
+                    showNotification(`Hired ${fighter.name} · RM ${fighter.price} · Platform fee RM ${(fighter.price * 0.05).toFixed(2)} · Commission RM ${(fighter.price * 0.01).toFixed(2)} · LHDN auto`);
                     renderInvoices();
                     updateStats();
                     closeModal('fighterModal');
                 } else {
-                    showNotification('Baki tidak mencukupi, sila top up');
+                    showNotification('Insufficient balance, please top up');
                 }
             }
         }
@@ -1712,11 +1712,11 @@
         }
 
         function jumpToUniverse() {
-            showNotification('Lompat ke alam selari β-2');
+            showNotification('Jump to parallel universe β-2');
             closeModal('parallelModal');
         }
 
-        // 搜索功能
+        // Search function
         document.getElementById('searchInput').addEventListener('input', function(e) {
             const query = e.target.value.toLowerCase();
             if (query.length > 2) {
@@ -1727,14 +1727,14 @@
                 const missionResults = appState.missions.filter(m => 
                     m.title.toLowerCase().includes(query)
                 ).length;
-                showNotification(`Dijumpai ${fighterResults} freelancer, ${missionResults} projek`);
+                showNotification(`Found ${fighterResults} freelancers, ${missionResults} projects`);
             }
         });
 
-        // 初始化
+        // Initialize
         renderAll();
 
-        // 意识上传进度模拟
+        // Consciousness upload progress simulation
         setInterval(() => {
             if (appState.user.consciousness < 100) {
                 appState.user.consciousness += 0.1;
