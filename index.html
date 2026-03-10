@@ -9,455 +9,548 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        /* ===== Cosmic Variables ===== */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { font-size: 16px; }
-        body {
-            font-family: 'Inter', sans-serif;
-            background: radial-gradient(ellipse at 30% 40%, #0a0c1a 0%, #000000 100%);
-            color: #e0f2fe;
-            line-height: 1.5;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            position: relative;
-            overflow-x: hidden;
-        }
-
-        /* Holographic Grid Background */
-        body::after {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                linear-gradient(rgba(79, 70, 229, 0.05) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(79, 70, 229, 0.05) 1px, transparent 1px);
-            background-size: 50px 50px;
-            pointer-events: none;
-            z-index: 0;
+        /* ===== Modern Variables ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
         :root {
-            --primary: #4f46e5;
-            --primary-dark: #4338ca;
+            --primary: #6366f1;
+            --primary-dark: #4f46e5;
             --primary-light: #818cf8;
             --secondary: #8b5cf6;
             --accent: #ec4899;
             --success: #10b981;
             --warning: #f59e0b;
             --danger: #ef4444;
-            --quantum: #a78bfa;
-            --neural: #f472b6;
-            --meta: #c084fc;
-            --nft: #fbbf24;
-            --dao: #34d399;
-            --cosmic: #60a5fa;
-            --temporal: #6ee7b7;
-            --parallel: #c4b5fd;
-            --hologram: #38bdf8;
-            --consciousness: #fb7185;
-            --immortal: #a3e635;
-            --malaysia: #f97316;
-            --surface: rgba(15,23,42,0.8);
-            --surface-hover: rgba(30,41,59,0.9);
-            --surface-dark: rgba(2,6,23,0.95);
-            --text: #f1f5f9;
-            --text-light: #cbd5e1;
-            --text-muted: #94a3b8;
-            --border: rgba(51,65,85,0.5);
-            --border-light: rgba(71,85,105,0.5);
-            --shadow-sm: 0 4px 20px rgba(0,0,0,0.6);
-            --shadow-md: 0 8px 40px rgba(0,0,0,0.7);
-            --shadow-lg: 0 16px 60px rgba(0,0,0,0.8);
-            --radius-xs: 8px;
-            --radius-sm: 16px;
-            --radius-md: 24px;
-            --radius-lg: 32px;
-            --radius-xl: 48px;
-            --glow: 0 0 30px rgba(79,70,229,0.5);
-            --quantum-glow: 0 0 30px rgba(139,92,246,0.5);
-            --hologram-glow: 0 0 40px rgba(56,189,248,0.6);
+            --dark: #0f172a;
+            --darker: #020617;
+            --light: #f8fafc;
+            --gray: #94a3b8;
+            --dark-gray: #334155;
+            --surface: #ffffff;
+            --surface-dark: #1e293b;
+            --text: #0f172a;
+            --text-light: #64748b;
+            --border: #e2e8f0;
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+            --shadow-md: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+            --radius-sm: 0.375rem;
+            --radius: 0.5rem;
+            --radius-md: 0.75rem;
+            --radius-lg: 1rem;
+            --radius-xl: 1.5rem;
         }
 
-        /* ===== Holographic Container ===== */
-        .hologram-universe {
-            max-width: 2200px;
-            margin: 0 auto;
-            padding: 24px;
-            display: flex;
-            flex-direction: column;
-            gap: 28px;
-            position: relative;
-            z-index: 2;
-            perspective: 1000px;
-        }
-
-        /* ===== Holographic Starship ===== */
-        .hologram-ship {
-            background: var(--surface);
-            backdrop-filter: blur(20px);
-            border: 1px solid var(--border);
-            border-radius: var(--radius-lg);
-            box-shadow: var(--shadow-md), 0 0 0 1px rgba(79,70,229,0.2);
-            overflow: hidden;
-            position: relative;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            transform-style: preserve-3d;
-        }
-
-        .hologram-ship:hover {
-            border-color: var(--hologram);
-            box-shadow: var(--hologram-glow);
-            transform: translateY(-4px) rotateX(2deg);
-        }
-
-        .hologram-ship::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(56,189,248,0.1), transparent);
-            animation: hologram-scan 6s linear infinite;
-        }
-
-        @keyframes hologram-scan {
-            0% { left: -100%; }
-            50% { left: 100%; }
-            100% { left: 100%; }
-        }
-
-        .hologram-ship::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent), var(--quantum), var(--hologram));
-        }
-
-        /* ===== Holographic Bridge ===== */
-        .hologram-bridge {
-            padding: 28px;
-            background: linear-gradient(145deg, rgba(79,70,229,0.15), rgba(56,189,248,0.15));
-            border-bottom: 1px solid var(--border);
-            position: relative;
-        }
-
-        /* ===== 18-Column Holographic Grid ===== */
-        .hologram-grid {
-            display: grid;
-            grid-template-columns: repeat(18, 1fr);
-            gap: 20px;
-        }
-
-        .span-1 { grid-column: span 1; }
-        .span-2 { grid-column: span 2; }
-        .span-3 { grid-column: span 3; }
-        .span-4 { grid-column: span 4; }
-        .span-5 { grid-column: span 5; }
-        .span-6 { grid-column: span 6; }
-        .span-7 { grid-column: span 7; }
-        .span-8 { grid-column: span 8; }
-        .span-9 { grid-column: span 9; }
-        .span-10 { grid-column: span 10; }
-        .span-11 { grid-column: span 11; }
-        .span-12 { grid-column: span 12; }
-        .span-13 { grid-column: span 13; }
-        .span-14 { grid-column: span 14; }
-        .span-15 { grid-column: span 15; }
-        .span-16 { grid-column: span 16; }
-        .span-17 { grid-column: span 17; }
-        .span-18 { grid-column: span 18; }
-
-        @media (max-width: 1600px) {
-            .hologram-grid { grid-template-columns: repeat(12, 1fr); }
-            .span-4, .span-5, .span-6, .span-7, .span-8, .span-9, .span-10, .span-11, .span-12, .span-13, .span-14, .span-15, .span-16, .span-17, .span-18 { grid-column: span 12; }
-        }
-
-        @media (max-width: 1200px) {
-            .hologram-grid { grid-template-columns: repeat(6, 1fr); }
-            .span-3, .span-4, .span-5, .span-6, .span-7, .span-8, .span-9, .span-10, .span-11, .span-12 { grid-column: span 6; }
-        }
-
-        @media (max-width: 768px) {
-            .hologram-grid { grid-template-columns: 1fr; }
-            .span-1, .span-2, .span-3, .span-4, .span-5, .span-6, .span-7, .span-8, .span-9, .span-10, .span-11, .span-12, .span-13, .span-14, .span-15, .span-16, .span-17, .span-18 { grid-column: span 1; }
-        }
-
-        /* ===== Holographic Badges ===== */
-        .hologram-badge {
-            display: inline-flex;
-            align-items: center;
-            padding: 6px 18px;
-            border-radius: var(--radius-xl);
-            font-size: 0.75rem;
-            font-weight: 700;
-            gap: 8px;
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255,255,255,0.1);
-            box-shadow: 0 0 20px rgba(0,0,0,0.3);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hologram-badge::before {
-            content: '';
-            position: absolute;
-            top: -2px;
-            left: -2px;
-            right: -2px;
-            bottom: -2px;
-            background: linear-gradient(45deg, var(--primary), var(--secondary), var(--quantum));
-            opacity: 0.3;
-            filter: blur(10px);
-            z-index: -1;
-        }
-
-        .badge-primary { background: rgba(79,70,229,0.3); color: var(--primary-light); }
-        .badge-quantum { background: rgba(139,92,246,0.3); color: var(--quantum); }
-        .badge-nft { background: rgba(245,158,11,0.3); color: var(--nft); }
-        .badge-hologram { background: rgba(56,189,248,0.3); color: var(--hologram); }
-        .badge-consciousness { background: rgba(251,113,133,0.3); color: var(--consciousness); }
-        .badge-immortal { background: rgba(163,230,53,0.3); color: var(--immortal); }
-        .badge-malaysia { background: rgba(249,115,22,0.3); color: var(--malaysia); }
-        .badge-owner { background: linear-gradient(145deg, #f59e0b, #b45309); color: white; }
-        .badge-dao { background: linear-gradient(145deg, var(--dao), #047857); color: white; }
-
-        /* ===== Holographic Buttons ===== */
-        .hologram-btn {
-            padding: 12px 28px;
-            border-radius: var(--radius-xl);
-            border: none;
-            font-weight: 600;
-            font-size: 0.95rem;
-            cursor: pointer;
-            transition: all 0.3s;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            background: rgba(255,255,255,0.05);
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: var(--text);
-            border: 1px solid rgba(255,255,255,0.1);
+            line-height: 1.5;
+            min-height: 100vh;
+        }
+
+        /* ===== Layout ===== */
+        .app {
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 1rem;
+        }
+
+        /* ===== Glassmorphism ===== */
+        .glass {
+            background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
-            position: relative;
-            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: var(--shadow-lg);
         }
 
-        .hologram-btn::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            border-radius: 50%;
-            background: rgba(255,255,255,0.2);
-            transform: translate(-50%, -50%);
-            transition: width 0.6s, height 0.6s;
-        }
-
-        .hologram-btn:hover::before {
-            width: 300px;
-            height: 300px;
-        }
-
-        .hologram-btn.primary {
-            background: linear-gradient(145deg, rgba(79,70,229,0.8), rgba(56,189,248,0.8));
-            color: white;
-            border: none;
-            box-shadow: 0 0 30px rgba(79,70,229,0.5);
-        }
-
-        .hologram-btn.quantum {
-            background: linear-gradient(145deg, rgba(139,92,246,0.8), rgba(56,189,248,0.8));
-            color: white;
-            border: none;
-        }
-
-        .hologram-btn.malaysia {
-            background: linear-gradient(145deg, rgba(249,115,22,0.8), rgba(234,88,12,0.8));
-            color: white;
-            border: none;
-        }
-
-        .hologram-btn.block {
-            width: 100%;
-            justify-content: center;
-        }
-
-        /* ===== Holographic Data Core ===== */
-        .hologram-data {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 16px;
-        }
-
-        .data-core {
-            background: rgba(0,0,0,0.3);
+        .glass-dark {
+            background: rgba(15, 23, 42, 0.95);
             backdrop-filter: blur(10px);
-            border-radius: var(--radius-md);
-            padding: 24px;
-            text-align: center;
-            border: 1px solid rgba(255,255,255,0.05);
-            position: relative;
-            transform-style: preserve-3d;
-            transition: all 0.3s;
-            cursor: pointer;
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        .data-core:hover {
-            transform: translateZ(20px);
-            border-color: var(--hologram);
+        /* ===== Navigation ===== */
+        .navbar {
+            background: white;
+            border-radius: var(--radius-xl);
+            padding: 1rem 2rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
         }
 
-        .data-value {
-            font-size: 2.5rem;
-            font-weight: 900;
-            background: linear-gradient(145deg, var(--primary), var(--secondary), var(--hologram));
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            margin-bottom: 4px;
-            text-shadow: 0 0 20px rgba(79,70,229,0.5);
         }
 
-        /* ===== Holographic Fighter ===== */
-        .hologram-fleet {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 20px;
+        .logo i {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 2rem;
         }
 
-        .hologram-fighter {
-            background: rgba(0,0,0,0.3);
-            backdrop-filter: blur(10px);
-            border-radius: var(--radius-md);
-            border: 1px solid rgba(255,255,255,0.05);
-            overflow: hidden;
-            transition: all 0.3s;
-            cursor: pointer;
-            transform-style: preserve-3d;
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
         }
 
-        .hologram-fighter:hover {
-            transform: translateZ(30px) rotateX(2deg);
-            border-color: var(--hologram);
-            box-shadow: var(--hologram-glow);
+        .nav-link {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
         }
 
-        .hologram-cockpit {
-            height: 140px;
-            background: linear-gradient(145deg, #1e1e3f, #0a0a1f);
+        .nav-link:hover {
+            color: var(--primary);
+        }
+
+        .nav-link.active {
+            color: var(--primary);
+        }
+
+        .user-menu {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .avatar {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 3.2rem;
-            position: relative;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
+            color: white;
+            font-weight: 600;
         }
 
-        .hologram-scanner {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            background: rgba(56,189,248,0.3);
-            backdrop-filter: blur(5px);
-            color: var(--hologram);
-            padding: 4px 14px;
+        /* ===== Search Bar ===== */
+        .search-bar {
+            background: white;
             border-radius: var(--radius-xl);
-            font-size: 0.65rem;
-            font-weight: 700;
-            border: 1px solid rgba(56,189,248,0.3);
+            padding: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: var(--shadow);
+            margin-bottom: 2rem;
         }
 
-        .hologram-cabin {
-            padding: 18px;
+        .search-bar input {
+            flex: 1;
+            border: none;
+            padding: 0.75rem 1rem;
+            font-size: 1rem;
+            outline: none;
+            background: transparent;
         }
 
-        /* ===== Holographic Missions ===== */
-        .hologram-missions {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 16px;
-        }
-
-        .hologram-mission {
-            background: rgba(0,0,0,0.3);
-            backdrop-filter: blur(10px);
-            border-radius: var(--radius-md);
-            padding: 20px;
-            border: 1px solid rgba(255,255,255,0.05);
+        .search-bar button {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border: none;
+            color: white;
+            padding: 0.75rem 2rem;
+            border-radius: var(--radius-xl);
+            font-weight: 600;
             cursor: pointer;
-            transition: all 0.2s;
+            transition: transform 0.2s;
         }
 
-        .hologram-mission:hover {
-            border-color: var(--hologram);
+        .search-bar button:hover {
+            transform: scale(0.98);
+        }
+
+        /* ===== Stats Grid ===== */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            background: white;
+            border-radius: var(--radius-lg);
+            padding: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            box-shadow: var(--shadow);
+            transition: transform 0.2s;
+        }
+
+        .stat-card:hover {
             transform: translateY(-2px);
         }
 
-        /* ===== Consciousness Upload Progress ===== */
-        .consciousness-bar {
-            height: 10px;
-            background: rgba(255,255,255,0.05);
-            border-radius: 5px;
+        .stat-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--primary-light), var(--primary));
+            border-radius: var(--radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .stat-info h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--dark);
+        }
+
+        .stat-info p {
+            color: var(--text-light);
+            font-size: 0.875rem;
+        }
+
+        /* ===== Main Grid ===== */
+        .main-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        /* ===== Section Headers ===== */
+        .section-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+        }
+
+        .section-header h2 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        .view-all {
+            color: var(--primary);
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        /* ===== Service Cards ===== */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: var(--radius-lg);
             overflow: hidden;
-            margin: 12px 0;
+            box-shadow: var(--shadow);
+            transition: transform 0.2s;
+            cursor: pointer;
+        }
+
+        .service-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .service-image {
+            height: 150px;
+            background: linear-gradient(135deg, var(--primary-light), var(--secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
             position: relative;
         }
 
-        .consciousness-fill {
-            height: 100%;
-            background: linear-gradient(90deg, var(--consciousness), var(--hologram), var(--immortal));
-            border-radius: 5px;
-            position: relative;
-            animation: consciousness-pulse 2s ease-in-out infinite;
-        }
-
-        @keyframes consciousness-pulse {
-            0%, 100% { opacity: 0.8; }
-            50% { opacity: 1; }
-        }
-
-        /* ===== Holographic Portal ===== */
-        .hologram-portal {
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hologram-portal::before {
-            content: '';
+        .service-badge {
             position: absolute;
-            top: -20px;
-            left: -20px;
-            right: -20px;
-            bottom: -20px;
-            background: conic-gradient(from 0deg, var(--primary), var(--secondary), var(--quantum), var(--hologram), var(--consciousness), var(--immortal), var(--primary));
-            animation: portal-rotate 10s linear infinite;
-            opacity: 0.2;
-            border-radius: inherit;
-            z-index: -1;
+            top: 0.5rem;
+            left: 0.5rem;
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: var(--radius-xl);
+            font-size: 0.75rem;
+            font-weight: 600;
+            backdrop-filter: blur(4px);
         }
 
-        @keyframes portal-rotate {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+        .service-content {
+            padding: 1rem;
         }
 
-        /* ===== Universe Footer ===== */
-        .universe-footer {
-            border-top: 2px solid rgba(255,255,255,0.05);
-            margin-top: 40px;
-            padding: 32px 24px;
-            background: rgba(0,0,0,0.5);
-            backdrop-filter: blur(20px);
+        .service-seller {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .seller-avatar {
+            width: 24px;
+            height: 24px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .service-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+
+        .service-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .service-rating {
+            color: #fbbf24;
+            font-size: 0.875rem;
+        }
+
+        .service-price {
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        /* ===== Project Cards ===== */
+        .projects-list {
+            background: white;
+            border-radius: var(--radius-lg);
+            padding: 1rem;
+            box-shadow: var(--shadow);
+        }
+
+        .project-item {
+            padding: 1rem;
+            border-bottom: 1px solid var(--border);
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .project-item:last-child {
+            border-bottom: none;
+        }
+
+        .project-item:hover {
+            background: #f8fafc;
+        }
+
+        .project-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-title {
+            font-weight: 600;
+            color: var(--dark);
+        }
+
+        .project-badge {
+            background: var(--primary-light);
+            color: var(--primary-dark);
+            padding: 0.25rem 0.75rem;
+            border-radius: var(--radius-xl);
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .project-meta {
+            display: flex;
+            gap: 1rem;
+            color: var(--text-light);
+            font-size: 0.875rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .project-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background: #f1f5f9;
+            color: var(--dark);
+            padding: 0.25rem 0.75rem;
+            border-radius: var(--radius-xl);
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        /* ===== Activity List ===== */
+        .activity-list {
+            background: white;
+            border-radius: var(--radius-lg);
+            padding: 1rem;
+            box-shadow: var(--shadow);
+        }
+
+        .activity-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .activity-item:last-child {
+            border-bottom: none;
+        }
+
+        .activity-avatar {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--primary-light), var(--primary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+        }
+
+        .activity-content p {
+            font-weight: 500;
+            color: var(--dark);
+            margin-bottom: 0.25rem;
+        }
+
+        .activity-time {
+            font-size: 0.75rem;
+            color: var(--text-light);
+        }
+
+        /* ===== Feature Grid ===== */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .feature-card {
+            background: white;
+            border-radius: var(--radius-lg);
+            padding: 1.5rem;
+            box-shadow: var(--shadow);
+            transition: transform 0.2s;
+            cursor: pointer;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-2px);
+        }
+
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--primary-light), var(--primary));
+            border-radius: var(--radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .feature-card p {
+            color: var(--text-light);
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-stats {
+            display: flex;
+            justify-content: space-between;
+            color: var(--text-light);
+            font-size: 0.75rem;
+        }
+
+        /* ===== Agent Tree ===== */
+        .agent-tree {
+            background: white;
+            border-radius: var(--radius-lg);
+            padding: 1.5rem;
+            box-shadow: var(--shadow);
+            margin-bottom: 2rem;
+        }
+
+        .tree-nodes {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+
+        .tree-node {
+            text-align: center;
+            padding: 1rem;
+            background: #f8fafc;
+            border-radius: var(--radius);
+        }
+
+        .tree-node i {
+            font-size: 2rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .tree-node .role {
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 0.25rem;
+        }
+
+        .tree-node .rate {
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 0.875rem;
         }
 
         /* ===== Modal ===== */
@@ -467,8 +560,8 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(0,0,0,0.8);
-            backdrop-filter: blur(20px);
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(8px);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -483,152 +576,126 @@
             visibility: visible;
         }
 
-        .modal-content {
-            background: var(--surface);
+        .modal {
+            background: white;
             border-radius: var(--radius-lg);
-            padding: 32px;
+            padding: 2rem;
             max-width: 500px;
             width: 90%;
-            border: 1px solid var(--hologram);
-            box-shadow: var(--hologram-glow);
             max-height: 80vh;
             overflow-y: auto;
+            box-shadow: var(--shadow-lg);
         }
 
-        /* ===== Notification ===== */
-        .notification {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background: var(--surface);
-            border-left: 4px solid var(--hologram);
-            border-radius: var(--radius-sm);
-            padding: 16px 24px;
-            color: var(--text);
-            box-shadow: var(--hologram-glow);
-            z-index: 2000;
-            animation: slideIn 0.3s ease;
-        }
-
-        @keyframes slideIn {
-            from { transform: translateX(100%); opacity: 0; }
-            to { transform: translateX(0); opacity: 1; }
-        }
-
-        /* ===== Wallet Display ===== */
-        .wallet-display {
-            background: rgba(0,0,0,0.3);
-            border-radius: var(--radius-xl);
-            padding: 8px 20px;
-            border: 1px solid var(--hologram);
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        /* ===== Contact Info ===== */
-        .contact-info {
-            position: fixed;
-            bottom: 20px;
-            left: 20px;
-            background: rgba(0,0,0,0.5);
-            backdrop-filter: blur(10px);
-            border-radius: var(--radius-xl);
-            padding: 12px 24px;
-            border: 1px solid var(--hologram);
-            color: var(--text);
-            font-size: 0.9rem;
-            z-index: 100;
+        .modal-header {
             display: flex;
-            gap: 20px;
             align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1.5rem;
         }
 
-        .contact-info i {
-            color: var(--malaysia);
-            margin-right: 8px;
-        }
-
-        .contact-info a {
-            color: var(--hologram);
-            text-decoration: none;
-        }
-
-        .contact-info a:hover {
-            text-decoration: underline;
-        }
-
-        /* ===== Owner Badge ===== */
-        .owner-badge {
-            background: linear-gradient(145deg, #f59e0b, #b45309);
-            color: white;
-            padding: 4px 16px;
-            border-radius: var(--radius-xl);
+        .modal-header h2 {
+            font-size: 1.5rem;
             font-weight: 600;
-            font-size: 0.8rem;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            box-shadow: 0 0 20px rgba(245,158,11,0.5);
+            color: var(--dark);
         }
 
-        /* ===== Agent Tree ===== */
-        .agent-tree {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 8px;
-            margin: 16px 0;
+        .modal-close {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-light);
         }
 
-        .agent-node {
-            background: rgba(0,0,0,0.3);
-            border-radius: var(--radius-sm);
-            padding: 12px;
-            text-align: center;
-            border: 1px solid var(--border);
+        .modal-body p {
+            margin-bottom: 0.5rem;
+            color: var(--text-light);
         }
 
-        /* ===== Auth Container ===== */
+        .modal-footer {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: var(--radius);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            flex: 1;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: scale(0.98);
+        }
+
+        .btn-secondary {
+            background: var(--light);
+            color: var(--dark);
+        }
+
+        .btn-secondary:hover {
+            background: var(--border);
+        }
+
+        /* ===== Auth Forms ===== */
         .auth-container {
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 20px;
+            padding: 1rem;
         }
 
         .auth-card {
-            background: var(--surface);
-            backdrop-filter: blur(20px);
-            border: 1px solid var(--hologram);
+            background: white;
             border-radius: var(--radius-lg);
-            padding: 40px;
-            max-width: 450px;
+            padding: 2rem;
+            max-width: 400px;
             width: 100%;
-            box-shadow: var(--hologram-glow);
+            box-shadow: var(--shadow-lg);
         }
 
         .auth-tabs {
             display: flex;
-            gap: 16px;
-            margin-bottom: 32px;
-            border-bottom: 1px solid var(--border);
-            padding-bottom: 16px;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid var(--border);
+            padding-bottom: 1rem;
         }
 
         .auth-tab {
             flex: 1;
             text-align: center;
-            padding: 12px;
+            padding: 0.75rem;
             cursor: pointer;
-            border-radius: var(--radius-md);
-            transition: all 0.3s;
             font-weight: 600;
+            color: var(--text-light);
+            transition: all 0.2s;
         }
 
         .auth-tab.active {
-            background: linear-gradient(145deg, rgba(79,70,229,0.2), rgba(56,189,248,0.2));
-            color: var(--hologram);
+            color: var(--primary);
+            position: relative;
+        }
+
+        .auth-tab.active::after {
+            content: '';
+            position: absolute;
+            bottom: -1rem;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
         }
 
         .auth-form {
@@ -639,108 +706,177 @@
             display: block;
         }
 
-        .auth-input {
+        .auth-form input,
+        .auth-form select {
             width: 100%;
-            padding: 16px 20px;
-            margin-bottom: 20px;
-            background: rgba(0,0,0,0.3);
+            padding: 0.75rem 1rem;
+            margin-bottom: 1rem;
             border: 1px solid var(--border);
-            border-radius: var(--radius-md);
-            color: var(--text);
+            border-radius: var(--radius);
             font-size: 1rem;
-            transition: all 0.3s;
-        }
-
-        .auth-input:focus {
             outline: none;
-            border-color: var(--hologram);
-            box-shadow: 0 0 20px rgba(56,189,248,0.3);
+            transition: border-color 0.2s;
         }
 
-        .auth-input::placeholder {
-            color: var(--text-muted);
+        .auth-form input:focus,
+        .auth-form select:focus {
+            border-color: var(--primary);
         }
 
         .auth-button {
             width: 100%;
-            padding: 16px;
-            background: linear-gradient(145deg, var(--primary), var(--secondary));
-            border: none;
-            border-radius: var(--radius-md);
+            padding: 0.75rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: white;
-            font-size: 1.1rem;
+            border: none;
+            border-radius: var(--radius);
             font-weight: 600;
             cursor: pointer;
-            transition: all 0.3s;
-            margin-top: 20px;
+            transition: transform 0.2s;
         }
 
         .auth-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 0 30px rgba(79,70,229,0.5);
+            transform: scale(0.98);
         }
 
         .auth-switch {
             text-align: center;
-            margin-top: 20px;
+            margin-top: 1rem;
             color: var(--text-light);
         }
 
         .auth-switch span {
-            color: var(--hologram);
+            color: var(--primary);
             cursor: pointer;
             font-weight: 600;
         }
 
-        .auth-switch span:hover {
-            text-decoration: underline;
+        /* ===== Notification ===== */
+        .notification {
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            background: white;
+            border-left: 4px solid var(--primary);
+            border-radius: var(--radius);
+            padding: 1rem 1.5rem;
+            box-shadow: var(--shadow-lg);
+            z-index: 2000;
+            animation: slideIn 0.3s ease;
         }
 
-        /* ===== Main Content ===== */
-        .main-content {
-            display: none;
+        @keyframes slideIn {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
         }
 
-        .main-content.visible {
-            display: block;
-        }
-
-        .logout-btn {
-            background: rgba(239,68,68,0.2);
-            color: var(--danger);
-            border: 1px solid var(--danger);
-        }
-
-        .logout-btn:hover {
-            background: rgba(239,68,68,0.3);
-        }
-
-        .user-menu {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .user-avatar {
-            width: 44px;
-            height: 44px;
-            background: linear-gradient(145deg, var(--primary), var(--secondary));
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 600;
-            font-size: 1.2rem;
+        /* ===== Footer ===== */
+        .footer {
+            text-align: center;
+            padding: 2rem;
             color: white;
+            font-size: 0.875rem;
+        }
+
+        /* ===== Responsive ===== */
+        @media (max-width: 1024px) {
+            .main-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .feature-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* ===== Owner Badge ===== */
+        .owner-badge {
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: var(--radius-xl);
+            font-size: 0.75rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        /* ===== Progress Bar ===== */
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: #e2e8f0;
+            border-radius: 4px;
+            overflow: hidden;
+            margin: 0.5rem 0;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 4px;
+            transition: width 0.3s;
+        }
+
+        /* ===== Contact Info ===== */
+        .contact-info {
+            position: fixed;
+            bottom: 1rem;
+            left: 1rem;
+            background: white;
+            border-radius: var(--radius-xl);
+            padding: 0.75rem 1.5rem;
+            box-shadow: var(--shadow-lg);
+            display: flex;
+            gap: 1.5rem;
+            z-index: 100;
+            font-size: 0.875rem;
+        }
+
+        .contact-info a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .contact-info i {
+            color: var(--primary);
+            margin-right: 0.25rem;
         }
     </style>
 </head>
 <body>
-    <!-- Contact Info Floating Bar -->
+    <!-- Contact Info -->
     <div class="contact-info">
         <span><i class="fas fa-phone"></i> <a href="tel:+601156649657">011-56649657</a></span>
         <span><i class="fas fa-envelope"></i> <a href="mailto:tuantuanxiongmaoyouxizhubo@gmail.com">tuantuanxiongmaoyouxizhubo@gmail.com</a></span>
-        <span class="owner-badge"><i class="fas fa-crown"></i> Platform Owner</span>
+        <span class="owner-badge"><i class="fas fa-crown"></i> Owner</span>
     </div>
 
     <!-- Auth Container -->
@@ -753,8 +889,8 @@
 
             <!-- Login Form -->
             <div id="loginForm" class="auth-form active">
-                <input type="email" id="loginEmail" class="auth-input" placeholder="Email" value="">
-                <input type="password" id="loginPassword" class="auth-input" placeholder="Password" value="">
+                <input type="email" id="loginEmail" placeholder="Email" value="">
+                <input type="password" id="loginPassword" placeholder="Password" value="">
                 <button class="auth-button" onclick="login()">Login</button>
                 <div class="auth-switch">
                     Don't have an account? <span onclick="switchAuthTab('register')">Register</span>
@@ -763,22 +899,17 @@
 
             <!-- Register Form -->
             <div id="registerForm" class="auth-form">
-                <input type="text" id="regName" class="auth-input" placeholder="Full Name">
-                <input type="email" id="regEmail" class="auth-input" placeholder="Email">
-                <input type="password" id="regPassword" class="auth-input" placeholder="Password (min. 6 characters)">
-                <input type="password" id="regConfirmPassword" class="auth-input" placeholder="Confirm Password">
-                <select id="regRole" class="auth-input">
+                <input type="text" id="regName" placeholder="Full Name">
+                <input type="email" id="regEmail" placeholder="Email">
+                <input type="password" id="regPassword" placeholder="Password (min. 6 characters)">
+                <input type="password" id="regConfirmPassword" placeholder="Confirm Password">
+                <select id="regRole">
                     <option value="buyer">Buyer / Client</option>
                     <option value="freelancer">Freelancer</option>
                     <option value="agent">Agent</option>
                 </select>
-                <input type="text" id="regPhone" class="auth-input" placeholder="Phone Number (e.g., 0123456789)">
-                <input type="text" id="regTaxId" class="auth-input" placeholder="Tax ID / SSM (Optional)">
-                <div style="margin-bottom: 20px; padding: 12px; background: rgba(249,115,22,0.1); border-radius: var(--radius-sm);">
-                    <p style="color: var(--text-light); font-size: 0.9rem;">
-                        <i class="fas fa-info-circle"></i> By registering, you agree to our Terms of Service and Privacy Policy.
-                    </p>
-                </div>
+                <input type="text" id="regPhone" placeholder="Phone Number (e.g., 0123456789)">
+                <input type="text" id="regTaxId" placeholder="Tax ID / SSM (Optional)">
                 <button class="auth-button" onclick="register()">Register</button>
                 <div class="auth-switch">
                     Already have an account? <span onclick="switchAuthTab('login')">Login</span>
@@ -788,734 +919,415 @@
     </div>
 
     <!-- Main Content -->
-    <div id="mainContent" class="main-content">
-        <!-- Holographic Universe -->
-        <div class="hologram-universe">
-            <!-- Main Holographic Bridge -->
-            <div class="hologram-ship hologram-portal">
-                <div class="hologram-bridge">
-                    <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 20px;">
-                        <div style="display: flex; align-items: center; gap: 28px;">
-                            <div style="width: 72px; height: 72px; background: linear-gradient(145deg, var(--primary), var(--secondary), var(--hologram)); border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center; color: white; font-size: 2.4rem; box-shadow: var(--glow); transform: rotateY(10deg);">
-                                <i class="fas fa-atom"></i>
-                            </div>
-                            <div>
-                                <div style="display: flex; align-items: center; gap: 20px; flex-wrap: wrap;">
-                                    <span style="font-weight: 900; font-size: 2.8rem; background: linear-gradient(145deg, var(--primary), var(--secondary), var(--quantum), var(--hologram)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; filter: drop-shadow(0 0 20px rgba(79,70,229,0.5));">NovaServe Malaysia</span>
-                                    <span class="hologram-badge badge-malaysia"><i class="fas fa-flag"></i> Freelance Platform Malaysia</span>
-                                    <span class="hologram-badge badge-quantum"><i class="fas fa-infinity"></i> Quantum 99.999%</span>
-                                    <span class="hologram-badge badge-owner"><i class="fas fa-crown"></i> Owner: tuantuanxiongmaoyouxizhubo</span>
-                                </div>
-                                <div style="display: flex; gap: 28px; margin-top: 12px;">
-                                    <span><i class="fas fa-users" style="color: var(--primary);"></i> <span id="totalUsers">12,345</span>  freelancers Malaysia</span>
-                                    <span><i class="fas fa-rocket" style="color: var(--secondary);"></i> <span id="activeFighters">892</span>  active services</span>
-                                    <span><i class="fas fa-coins" style="color: var(--nft);"></i> <span id="platformFee">RM 45,678</span>  platform fee</span>
-                                    <span><i class="fas fa-crown" style="color: var(--nft);"></i> <span id="parallelUniverses">7</span>  parallel universes</span>
-                                </div>
-                            </div>
+    <div id="mainContent" class="app" style="display: none;">
+        <!-- Navigation -->
+        <nav class="navbar">
+            <div class="logo">
+                <i class="fas fa-rocket"></i>
+                NovaServe
+            </div>
+            <div class="nav-links">
+                <a href="#" class="nav-link active" onclick="navigateTo('dashboard')"><i class="fas fa-home"></i> Dashboard</a>
+                <a href="#" class="nav-link" onclick="navigateTo('marketplace')"><i class="fas fa-store"></i> Marketplace</a>
+                <a href="#" class="nav-link" onclick="navigateTo('projects')"><i class="fas fa-tasks"></i> Projects</a>
+                <a href="#" class="nav-link" onclick="navigateTo('agents')"><i class="fas fa-users"></i> Agents</a>
+                <a href="#" class="nav-link" onclick="navigateTo('analytics')"><i class="fas fa-chart-line"></i> Analytics</a>
+            </div>
+            <div class="user-menu">
+                <span class="owner-badge" id="userRole">Guest</span>
+                <div class="avatar" id="userAvatar">G</div>
+                <button class="btn btn-secondary" onclick="logout()">Logout</button>
+            </div>
+        </nav>
+
+        <!-- Search Bar -->
+        <div class="search-bar">
+            <i class="fas fa-search" style="color: var(--text-light); margin-left: 1rem;"></i>
+            <input type="text" id="searchInput" placeholder="Search services, freelancers, projects...">
+            <button onclick="search()">Search</button>
+        </div>
+
+        <!-- Stats Grid -->
+        <div class="stats-grid">
+            <div class="stat-card" onclick="showDetail('services')">
+                <div class="stat-icon"><i class="fas fa-briefcase"></i></div>
+                <div class="stat-info">
+                    <h3 id="statServices">1,234</h3>
+                    <p>Active Services</p>
+                </div>
+            </div>
+            <div class="stat-card" onclick="showDetail('projects')">
+                <div class="stat-icon"><i class="fas fa-tasks"></i></div>
+                <div class="stat-info">
+                    <h3 id="statProjects">56</h3>
+                    <p>Open Projects</p>
+                </div>
+            </div>
+            <div class="stat-card" onclick="showDetail('freelancers')">
+                <div class="stat-icon"><i class="fas fa-users"></i></div>
+                <div class="stat-info">
+                    <h3 id="statFreelancers">892</h3>
+                    <p>Freelancers Online</p>
+                </div>
+            </div>
+            <div class="stat-card" onclick="showDetail('platformFee')">
+                <div class="stat-icon"><i class="fas fa-coins"></i></div>
+                <div class="stat-info">
+                    <h3 id="statPlatformFee">RM 45.6k</h3>
+                    <p>Platform Fee (5%)</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Grid -->
+        <div class="main-grid">
+            <!-- Left Column -->
+            <div>
+                <!-- Services Section -->
+                <div class="section-header">
+                    <h2>Popular Services</h2>
+                    <a href="#" class="view-all" onclick="navigateTo('marketplace')">View All →</a>
+                </div>
+                <div class="services-grid" id="servicesGrid">
+                    <!-- Services will be dynamically generated -->
+                </div>
+
+                <!-- Projects Section -->
+                <div class="section-header" style="margin-top: 2rem;">
+                    <h2>Recent Projects</h2>
+                    <a href="#" class="view-all" onclick="navigateTo('projects')">View All →</a>
+                </div>
+                <div class="projects-list" id="projectsList">
+                    <!-- Projects will be dynamically generated -->
+                </div>
+            </div>
+
+            <!-- Right Column -->
+            <div>
+                <!-- Activity Feed -->
+                <div class="section-header">
+                    <h2>Recent Activity</h2>
+                </div>
+                <div class="activity-list" id="activityList">
+                    <!-- Activity will be dynamically generated -->
+                </div>
+
+                <!-- Agent System -->
+                <div class="section-header" style="margin-top: 2rem;">
+                    <h2>Agent System</h2>
+                </div>
+                <div class="agent-tree">
+                    <div class="tree-nodes">
+                        <div class="tree-node">
+                            <i class="fas fa-crown"></i>
+                            <div class="role">Owner</div>
+                            <div class="rate">5%</div>
                         </div>
-                        
-                        <div class="user-menu">
-                            <div class="wallet-display">
-                                <i class="fas fa-coins" style="color: var(--nft);"></i>
-                                <span id="userBalance">15,800</span> RM
-                            </div>
-                            <div class="user-avatar" id="userAvatar">A</div>
-                            <div class="hologram-btn primary" onclick="showNotification('Holographic alert activated')"><i class="fas fa-bell"></i> Alert</div>
-                            <div class="hologram-btn owner-badge" onclick="openModal('ownerModal')"><i class="fas fa-crown"></i> Owner</div>
-                            <div class="hologram-btn logout-btn" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Logout</div>
+                        <div class="tree-node">
+                            <i class="fas fa-star"></i>
+                            <div class="role">Master Agent</div>
+                            <div class="rate">2%</div>
+                        </div>
+                        <div class="tree-node">
+                            <i class="fas fa-user"></i>
+                            <div class="role">Regular Agent</div>
+                            <div class="rate">1%</div>
                         </div>
                     </div>
+                    <div style="display: flex; justify-content: space-between; margin-top: 1rem;">
+                        <span><strong>Your Commission:</strong> RM 234</span>
+                        <span><strong>Downline:</strong> 15 agents</span>
+                    </div>
                 </div>
-                
-                <!-- Holographic Search Corridor -->
-                <div style="padding: 24px; border-bottom: 1px solid rgba(255,255,255,0.05);">
-                    <div style="display: flex; gap: 20px; align-items: center; flex-wrap: wrap;">
-                        <div style="flex: 1; position: relative; min-width: 350px;">
-                            <input type="text" id="searchInput" placeholder="🌌  Search services, freelancers, projects..." style="width: 100%; padding: 20px 32px; border-radius: var(--radius-xl); background: rgba(0,0,0,0.5); border: 2px solid rgba(255,255,255,0.1); color: var(--text); font-size: 1rem; backdrop-filter: blur(10px);">
-                            <span style="position: absolute; right: 24px; top: 50%; transform: translateY(-50%); width: 14px; height: 14px; background: var(--hologram); border-radius: 50%; animation: quantum-pulse 2s infinite;"></span>
+
+                <!-- Features Grid -->
+                <div class="feature-grid">
+                    <div class="feature-card" onclick="openModal('quantumModal')">
+                        <div class="feature-icon"><i class="fas fa-atom"></i></div>
+                        <h3>Quantum Space</h3>
+                        <p>512 qubits · 99.99% entanglement</p>
+                        <div class="feature-stats">
+                            <span>Active</span>
+                            <span>→</span>
                         </div>
-                        <div style="display: flex; gap: 10px; flex-wrap: wrap;">
-                            <div class="hologram-btn primary" onclick="navigateTo('command')">Command Center</div>
-                            <div class="hologram-btn" onclick="navigateTo('market')">Marketplace</div>
-                            <div class="hologram-btn" onclick="navigateTo('missions')">Mission Control</div>
-                            <div class="hologram-btn quantum" onclick="openModal('quantumModal')">Quantum Space</div>
-                            <div class="hologram-btn" onclick="navigateTo('metaverse')">Metaverse</div>
-                            <div class="hologram-btn" onclick="openModal('parallelModal')">Parallel Universe</div>
-                            <div class="hologram-btn" onclick="openModal('taxModal')">LHDN</div>
-                            <div class="hologram-btn" onclick="openModal('invoiceModal')">Invoice</div>
-                            <div class="hologram-btn" onclick="openModal('daoModal')">DAO</div>
-                            <div class="hologram-btn" onclick="openModal('agentModal')">Agent System</div>
+                    </div>
+                    <div class="feature-card" onclick="openModal('metaverseModal')">
+                        <div class="feature-icon"><i class="fas fa-vr-cardboard"></i></div>
+                        <h3>Metaverse</h3>
+                        <p>1,234 online · 56 rooms</p>
+                        <div class="feature-stats">
+                            <span>Enter</span>
+                            <span>→</span>
+                        </div>
+                    </div>
+                    <div class="feature-card" onclick="openModal('nftModal')">
+                        <div class="feature-icon"><i class="fas fa-image"></i></div>
+                        <h3>NFT Studio</h3>
+                        <p>3,245 badges minted</p>
+                        <div class="feature-stats">
+                            <span>Mint</span>
+                            <span>→</span>
+                        </div>
+                    </div>
+                    <div class="feature-card" onclick="openModal('daoModal')">
+                        <div class="feature-icon"><i class="fas fa-vote-yea"></i></div>
+                        <h3>DAO Governance</h3>
+                        <p>3 active proposals</p>
+                        <div class="feature-stats">
+                            <span>Vote</span>
+                            <span>→</span>
+                        </div>
+                    </div>
+                    <div class="feature-card" onclick="openModal('consciousnessModal')">
+                        <div class="feature-icon"><i class="fas fa-brain"></i></div>
+                        <h3>Consciousness</h3>
+                        <p>87% uploaded</p>
+                        <div class="feature-stats">
+                            <span>Continue</span>
+                            <span>→</span>
+                        </div>
+                    </div>
+                    <div class="feature-card" onclick="openModal('parallelModal')">
+                        <div class="feature-icon"><i class="fas fa-clock"></i></div>
+                        <h3>Parallel Universe</h3>
+                        <p>7/42 explored</p>
+                        <div class="feature-stats">
+                            <span>Explore</span>
+                            <span>→</span>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
 
-            <!-- 18-Column Holographic Grid -->
-            <div class="hologram-grid">
-                <!-- Row 1: Welcome Bridge + Consciousness Core (18 columns) -->
-                <div class="span-18">
-                    <div class="hologram-ship hologram-portal" style="background: linear-gradient(145deg, rgba(79,70,229,0.2), rgba(56,189,248,0.2));">
-                        <div style="display: flex; justify-content: space-between; align-items: center; padding: 28px;">
-                            <div>
-                                <h1 style="font-size: 2.6rem; margin-bottom: 12px; display: flex; align-items: center; gap: 20px;">
-                                    Welcome, <span id="userName">Alex</span> 👨‍🚀
-                                    <span class="hologram-badge badge-consciousness" style="font-size: 1rem;" id="consciousnessDisplay">Consciousness 87%</span>
-                                    <span class="hologram-badge badge-immortal" style="font-size: 1rem;" id="immortalDisplay">Digital Immortality</span>
-                                    <span class="hologram-badge badge-malaysia" style="font-size: 1rem;">Malaysia</span>
-                                </h1>
-                                <p style="color: var(--text-light); font-size: 1.1rem;">Quantum match <span class="hologram-badge badge-primary" style="font-size: 1rem;" id="matchRate">98.7%</span> · <span id="todayTasks">12</span> high priority missions today · <span id="universesCount">7</span> parallel universes · LHDN ready</p>
-                            </div>
-                            <div style="display: flex; gap: 16px;">
-                                <button class="hologram-btn quantum" style="padding: 18px 36px; font-size: 1.1rem;" onclick="startUpload()">
-                                    <i class="fas fa-infinity"></i> Start Consciousness Upload
-                                </button>
-                                <button class="hologram-btn" style="padding: 18px 36px;" onclick="toggleHologram()">
-                                    <i class="fas fa-cube"></i> Hologram
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Row 2: Holographic Data Core (18 columns) -->
-                <div class="span-18">
-                    <div class="hologram-ship">
-                        <div class="hologram-data">
-                            <div class="data-core" onclick="showDetail('fighters')">
-                                <div class="data-value" id="statFighters">1,234</div>
-                                <div class="data-label">Active Services</div>
-                            </div>
-                            <div class="data-core" onclick="showDetail('missions')">
-                                <div class="data-value" id="statMissions">56</div>
-                                <div class="data-label">Project Tenders</div>
-                            </div>
-                            <div class="data-core" onclick="showDetail('crew')">
-                                <div class="data-value" id="statCrew">892</div>
-                                <div class="data-label">Freelancers Online</div>
-                            </div>
-                            <div class="data-core" onclick="showDetail('match')">
-                                <div class="data-value" id="statMatch">98%</div>
-                                <div class="data-label">Quantum Match</div>
-                            </div>
-                            <div class="data-core" onclick="showDetail('nft')">
-                                <div class="data-value" id="statNFT">2.5k</div>
-                                <div class="data-label">NFT Badges</div>
-                            </div>
-                            <div class="data-core" onclick="showDetail('volume')">
-                                <div class="data-value" id="statVolume">1.2M</div>
-                                <div class="data-label">Total Volume</div>
-                            </div>
-                            <div class="data-core" onclick="showDetail('platformFee')">
-                                <div class="data-value" id="statPlatformFee">45.6k</div>
-                                <div class="data-label">Platform Fee (5%)</div>
-                            </div>
-                            <div class="data-core" onclick="showDetail('tax')">
-                                <div class="data-value" id="statTax">98%</div>
-                                <div class="data-label">LHDN Compliance</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Row 3: Holographic Fighter Squadron + Consciousness Logs + Parallel Universe Status -->
-                <div class="span-10">
-                    <div class="hologram-ship">
-                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
-                            <div style="display: flex; align-items: center; gap: 16px;">
-                                <i class="fas fa-fighter-jet" style="color: var(--hologram); font-size: 1.8rem;"></i>
-                                <h2 style="font-size: 1.6rem;">Freelance Services</h2>
-                                <span class="hologram-badge badge-quantum">Match 98%</span>
-                                <span class="hologram-badge badge-malaysia">Malaysia</span>
-                            </div>
-                            <button class="hologram-btn primary" onclick="scanAll()">Full Scan →</button>
-                        </div>
-
-                        <div class="hologram-fleet" id="fighterFleet">
-                            <!-- Fighters will be dynamically generated by JS -->
-                        </div>
-                    </div>
-                </div>
-
-                <div class="span-5">
-                    <!-- Quantum AI Holographic Chamber -->
-                    <div class="hologram-ship" style="margin-bottom: 24px;">
-                        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 16px;">
-                            <i class="fas fa-robot" style="color: var(--hologram); font-size: 2rem;"></i>
-                            <h3>Quantum AI</h3>
-                            <span class="hologram-badge badge-hologram" style="margin-left: auto;" id="aiStatus">Online</span>
-                        </div>
-                        <div style="background: rgba(56,189,248,0.1); border-radius: var(--radius-md); padding: 20px;">
-                            <p style="font-size: 1rem; margin-bottom: 16px;"><span id="quantumBitsAI">512</span> quantum bits · Real-time analysis</p>
-                            <div class="consciousness-bar">
-                                <div class="consciousness-fill" id="aiProgress" style="width: 98%;"></div>
-                            </div>
-                            <div style="display: flex; gap: 10px; margin-top: 20px;">
-                                <button class="hologram-btn quantum" style="flex: 1;" onclick="startAIConversation()">AI Dialog</button>
-                                <button class="hologram-btn" style="flex: 1;" onclick="linkConsciousness()">Link Consciousness</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Consciousness Upload Logs -->
-                    <div class="hologram-ship">
-                        <div style="display: flex; justify-content: space-between; margin-bottom: 16px;">
-                            <div style="display: flex; align-items: center; gap: 8px;">
-                                <i class="fas fa-brain" style="color: var(--consciousness);"></i>
-                                <h3>Consciousness Logs</h3>
-                            </div>
-                            <span class="hologram-badge badge-consciousness" id="logStatus">Real-time</span>
-                        </div>
-                        
-                        <div class="activity-stream" id="consciousnessLogs">
-                            <!-- Logs will be dynamically generated by JS -->
-                        </div>
-                    </div>
-                </div>
-
-                <div class="span-3">
-                    <!-- Parallel Universe Status -->
-                    <div class="hologram-ship hologram-portal" style="height: 100%;">
-                        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 16px;">
-                            <i class="fas fa-clock" style="color: var(--parallel);"></i>
-                            <h3>Parallel Universes</h3>
-                        </div>
-
-                        <div style="display: grid; gap: 12px; margin-bottom: 16px;" id="universesList">
-                            <!-- Universe status will be dynamically generated by JS -->
-                        </div>
-
-                        <button class="hologram-btn block" style="background: linear-gradient(145deg, var(--parallel), var(--temporal));" onclick="exploreNewUniverse()">
-                            <i class="fas fa-infinity"></i> Explore New Universe
-                        </button>
-                    </div>
-                </div>
-
-                <!-- Row 4: Mission Control Center + Neural Network/NFT/Consciousness -->
-                <div class="span-10">
-                    <div class="hologram-ship">
-                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
-                            <div style="display: flex; align-items: center; gap: 16px;">
-                                <i class="fas fa-tasks" style="color: var(--success); font-size: 1.8rem;"></i>
-                                <h2 style="font-size: 1.6rem;">Project Tender Center</h2>
-                            </div>
-                            <button class="hologram-btn primary" onclick="createMission()">Post New Tender</button>
-                        </div>
-
-                        <div class="hologram-missions" id="missionsList">
-                            <!-- Missions will be dynamically generated by JS -->
-                        </div>
-                    </div>
-                </div>
-
-                <div class="span-5">
-                    <!-- Neural Network Predictions + NFT + Consciousness -->
-                    <div class="hologram-ship" style="margin-bottom: 24px;">
-                        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 16px;">
-                            <i class="fas fa-brain" style="color: var(--neural);"></i>
-                            <h3>Neural Predictions</h3>
-                        </div>
-                        
-                        <div style="margin-bottom: 16px;">
-                            <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
-                                <span>Quantum Demand</span>
-                                <span style="color: var(--quantum);" id="trend1">+95%</span>
-                            </div>
-                            <div class="consciousness-bar">
-                                <div class="consciousness-fill" id="trend1Bar" style="width: 95%;"></div>
-                            </div>
-                        </div>
-
-                        <div style="margin-bottom: 16px;">
-                            <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
-                                <span>Metaverse Design</span>
-                                <span style="color: var(--neural);" id="trend2">+89%</span>
-                            </div>
-                            <div class="consciousness-bar">
-                                <div class="consciousness-fill" id="trend2Bar" style="width: 89%; background: linear-gradient(90deg, var(--neural), var(--meta));"></div>
-                            </div>
-                        </div>
-
-                        <div style="margin-bottom: 16px;">
-                            <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
-                                <span>Web3 Development</span>
-                                <span style="color: var(--nft);" id="trend3">+92%</span>
-                            </div>
-                            <div class="consciousness-bar">
-                                <div class="consciousness-fill" id="trend3Bar" style="width: 92%; background: linear-gradient(90deg, var(--nft), var(--primary));"></div>
-                            </div>
-                        </div>
-
-                        <div>
-                            <div style="display: flex; justify-content: space-between; margin-bottom: 4px;">
-                                <span>Consciousness Upload</span>
-                                <span style="color: var(--consciousness);" id="trend4">+99%</span>
-                            </div>
-                            <div class="consciousness-bar">
-                                <div class="consciousness-fill" id="trend4Bar" style="width: 99%; background: linear-gradient(90deg, var(--consciousness), var(--immortal));"></div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- NFT Consciousness Hangar + LHDN -->
-                    <div class="hologram-ship">
-                        <div style="display: flex; justify-content: space-between; margin-bottom: 16px;">
-                            <div style="display: flex; align-items: center; gap: 8px;">
-                                <i class="fas fa-image" style="color: var(--nft);"></i>
-                                <h3>NFT · LHDN</h3>
-                            </div>
-                            <span class="hologram-badge badge-nft" id="nftCount">3,245</span>
-                        </div>
-
-                        <div style="display: flex; align-items: center; gap: 20px; margin-bottom: 20px;">
-                            <div style="width: 70px; height: 70px; background: linear-gradient(145deg, var(--nft), var(--consciousness)); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; color: white; font-size: 2.2rem;">
-                                🧠
-                            </div>
-                            <div>
-                                <p style="font-weight: 600;">Consciousness NFT · LHDN Auto</p>
-                                <p style="font-size: 0.85rem;">Automatic tax, LHDN compliance</p>
-                            </div>
-                        </div>
-
-                        <div style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px;" id="nftBadges">
-                            <span class="hologram-badge badge-nft">Genesis Consciousness</span>
-                            <span class="hologram-badge badge-nft">Upload Badge</span>
-                            <span class="hologram-badge badge-consciousness">LHDN Badge</span>
-                            <span class="hologram-badge badge-malaysia">Malaysia</span>
-                        </div>
-
-                        <button class="hologram-btn block" style="border-color: var(--consciousness); color: var(--consciousness);" onclick="mintNFT()">
-                            <i class="fas fa-plus-circle"></i> Mint NFT + LHDN
-                        </button>
-                    </div>
-                </div>
-
-                <div class="span-3">
-                    <!-- Metaverse Command Center + FPX -->
-                    <div class="hologram-ship" style="margin-bottom: 24px;">
-                        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 16px;">
-                            <i class="fas fa-vr-cardboard" style="color: var(--meta);"></i>
-                            <h3>Metaverse</h3>
-                            <span class="hologram-badge badge-meta" style="margin-left: auto;" id="metaUsers">1,234</span>
-                        </div>
-
-                        <div style="text-align: center; margin-bottom: 16px;">
-                            <div style="font-size: 3rem; margin-bottom: 8px;">🌐</div>
-                            <p style="font-weight: 600;">Virtual Operations Room</p>
-                            <p style="color: var(--text-muted);" id="availableRooms">56 rooms available</p>
-                        </div>
-
-                        <div style="display: flex; gap: 8px;">
-                            <button class="hologram-btn quantum" style="flex: 1;" onclick="enterMetaverse()">Enter</button>
-                            <button class="hologram-btn" style="flex: 1;" onclick="bookRoom()">Book</button>
-                        </div>
-                    </div>
-
-                    <!-- Developer Spaceport + FPX -->
-                    <div class="hologram-ship">
-                        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 16px;">
-                            <i class="fas fa-code" style="color: var(--primary);"></i>
-                            <h3>Developer · FPX</h3>
-                            <span class="hologram-badge badge-primary" style="margin-left: auto;" id="apiStatus">API Ready</span>
-                        </div>
-
-                        <div style="background: rgba(0,0,0,0.4); border-radius: var(--radius-md); padding: 16px; margin-bottom: 16px;">
-                            <code style="color: var(--hologram);" id="apiKey">dev_malaysia_2026</code>
-                            <button class="hologram-btn btn-sm" style="margin-left: 8px;" onclick="copyAPIKey()">Copy</button>
-                        </div>
-
-                        <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px; text-align: center;">
-                            <div onclick="showAPIDetail('calls')">
-                                <div style="font-weight: 700; color: var(--quantum);" id="apiCalls">2.1k</div>
-                                <div style="font-size: 0.7rem;">API Calls</div>
-                            </div>
-                            <div onclick="showAPIDetail('contracts')">
-                                <div style="font-weight: 700; color: var(--consciousness);" id="apiContracts">567</div>
-                                <div style="font-size: 0.7rem;">Consciousness Contracts</div>
-                            </div>
-                        </div>
-                        <div style="margin-top: 12px; text-align: center;">
-                            <span class="hologram-badge badge-malaysia"><i class="fas fa-credit-card"></i> FPX / Maybank / CIMB</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Row 5: Agent System + DAO Governance + Smart Contracts -->
-            <div class="hologram-grid">
-                <div class="span-6">
-                    <div class="hologram-ship">
-                        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 16px;">
-                            <i class="fas fa-sitemap" style="color: var(--dao);"></i>
-                            <h3>Multi-Level Agent System</h3>
-                        </div>
-                        
-                        <div class="agent-tree">
-                            <div class="agent-node">
-                                <i class="fas fa-crown" style="color: var(--nft);"></i>
-                                <div>Owner</div>
-                                <div style="font-size: 0.7rem;">5%</div>
-                            </div>
-                            <div class="agent-node">
-                                <i class="fas fa-star" style="color: var(--success);"></i>
-                                <div>Master Agent</div>
-                                <div style="font-size: 0.7rem;">2%</div>
-                            </div>
-                            <div class="agent-node">
-                                <i class="fas fa-user" style="color: var(--primary);"></i>
-                                <div>Regular Agent</div>
-                                <div style="font-size: 0.7rem;">1%</div>
-                            </div>
-                        </div>
-                        
-                        <div style="margin-top: 16px;">
-                            <p><span class="hologram-badge badge-dao">Your Commission: RM 234</span></p>
-                            <p><span class="hologram-badge badge-primary">Downline: 12 agents</span></p>
-                        </div>
-                        
-                        <button class="hologram-btn block" style="margin-top: 16px;" onclick="showAgentDetail()">View Agent Structure</button>
-                    </div>
-                </div>
-
-                <div class="span-6">
-                    <div class="hologram-ship">
-                        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 16px;">
-                            <i class="fas fa-vote-yea" style="color: var(--dao);"></i>
-                            <h3>DAO Governance</h3>
-                            <span class="hologram-badge badge-dao">Voting Power: 1,234</span>
-                        </div>
-                        
-                        <div style="margin-bottom: 16px;">
-                            <p>Active Proposals: 3</p>
-                            <div style="margin-top: 8px;">
-                                <div style="display: flex; justify-content: space-between;">
-                                    <span>Platform Fee 5%</span>
-                                    <span>78% Agree</span>
-                                </div>
-                                <div class="consciousness-bar">
-                                    <div class="consciousness-fill" style="width: 78%; background: var(--dao);"></div>
-                                </div>
-                            </div>
-                            <div style="margin-top: 8px;">
-                                <div style="display: flex; justify-content: space-between;">
-                                    <span>Treasury NFT</span>
-                                    <span>92% Agree</span>
-                                </div>
-                                <div class="consciousness-bar">
-                                    <div class="consciousness-fill" style="width: 92%; background: var(--dao);"></div>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <button class="hologram-btn block" onclick="openModal('daoModal')">Go to DAO</button>
-                    </div>
-                </div>
-
-                <div class="span-6">
-                    <div class="hologram-ship">
-                        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 16px;">
-                            <i class="fas fa-file-signature" style="color: var(--quantum);"></i>
-                            <h3>Smart Contracts</h3>
-                            <span class="hologram-badge badge-quantum">Cross-chain</span>
-                        </div>
-                        
-                        <div style="margin-bottom: 16px;">
-                            <p>Active Contracts: 1,234</p>
-                            <p>Total Value Locked: RM 2.5M</p>
-                            <p>Chains: Ethereum, BSC, Polygon, Solana</p>
-                        </div>
-                        
-                        <div style="display: flex; gap: 8px;">
-                            <button class="hologram-btn primary" style="flex: 1;" onclick="createSmartContract()">Create Contract</button>
-                            <button class="hologram-btn" style="flex: 1;" onclick="viewContracts()">View Contracts</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Universe Footer -->
-            <footer class="universe-footer">
-                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;">
-                    <div>© 2026 NovaServe Malaysia · Freelance Platform · LHDN Auto · FPX · Platform Fee 5% · Owner: tuantuanxiongmaoyouxizhubo · DAO Governance · Smart Contract</div>
-                    <div style="display: flex; gap: 24px; flex-wrap: wrap;">
-                        <span><i class="fas fa-shield-alt"></i> Quantum Security</span>
-                        <span><i class="fas fa-infinity"></i> Quantum Entanglement</span>
-                        <span><i class="fas fa-clock"></i> Time Fold</span>
-                        <span><i class="fas fa-file-invoice"></i> Auto Invoice</span>
-                        <span><i class="fas fa-crown"></i> Owner</span>
-                    </div>
-                </div>
-            </footer>
+        <!-- Footer -->
+        <div class="footer">
+            <p>© 2026 NovaServe Malaysia · Platform Fee 5% goes to owner · tuantuanxiongmaoyouxizhubo@gmail.com</p>
         </div>
     </div>
 
     <!-- Modals -->
     <div class="modal-overlay" id="quantumModal">
-        <div class="modal-content">
-            <h2 style="margin-bottom: 20px;">⚛️ Quantum Space</h2>
-            <p>Quantum entanglement: 99.99%</p>
-            <p>Quantum bits: 512</p>
-            <p>Quantum algorithm: optimizing</p>
-            <p>Entangled pairs: 1,024</p>
-            <p>Quantum teleportation: Ready</p>
-            <button class="hologram-btn primary" style="margin-top: 20px;" onclick="closeModal('quantumModal')">Close</button>
-        </div>
-    </div>
-
-    <div class="modal-overlay" id="consciousnessModal">
-        <div class="modal-content">
-            <h2 style="margin-bottom: 20px;">🧠 Consciousness Upload Chamber</h2>
-            <p>Progress: <span id="consciousnessProgress">87</span>%</p>
-            <p>Backup universes: α-7, β-2, γ-9</p>
-            <p>Digital immortality: Activated</p>
-            <p>Consciousness copies: 3</p>
-            <p>Last backup: 5 minutes ago</p>
-            <div class="consciousness-bar" style="margin: 20px 0;">
-                <div class="consciousness-fill" id="consciousnessModalBar" style="width: 87%;"></div>
+        <div class="modal">
+            <div class="modal-header">
+                <h2>⚛️ Quantum Space</h2>
+                <button class="modal-close" onclick="closeModal('quantumModal')">&times;</button>
             </div>
-            <button class="hologram-btn primary" onclick="continueUpload()">Continue Upload</button>
-            <button class="hologram-btn" style="margin-left: 10px;" onclick="closeModal('consciousnessModal')">Close</button>
-        </div>
-    </div>
-
-    <div class="modal-overlay" id="parallelModal">
-        <div class="modal-content">
-            <h2 style="margin-bottom: 20px;">🌌 Parallel Universe Portal</h2>
-            <p>Explored: 7/42 universes</p>
-            <p>Current universe: α-7</p>
-            <p>Next target: β-2 (match 89%)</p>
-            <p>Available energy: 100%</p>
-            <p>Dimensional stability: 98%</p>
-            <button class="hologram-btn primary" style="margin-top: 20px;" onclick="jumpToUniverse()">Jump</button>
-            <button class="hologram-btn" onclick="closeModal('parallelModal')">Close</button>
-        </div>
-    </div>
-
-    <div class="modal-overlay" id="taxModal">
-        <div class="modal-content">
-            <h2 style="margin-bottom: 20px;">📊 LHDN Malaysia</h2>
-            <p>Tax compliance: 98%</p>
-            <p>Reported amount: RM 45,678</p>
-            <p>LHDN Reference: LHDN-2026-001234</p>
-            <p>Status: Compliant</p>
-            <p>SST Tax: RM 2,740.68</p>
-            <div class="consciousness-bar" style="margin: 20px 0;">
-                <div class="consciousness-fill" style="width: 98%; background: linear-gradient(90deg, var(--malaysia), var(--nft));"></div>
-            </div>
-            <button class="hologram-btn primary" onclick="downloadTaxReport()">Download Report</button>
-            <button class="hologram-btn" style="margin-left: 10px;" onclick="closeModal('taxModal')">Close</button>
-        </div>
-    </div>
-
-    <div class="modal-overlay" id="invoiceModal">
-        <div class="modal-content">
-            <h2 style="margin-bottom: 20px;">📄 Auto Invoice · LHDN</h2>
-            <div id="invoiceList" style="max-height: 300px; overflow-y: auto;">
-                <!-- Invoices will be dynamically generated by JS -->
-            </div>
-            <button class="hologram-btn primary" style="margin-top: 20px;" onclick="generateInvoice()">Create New Invoice</button>
-            <button class="hologram-btn" style="margin-left: 10px;" onclick="closeModal('invoiceModal')">Close</button>
-        </div>
-    </div>
-
-    <div class="modal-overlay" id="ownerModal">
-        <div class="modal-content">
-            <h2 style="margin-bottom: 20px;">👑 Platform Owner</h2>
-            <div style="text-align: center; margin-bottom: 20px;">
-                <div style="width: 100px; height: 100px; background: linear-gradient(145deg, #f59e0b, #b45309); border-radius: 50%; margin: 0 auto 20px; display: flex; align-items: center; justify-content: center; font-size: 3rem; color: white;">
-                    👨‍💻
+            <div class="modal-body">
+                <p><strong>Quantum Entanglement:</strong> 99.99%</p>
+                <p><strong>Quantum Bits:</strong> 512</p>
+                <p><strong>Entangled Pairs:</strong> 1,024</p>
+                <p><strong>Quantum Teleportation:</strong> Ready</p>
+                <p><strong>Algorithm:</strong> Optimizing...</p>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 98%"></div>
                 </div>
-                <h3>tuantuanxiongmaoyouxizhubo</h3>
-                <p style="color: var(--text-light);">Founder & Platform Owner</p>
             </div>
-            <p><i class="fas fa-envelope" style="color: var(--hologram);"></i> tuantuanxiongmaoyouxizhubo@gmail.com</p>
-            <p><i class="fas fa-phone" style="color: var(--hologram);"></i> 011-56649657</p>
-            <p><i class="fas fa-crown" style="color: var(--nft);"></i> Platform Fee: 5% (goes to owner)</p>
-            <p><i class="fas fa-sitemap" style="color: var(--dao);"></i> Multi-level Agent: 5% - 2% - 1%</p>
-            <p><i class="fas fa-file-invoice" style="color: var(--success);"></i> Auto Invoice & LHDN Auto</p>
-            <p><i class="fas fa-vote-yea" style="color: var(--dao);"></i> DAO Governance Active</p>
-            <p><i class="fas fa-file-signature" style="color: var(--quantum);"></i> Smart Contract: Cross-chain</p>
-            <button class="hologram-btn primary" style="margin-top: 20px;" onclick="closeModal('ownerModal')">Close</button>
+            <div class="modal-footer">
+                <button class="btn btn-primary" onclick="closeModal('quantumModal')">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="metaverseModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h2>🌐 Metaverse</h2>
+                <button class="modal-close" onclick="closeModal('metaverseModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p><strong>Online Users:</strong> 1,234</p>
+                <p><strong>Available Rooms:</strong> 56</p>
+                <p><strong>Virtual Operations Room:</strong> Active</p>
+                <p><strong>VR/AR Support:</strong> Ready</p>
+                <button class="btn btn-primary" style="width: 100%; margin-top: 1rem;" onclick="showNotification('Entering Metaverse...')">Enter Now</button>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeModal('metaverseModal')">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="nftModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h2>🖼️ NFT Studio</h2>
+                <button class="modal-close" onclick="closeModal('nftModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p><strong>Total Badges:</strong> 3,245</p>
+                <p><strong>Your Badges:</strong> Genesis Consciousness, Upload Badge, LHDN Badge</p>
+                <p><strong>LHDN Auto:</strong> Active</p>
+                <button class="btn btn-primary" style="width: 100%; margin-top: 1rem;" onclick="mintNFT()">Mint New NFT</button>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeModal('nftModal')">Close</button>
+            </div>
         </div>
     </div>
 
     <div class="modal-overlay" id="daoModal">
-        <div class="modal-content">
-            <h2 style="margin-bottom: 20px;">🗳️ DAO Governance</h2>
-            <p>Voting Power: 1,234</p>
-            <p>Active Proposals:</p>
-            <div style="margin: 16px 0;">
-                <div style="margin-bottom: 12px;">
+        <div class="modal">
+            <div class="modal-header">
+                <h2>🗳️ DAO Governance</h2>
+                <button class="modal-close" onclick="closeModal('daoModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p><strong>Voting Power:</strong> 1,234</p>
+                <p><strong>Active Proposals:</strong></p>
+                <div style="margin: 1rem 0;">
                     <p>1. Reduce Platform Fee to 4%</p>
-                    <div class="consciousness-bar">
-                        <div class="consciousness-fill" style="width: 45%; background: var(--dao);"></div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 45%"></div>
                     </div>
-                    <p style="font-size: 0.8rem;">45% Agree · 35% Against · 20% Not Voted</p>
+                    <p style="font-size: 0.875rem;">45% Agree · 35% Against · 20% Not Voted</p>
                 </div>
-                <div style="margin-bottom: 12px;">
+                <div style="margin: 1rem 0;">
                     <p>2. Add New Chain (Solana)</p>
-                    <div class="consciousness-bar">
-                        <div class="consciousness-fill" style="width: 78%; background: var(--dao);"></div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 78%"></div>
                     </div>
-                    <p style="font-size: 0.8rem;">78% Agree · 12% Against · 10% Not Voted</p>
+                    <p style="font-size: 0.875rem;">78% Agree · 12% Against · 10% Not Voted</p>
                 </div>
-                <div>
-                    <p>3. Treasury NFT Distribution</p>
-                    <div class="consciousness-bar">
-                        <div class="consciousness-fill" style="width: 92%; background: var(--dao);"></div>
+                <button class="btn btn-primary" style="width: 100%;" onclick="voteDAO()">Vote Now</button>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeModal('daoModal')">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="consciousnessModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h2>🧠 Consciousness Upload</h2>
+                <button class="modal-close" onclick="closeModal('consciousnessModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p><strong>Progress:</strong> 87%</p>
+                <p><strong>Backup Universes:</strong> α-7, β-2, γ-9</p>
+                <p><strong>Digital Immortality:</strong> Activated</p>
+                <p><strong>Copies:</strong> 3</p>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 87%"></div>
+                </div>
+                <button class="btn btn-primary" style="width: 100%; margin-top: 1rem;" onclick="continueUpload()">Continue Upload</button>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeModal('consciousnessModal')">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="parallelModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h2>🌌 Parallel Universe</h2>
+                <button class="modal-close" onclick="closeModal('parallelModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p><strong>Explored:</strong> 7/42 universes</p>
+                <p><strong>Current Universe:</strong> α-7</p>
+                <p><strong>Next Target:</strong> β-2 (89% match)</p>
+                <p><strong>Dimensional Stability:</strong> 98%</p>
+                <button class="btn btn-primary" style="width: 100%; margin-top: 1rem;" onclick="jumpToUniverse()">Jump to β-2</button>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeModal('parallelModal')">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="serviceModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h2 id="serviceModalTitle">Service Details</h2>
+                <button class="modal-close" onclick="closeModal('serviceModal')">&times;</button>
+            </div>
+            <div class="modal-body" id="serviceModalContent">
+                <!-- Service details will be dynamically generated -->
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" id="hireButton" onclick="hireFreelancer()">Hire</button>
+                <button class="btn btn-secondary" onclick="closeModal('serviceModal')">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="projectModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h2 id="projectModalTitle">Project Details</h2>
+                <button class="modal-close" onclick="closeModal('projectModal')">&times;</button>
+            </div>
+            <div class="modal-body" id="projectModalContent">
+                <!-- Project details will be dynamically generated -->
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" id="bidButton" onclick="bidProject()">Bid</button>
+                <button class="btn btn-secondary" onclick="closeModal('projectModal')">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="ownerModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h2>👑 Platform Owner</h2>
+                <button class="modal-close" onclick="closeModal('ownerModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div style="text-align: center; margin-bottom: 1.5rem;">
+                    <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #f59e0b, #d97706); border-radius: 50%; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center; font-size: 2.5rem; color: white;">
+                        👨‍💻
                     </div>
-                    <p style="font-size: 0.8rem;">92% Agree · 5% Against · 3% Not Voted</p>
+                    <h3>tuantuanxiongmaoyouxizhubo</h3>
+                    <p style="color: var(--text-light);">Founder & Owner</p>
                 </div>
+                <p><i class="fas fa-envelope" style="color: var(--primary);"></i> tuantuanxiongmaoyouxizhubo@gmail.com</p>
+                <p><i class="fas fa-phone" style="color: var(--primary);"></i> 011-56649657</p>
+                <p><i class="fas fa-crown" style="color: var(--primary);"></i> Platform Fee: 5% (goes to owner)</p>
+                <p><i class="fas fa-sitemap" style="color: var(--primary);"></i> Agent System: 5% - 2% - 1%</p>
             </div>
-            <button class="hologram-btn primary" onclick="voteDAO()">Vote Now</button>
-            <button class="hologram-btn" style="margin-left: 10px;" onclick="closeModal('daoModal')">Close</button>
-        </div>
-    </div>
-
-    <div class="modal-overlay" id="missionModal">
-        <div class="modal-content">
-            <h2 style="margin-bottom: 20px;" id="missionModalTitle">Project Details</h2>
-            <div id="missionModalContent"></div>
-            <button class="hologram-btn primary" style="margin-top: 20px;" onclick="bidMission(currentMissionId)">Bid Project</button>
-            <button class="hologram-btn" style="margin-left: 10px;" onclick="closeModal('missionModal')">Close</button>
-        </div>
-    </div>
-
-    <div class="modal-overlay" id="fighterModal">
-        <div class="modal-content">
-            <h2 style="margin-bottom: 20px;" id="fighterModalTitle">Freelancer Details</h2>
-            <div id="fighterModalContent"></div>
-            <p style="margin-top: 10px; padding: 10px; background: rgba(249,115,22,0.1); border-radius: var(--radius-sm);">Platform Fee 5%: RM <span id="platformFeeAmount">0</span> (goes to owner)</p>
-            <p style="margin-top: 5px; padding: 5px; background: rgba(52,211,153,0.1); border-radius: var(--radius-sm);">Agent Commission: RM <span id="agentCommission">0</span> (1% - 2% - 5%)</p>
-            <button class="hologram-btn primary" style="margin-top: 20px;" onclick="hireFighter(currentFighterId)">Hire (RM)</button>
-            <button class="hologram-btn" style="margin-left: 10px;" onclick="closeModal('fighterModal')">Close</button>
-        </div>
-    </div>
-
-    <div class="modal-overlay" id="createMissionModal">
-        <div class="modal-content">
-            <h2 style="margin-bottom: 20px;">📋 Post New Tender</h2>
-            <input type="text" id="newMissionTitle" placeholder="Project Title" style="width: 100%; padding: 12px; margin-bottom: 12px; background: rgba(0,0,0,0.3); border: 1px solid var(--border); color: var(--text); border-radius: var(--radius-sm);">
-            <textarea id="newMissionDesc" placeholder="Project Description" rows="3" style="width: 100%; padding: 12px; margin-bottom: 12px; background: rgba(0,0,0,0.3); border: 1px solid var(--border); color: var(--text); border-radius: var(--radius-sm);"></textarea>
-            <input type="number" id="newMissionBudget" placeholder="Budget (RM)" style="width: 100%; padding: 12px; margin-bottom: 12px; background: rgba(0,0,0,0.3); border: 1px solid var(--border); color: var(--text); border-radius: var(--radius-sm);">
-            <p style="margin-bottom: 12px; color: var(--text-light);">Platform Fee 5% will be applied (goes to owner)</p>
-            <button class="hologram-btn primary" onclick="publishMission()">Post Tender</button>
-            <button class="hologram-btn" style="margin-left: 10px;" onclick="closeModal('createMissionModal')">Cancel</button>
-        </div>
-    </div>
-
-    <div class="modal-overlay" id="agentModal">
-        <div class="modal-content">
-            <h2 style="margin-bottom: 20px;">📊 Agent Structure</h2>
-            <div class="agent-tree">
-                <div class="agent-node">
-                    <i class="fas fa-crown"></i>
-                    <div>Owner</div>
-                    <div>5%</div>
-                </div>
-                <div class="agent-node">
-                    <i class="fas fa-star"></i>
-                    <div>Master Agents (3)</div>
-                    <div>2%</div>
-                </div>
-                <div class="agent-node">
-                    <i class="fas fa-user"></i>
-                    <div>Regular Agents (12)</div>
-                    <div>1%</div>
-                </div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" onclick="closeModal('ownerModal')">Close</button>
             </div>
-            <p style="margin-top: 16px;">Your Commission: RM 234</p>
-            <p>Your Downline: 15 agents</p>
-            <p>Total Volume: RM 45,678</p>
-            <button class="hologram-btn primary" style="margin-top: 20px;" onclick="closeModal('agentModal')">Close</button>
         </div>
     </div>
 
     <script>
-        // ========== User Database ==========
-        // Owner account: tuantuanxiongmaoyouxizhubo@gmail.com
-        // Password: owner2026 (you can change this)
-        
+        // ========== Data Models ==========
         let users = [
             { email: 'tuantuanxiongmaoyouxizhubo@gmail.com', password: 'owner2026', name: 'Owner', role: 'owner', balance: 10000000, consciousness: 100 }
         ];
 
-        // ========== Full Function Data Model ==========
+        let services = [
+            { id: 1, name: 'Jessica Tan', avatar: 'JT', title: 'UI/UX Designer', rating: 4.9, price: 380, match: 98, level: 'Top Rated', emoji: '🎨', description: '5 years experience in UI/UX design. Specializing in web and mobile apps.', completed: 156, location: 'Kuala Lumpur' },
+            { id: 2, name: 'Wei Chen', avatar: 'WC', title: 'Full-stack Developer', rating: 4.8, price: 650, match: 96, level: 'Expert', emoji: '💻', description: 'React, Node.js, Python expert. Full-stack development specialist.', completed: 94, location: 'Penang' },
+            { id: 3, name: 'Mei Ling', avatar: 'ML', title: 'Digital Marketer', rating: 4.7, price: 420, match: 94, level: 'Pro', emoji: '📈', description: 'SEO, social media, and content marketing expert.', completed: 187, location: 'Johor' },
+            { id: 4, name: 'Priya Kaur', avatar: 'PK', title: 'Video Editor', rating: 4.9, price: 550, match: 92, level: 'Top Rated', emoji: '🎬', description: 'Professional video editor for commercials and social media.', completed: 78, location: 'Selangor' }
+        ];
+
+        let projects = [
+            { id: 1, title: 'E-commerce Website Development', budget: 8000, bids: 12, match: 98, tags: ['React', 'Node.js'], status: 'Open', description: 'Need a full-featured e-commerce website with payment integration.', posted: '2 hours ago', location: 'KL' },
+            { id: 2, title: 'Mobile App UI Design', budget: 3500, bids: 8, match: 96, tags: ['Figma', 'UI/UX'], status: 'Open', description: 'Design a modern mobile app interface for fitness tracking.', posted: '5 hours ago', location: 'Penang' },
+            { id: 3, title: 'SEO Optimization', budget: 2000, bids: 5, match: 94, tags: ['SEO', 'Content'], status: 'Urgent', description: 'Improve search engine rankings for an e-commerce site.', posted: '1 day ago', location: 'Remote' }
+        ];
+
+        let activities = [
+            { user: 'JT', action: 'Completed UI/UX project', time: '2 minutes ago' },
+            { user: 'WC', action: 'Started new development', time: '15 minutes ago' },
+            { user: 'ML', action: 'Posted marketing campaign', time: '1 hour ago' },
+            { user: 'PK', action: 'Uploaded video edit', time: '3 hours ago' }
+        ];
+
         let appState = {
-            user: {
-                name: 'Guest',
-                consciousness: 50,
-                immortal: false,
-                balance: 0,
-                nfts: [],
-                agentLevel: 'Regular Agent',
-                commission: 0,
-                downline: 0,
-                votingPower: 0,
-                isLoggedIn: false,
-                role: 'guest'
-            },
-            stats: {
-                fighters: 1234,
-                missions: 56,
-                crew: 892,
-                match: 98,
-                nft: 3245,
-                volume: 1.2,
-                universes: 7,
-                platformFee: 45678,
-                tax: 98,
-                tvl: 2.5,
-                activeContracts: 1234,
-                daoProposals: 3
-            },
-            fighters: [
-                { id: 'f1', name: 'Jessica Tan', avatar: 'JT', title: 'UI/UX Designer', rating: 4.9, price: 380, match: 98, level: 'Gold', emoji: '🎨', description: '5 years experience, holographic interface design.', completed: 156, response: '98%', location: 'Kuala Lumpur' },
-                { id: 'f2', name: 'Wei Chen', avatar: 'WC', title: 'Full-stack Developer', rating: 4.8, price: 650, match: 96, level: 'Platinum', emoji: '💻', description: 'React, Node.js, quantum framework expert.', completed: 94, response: '95%', location: 'Penang' },
-                { id: 'f3', name: 'Mei Ling', avatar: 'ML', title: 'Neural Marketing', rating: 4.7, price: 420, match: 94, level: 'Gold', emoji: '📈', description: 'AI marketing expert, Metaverse branding.', completed: 187, response: '99%', location: 'Johor' },
-                { id: 'f4', name: 'Priya Kaur', avatar: 'PK', title: 'Metaverse Video Editor', rating: 4.9, price: 550, match: 92, level: 'Silver', emoji: '🎬', description: 'Video editing for Metaverse spaces.', completed: 78, response: '97%', location: 'Selangor' },
-                { id: 'f5', name: 'Quantum AI', avatar: 'AI', title: 'Smart Contract Auditor', rating: 5.0, price: 890, match: 99, level: 'Quantum Core', emoji: '🤖', description: 'AI-powered smart contract audit system.', completed: 234, response: '100%', location: 'Cyberjaya' },
-                { id: 'f6', name: 'Uploaded Mind', avatar: 'UP', title: 'Digital Immortality Designer', rating: 5.0, price: 1200, match: 100, level: 'Consciousness', emoji: '🧠', description: 'Consciousness upload expert, achieve digital immortality.', completed: 45, response: '100%', location: 'Putrajaya' }
-            ],
-            missions: [
-                { id: 'm1', title: 'E-commerce Website', budget: 8000, bids: 12, match: 98, tags: ['React', 'Node.js'], status: 'Ongoing', description: 'Build e-commerce website with multi-currency support.', posted: '2 hours ago', location: 'KL' },
-                { id: 'm2', title: 'Logo Design + VI', budget: 1500, bids: 5, match: 96, tags: ['Figma', 'Branding'], status: 'New', description: 'Logo and VI design for Metaverse brand.', posted: '30 minutes ago', location: 'Selangor' },
-                { id: 'm3', title: 'Smart Contract Development', budget: 12000, bids: 8, match: 99, tags: ['Solidity', 'Web3'], status: 'Quantum Pick', description: 'Cross-chain smart contract for NFT marketplace.', posted: '5 hours ago', location: 'Cyberjaya' },
-                { id: 'm4', title: 'Metaverse Space Design', budget: 5000, bids: 6, match: 95, tags: ['Blender', 'Unity'], status: 'NFT', description: 'Design virtual exhibition hall with real-time interaction.', posted: '1 day ago', location: 'Penang' },
-                { id: 'm5', title: 'Parallel Universe Bridge Protocol', budget: 25000, bids: 3, match: 100, tags: ['Quantum Physics', 'Time Code'], status: 'New', description: 'Build data bridge protocol between parallel universes.', posted: '10 minutes ago', location: 'KL' },
-                { id: 'm6', title: 'Consciousness Upload Protocol', budget: 50000, bids: 2, match: 99, tags: ['Neural Science', 'Quantum Consciousness'], status: 'Urgent', description: 'Upload human consciousness for digital immortality.', posted: '15 minutes ago', location: 'Putrajaya' }
-            ],
-            universes: [
-                { name: 'α-7', match: 98, tasks: 12, status: 'Current' },
-                { name: 'β-2', match: 89, tasks: 5, status: 'Exploring' },
-                { name: 'γ-9', match: 76, tasks: 3, status: 'New Discovery' },
-                { name: 'δ-4', match: 92, tasks: 8, status: 'Consciousness Upload' }
-            ],
-            logs: [
-                { user: 'JT', action: 'Consciousness upload complete', time: '2 minutes ago', location: 'α-7' },
-                { user: 'WC', action: 'Consciousness sync 92%', time: '15 minutes ago', location: 'Quantum Entanglement' },
-                { user: 'ML', action: 'Created consciousness copy', time: '1 hour ago', location: 'β-2' },
-                { user: 'PK', action: 'Digital immortality activated', time: '3 hours ago', location: 'Eternal Achievement' },
-                { user: 'AI', action: 'New parallel universe discovered', time: '5 minutes ago', location: 'γ-9' }
-            ],
-            trends: {
-                quantum: 95,
-                metaverse: 89,
-                web3: 92,
-                consciousness: 99
-            },
-            invoices: [],
-            platformFee: 0.05,
-            agentCommission: {
-                level1: 0.05, // Owner
-                level2: 0.02, // Master Agent
-                level3: 0.01  // Regular Agent
-            },
-            notifications: []
+            user: { name: 'Guest', role: 'guest', balance: 0, isLoggedIn: false },
+            stats: { services: 1234, projects: 56, freelancers: 892, platformFee: 45678 }
         };
 
-        let currentFighterId = null;
-        let currentMissionId = null;
+        let currentServiceId = null;
+        let currentProjectId = null;
 
         // ========== Auth Functions ==========
         function switchAuthTab(tab) {
@@ -1551,22 +1363,13 @@
             const user = users.find(u => u.email === email && u.password === password);
             
             if (user) {
-                appState.user.name = user.name;
-                appState.user.role = user.role;
-                appState.user.balance = user.balance;
-                appState.user.consciousness = user.consciousness;
-                appState.user.isLoggedIn = true;
-                document.getElementById('userName').textContent = user.name;
+                appState.user = { ...user, isLoggedIn: true };
                 document.getElementById('userAvatar').textContent = user.name.charAt(0);
-                document.getElementById('userBalance').textContent = user.balance.toLocaleString();
-                
-                if (user.role === 'owner') {
-                    showNotification('Welcome, Platform Owner!');
-                } else {
-                    showNotification(`Login successful! Welcome back, ${user.name}!`);
-                }
-                
-                showMainContent();
+                document.getElementById('userRole').textContent = user.role === 'owner' ? 'Owner' : user.role;
+                document.getElementById('authContainer').style.display = 'none';
+                document.getElementById('mainContent').style.display = 'block';
+                showNotification(`Welcome back, ${user.name}!`);
+                renderAll();
             } else {
                 showNotification('Invalid email or password');
             }
@@ -1576,34 +1379,32 @@
             const name = document.getElementById('regName').value.trim();
             const email = document.getElementById('regEmail').value.trim();
             const password = document.getElementById('regPassword').value;
-            const confirmPassword = document.getElementById('regConfirmPassword').value;
+            const confirm = document.getElementById('regConfirmPassword').value;
             const role = document.getElementById('regRole').value;
             const phone = document.getElementById('regPhone').value.trim();
-            const taxId = document.getElementById('regTaxId').value.trim();
             
-            // Validation
-            if (!name || !email || !password || !confirmPassword || !phone) {
-                showNotification('Please fill in all required fields');
+            if (!name || !email || !password || !confirm || !phone) {
+                showNotification('Please fill all required fields');
                 return;
             }
             
             if (!validateEmail(email)) {
-                showNotification('Please enter a valid email address');
+                showNotification('Invalid email format');
                 return;
             }
             
             if (password.length < 6) {
-                showNotification('Password must be at least 6 characters long');
+                showNotification('Password must be at least 6 characters');
                 return;
             }
             
-            if (password !== confirmPassword) {
+            if (password !== confirm) {
                 showNotification('Passwords do not match');
                 return;
             }
             
             if (!validatePhone(phone)) {
-                showNotification('Please enter a valid Malaysian phone number (10-11 digits)');
+                showNotification('Invalid phone number (10-11 digits)');
                 return;
             }
             
@@ -1612,186 +1413,188 @@
                 return;
             }
             
-            // Create new user
-            const newUser = {
-                email: email,
-                password: password,
-                name: name,
-                role: role,
-                balance: 1000,
-                consciousness: 50
-            };
-            
+            const newUser = { email, password, name, role, balance: 1000, consciousness: 50 };
             users.push(newUser);
             
-            // Auto login
-            appState.user.name = name;
-            appState.user.role = role;
-            appState.user.balance = 1000;
-            appState.user.consciousness = 50;
-            appState.user.isLoggedIn = true;
-            document.getElementById('userName').textContent = name;
+            appState.user = { ...newUser, isLoggedIn: true };
             document.getElementById('userAvatar').textContent = name.charAt(0);
-            document.getElementById('userBalance').textContent = '1000';
-            
-            showNotification(`Registration successful! Welcome, ${name}!`);
-            showMainContent();
+            document.getElementById('userRole').textContent = role;
+            document.getElementById('authContainer').style.display = 'none';
+            document.getElementById('mainContent').style.display = 'block';
+            showNotification(`Welcome, ${name}!`);
+            renderAll();
         }
 
         function logout() {
             appState.user.isLoggedIn = false;
             document.getElementById('authContainer').style.display = 'flex';
-            document.getElementById('mainContent').classList.remove('visible');
+            document.getElementById('mainContent').style.display = 'none';
             showNotification('Logged out successfully');
         }
 
-        function showMainContent() {
-            document.getElementById('authContainer').style.display = 'none';
-            document.getElementById('mainContent').classList.add('visible');
-            renderAll();
-        }
-
-        // ========== Initialization Render ==========
+        // ========== Render Functions ==========
         function renderAll() {
-            renderFighters();
-            renderMissions();
-            renderUniverses();
-            renderLogs();
-            renderInvoices();
+            renderServices();
+            renderProjects();
+            renderActivities();
             updateStats();
-            updateTrends();
-            updateUserInfo();
         }
 
-        function renderFighters() {
-            const container = document.getElementById('fighterFleet');
-            container.innerHTML = appState.fighters.map(f => `
-                <div class="hologram-fighter ${f.match >= 98 ? 'immortal-glow' : ''}" onclick="viewFighter('${f.id}')">
-                    <div class="hologram-cockpit">
-                        ${f.emoji}
-                        <span class="hologram-scanner">Match ${f.match}%</span>
+        function renderServices() {
+            const grid = document.getElementById('servicesGrid');
+            grid.innerHTML = services.map(s => `
+                <div class="service-card" onclick="viewService(${s.id})">
+                    <div class="service-image">
+                        ${s.emoji}
+                        <span class="service-badge">Match ${s.match}%</span>
                     </div>
-                    <div class="hologram-cabin">
-                        <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 10px;">
-                            <span style="width: 28px; height: 28px; background: var(--primary); border-radius: 28px; display: flex; align-items: center; justify-content: center; font-size: 0.8rem;">${f.avatar}</span>
-                            <span>${f.name}</span>
-                            <span class="hologram-badge badge-primary" style="margin-left: auto;">${f.level}</span>
+                    <div class="service-content">
+                        <div class="service-seller">
+                            <div class="seller-avatar">${s.avatar}</div>
+                            <span>${s.name}</span>
+                            <span style="margin-left: auto; font-size: 0.75rem; color: var(--primary);">${s.level}</span>
                         </div>
-                        <div style="font-weight: 600; margin-bottom: 10px;">${f.title}</div>
-                        <div style="display: flex; justify-content: space-between;">
-                            <span style="color: #fbbf24;"><i class="fas fa-star"></i> ${f.rating}</span>
-                            <span style="font-weight: 700; color: var(--hologram);">RM ${f.price}</span>
-                        </div>
-                        <div style="display: flex; justify-content: space-between; margin-top: 8px; font-size: 0.8rem;">
-                            <span>✅ ${f.completed} projects</span>
-                            <span>⚡ ${f.response}</span>
-                            <span>📍 ${f.location}</span>
-                        </div>
-                        <button class="hologram-btn block" style="margin-top: 12px;" onclick="viewFighter('${f.id}'); event.stopPropagation();">View Details</button>
-                    </div>
-                </div>
-            `).join('');
-        }
-
-        function renderMissions() {
-            const container = document.getElementById('missionsList');
-            container.innerHTML = appState.missions.map(m => `
-                <div class="hologram-mission" onclick="viewMission('${m.id}')">
-                    <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
-                        <span style="font-weight: 600;">${m.title}</span>
-                        <span class="hologram-badge ${m.status === 'New' ? 'badge-success' : m.status === 'Urgent' ? 'badge-consciousness' : 'badge-primary'}">${m.status}</span>
-                    </div>
-                    <div style="display: flex; gap: 12px; color: var(--text-muted); margin-bottom: 8px;">
-                        <span>Budget: RM ${m.budget.toLocaleString()}</span>
-                        <span>Bids: ${m.bids}</span>
-                        <span>${m.posted}</span>
-                        <span>📍 ${m.location}</span>
-                    </div>
-                    <div style="display: flex; gap: 6px; flex-wrap: wrap;">
-                        <span class="hologram-badge badge-quantum">AI ${m.match}%</span>
-                        ${m.tags.map(tag => `<span class="hologram-badge badge-primary">${tag}</span>`).join('')}
-                    </div>
-                </div>
-            `).join('');
-        }
-
-        function renderUniverses() {
-            const container = document.getElementById('universesList');
-            container.innerHTML = appState.universes.map(u => `
-                <div style="background: rgba(255,255,255,0.05); border-radius: var(--radius-sm); padding: 12px; cursor: pointer;" onclick="selectUniverse('${u.name}')">
-                    <div style="display: flex; justify-content: space-between;">
-                        <span style="font-weight: 700;">Universe ${u.name}</span>
-                        <span class="hologram-badge ${u.status === 'Current' ? 'badge-primary' : u.status === 'New Discovery' ? 'badge-hologram' : 'badge-quantum'}">${u.status}</span>
-                    </div>
-                    <div style="font-size: 0.8rem;">Match ${u.match}% · ${u.tasks} missions</div>
-                </div>
-            `).join('');
-        }
-
-        function renderLogs() {
-            const container = document.getElementById('consciousnessLogs');
-            container.innerHTML = appState.logs.map(log => `
-                <div style="padding: 12px; background: rgba(0,0,0,0.2); border-radius: var(--radius-sm); margin-bottom: 8px;">
-                    <div style="display: flex; gap: 12px;">
-                        <div style="width: 36px; height: 36px; background: var(--consciousness); border-radius: 50%; display: flex; align-items: center; justify-content: center;">${log.user}</div>
-                        <div>
-                            <p style="font-weight: 500;">${log.action}</p>
-                            <span style="font-size: 0.7rem; color: var(--text-muted);">${log.time} · ${log.location}</span>
+                        <div class="service-title">${s.title}</div>
+                        <div class="service-footer">
+                            <span class="service-rating"><i class="fas fa-star"></i> ${s.rating}</span>
+                            <span class="service-price">RM ${s.price}</span>
                         </div>
                     </div>
                 </div>
             `).join('');
         }
 
-        function renderInvoices() {
-            const container = document.getElementById('invoiceList');
-            if (container) {
-                container.innerHTML = appState.invoices.length ? appState.invoices.map(inv => `
-                    <div style="padding: 12px; background: rgba(0,0,0,0.2); border-radius: var(--radius-sm); margin-bottom: 8px;">
-                        <p><strong>${inv.id}</strong></p>
-                        <p>Amount: RM ${inv.amount} | Platform Fee: RM ${inv.platformFee} | SST: RM ${inv.sst}</p>
-                        <p>Total: RM ${inv.total} | LHDN: ${inv.lhdnRef}</p>
-                        <p style="font-size: 0.7rem;">${inv.date}</p>
+        function renderProjects() {
+            const list = document.getElementById('projectsList');
+            list.innerHTML = projects.map(p => `
+                <div class="project-item" onclick="viewProject(${p.id})">
+                    <div class="project-header">
+                        <span class="project-title">${p.title}</span>
+                        <span class="project-badge">${p.status}</span>
                     </div>
-                `).join('') : '<p>No invoices</p>';
-            }
+                    <div class="project-meta">
+                        <span>Budget: RM ${p.budget}</span>
+                        <span>Bids: ${p.bids}</span>
+                        <span>${p.posted}</span>
+                    </div>
+                    <div class="project-tags">
+                        ${p.tags.map(t => `<span class="tag">${t}</span>`).join('')}
+                        <span class="tag" style="background: var(--primary-light); color: var(--primary);">AI Match ${p.match}%</span>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function renderActivities() {
+            const list = document.getElementById('activityList');
+            list.innerHTML = activities.map(a => `
+                <div class="activity-item">
+                    <div class="activity-avatar">${a.user}</div>
+                    <div class="activity-content">
+                        <p>${a.action}</p>
+                        <span class="activity-time">${a.time}</span>
+                    </div>
+                </div>
+            `).join('');
         }
 
         function updateStats() {
-            document.getElementById('statFighters').textContent = appState.stats.fighters.toLocaleString();
-            document.getElementById('statMissions').textContent = appState.stats.missions;
-            document.getElementById('statCrew').textContent = appState.stats.crew;
-            document.getElementById('statMatch').textContent = appState.stats.match + '%';
-            document.getElementById('statNFT').textContent = (appState.stats.nft / 1000).toFixed(1) + 'k';
-            document.getElementById('statVolume').textContent = appState.stats.volume + 'M';
-            document.getElementById('statPlatformFee').textContent = (appState.stats.platformFee / 1000).toFixed(1) + 'k';
-            document.getElementById('statTax').textContent = appState.stats.tax + '%';
-            
-            document.getElementById('totalUsers').textContent = appState.stats.crew;
-            document.getElementById('activeFighters').textContent = appState.stats.fighters;
-            document.getElementById('platformFee').textContent = 'RM ' + appState.stats.platformFee.toLocaleString();
-            document.getElementById('parallelUniverses').textContent = appState.stats.universes;
+            document.getElementById('statServices').textContent = appState.stats.services;
+            document.getElementById('statProjects').textContent = appState.stats.projects;
+            document.getElementById('statFreelancers').textContent = appState.stats.freelancers;
+            document.getElementById('statPlatformFee').textContent = `RM ${(appState.stats.platformFee / 1000).toFixed(1)}k`;
         }
 
-        function updateTrends() {
-            document.getElementById('trend1').textContent = '+' + appState.trends.quantum + '%';
-            document.getElementById('trend1Bar').style.width = appState.trends.quantum + '%';
-            document.getElementById('trend2').textContent = '+' + appState.trends.metaverse + '%';
-            document.getElementById('trend2Bar').style.width = appState.trends.metaverse + '%';
-            document.getElementById('trend3').textContent = '+' + appState.trends.web3 + '%';
-            document.getElementById('trend3Bar').style.width = appState.trends.web3 + '%';
-            document.getElementById('trend4').textContent = '+' + appState.trends.consciousness + '%';
-            document.getElementById('trend4Bar').style.width = appState.trends.consciousness + '%';
+        // ========== View Functions ==========
+        function viewService(id) {
+            const service = services.find(s => s.id === id);
+            if (service) {
+                currentServiceId = id;
+                document.getElementById('serviceModalTitle').textContent = service.title;
+                document.getElementById('serviceModalContent').innerHTML = `
+                    <p><strong>Freelancer:</strong> ${service.name}</p>
+                    <p><strong>Rating:</strong> ${service.rating} ⭐</p>
+                    <p><strong>Price:</strong> RM ${service.price}</p>
+                    <p><strong>Location:</strong> ${service.location}</p>
+                    <p><strong>Completed Projects:</strong> ${service.completed}</p>
+                    <p><strong>Description:</strong> ${service.description}</p>
+                    <p style="margin-top: 1rem; padding: 0.75rem; background: #f1f5f9; border-radius: var(--radius);">
+                        <strong>Platform Fee (5%):</strong> RM ${(service.price * 0.05).toFixed(2)} (goes to owner)
+                    </p>
+                `;
+                openModal('serviceModal');
+            }
         }
 
-        function updateUserInfo() {
-            document.getElementById('consciousnessBadge').innerHTML = `<i class="fas fa-brain"></i> Consciousness Upload ${appState.user.consciousness}%`;
-            document.getElementById('consciousnessDisplay').textContent = `Consciousness ${appState.user.consciousness}%`;
-            document.getElementById('consciousnessProgress').textContent = appState.user.consciousness;
-            document.getElementById('consciousnessModalBar').style.width = appState.user.consciousness + '%';
+        function viewProject(id) {
+            const project = projects.find(p => p.id === id);
+            if (project) {
+                currentProjectId = id;
+                document.getElementById('projectModalTitle').textContent = project.title;
+                document.getElementById('projectModalContent').innerHTML = `
+                    <p><strong>Budget:</strong> RM ${project.budget}</p>
+                    <p><strong>Bids:</strong> ${project.bids}</p>
+                    <p><strong>Posted:</strong> ${project.posted}</p>
+                    <p><strong>Location:</strong> ${project.location}</p>
+                    <p><strong>Description:</strong> ${project.description}</p>
+                    <p><strong>Requirements:</strong> ${project.tags.join(', ')}</p>
+                    <p style="margin-top: 1rem; padding: 0.75rem; background: #f1f5f9; border-radius: var(--radius);">
+                        <strong>Platform Fee (5%):</strong> RM ${(project.budget * 0.05).toFixed(2)} (goes to owner)
+                    </p>
+                `;
+                openModal('projectModal');
+            }
         }
 
-        // ========== Function Functions ==========
+        // ========== Action Functions ==========
+        function hireFreelancer() {
+            const service = services.find(s => s.id === currentServiceId);
+            if (service) {
+                const total = service.price * 1.05;
+                if (appState.user.balance >= total) {
+                    appState.user.balance -= total;
+                    appState.stats.platformFee += service.price * 0.05;
+                    appState.stats.services--;
+                    showNotification(`Hired ${service.name}! RM ${service.price} paid. Platform fee RM ${(service.price * 0.05).toFixed(2)} goes to owner.`);
+                    updateStats();
+                    closeModal('serviceModal');
+                } else {
+                    showNotification('Insufficient balance');
+                }
+            }
+        }
+
+        function bidProject() {
+            const project = projects.find(p => p.id === currentProjectId);
+            if (project) {
+                project.bids++;
+                showNotification(`Bid placed on ${project.title}`);
+                renderProjects();
+                closeModal('projectModal');
+            }
+        }
+
+        function mintNFT() {
+            showNotification('NFT minted successfully! LHDN auto-reported.');
+            closeModal('nftModal');
+        }
+
+        function voteDAO() {
+            showNotification('Your vote has been recorded');
+            closeModal('daoModal');
+        }
+
+        function continueUpload() {
+            showNotification('Consciousness upload continuing...');
+            closeModal('consciousnessModal');
+        }
+
+        function jumpToUniverse() {
+            showNotification('Jumping to parallel universe β-2');
+            closeModal('parallelModal');
+        }
+
+        // ========== Utility Functions ==========
         function showNotification(message) {
             const notification = document.createElement('div');
             notification.className = 'notification';
@@ -1800,293 +1603,34 @@
             setTimeout(() => notification.remove(), 3000);
         }
 
-        function openModal(modalId) {
-            document.getElementById(modalId).classList.add('show');
+        function openModal(id) {
+            document.getElementById(id).classList.add('show');
         }
 
-        function closeModal(modalId) {
-            document.getElementById(modalId).classList.remove('show');
+        function closeModal(id) {
+            document.getElementById(id).classList.remove('show');
         }
 
-        function navigateTo(destination) {
-            showNotification(`Navigate to ${destination}`);
+        function navigateTo(page) {
+            showNotification(`Navigating to ${page}...`);
         }
 
-        function startUpload() {
-            appState.user.consciousness += 1;
-            if (appState.user.consciousness > 100) appState.user.consciousness = 100;
-            updateUserInfo();
-            updateStats();
-            showNotification(`Consciousness upload: ${appState.user.consciousness}%`);
-        }
-
-        function toggleHologram() {
-            showNotification('Hologram mode toggled');
+        function search() {
+            const query = document.getElementById('searchInput').value;
+            if (query.length > 2) {
+                showNotification(`Searching for "${query}"...`);
+            }
         }
 
         function showDetail(type) {
-            if (type === 'platformFee') {
-                showNotification(`Total platform fee: RM ${appState.stats.platformFee.toLocaleString()} (goes to owner)`);
-            } else {
-                showNotification(`View ${type} details`);
-            }
+            showNotification(`Viewing ${type} details...`);
         }
 
-        function scanAll() {
-            showNotification('Full scan complete, found 3 new targets');
-            appState.stats.missions += 3;
-            updateStats();
-        }
-
-        function startAIConversation() {
-            showNotification('Quantum AI Dialog: "There are 12 high-match missions today."');
-        }
-
-        function linkConsciousness() {
-            showNotification('Consciousness link established');
-        }
-
-        function exploreNewUniverse() {
-            showNotification('Exploring new parallel universe... found δ-4');
-            appState.universes.push({ name: 'δ-4', match: 92, tasks: 0, status: 'New Discovery' });
-            appState.stats.universes++;
-            renderUniverses();
-        }
-
-        function selectUniverse(name) {
-            showNotification(`Switch to universe ${name}`);
-        }
-
-        function createMission() {
-            openModal('createMissionModal');
-        }
-
-        function publishMission() {
-            const title = document.getElementById('newMissionTitle').value;
-            const desc = document.getElementById('newMissionDesc').value;
-            const budget = document.getElementById('newMissionBudget').value;
-            
-            if (!title || !budget) {
-                showNotification('Please fill in all information');
-                return;
-            }
-            
-            const platformFeeAmount = parseInt(budget) * 0.05;
-            
-            const newMission = {
-                id: 'm' + (appState.missions.length + 1),
-                title: title,
-                budget: parseInt(budget),
-                bids: 0,
-                match: 95,
-                tags: ['New Project'],
-                status: 'New',
-                description: desc,
-                posted: 'Just now',
-                location: 'Malaysia'
-            };
-            
-            appState.missions.push(newMission);
-            appState.stats.missions++;
-            appState.stats.platformFee += platformFeeAmount;
-            renderMissions();
-            updateStats();
-            closeModal('createMissionModal');
-            showNotification(`Project tender posted successfully · Platform fee RM ${platformFeeAmount.toFixed(2)} (goes to owner)`);
-        }
-
-        function mintNFT() {
-            showNotification('Consciousness NFT minted successfully · LHDN auto');
-            appState.stats.nft += 1;
-            appState.user.nfts.push('LHDN Badge');
-            updateStats();
-        }
-
-        function enterMetaverse() {
-            showNotification('Enter Metaverse · Online: 1,234');
-        }
-
-        function bookRoom() {
-            showNotification('Room booked successfully · Room #42');
-        }
-
-        function copyAPIKey() {
-            navigator.clipboard.writeText('dev_malaysia_2026');
-            showNotification('API key copied');
-        }
-
-        function showAPIDetail(type) {
-            showNotification(`API ${type}: ${Math.floor(Math.random() * 100)} calls today`);
-        }
-
-        function downloadTaxReport() {
-            showNotification('LHDN report downloaded');
-        }
-
-        function generateInvoice() {
-            const amount = Math.floor(Math.random() * 1000) + 100;
-            const platformFee = amount * 0.05;
-            const sst = amount * 0.06;
-            const total = amount + platformFee + sst;
-            
-            const invoice = {
-                id: 'INV-' + Date.now(),
-                amount: amount,
-                platformFee: platformFee.toFixed(2),
-                sst: sst.toFixed(2),
-                total: total.toFixed(2),
-                date: new Date().toLocaleString(),
-                lhdnRef: 'LHDN-' + Date.now()
-            };
-            
-            appState.invoices.push(invoice);
-            appState.stats.platformFee += platformFee;
-            renderInvoices();
-            updateStats();
-            showNotification('New invoice created · LHDN auto');
-        }
-
-        function showAgentDetail() {
-            openModal('agentModal');
-        }
-
-        function createSmartContract() {
-            showNotification('New smart contract created on Ethereum chain');
-        }
-
-        function viewContracts() {
-            showNotification('View all smart contracts');
-        }
-
-        function voteDAO() {
-            showNotification('Your vote has been recorded');
-        }
-
-        function viewMission(missionId) {
-            currentMissionId = missionId;
-            const mission = appState.missions.find(m => m.id === missionId);
-            if (mission) {
-                document.getElementById('missionModalTitle').textContent = mission.title;
-                document.getElementById('missionModalContent').innerHTML = `
-                    <p>${mission.description}</p>
-                    <p>Budget: RM ${mission.budget.toLocaleString()}</p>
-                    <p>Bids: ${mission.bids}</p>
-                    <p>AI Match: ${mission.match}%</p>
-                    <p>Status: ${mission.status}</p>
-                    <p>Posted: ${mission.posted}</p>
-                    <p>Location: ${mission.location}</p>
-                    <p>Tech requirements: ${mission.tags.join(', ')}</p>
-                    <p style="margin-top: 10px; padding: 10px; background: rgba(249,115,22,0.1); border-radius: var(--radius-sm);">Platform Fee 5%: RM ${(mission.budget * 0.05).toFixed(2)} (goes to owner)</p>
-                `;
-                openModal('missionModal');
-            }
-        }
-
-        function bidMission(missionId) {
-            const mission = appState.missions.find(m => m.id === missionId);
-            if (mission) {
-                mission.bids++;
-                renderMissions();
-                showNotification(`Bid placed: ${mission.title}`);
-                closeModal('missionModal');
-            }
-        }
-
-        function viewFighter(fighterId) {
-            currentFighterId = fighterId;
-            const fighter = appState.fighters.find(f => f.id === fighterId);
-            if (fighter) {
-                document.getElementById('fighterModalTitle').textContent = fighter.name;
-                document.getElementById('fighterModalContent').innerHTML = `
-                    <p>${fighter.description}</p>
-                    <p>Rating: ${fighter.rating} ⭐</p>
-                    <p>Price: RM ${fighter.price}</p>
-                    <p>Match: ${fighter.match}%</p>
-                    <p>Level: ${fighter.level}</p>
-                    <p>Completed projects: ${fighter.completed}</p>
-                    <p>Response rate: ${fighter.response}</p>
-                    <p>Location: ${fighter.location}</p>
-                `;
-                document.getElementById('platformFeeAmount').textContent = (fighter.price * 0.05).toFixed(2);
-                document.getElementById('agentCommission').textContent = (fighter.price * 0.01).toFixed(2);
-                openModal('fighterModal');
-            }
-        }
-
-        function hireFighter(fighterId) {
-            const fighter = appState.fighters.find(f => f.id === fighterId);
-            if (fighter) {
-                const totalPrice = fighter.price * 1.05; // 5% platform fee
-                if (appState.user.balance >= totalPrice) {
-                    appState.user.balance -= totalPrice;
-                    document.getElementById('userBalance').textContent = appState.user.balance.toLocaleString();
-                    appState.stats.volume += fighter.price / 1000000;
-                    appState.stats.platformFee += fighter.price * 0.05;
-                    appState.stats.tax = Math.min(100, appState.stats.tax + 0.1);
-                    appState.user.commission += fighter.price * 0.01; // Agent commission
-                    
-                    // Create invoice
-                    const invoice = {
-                        id: 'INV-' + Date.now(),
-                        amount: fighter.price,
-                        platformFee: (fighter.price * 0.05).toFixed(2),
-                        sst: (fighter.price * 0.06).toFixed(2),
-                        total: (fighter.price * 1.11).toFixed(2),
-                        date: new Date().toLocaleString(),
-                        lhdnRef: 'LHDN-' + Date.now()
-                    };
-                    appState.invoices.push(invoice);
-                    
-                    showNotification(`Hired ${fighter.name} · RM ${fighter.price} · Platform fee RM ${(fighter.price * 0.05).toFixed(2)} (goes to owner) · Commission RM ${(fighter.price * 0.01).toFixed(2)} · LHDN auto`);
-                    renderInvoices();
-                    updateStats();
-                    closeModal('fighterModal');
-                } else {
-                    showNotification('Insufficient balance, please top up');
-                }
-            }
-        }
-
-        function continueUpload() {
-            startUpload();
-            closeModal('consciousnessModal');
-        }
-
-        function jumpToUniverse() {
-            showNotification('Jump to parallel universe β-2');
-            closeModal('parallelModal');
-        }
-
-        // Search function
-        document.getElementById('searchInput').addEventListener('input', function(e) {
-            const query = e.target.value.toLowerCase();
-            if (query.length > 2) {
-                const fighterResults = appState.fighters.filter(f => 
-                    f.name.toLowerCase().includes(query) || 
-                    f.title.toLowerCase().includes(query)
-                ).length;
-                const missionResults = appState.missions.filter(m => 
-                    m.title.toLowerCase().includes(query)
-                ).length;
-                showNotification(`Found ${fighterResults} freelancers, ${missionResults} projects`);
-            }
-        });
-
-        // Check login state on load
+        // ========== Initialization ==========
         if (!appState.user.isLoggedIn) {
             document.getElementById('authContainer').style.display = 'flex';
-            document.getElementById('mainContent').classList.remove('visible');
+            document.getElementById('mainContent').style.display = 'none';
         }
-
-        // Consciousness upload progress simulation
-        setInterval(() => {
-            if (appState.user.isLoggedIn && appState.user.consciousness < 100) {
-                appState.user.consciousness += 0.1;
-                updateUserInfo();
-                appState.stats.consciousness = Math.floor(appState.user.consciousness);
-                updateStats();
-            }
-        }, 30000);
     </script>
 </body>
 </html>
