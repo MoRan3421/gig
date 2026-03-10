@@ -755,27 +755,6 @@
             <div id="loginForm" class="auth-form active">
                 <input type="email" id="loginEmail" class="auth-input" placeholder="Email" value="">
                 <input type="password" id="loginPassword" class="auth-input" placeholder="Password" value="">
-                <div style="margin-bottom: 20px; padding: 16px; background: rgba(56,189,248,0.1); border-radius: var(--radius-md);">
-                    <p style="color: var(--text-light); margin-bottom: 12px; font-weight: 600;">📋 Demo Accounts:</p>
-                    <div style="display: grid; gap: 8px;">
-                        <div style="display: flex; justify-content: space-between;">
-                            <span>👤 Buyer:</span>
-                            <span style="color: var(--hologram);">alex@example.com / password123</span>
-                        </div>
-                        <div style="display: flex; justify-content: space-between;">
-                            <span>👤 Freelancer:</span>
-                            <span style="color: var(--hologram);">jessica@example.com / pass456</span>
-                        </div>
-                        <div style="display: flex; justify-content: space-between;">
-                            <span>👤 Agent:</span>
-                            <span style="color: var(--hologram);">wei@example.com / dev123</span>
-                        </div>
-                        <div style="display: flex; justify-content: space-between;">
-                            <span>👑 Chairman:</span>
-                            <span style="color: var(--nft);">chairman@novaserve.com / chairman2026</span>
-                        </div>
-                    </div>
-                </div>
                 <button class="auth-button" onclick="login()">Login</button>
                 <div class="auth-switch">
                     Don't have an account? <span onclick="switchAuthTab('register')">Register</span>
@@ -1454,6 +1433,12 @@
 
     <script>
         // ========== User Database ==========
+        // Demo accounts (only visible in code, not shown in UI)
+        // Buyer: alex@example.com / password123
+        // Freelancer: jessica@example.com / pass456
+        // Agent: wei@example.com / dev123
+        // Chairman: chairman@novaserve.com / chairman2026
+        
         let users = [
             { email: 'alex@example.com', password: 'password123', name: 'Alex', role: 'buyer', balance: 15800, consciousness: 87 },
             { email: 'jessica@example.com', password: 'pass456', name: 'Jessica', role: 'freelancer', balance: 8320, consciousness: 92 },
