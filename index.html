@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ms">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
-    <title>NovaServe · Malaysia Freelance Platform (2026) · Owner: tuantuanxiongmaoyouxizhubo</title>
+    <title>NovaServe · Platform Freelance Malaysia (2026) · Pemilik: tuantuanxiongmaoyouxizhubo</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        /* ===== Modern Variables ===== */
+        /* ===== Reka Bentuk Moden Malaysia ===== */
         * {
             margin: 0;
             padding: 0;
@@ -17,40 +17,37 @@
         }
 
         :root {
-            --primary: #6366f1;
-            --primary-dark: #4f46e5;
-            --primary-light: #818cf8;
-            --secondary: #8b5cf6;
-            --accent: #ec4899;
-            --success: #10b981;
-            --warning: #f59e0b;
-            --danger: #ef4444;
-            --dark: #0f172a;
-            --darker: #020617;
-            --light: #f8fafc;
-            --gray: #94a3b8;
-            --dark-gray: #334155;
+            --primary: #00b8a9;
+            --primary-dark: #008b7d;
+            --primary-light: #d3f0ed;
+            --secondary: #f6416c;
+            --accent: #ffb800;
+            --success: #00b894;
+            --warning: #fdcb6e;
+            --danger: #d63031;
+            --dark: #2d3436;
+            --light: #f8f9fa;
+            --gray: #b2bec3;
             --surface: #ffffff;
-            --surface-dark: #1e293b;
-            --text: #0f172a;
-            --text-light: #64748b;
-            --border: #e2e8f0;
-            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-            --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
-            --shadow-md: 0 10px 15px -3px rgb(0 0 0 / 0.1);
-            --shadow-lg: 0 20px 25px -5px rgb(0 0 0 / 0.1);
-            --radius-sm: 0.375rem;
-            --radius: 0.5rem;
-            --radius-md: 0.75rem;
-            --radius-lg: 1rem;
-            --radius-xl: 1.5rem;
+            --text: #2d3436;
+            --text-light: #636e72;
+            --border: #dfe6e9;
+            --shadow-sm: 0 2px 4px rgba(0,0,0,0.02);
+            --shadow: 0 4px 6px rgba(0,0,0,0.05);
+            --shadow-md: 0 10px 15px rgba(0,0,0,0.05);
+            --shadow-lg: 0 20px 25px rgba(0,0,0,0.05);
+            --radius-sm: 8px;
+            --radius: 12px;
+            --radius-md: 16px;
+            --radius-lg: 24px;
+            --radius-xl: 32px;
         }
 
         body {
             font-family: 'Inter', sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: var(--text);
-            line-height: 1.5;
+            line-height: 1.6;
             min-height: 100vh;
         }
 
@@ -58,10 +55,10 @@
         .app {
             max-width: 1440px;
             margin: 0 auto;
-            padding: 1rem;
+            padding: 20px;
         }
 
-        /* ===== Glassmorphism ===== */
+        /* ===== Kesan Kaca ===== */
         .glass {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
@@ -69,46 +66,44 @@
             box-shadow: var(--shadow-lg);
         }
 
-        .glass-dark {
-            background: rgba(15, 23, 42, 0.95);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        /* ===== Navigation ===== */
+        /* ===== Navigasi ===== */
         .navbar {
             background: white;
             border-radius: var(--radius-xl);
-            padding: 1rem 2rem;
-            margin-bottom: 2rem;
+            padding: 16px 32px;
+            margin-bottom: 24px;
             box-shadow: var(--shadow);
             display: flex;
             align-items: center;
             justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 16px;
         }
 
         .logo {
             display: flex;
             align-items: center;
-            gap: 0.5rem;
-            font-size: 1.5rem;
+            gap: 10px;
+            font-size: 24px;
             font-weight: 700;
+        }
+
+        .logo span {
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
         .logo i {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            font-size: 2rem;
+            color: var(--primary);
+            font-size: 28px;
         }
 
         .nav-links {
             display: flex;
-            gap: 2rem;
+            gap: 24px;
             align-items: center;
+            flex-wrap: wrap;
         }
 
         .nav-link {
@@ -118,24 +113,342 @@
             transition: color 0.2s;
             display: flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 8px;
+            padding: 8px 16px;
+            border-radius: var(--radius-xl);
         }
 
         .nav-link:hover {
             color: var(--primary);
+            background: var(--primary-light);
         }
 
         .nav-link.active {
             color: var(--primary);
+            background: var(--primary-light);
         }
 
         .user-menu {
             display: flex;
             align-items: center;
-            gap: 1rem;
+            gap: 16px;
         }
 
         .avatar {
+            width: 44px;
+            height: 44px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+            font-size: 18px;
+        }
+
+        .btn {
+            padding: 10px 24px;
+            border: none;
+            border-radius: var(--radius-xl);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 14px;
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-secondary {
+            background: #f1f3f4;
+            color: var(--text);
+        }
+
+        .btn-secondary:hover {
+            background: #e0e0e0;
+        }
+
+        /* ===== Bar Carian ===== */
+        .search-section {
+            background: white;
+            border-radius: var(--radius-xl);
+            padding: 20px;
+            margin-bottom: 30px;
+            box-shadow: var(--shadow);
+        }
+
+        .search-bar {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: #f8f9fa;
+            border-radius: var(--radius-xl);
+            padding: 4px;
+        }
+
+        .search-bar i {
+            color: var(--text-light);
+            margin-left: 16px;
+        }
+
+        .search-bar input {
+            flex: 1;
+            border: none;
+            padding: 14px 0;
+            font-size: 16px;
+            outline: none;
+            background: transparent;
+        }
+
+        .search-bar button {
+            background: var(--primary);
+            border: none;
+            color: white;
+            padding: 12px 32px;
+            border-radius: var(--radius-xl);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .search-bar button:hover {
+            background: var(--primary-dark);
+        }
+
+        .popular-searches {
+            display: flex;
+            gap: 16px;
+            margin-top: 16px;
+            flex-wrap: wrap;
+        }
+
+        .popular-searches span {
+            color: var(--text-light);
+            font-size: 14px;
+        }
+
+        .popular-searches a {
+            color: var(--text);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+
+        .popular-searches a:hover {
+            color: var(--primary);
+        }
+
+        /* ===== Kategori ===== */
+        .categories {
+            display: flex;
+            gap: 12px;
+            overflow-x: auto;
+            padding: 10px 0;
+            margin-bottom: 30px;
+            scrollbar-width: none;
+        }
+
+        .categories::-webkit-scrollbar {
+            display: none;
+        }
+
+        .category-item {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-xl);
+            padding: 10px 24px;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-light);
+            cursor: pointer;
+            white-space: nowrap;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .category-item i {
+            color: var(--primary);
+        }
+
+        .category-item:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+            background: var(--primary-light);
+            transform: translateY(-2px);
+        }
+
+        .category-item.active {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: white;
+        }
+
+        .category-item.active i {
+            color: white;
+        }
+
+        /* ===== Grid Statistik ===== */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .stat-card {
+            background: white;
+            border-radius: var(--radius-lg);
+            padding: 24px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            box-shadow: var(--shadow);
+            transition: all 0.3s;
+            border: 1px solid var(--border);
+            cursor: pointer;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary);
+        }
+
+        .stat-icon {
+            width: 56px;
+            height: 56px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: var(--radius);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+        }
+
+        .stat-info h3 {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 4px;
+        }
+
+        .stat-info p {
+            color: var(--text-light);
+            font-size: 14px;
+        }
+
+        /* ===== Tajuk Seksyen ===== */
+        .section-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 24px;
+        }
+
+        .section-header h2 {
+            font-size: 24px;
+            font-weight: 700;
+            color: white;
+        }
+
+        .view-all {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            padding: 8px 16px;
+            background: rgba(255,255,255,0.2);
+            border-radius: var(--radius-xl);
+            transition: all 0.3s;
+        }
+
+        .view-all:hover {
+            background: rgba(255,255,255,0.3);
+        }
+
+        /* ===== Grid Perkhidmatan ===== */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+
+        .service-card {
+            background: white;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: all 0.3s;
+            cursor: pointer;
+            border: 1px solid var(--border);
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary);
+        }
+
+        .service-image {
+            height: 160px;
+            background: linear-gradient(135deg, var(--primary-light), #e0f2fe);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            color: var(--primary);
+            position: relative;
+        }
+
+        .service-badge {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background: var(--primary);
+            color: white;
+            padding: 4px 12px;
+            border-radius: var(--radius-xl);
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .service-level {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: var(--secondary);
+            color: white;
+            padding: 4px 12px;
+            border-radius: var(--radius-xl);
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .service-content {
+            padding: 20px;
+        }
+
+        .service-seller {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+
+        .seller-avatar {
             width: 40px;
             height: 40px;
             background: linear-gradient(135deg, var(--primary), var(--secondary));
@@ -144,223 +457,93 @@
             align-items: center;
             justify-content: center;
             color: white;
+            font-size: 16px;
             font-weight: 600;
         }
 
-        /* ===== Search Bar ===== */
-        .search-bar {
-            background: white;
-            border-radius: var(--radius-xl);
-            padding: 0.5rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            box-shadow: var(--shadow);
-            margin-bottom: 2rem;
-        }
-
-        .search-bar input {
+        .seller-info {
             flex: 1;
-            border: none;
-            padding: 0.75rem 1rem;
-            font-size: 1rem;
-            outline: none;
-            background: transparent;
         }
 
-        .search-bar button {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            border: none;
-            color: white;
-            padding: 0.75rem 2rem;
-            border-radius: var(--radius-xl);
+        .seller-name {
             font-weight: 600;
-            cursor: pointer;
-            transition: transform 0.2s;
-        }
-
-        .search-bar button:hover {
-            transform: scale(0.98);
-        }
-
-        /* ===== Stats Grid ===== */
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
-            margin-bottom: 2rem;
-        }
-
-        .stat-card {
-            background: white;
-            border-radius: var(--radius-lg);
-            padding: 1.5rem;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            box-shadow: var(--shadow);
-            transition: transform 0.2s;
-        }
-
-        .stat-card:hover {
-            transform: translateY(-2px);
-        }
-
-        .stat-icon {
-            width: 48px;
-            height: 48px;
-            background: linear-gradient(135deg, var(--primary-light), var(--primary));
-            border-radius: var(--radius);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.5rem;
-        }
-
-        .stat-info h3 {
-            font-size: 1.5rem;
-            font-weight: 700;
             color: var(--dark);
+            font-size: 16px;
         }
 
-        .stat-info p {
+        .seller-location {
             color: var(--text-light);
-            font-size: 0.875rem;
-        }
-
-        /* ===== Main Grid ===== */
-        .main-grid {
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 1.5rem;
-            margin-bottom: 2rem;
-        }
-
-        /* ===== Section Headers ===== */
-        .section-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 1rem;
-        }
-
-        .section-header h2 {
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: var(--dark);
-        }
-
-        .view-all {
-            color: var(--primary);
-            text-decoration: none;
-            font-size: 0.875rem;
-            font-weight: 500;
-        }
-
-        /* ===== Service Cards ===== */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 1rem;
-        }
-
-        .service-card {
-            background: white;
-            border-radius: var(--radius-lg);
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            transition: transform 0.2s;
-            cursor: pointer;
-        }
-
-        .service-card:hover {
-            transform: translateY(-4px);
-        }
-
-        .service-image {
-            height: 150px;
-            background: linear-gradient(135deg, var(--primary-light), var(--secondary));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3rem;
-            color: white;
-            position: relative;
-        }
-
-        .service-badge {
-            position: absolute;
-            top: 0.5rem;
-            left: 0.5rem;
-            background: rgba(0, 0, 0, 0.5);
-            color: white;
-            padding: 0.25rem 0.75rem;
-            border-radius: var(--radius-xl);
-            font-size: 0.75rem;
-            font-weight: 600;
-            backdrop-filter: blur(4px);
-        }
-
-        .service-content {
-            padding: 1rem;
-        }
-
-        .service-seller {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .seller-avatar {
-            width: 24px;
-            height: 24px;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 0.75rem;
-            font-weight: 600;
+            font-size: 13px;
         }
 
         .service-title {
             font-weight: 600;
-            margin-bottom: 0.5rem;
+            margin-bottom: 12px;
             color: var(--dark);
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        .service-rating {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            color: var(--accent);
+            font-size: 14px;
+            margin-bottom: 12px;
+        }
+
+        .service-rating span {
+            color: var(--text-light);
+            margin-left: 4px;
         }
 
         .service-footer {
             display: flex;
             align-items: center;
             justify-content: space-between;
-        }
-
-        .service-rating {
-            color: #fbbf24;
-            font-size: 0.875rem;
+            border-top: 1px solid var(--border);
+            padding-top: 16px;
         }
 
         .service-price {
-            font-weight: 700;
-            color: var(--primary);
+            display: flex;
+            flex-direction: column;
         }
 
-        /* ===== Project Cards ===== */
+        .price-label {
+            color: var(--text-light);
+            font-size: 12px;
+        }
+
+        .price-value {
+            font-weight: 700;
+            color: var(--primary);
+            font-size: 20px;
+        }
+
+        .service-orders {
+            color: var(--text-light);
+            font-size: 13px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* ===== Senarai Projek ===== */
         .projects-list {
             background: white;
             border-radius: var(--radius-lg);
-            padding: 1rem;
+            padding: 24px;
             box-shadow: var(--shadow);
+            margin-bottom: 40px;
         }
 
         .project-item {
-            padding: 1rem;
+            padding: 24px;
             border-bottom: 1px solid var(--border);
             cursor: pointer;
-            transition: background 0.2s;
+            transition: all 0.3s;
         }
 
         .project-item:last-child {
@@ -368,66 +551,111 @@
         }
 
         .project-item:hover {
-            background: #f8fafc;
+            background: #f8f9fa;
+            border-radius: var(--radius);
+            transform: translateX(4px);
         }
 
         .project-header {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            margin-bottom: 0.5rem;
+            margin-bottom: 12px;
         }
 
         .project-title {
             font-weight: 600;
             color: var(--dark);
+            font-size: 18px;
         }
 
-        .project-badge {
-            background: var(--primary-light);
-            color: var(--primary-dark);
-            padding: 0.25rem 0.75rem;
+        .project-budget {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 6px 20px;
             border-radius: var(--radius-xl);
-            font-size: 0.75rem;
+            font-size: 16px;
             font-weight: 600;
+        }
+
+        .project-description {
+            color: var(--text-light);
+            font-size: 14px;
+            margin-bottom: 16px;
+            line-height: 1.6;
         }
 
         .project-meta {
             display: flex;
-            gap: 1rem;
+            gap: 24px;
+            margin-bottom: 16px;
+            flex-wrap: wrap;
+        }
+
+        .project-meta span {
             color: var(--text-light);
-            font-size: 0.875rem;
-            margin-bottom: 0.5rem;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .project-meta i {
+            color: var(--primary);
         }
 
         .project-tags {
             display: flex;
-            gap: 0.5rem;
+            gap: 8px;
             flex-wrap: wrap;
+            margin-bottom: 16px;
         }
 
         .tag {
-            background: #f1f5f9;
-            color: var(--dark);
-            padding: 0.25rem 0.75rem;
+            background: var(--primary-light);
+            color: var(--primary-dark);
+            padding: 6px 16px;
             border-radius: var(--radius-xl);
-            font-size: 0.75rem;
+            font-size: 13px;
             font-weight: 500;
         }
 
-        /* ===== Activity List ===== */
+        .project-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .project-proposals {
+            color: var(--text-light);
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .project-time {
+            color: var(--text-light);
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* ===== Senarai Aktiviti ===== */
         .activity-list {
             background: white;
             border-radius: var(--radius-lg);
-            padding: 1rem;
+            padding: 24px;
             box-shadow: var(--shadow);
+            margin-bottom: 40px;
         }
 
         .activity-item {
             display: flex;
             align-items: center;
-            gap: 1rem;
-            padding: 1rem;
+            gap: 16px;
+            padding: 16px 0;
             border-bottom: 1px solid var(--border);
         }
 
@@ -436,121 +664,156 @@
         }
 
         .activity-avatar {
-            width: 40px;
-            height: 40px;
-            background: linear-gradient(135deg, var(--primary-light), var(--primary));
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
             font-weight: 600;
+            font-size: 18px;
+        }
+
+        .activity-content {
+            flex: 1;
         }
 
         .activity-content p {
             font-weight: 500;
             color: var(--dark);
-            margin-bottom: 0.25rem;
+            margin-bottom: 4px;
+            font-size: 15px;
         }
 
         .activity-time {
-            font-size: 0.75rem;
+            font-size: 13px;
             color: var(--text-light);
         }
 
-        /* ===== Feature Grid ===== */
-        .feature-grid {
+        /* ===== Grid Ciri-Ciri ===== */
+        .features-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1rem;
-            margin-bottom: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            margin: 40px 0;
         }
 
         .feature-card {
             background: white;
             border-radius: var(--radius-lg);
-            padding: 1.5rem;
+            padding: 24px;
             box-shadow: var(--shadow);
-            transition: transform 0.2s;
             cursor: pointer;
+            transition: all 0.3s;
+            border: 1px solid var(--border);
         }
 
         .feature-card:hover {
-            transform: translateY(-2px);
+            transform: translateY(-4px);
+            border-color: var(--primary);
+            box-shadow: var(--shadow-lg);
         }
 
         .feature-icon {
-            width: 48px;
-            height: 48px;
-            background: linear-gradient(135deg, var(--primary-light), var(--primary));
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
             border-radius: var(--radius);
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
+            font-size: 28px;
+            margin-bottom: 16px;
         }
 
         .feature-card h3 {
-            font-size: 1rem;
+            font-size: 18px;
             font-weight: 600;
             color: var(--dark);
-            margin-bottom: 0.5rem;
+            margin-bottom: 8px;
         }
 
         .feature-card p {
             color: var(--text-light);
-            font-size: 0.875rem;
-            margin-bottom: 1rem;
+            font-size: 14px;
+            line-height: 1.5;
         }
 
-        .feature-stats {
-            display: flex;
-            justify-content: space-between;
-            color: var(--text-light);
-            font-size: 0.75rem;
-        }
-
-        /* ===== Agent Tree ===== */
-        .agent-tree {
+        /* ===== Sistem Ejen ===== */
+        .agent-system {
             background: white;
             border-radius: var(--radius-lg);
-            padding: 1.5rem;
+            padding: 32px;
             box-shadow: var(--shadow);
-            margin-bottom: 2rem;
+            margin: 40px 0;
         }
 
-        .tree-nodes {
+        .agent-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 24px;
+        }
+
+        .agent-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 1rem;
-            margin: 1rem 0;
+            gap: 24px;
+            margin-bottom: 32px;
         }
 
-        .tree-node {
+        .agent-level {
             text-align: center;
-            padding: 1rem;
-            background: #f8fafc;
+            padding: 24px;
+            background: var(--primary-light);
             border-radius: var(--radius);
+            border: 1px solid var(--border);
         }
 
-        .tree-node i {
-            font-size: 2rem;
+        .agent-level i {
+            font-size: 40px;
             color: var(--primary);
-            margin-bottom: 0.5rem;
+            margin-bottom: 12px;
         }
 
-        .tree-node .role {
+        .agent-level .role {
             font-weight: 600;
             color: var(--dark);
-            margin-bottom: 0.25rem;
+            margin-bottom: 8px;
+            font-size: 18px;
         }
 
-        .tree-node .rate {
+        .agent-level .rate {
             color: var(--primary);
-            font-weight: 600;
-            font-size: 0.875rem;
+            font-weight: 700;
+            font-size: 28px;
+        }
+
+        .agent-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border);
+        }
+
+        .agent-stats div {
+            text-align: center;
+        }
+
+        .agent-stats strong {
+            display: block;
+            font-size: 24px;
+            color: var(--dark);
+            margin-bottom: 4px;
+        }
+
+        .agent-stats span {
+            color: var(--text-light);
+            font-size: 14px;
         }
 
         /* ===== Modal ===== */
@@ -560,7 +823,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(0, 0, 0, 0.5);
+            background: rgba(0,0,0,0.5);
             backdrop-filter: blur(8px);
             display: flex;
             align-items: center;
@@ -579,7 +842,7 @@
         .modal {
             background: white;
             border-radius: var(--radius-lg);
-            padding: 2rem;
+            padding: 32px;
             max-width: 500px;
             width: 90%;
             max-height: 80vh;
@@ -591,96 +854,105 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            margin-bottom: 1.5rem;
+            margin-bottom: 24px;
         }
 
         .modal-header h2 {
-            font-size: 1.5rem;
-            font-weight: 600;
+            font-size: 24px;
+            font-weight: 700;
             color: var(--dark);
         }
 
         .modal-close {
             background: none;
             border: none;
-            font-size: 1.5rem;
+            font-size: 28px;
             cursor: pointer;
             color: var(--text-light);
+            transition: color 0.2s;
+        }
+
+        .modal-close:hover {
+            color: var(--danger);
         }
 
         .modal-body p {
-            margin-bottom: 0.5rem;
+            margin-bottom: 16px;
             color: var(--text-light);
+            line-height: 1.6;
+            font-size: 15px;
+        }
+
+        .modal-body strong {
+            color: var(--dark);
         }
 
         .modal-footer {
             display: flex;
-            gap: 1rem;
-            margin-top: 1.5rem;
+            gap: 16px;
+            margin-top: 32px;
         }
 
-        .btn {
-            padding: 0.75rem 1.5rem;
-            border: none;
-            border-radius: var(--radius);
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.2s;
+        .modal-footer .btn {
             flex: 1;
+            padding: 14px;
+            font-size: 16px;
         }
 
-        .btn-primary {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-        }
-
-        .btn-primary:hover {
-            transform: scale(0.98);
-        }
-
-        .btn-secondary {
-            background: var(--light);
-            color: var(--dark);
-        }
-
-        .btn-secondary:hover {
-            background: var(--border);
-        }
-
-        /* ===== Auth Forms ===== */
+        /* ===== Borang Auth ===== */
         .auth-container {
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 1rem;
+            padding: 20px;
         }
 
         .auth-card {
             background: white;
             border-radius: var(--radius-lg);
-            padding: 2rem;
-            max-width: 400px;
+            padding: 48px;
+            max-width: 480px;
             width: 100%;
             box-shadow: var(--shadow-lg);
         }
 
+        .auth-logo {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .auth-logo i {
+            font-size: 60px;
+            color: var(--primary);
+        }
+
+        .auth-logo h2 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-top: 16px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
         .auth-tabs {
             display: flex;
-            gap: 1rem;
-            margin-bottom: 2rem;
+            gap: 16px;
+            margin-bottom: 32px;
             border-bottom: 2px solid var(--border);
-            padding-bottom: 1rem;
+            padding-bottom: 16px;
         }
 
         .auth-tab {
             flex: 1;
             text-align: center;
-            padding: 0.75rem;
+            padding: 12px;
             cursor: pointer;
             font-weight: 600;
             color: var(--text-light);
-            transition: all 0.2s;
+            transition: all 0.3s;
+            font-size: 16px;
         }
 
         .auth-tab.active {
@@ -691,10 +963,10 @@
         .auth-tab.active::after {
             content: '';
             position: absolute;
-            bottom: -1rem;
+            bottom: -17px;
             left: 0;
             right: 0;
-            height: 2px;
+            height: 3px;
             background: linear-gradient(135deg, var(--primary), var(--secondary));
         }
 
@@ -709,60 +981,67 @@
         .auth-form input,
         .auth-form select {
             width: 100%;
-            padding: 0.75rem 1rem;
-            margin-bottom: 1rem;
+            padding: 16px 18px;
+            margin-bottom: 16px;
             border: 1px solid var(--border);
             border-radius: var(--radius);
-            font-size: 1rem;
+            font-size: 15px;
             outline: none;
-            transition: border-color 0.2s;
+            transition: all 0.3s;
         }
 
         .auth-form input:focus,
         .auth-form select:focus {
             border-color: var(--primary);
+            box-shadow: 0 0 0 3px var(--primary-light);
         }
 
         .auth-button {
             width: 100%;
-            padding: 0.75rem;
+            padding: 16px;
             background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: white;
             border: none;
             border-radius: var(--radius);
             font-weight: 600;
             cursor: pointer;
-            transition: transform 0.2s;
+            transition: all 0.3s;
+            font-size: 16px;
+            margin-top: 8px;
         }
 
         .auth-button:hover {
-            transform: scale(0.98);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
         }
 
         .auth-switch {
             text-align: center;
-            margin-top: 1rem;
+            margin-top: 24px;
             color: var(--text-light);
+            font-size: 15px;
         }
 
         .auth-switch span {
             color: var(--primary);
             cursor: pointer;
             font-weight: 600;
+            margin-left: 4px;
         }
 
-        /* ===== Notification ===== */
+        /* ===== Notifikasi ===== */
         .notification {
             position: fixed;
-            top: 1rem;
-            right: 1rem;
+            top: 20px;
+            right: 20px;
             background: white;
             border-left: 4px solid var(--primary);
             border-radius: var(--radius);
-            padding: 1rem 1.5rem;
+            padding: 16px 24px;
             box-shadow: var(--shadow-lg);
             z-index: 2000;
             animation: slideIn 0.3s ease;
+            font-size: 15px;
         }
 
         @keyframes slideIn {
@@ -779,352 +1058,433 @@
         /* ===== Footer ===== */
         .footer {
             text-align: center;
-            padding: 2rem;
+            padding: 40px 0;
             color: white;
-            font-size: 0.875rem;
+            font-size: 15px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            margin-top: 40px;
         }
 
-        /* ===== Responsive ===== */
-        @media (max-width: 1024px) {
-            .main-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .feature-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 768px) {
-            .navbar {
-                flex-direction: column;
-                gap: 1rem;
-            }
-            
-            .nav-links {
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-            
-            .feature-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .stats-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* ===== Owner Badge ===== */
+        /* ===== Lencana Pemilik ===== */
         .owner-badge {
-            background: linear-gradient(135deg, #f59e0b, #d97706);
+            background: linear-gradient(135deg, #f59e0b, #f97316);
             color: white;
-            padding: 0.25rem 0.75rem;
+            padding: 6px 14px;
             border-radius: var(--radius-xl);
-            font-size: 0.75rem;
+            font-size: 13px;
             font-weight: 600;
             display: inline-flex;
             align-items: center;
-            gap: 0.25rem;
+            gap: 6px;
         }
 
-        /* ===== Progress Bar ===== */
+        /* ===== Bar Kemajuan ===== */
         .progress-bar {
             width: 100%;
-            height: 8px;
-            background: #e2e8f0;
-            border-radius: 4px;
+            height: 10px;
+            background: var(--border);
+            border-radius: 5px;
             overflow: hidden;
-            margin: 0.5rem 0;
+            margin: 20px 0;
         }
 
         .progress-fill {
             height: 100%;
             background: linear-gradient(90deg, var(--primary), var(--secondary));
-            border-radius: 4px;
-            transition: width 0.3s;
+            border-radius: 5px;
         }
 
-        /* ===== Contact Info ===== */
+        /* ===== Maklumat Hubungan ===== */
         .contact-info {
             position: fixed;
-            bottom: 1rem;
-            left: 1rem;
+            bottom: 20px;
+            left: 20px;
             background: white;
             border-radius: var(--radius-xl);
-            padding: 0.75rem 1.5rem;
+            padding: 14px 28px;
             box-shadow: var(--shadow-lg);
             display: flex;
-            gap: 1.5rem;
+            gap: 28px;
             z-index: 100;
-            font-size: 0.875rem;
+            font-size: 15px;
+            border: 1px solid var(--border);
         }
 
         .contact-info a {
             color: var(--primary);
             text-decoration: none;
+            font-weight: 500;
         }
 
         .contact-info i {
             color: var(--primary);
-            margin-right: 0.25rem;
+            margin-right: 8px;
+        }
+
+        /* ===== Responsif ===== */
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                padding: 16px;
+            }
+            
+            .nav-links {
+                justify-content: center;
+            }
+            
+            .user-menu {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .agent-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .agent-stats {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                gap: 12px;
+                left: 10px;
+                right: 10px;
+                bottom: 10px;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Contact Info -->
+    <!-- Maklumat Hubungan -->
     <div class="contact-info">
         <span><i class="fas fa-phone"></i> <a href="tel:+601156649657">011-56649657</a></span>
         <span><i class="fas fa-envelope"></i> <a href="mailto:tuantuanxiongmaoyouxizhubo@gmail.com">tuantuanxiongmaoyouxizhubo@gmail.com</a></span>
-        <span class="owner-badge"><i class="fas fa-crown"></i> Owner</span>
+        <span class="owner-badge"><i class="fas fa-crown"></i> Pemilik Platform</span>
     </div>
 
-    <!-- Auth Container -->
+    <!-- Container Auth -->
     <div id="authContainer" class="auth-container">
         <div class="auth-card">
+            <div class="auth-logo">
+                <i class="fas fa-rocket"></i>
+                <h2>NovaServe</h2>
+                <p style="color: var(--text-light); margin-top: 12px;">Platform Freelance Malaysia</p>
+            </div>
             <div class="auth-tabs">
-                <div class="auth-tab active" onclick="switchAuthTab('login')">Login</div>
-                <div class="auth-tab" onclick="switchAuthTab('register')">Register</div>
+                <div class="auth-tab active" onclick="switchAuthTab('login')">Log Masuk</div>
+                <div class="auth-tab" onclick="switchAuthTab('register')">Daftar</div>
             </div>
 
-            <!-- Login Form -->
+            <!-- Borang Log Masuk -->
             <div id="loginForm" class="auth-form active">
                 <input type="email" id="loginEmail" placeholder="Email" value="">
-                <input type="password" id="loginPassword" placeholder="Password" value="">
-                <button class="auth-button" onclick="login()">Login</button>
+                <input type="password" id="loginPassword" placeholder="Kata Laluan" value="">
+                <button class="auth-button" onclick="login()">Log Masuk</button>
                 <div class="auth-switch">
-                    Don't have an account? <span onclick="switchAuthTab('register')">Register</span>
+                    Tiada akaun? <span onclick="switchAuthTab('register')">Daftar Sekarang</span>
                 </div>
             </div>
 
-            <!-- Register Form -->
+            <!-- Borang Daftar -->
             <div id="registerForm" class="auth-form">
-                <input type="text" id="regName" placeholder="Full Name">
+                <input type="text" id="regName" placeholder="Nama Penuh">
                 <input type="email" id="regEmail" placeholder="Email">
-                <input type="password" id="regPassword" placeholder="Password (min. 6 characters)">
-                <input type="password" id="regConfirmPassword" placeholder="Confirm Password">
+                <input type="password" id="regPassword" placeholder="Kata Laluan (min. 6 aksara)">
+                <input type="password" id="regConfirmPassword" placeholder="Sahkan Kata Laluan">
                 <select id="regRole">
-                    <option value="buyer">Buyer / Client</option>
-                    <option value="freelancer">Freelancer</option>
-                    <option value="agent">Agent</option>
+                    <option value="buyer">Pembeli / Klien</option>
+                    <option value="seller">Penjual / Freelancer</option>
+                    <option value="agent">Ejen</option>
                 </select>
-                <input type="text" id="regPhone" placeholder="Phone Number (e.g., 0123456789)">
-                <input type="text" id="regTaxId" placeholder="Tax ID / SSM (Optional)">
-                <button class="auth-button" onclick="register()">Register</button>
+                <input type="text" id="regPhone" placeholder="No. Telefon (cth: 0123456789)">
+                <input type="text" id="regTaxId" placeholder="No. Cukai / SSM (Pilihan)">
+                <button class="auth-button" onclick="register()">Daftar</button>
                 <div class="auth-switch">
-                    Already have an account? <span onclick="switchAuthTab('login')">Login</span>
+                    Sudah ada akaun? <span onclick="switchAuthTab('login')">Log Masuk</span>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Main Content -->
+    <!-- Kandungan Utama -->
     <div id="mainContent" class="app" style="display: none;">
-        <!-- Navigation -->
+        <!-- Navigasi -->
         <nav class="navbar">
             <div class="logo">
                 <i class="fas fa-rocket"></i>
-                NovaServe
+                <span>NovaServe</span>
             </div>
             <div class="nav-links">
-                <a href="#" class="nav-link active" onclick="navigateTo('dashboard')"><i class="fas fa-home"></i> Dashboard</a>
-                <a href="#" class="nav-link" onclick="navigateTo('marketplace')"><i class="fas fa-store"></i> Marketplace</a>
-                <a href="#" class="nav-link" onclick="navigateTo('projects')"><i class="fas fa-tasks"></i> Projects</a>
-                <a href="#" class="nav-link" onclick="navigateTo('agents')"><i class="fas fa-users"></i> Agents</a>
-                <a href="#" class="nav-link" onclick="navigateTo('analytics')"><i class="fas fa-chart-line"></i> Analytics</a>
+                <a href="#" class="nav-link active" onclick="navigateTo('home')"><i class="fas fa-home"></i> Utama</a>
+                <a href="#" class="nav-link" onclick="navigateTo('services')"><i class="fas fa-store"></i> Perkhidmatan</a>
+                <a href="#" class="nav-link" onclick="navigateTo('projects')"><i class="fas fa-briefcase"></i> Projek</a>
+                <a href="#" class="nav-link" onclick="navigateTo('orders')"><i class="fas fa-shopping-bag"></i> Pesanan</a>
+                <a href="#" class="nav-link" onclick="navigateTo('messages')"><i class="fas fa-envelope"></i> Mesej</a>
+                <a href="#" class="nav-link" onclick="navigateTo('wallet')"><i class="fas fa-wallet"></i> Dompet</a>
             </div>
             <div class="user-menu">
-                <span class="owner-badge" id="userRole">Guest</span>
-                <div class="avatar" id="userAvatar">G</div>
-                <button class="btn btn-secondary" onclick="logout()">Logout</button>
+                <span class="owner-badge" id="userRole">Tetamu</span>
+                <div class="avatar" id="userAvatar">T</div>
+                <button class="btn btn-secondary" onclick="logout()">Log Keluar</button>
             </div>
         </nav>
 
-        <!-- Search Bar -->
-        <div class="search-bar">
-            <i class="fas fa-search" style="color: var(--text-light); margin-left: 1rem;"></i>
-            <input type="text" id="searchInput" placeholder="Search services, freelancers, projects...">
-            <button onclick="search()">Search</button>
+        <!-- Seksyen Carian -->
+        <div class="search-section">
+            <div class="search-bar">
+                <i class="fas fa-search"></i>
+                <input type="text" id="searchInput" placeholder="Cari perkhidmatan, freelancer, atau projek...">
+                <button onclick="search()">Cari</button>
+            </div>
+            <div class="popular-searches">
+                <span>Popular:</span>
+                <a href="#">Reka Bentuk Grafik</a>
+                <a href="#">Pembangunan Web</a>
+                <a href="#">Pemasaran Digital</a>
+                <a href="#">Penulisan Kandungan</a>
+                <a href="#">Video Animasi</a>
+                <a href="#">Terjemahan</a>
+            </div>
         </div>
 
-        <!-- Stats Grid -->
+        <!-- Kategori -->
+        <div class="categories">
+            <div class="category-item active"><i class="fas fa-th-large"></i> Semua</div>
+            <div class="category-item"><i class="fas fa-paint-brush"></i> Reka Bentuk & Kreatif</div>
+            <div class="category-item"><i class="fas fa-code"></i> Pengaturcaraan & Teknologi</div>
+            <div class="category-item"><i class="fas fa-chart-line"></i> Pemasaran Digital</div>
+            <div class="category-item"><i class="fas fa-video"></i> Video & Animasi</div>
+            <div class="category-item"><i class="fas fa-pen"></i> Penulisan & Terjemahan</div>
+            <div class="category-item"><i class="fas fa-music"></i> Muzik & Audio</div>
+            <div class="category-item"><i class="fas fa-briefcase"></i> Perniagaan</div>
+            <div class="category-item"><i class="fas fa-robot"></i> AI & Data</div>
+            <div class="category-item"><i class="fas fa-atom"></i> Teknologi Kuantum</div>
+        </div>
+
+        <!-- Grid Statistik -->
         <div class="stats-grid">
             <div class="stat-card" onclick="showDetail('services')">
-                <div class="stat-icon"><i class="fas fa-briefcase"></i></div>
+                <div class="stat-icon"><i class="fas fa-store"></i></div>
                 <div class="stat-info">
-                    <h3 id="statServices">1,234</h3>
-                    <p>Active Services</p>
+                    <h3 id="statServices">12,345</h3>
+                    <p>Perkhidmatan Aktif</p>
                 </div>
             </div>
             <div class="stat-card" onclick="showDetail('projects')">
-                <div class="stat-icon"><i class="fas fa-tasks"></i></div>
+                <div class="stat-icon"><i class="fas fa-briefcase"></i></div>
                 <div class="stat-info">
-                    <h3 id="statProjects">56</h3>
-                    <p>Open Projects</p>
+                    <h3 id="statProjects">567</h3>
+                    <p>Projek Terbuka</p>
                 </div>
             </div>
             <div class="stat-card" onclick="showDetail('freelancers')">
                 <div class="stat-icon"><i class="fas fa-users"></i></div>
                 <div class="stat-info">
-                    <h3 id="statFreelancers">892</h3>
-                    <p>Freelancers Online</p>
+                    <h3 id="statFreelancers">8,942</h3>
+                    <p>Freelancer Online</p>
                 </div>
             </div>
             <div class="stat-card" onclick="showDetail('platformFee')">
                 <div class="stat-icon"><i class="fas fa-coins"></i></div>
                 <div class="stat-info">
-                    <h3 id="statPlatformFee">RM 45.6k</h3>
-                    <p>Platform Fee (5%)</p>
+                    <h3 id="statPlatformFee">RM 456.7k</h3>
+                    <p>Yuran Platform (5%)</p>
                 </div>
             </div>
         </div>
 
-        <!-- Main Grid -->
-        <div class="main-grid">
-            <!-- Left Column -->
-            <div>
-                <!-- Services Section -->
-                <div class="section-header">
-                    <h2>Popular Services</h2>
-                    <a href="#" class="view-all" onclick="navigateTo('marketplace')">View All →</a>
-                </div>
-                <div class="services-grid" id="servicesGrid">
-                    <!-- Services will be dynamically generated -->
-                </div>
+        <!-- Seksyen Perkhidmatan -->
+        <div class="section-header">
+            <h2>Perkhidmatan Popular</h2>
+            <a href="#" class="view-all" onclick="navigateTo('services')">Lihat Semua →</a>
+        </div>
+        <div class="services-grid" id="servicesGrid">
+            <!-- Perkhidmatan akan dijana secara dinamik -->
+        </div>
 
-                <!-- Projects Section -->
-                <div class="section-header" style="margin-top: 2rem;">
-                    <h2>Recent Projects</h2>
-                    <a href="#" class="view-all" onclick="navigateTo('projects')">View All →</a>
+        <!-- Seksyen Projek -->
+        <div class="section-header">
+            <h2>Projek Terkini</h2>
+            <a href="#" class="view-all" onclick="navigateTo('projects')">Lihat Semua →</a>
+        </div>
+        <div class="projects-list" id="projectsList">
+            <!-- Projek akan dijana secara dinamik -->
+        </div>
+
+        <!-- Sistem Ejen -->
+        <div class="agent-system">
+            <div class="agent-title">Sistem Ejen Berbilang Peringkat</div>
+            <div class="agent-grid">
+                <div class="agent-level">
+                    <i class="fas fa-crown"></i>
+                    <div class="role">Pemilik Platform</div>
+                    <div class="rate">5%</div>
                 </div>
-                <div class="projects-list" id="projectsList">
-                    <!-- Projects will be dynamically generated -->
+                <div class="agent-level">
+                    <i class="fas fa-star"></i>
+                    <div class="role">Ejen Utama</div>
+                    <div class="rate">2%</div>
+                </div>
+                <div class="agent-level">
+                    <i class="fas fa-user"></i>
+                    <div class="role">Ejen Biasa</div>
+                    <div class="rate">1%</div>
                 </div>
             </div>
-
-            <!-- Right Column -->
-            <div>
-                <!-- Activity Feed -->
-                <div class="section-header">
-                    <h2>Recent Activity</h2>
+            <div class="agent-stats">
+                <div>
+                    <strong>RM 2,345</strong>
+                    <span>Komisen Anda</span>
                 </div>
-                <div class="activity-list" id="activityList">
-                    <!-- Activity will be dynamically generated -->
+                <div>
+                    <strong>156</strong>
+                    <span>Ejen Bawah</span>
                 </div>
-
-                <!-- Agent System -->
-                <div class="section-header" style="margin-top: 2rem;">
-                    <h2>Agent System</h2>
-                </div>
-                <div class="agent-tree">
-                    <div class="tree-nodes">
-                        <div class="tree-node">
-                            <i class="fas fa-crown"></i>
-                            <div class="role">Owner</div>
-                            <div class="rate">5%</div>
-                        </div>
-                        <div class="tree-node">
-                            <i class="fas fa-star"></i>
-                            <div class="role">Master Agent</div>
-                            <div class="rate">2%</div>
-                        </div>
-                        <div class="tree-node">
-                            <i class="fas fa-user"></i>
-                            <div class="role">Regular Agent</div>
-                            <div class="rate">1%</div>
-                        </div>
-                    </div>
-                    <div style="display: flex; justify-content: space-between; margin-top: 1rem;">
-                        <span><strong>Your Commission:</strong> RM 234</span>
-                        <span><strong>Downline:</strong> 15 agents</span>
-                    </div>
-                </div>
-
-                <!-- Features Grid -->
-                <div class="feature-grid">
-                    <div class="feature-card" onclick="openModal('quantumModal')">
-                        <div class="feature-icon"><i class="fas fa-atom"></i></div>
-                        <h3>Quantum Space</h3>
-                        <p>512 qubits · 99.99% entanglement</p>
-                        <div class="feature-stats">
-                            <span>Active</span>
-                            <span>→</span>
-                        </div>
-                    </div>
-                    <div class="feature-card" onclick="openModal('metaverseModal')">
-                        <div class="feature-icon"><i class="fas fa-vr-cardboard"></i></div>
-                        <h3>Metaverse</h3>
-                        <p>1,234 online · 56 rooms</p>
-                        <div class="feature-stats">
-                            <span>Enter</span>
-                            <span>→</span>
-                        </div>
-                    </div>
-                    <div class="feature-card" onclick="openModal('nftModal')">
-                        <div class="feature-icon"><i class="fas fa-image"></i></div>
-                        <h3>NFT Studio</h3>
-                        <p>3,245 badges minted</p>
-                        <div class="feature-stats">
-                            <span>Mint</span>
-                            <span>→</span>
-                        </div>
-                    </div>
-                    <div class="feature-card" onclick="openModal('daoModal')">
-                        <div class="feature-icon"><i class="fas fa-vote-yea"></i></div>
-                        <h3>DAO Governance</h3>
-                        <p>3 active proposals</p>
-                        <div class="feature-stats">
-                            <span>Vote</span>
-                            <span>→</span>
-                        </div>
-                    </div>
-                    <div class="feature-card" onclick="openModal('consciousnessModal')">
-                        <div class="feature-icon"><i class="fas fa-brain"></i></div>
-                        <h3>Consciousness</h3>
-                        <p>87% uploaded</p>
-                        <div class="feature-stats">
-                            <span>Continue</span>
-                            <span>→</span>
-                        </div>
-                    </div>
-                    <div class="feature-card" onclick="openModal('parallelModal')">
-                        <div class="feature-icon"><i class="fas fa-clock"></i></div>
-                        <h3>Parallel Universe</h3>
-                        <p>7/42 explored</p>
-                        <div class="feature-stats">
-                            <span>Explore</span>
-                            <span>→</span>
-                        </div>
-                    </div>
+                <div>
+                    <strong>RM 456.7k</strong>
+                    <span>Jumlah Yuran</span>
                 </div>
             </div>
+        </div>
+
+        <!-- Grid Ciri-Ciri Baru -->
+        <div class="section-header">
+            <h2>Ciri-Ciri Inovatif</h2>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card" onclick="openModal('quantumModal')">
+                <div class="feature-icon"><i class="fas fa-atom"></i></div>
+                <h3>Ruang Kuantum</h3>
+                <p>512 qubit · Keterikatan 99.99%</p>
+            </div>
+            <div class="feature-card" onclick="openModal('metaverseModal')">
+                <div class="feature-icon"><i class="fas fa-vr-cardboard"></i></div>
+                <h3>Metaverse</h3>
+                <p>1,234 online · 56 bilik maya</p>
+            </div>
+            <div class="feature-card" onclick="openModal('nftModal')">
+                <div class="feature-icon"><i class="fas fa-image"></i></div>
+                <h3>Studio NFT</h3>
+                <p>3,245 badge ditempa</p>
+            </div>
+            <div class="feature-card" onclick="openModal('daoModal')">
+                <div class="feature-icon"><i class="fas fa-vote-yea"></i></div>
+                <h3>Tadbir Urus DAO</h3>
+                <p>5 cadangan aktif</p>
+            </div>
+            <div class="feature-card" onclick="openModal('consciousnessModal')">
+                <div class="feature-icon"><i class="fas fa-brain"></i></div>
+                <h3>Kesedaran Digital</h3>
+                <p>87% dimuat naik</p>
+            </div>
+            <div class="feature-card" onclick="openModal('parallelModal')">
+                <div class="feature-icon"><i class="fas fa-clock"></i></div>
+                <h3>Alam Selari</h3>
+                <p>12/42 diteroka</p>
+            </div>
+            <div class="feature-card" onclick="openModal('lhdnModal')">
+                <div class="feature-icon"><i class="fas fa-file-invoice"></i></div>
+                <h3>Cukai LHDN</h3>
+                <p>Pematuhan 99.9%</p>
+            </div>
+            <div class="feature-card" onclick="openModal('smartContractModal')">
+                <div class="feature-icon"><i class="fas fa-file-signature"></i></div>
+                <h3>Kontrak Pintar</h3>
+                <p>2,345 aktif</p>
+            </div>
+            <div class="feature-card" onclick="openModal('aiModal')">
+                <div class="feature-icon"><i class="fas fa-robot"></i></div>
+                <h3>AI Freelancer</h3>
+                <p>89% padanan tepat</p>
+            </div>
+            <div class="feature-card" onclick="openModal('blockchainModal')">
+                <div class="feature-icon"><i class="fas fa-link"></i></div>
+                <h3>Rantaian Blok</h3>
+                <p>4 rantaian disokong</p>
+            </div>
+            <div class="feature-card" onclick="openModal('paymentModal')">
+                <div class="feature-icon"><i class="fas fa-credit-card"></i></div>
+                <h3>Pembayaran FPX</h3>
+                <p>Maybank, CIMB, BSN</p>
+            </div>
+            <div class="feature-card" onclick="openModal('ownerModal')">
+                <div class="feature-icon"><i class="fas fa-crown"></i></div>
+                <h3>Pemilik Platform</h3>
+                <p>tuantuanxiongmao...</p>
+            </div>
+        </div>
+
+        <!-- Seksyen Aktiviti -->
+        <div class="section-header">
+            <h2>Aktiviti Terkini</h2>
+        </div>
+        <div class="activity-list" id="activityList">
+            <!-- Aktiviti akan dijana secara dinamik -->
         </div>
 
         <!-- Footer -->
         <div class="footer">
-            <p>© 2026 NovaServe Malaysia · Platform Fee 5% goes to owner · tuantuanxiongmaoyouxizhubo@gmail.com</p>
+            <p>© 2026 NovaServe Malaysia · Yuran Platform 5% kepada pemilik · LHDN Auto · FPX Sedia · tuantuanxiongmaoyouxizhubo@gmail.com</p>
         </div>
     </div>
 
-    <!-- Modals -->
+    <!-- Modal-Modal -->
+    <div class="modal-overlay" id="serviceModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h2 id="serviceModalTitle">Butiran Perkhidmatan</h2>
+                <button class="modal-close" onclick="closeModal('serviceModal')">&times;</button>
+            </div>
+            <div class="modal-body" id="serviceModalContent"></div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" id="hireButton" onclick="hireFreelancer()">Teruskan (RM)</button>
+                <button class="btn btn-secondary" onclick="closeModal('serviceModal')">Tutup</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="projectModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h2 id="projectModalTitle">Butiran Projek</h2>
+                <button class="modal-close" onclick="closeModal('projectModal')">&times;</button>
+            </div>
+            <div class="modal-body" id="projectModalContent"></div>
+            <div class="modal-footer">
+                <button class="btn btn-primary" id="bidButton" onclick="submitProposal()">Hantar Cadangan</button>
+                <button class="btn btn-secondary" onclick="closeModal('projectModal')">Tutup</button>
+            </div>
+        </div>
+    </div>
+
     <div class="modal-overlay" id="quantumModal">
         <div class="modal">
             <div class="modal-header">
-                <h2>⚛️ Quantum Space</h2>
+                <h2>⚛️ Ruang Kuantum</h2>
                 <button class="modal-close" onclick="closeModal('quantumModal')">&times;</button>
             </div>
             <div class="modal-body">
-                <p><strong>Quantum Entanglement:</strong> 99.99%</p>
-                <p><strong>Quantum Bits:</strong> 512</p>
-                <p><strong>Entangled Pairs:</strong> 1,024</p>
-                <p><strong>Quantum Teleportation:</strong> Ready</p>
-                <p><strong>Algorithm:</strong> Optimizing...</p>
+                <p><strong>Keterikatan Kuantum:</strong> 99.99%</p>
+                <p><strong>Qubit:</strong> 512</p>
+                <p><strong>Pasangan Terikat:</strong> 1,024</p>
+                <p><strong>Teleportasi Kuantum:</strong> Sedia</p>
+                <p><strong>Algoritma Kuantum:</strong> Sedang dioptimumkan</p>
                 <div class="progress-bar">
                     <div class="progress-fill" style="width: 98%"></div>
                 </div>
             </div>
             <div class="modal-footer">
-                <button class="btn btn-primary" onclick="closeModal('quantumModal')">Close</button>
+                <button class="btn btn-primary" onclick="closeModal('quantumModal')">Tutup</button>
             </div>
         </div>
     </div>
@@ -1136,14 +1496,14 @@
                 <button class="modal-close" onclick="closeModal('metaverseModal')">&times;</button>
             </div>
             <div class="modal-body">
-                <p><strong>Online Users:</strong> 1,234</p>
-                <p><strong>Available Rooms:</strong> 56</p>
-                <p><strong>Virtual Operations Room:</strong> Active</p>
-                <p><strong>VR/AR Support:</strong> Ready</p>
-                <button class="btn btn-primary" style="width: 100%; margin-top: 1rem;" onclick="showNotification('Entering Metaverse...')">Enter Now</button>
+                <p><strong>Pengguna Online:</strong> 1,234</p>
+                <p><strong>Bilik Tersedia:</strong> 56</p>
+                <p><strong>Bilik Operasi Maya:</strong> Aktif</p>
+                <p><strong>Sokongan VR/AR:</strong> Sedia</p>
+                <button class="btn btn-primary" style="width: 100%; margin-top: 16px;" onclick="showNotification('Memasuki Metaverse...')">Masuk Sekarang</button>
             </div>
             <div class="modal-footer">
-                <button class="btn btn-secondary" onclick="closeModal('metaverseModal')">Close</button>
+                <button class="btn btn-secondary" onclick="closeModal('metaverseModal')">Tutup</button>
             </div>
         </div>
     </div>
@@ -1151,17 +1511,18 @@
     <div class="modal-overlay" id="nftModal">
         <div class="modal">
             <div class="modal-header">
-                <h2>🖼️ NFT Studio</h2>
+                <h2>🖼️ Studio NFT</h2>
                 <button class="modal-close" onclick="closeModal('nftModal')">&times;</button>
             </div>
             <div class="modal-body">
-                <p><strong>Total Badges:</strong> 3,245</p>
-                <p><strong>Your Badges:</strong> Genesis Consciousness, Upload Badge, LHDN Badge</p>
-                <p><strong>LHDN Auto:</strong> Active</p>
-                <button class="btn btn-primary" style="width: 100%; margin-top: 1rem;" onclick="mintNFT()">Mint New NFT</button>
+                <p><strong>Jumlah Badge:</strong> 3,245</p>
+                <p><strong>Badge Anda:</strong> Genesis, Upload, LHDN, Veteran</p>
+                <p><strong>Nilai Pasaran:</strong> RM 45,678</p>
+                <p><strong>LHDN Auto:</strong> Aktif</p>
+                <button class="btn btn-primary" style="width: 100%; margin-top: 16px;" onclick="mintNFT()">Tempa NFT Baru</button>
             </div>
             <div class="modal-footer">
-                <button class="btn btn-secondary" onclick="closeModal('nftModal')">Close</button>
+                <button class="btn btn-secondary" onclick="closeModal('nftModal')">Tutup</button>
             </div>
         </div>
     </div>
@@ -1169,30 +1530,24 @@
     <div class="modal-overlay" id="daoModal">
         <div class="modal">
             <div class="modal-header">
-                <h2>🗳️ DAO Governance</h2>
+                <h2>🗳️ Tadbir Urus DAO</h2>
                 <button class="modal-close" onclick="closeModal('daoModal')">&times;</button>
             </div>
             <div class="modal-body">
-                <p><strong>Voting Power:</strong> 1,234</p>
-                <p><strong>Active Proposals:</strong></p>
-                <div style="margin: 1rem 0;">
-                    <p>1. Reduce Platform Fee to 4%</p>
-                    <div class="progress-bar">
-                        <div class="progress-fill" style="width: 45%"></div>
-                    </div>
-                    <p style="font-size: 0.875rem;">45% Agree · 35% Against · 20% Not Voted</p>
+                <p><strong>Kuasa Mengundi:</strong> 1,234</p>
+                <p><strong>Cadangan Aktif:</strong> 5</p>
+                <p><strong>1. Kurangkan Yuran Platform ke 4%:</strong> 45% Setuju</p>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 45%"></div>
                 </div>
-                <div style="margin: 1rem 0;">
-                    <p>2. Add New Chain (Solana)</p>
-                    <div class="progress-bar">
-                        <div class="progress-fill" style="width: 78%"></div>
-                    </div>
-                    <p style="font-size: 0.875rem;">78% Agree · 12% Against · 10% Not Voted</p>
+                <p><strong>2. Tambah Rantaian Solana:</strong> 78% Setuju</p>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 78%"></div>
                 </div>
-                <button class="btn btn-primary" style="width: 100%;" onclick="voteDAO()">Vote Now</button>
+                <button class="btn btn-primary" style="width: 100%; margin-top: 16px;" onclick="voteDAO()">Undi Sekarang</button>
             </div>
             <div class="modal-footer">
-                <button class="btn btn-secondary" onclick="closeModal('daoModal')">Close</button>
+                <button class="btn btn-secondary" onclick="closeModal('daoModal')">Tutup</button>
             </div>
         </div>
     </div>
@@ -1200,21 +1555,21 @@
     <div class="modal-overlay" id="consciousnessModal">
         <div class="modal">
             <div class="modal-header">
-                <h2>🧠 Consciousness Upload</h2>
+                <h2>🧠 Muat Naik Kesedaran</h2>
                 <button class="modal-close" onclick="closeModal('consciousnessModal')">&times;</button>
             </div>
             <div class="modal-body">
-                <p><strong>Progress:</strong> 87%</p>
-                <p><strong>Backup Universes:</strong> α-7, β-2, γ-9</p>
-                <p><strong>Digital Immortality:</strong> Activated</p>
-                <p><strong>Copies:</strong> 3</p>
+                <p><strong>Kemajuan:</strong> 87%</p>
+                <p><strong>Alam Sandaran:</strong> α-7, β-2, γ-9</p>
+                <p><strong>Keabadian Digital:</strong> Diaktifkan</p>
+                <p><strong>Salinan Kesedaran:</strong> 3</p>
                 <div class="progress-bar">
                     <div class="progress-fill" style="width: 87%"></div>
                 </div>
-                <button class="btn btn-primary" style="width: 100%; margin-top: 1rem;" onclick="continueUpload()">Continue Upload</button>
+                <button class="btn btn-primary" style="width: 100%; margin-top: 16px;" onclick="continueUpload()">Teruskan Muat Naik</button>
             </div>
             <div class="modal-footer">
-                <button class="btn btn-secondary" onclick="closeModal('consciousnessModal')">Close</button>
+                <button class="btn btn-secondary" onclick="closeModal('consciousnessModal')">Tutup</button>
             </div>
         </div>
     </div>
@@ -1222,50 +1577,119 @@
     <div class="modal-overlay" id="parallelModal">
         <div class="modal">
             <div class="modal-header">
-                <h2>🌌 Parallel Universe</h2>
+                <h2>🌌 Alam Selari</h2>
                 <button class="modal-close" onclick="closeModal('parallelModal')">&times;</button>
             </div>
             <div class="modal-body">
-                <p><strong>Explored:</strong> 7/42 universes</p>
-                <p><strong>Current Universe:</strong> α-7</p>
-                <p><strong>Next Target:</strong> β-2 (89% match)</p>
-                <p><strong>Dimensional Stability:</strong> 98%</p>
-                <button class="btn btn-primary" style="width: 100%; margin-top: 1rem;" onclick="jumpToUniverse()">Jump to β-2</button>
+                <p><strong>Diteroka:</strong> 12/42 alam</p>
+                <p><strong>Alam Semasa:</strong> α-7</p>
+                <p><strong>Sasaran Seterusnya:</strong> β-2 (89% padanan)</p>
+                <p><strong>Kestabilan Dimensi:</strong> 98%</p>
+                <button class="btn btn-primary" style="width: 100%; margin-top: 16px;" onclick="jumpToUniverse()">Lompat ke β-2</button>
             </div>
             <div class="modal-footer">
-                <button class="btn btn-secondary" onclick="closeModal('parallelModal')">Close</button>
+                <button class="btn btn-secondary" onclick="closeModal('parallelModal')">Tutup</button>
             </div>
         </div>
     </div>
 
-    <div class="modal-overlay" id="serviceModal">
+    <div class="modal-overlay" id="lhdnModal">
         <div class="modal">
             <div class="modal-header">
-                <h2 id="serviceModalTitle">Service Details</h2>
-                <button class="modal-close" onclick="closeModal('serviceModal')">&times;</button>
+                <h2>📊 LHDN Malaysia</h2>
+                <button class="modal-close" onclick="closeModal('lhdnModal')">&times;</button>
             </div>
-            <div class="modal-body" id="serviceModalContent">
-                <!-- Service details will be dynamically generated -->
+            <div class="modal-body">
+                <p><strong>Pematuhan Cukai:</strong> 99.9%</p>
+                <p><strong>Jumlah Dilapor:</strong> RM 456,789</p>
+                <p><strong>Rujukan LHDN:</strong> LHDN-2026-012345</p>
+                <p><strong>Cukai SST:</strong> RM 27,407.34</p>
+                <p><strong>Status:</strong> Patuh</p>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 99.9%"></div>
+                </div>
+                <button class="btn btn-primary" style="width: 100%; margin-top: 16px;" onclick="showNotification('Laporan cukai dimuat turun')">Muat Turun Laporan</button>
             </div>
             <div class="modal-footer">
-                <button class="btn btn-primary" id="hireButton" onclick="hireFreelancer()">Hire</button>
-                <button class="btn btn-secondary" onclick="closeModal('serviceModal')">Close</button>
+                <button class="btn btn-secondary" onclick="closeModal('lhdnModal')">Tutup</button>
             </div>
         </div>
     </div>
 
-    <div class="modal-overlay" id="projectModal">
+    <div class="modal-overlay" id="smartContractModal">
         <div class="modal">
             <div class="modal-header">
-                <h2 id="projectModalTitle">Project Details</h2>
-                <button class="modal-close" onclick="closeModal('projectModal')">&times;</button>
+                <h2>📝 Kontrak Pintar</h2>
+                <button class="modal-close" onclick="closeModal('smartContractModal')">&times;</button>
             </div>
-            <div class="modal-body" id="projectModalContent">
-                <!-- Project details will be dynamically generated -->
+            <div class="modal-body">
+                <p><strong>Aktif:</strong> 2,345</p>
+                <p><strong>Jumlah Nilai Terkunci:</strong> RM 5.2M</p>
+                <p><strong>Rantaian:</strong> Ethereum, BSC, Polygon, Solana</p>
+                <p><strong>Rentas Rantaian:</strong> Diaktifkan</p>
+                <button class="btn btn-primary" style="width: 100%; margin-top: 16px;" onclick="showNotification('Mencipta kontrak pintar baru...')">Cipta Kontrak</button>
             </div>
             <div class="modal-footer">
-                <button class="btn btn-primary" id="bidButton" onclick="bidProject()">Bid</button>
-                <button class="btn btn-secondary" onclick="closeModal('projectModal')">Close</button>
+                <button class="btn btn-secondary" onclick="closeModal('smartContractModal')">Tutup</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="aiModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h2>🤖 AI Freelancer</h2>
+                <button class="modal-close" onclick="closeModal('aiModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p><strong>Padanan AI:</strong> 89% tepat</p>
+                <p><strong>Cadangan Hari Ini:</strong> 12 freelancer</p>
+                <p><strong>Analisis Pasaran:</strong> Kemas Kini</p>
+                <button class="btn btn-primary" style="width: 100%; margin-top: 16px;" onclick="showNotification('AI menganalisis...')">Jana Cadangan</button>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeModal('aiModal')">Tutup</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="blockchainModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h2>⛓️ Rantaian Blok</h2>
+                <button class="modal-close" onclick="closeModal('blockchainModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p><strong>Rantaian Disokong:</strong> 4</p>
+                <p><strong>Ethereum:</strong> Aktif</p>
+                <p><strong>BSC:</strong> Aktif</p>
+                <p><strong>Polygon:</strong> Aktif</p>
+                <p><strong>Solana:</strong> Aktif</p>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeModal('blockchainModal')">Tutup</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="paymentModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h2>💳 Pembayaran FPX</h2>
+                <button class="modal-close" onclick="closeModal('paymentModal')">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p><strong>Bank Disokong:</strong></p>
+                <p>• Maybank</p>
+                <p>• CIMB Bank</p>
+                <p>• Bank Islam</p>
+                <p>• Public Bank</p>
+                <p>• RHB Bank</p>
+                <p>• BSN</p>
+                <button class="btn btn-primary" style="width: 100%; margin-top: 16px;" onclick="showNotification('FPX dibuka...')">Bayar Sekarang</button>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeModal('paymentModal')">Tutup</button>
             </div>
         </div>
     </div>
@@ -1273,63 +1697,80 @@
     <div class="modal-overlay" id="ownerModal">
         <div class="modal">
             <div class="modal-header">
-                <h2>👑 Platform Owner</h2>
+                <h2>👑 Pemilik Platform</h2>
                 <button class="modal-close" onclick="closeModal('ownerModal')">&times;</button>
             </div>
             <div class="modal-body">
-                <div style="text-align: center; margin-bottom: 1.5rem;">
-                    <div style="width: 80px; height: 80px; background: linear-gradient(135deg, #f59e0b, #d97706); border-radius: 50%; margin: 0 auto 1rem; display: flex; align-items: center; justify-content: center; font-size: 2.5rem; color: white;">
+                <div style="text-align: center; margin-bottom: 24px;">
+                    <div style="width: 100px; height: 100px; background: linear-gradient(135deg, #f59e0b, #f97316); border-radius: 50%; margin: 0 auto 16px; display: flex; align-items: center; justify-content: center; font-size: 40px; color: white;">
                         👨‍💻
                     </div>
-                    <h3>tuantuanxiongmaoyouxizhubo</h3>
-                    <p style="color: var(--text-light);">Founder & Owner</p>
+                    <h3 style="font-size: 24px;">tuantuanxiongmaoyouxizhubo</h3>
+                    <p style="color: var(--text-light);">Pengasas & Pemilik</p>
                 </div>
                 <p><i class="fas fa-envelope" style="color: var(--primary);"></i> tuantuanxiongmaoyouxizhubo@gmail.com</p>
                 <p><i class="fas fa-phone" style="color: var(--primary);"></i> 011-56649657</p>
-                <p><i class="fas fa-crown" style="color: var(--primary);"></i> Platform Fee: 5% (goes to owner)</p>
-                <p><i class="fas fa-sitemap" style="color: var(--primary);"></i> Agent System: 5% - 2% - 1%</p>
+                <p><i class="fas fa-crown" style="color: var(--primary);"></i> Yuran Platform: 5% (kepada pemilik)</p>
+                <p><i class="fas fa-sitemap" style="color: var(--primary);"></i> Sistem Ejen: 5% - 2% - 1%</p>
+                <p><i class="fas fa-file-invoice" style="color: var(--primary);"></i> LHDN Auto Reporting</p>
+                <p><i class="fas fa-file-signature" style="color: var(--primary);"></i> Kontrak Pintar</p>
             </div>
             <div class="modal-footer">
-                <button class="btn btn-primary" onclick="closeModal('ownerModal')">Close</button>
+                <button class="btn btn-primary" onclick="closeModal('ownerModal')">Tutup</button>
             </div>
         </div>
     </div>
 
     <script>
-        // ========== Data Models ==========
+        // ========== Pangkalan Data Pengguna ==========
         let users = [
-            { email: 'tuantuanxiongmaoyouxizhubo@gmail.com', password: 'owner2026', name: 'Owner', role: 'owner', balance: 10000000, consciousness: 100 }
+            { email: 'tuantuanxiongmaoyouxizhubo@gmail.com', password: 'owner2026', name: 'Owner', role: 'owner', balance: 10000000 }
         ];
 
+        // Perkhidmatan Freelance Malaysia
         let services = [
-            { id: 1, name: 'Jessica Tan', avatar: 'JT', title: 'UI/UX Designer', rating: 4.9, price: 380, match: 98, level: 'Top Rated', emoji: '🎨', description: '5 years experience in UI/UX design. Specializing in web and mobile apps.', completed: 156, location: 'Kuala Lumpur' },
-            { id: 2, name: 'Wei Chen', avatar: 'WC', title: 'Full-stack Developer', rating: 4.8, price: 650, match: 96, level: 'Expert', emoji: '💻', description: 'React, Node.js, Python expert. Full-stack development specialist.', completed: 94, location: 'Penang' },
-            { id: 3, name: 'Mei Ling', avatar: 'ML', title: 'Digital Marketer', rating: 4.7, price: 420, match: 94, level: 'Pro', emoji: '📈', description: 'SEO, social media, and content marketing expert.', completed: 187, location: 'Johor' },
-            { id: 4, name: 'Priya Kaur', avatar: 'PK', title: 'Video Editor', rating: 4.9, price: 550, match: 92, level: 'Top Rated', emoji: '🎬', description: 'Professional video editor for commercials and social media.', completed: 78, location: 'Selangor' }
+            { id: 1, seller: 'Jessica Tan', avatar: 'JT', title: 'Saya akan reka UI/UX profesional untuk laman web anda', rating: 4.9, reviews: 187, price: 380, level: 'Tahap 2', emoji: '🎨', description: '5 tahun pengalaman dalam reka bentuk UI/UX. Saya akan cipta reka bentuk yang cantik dan mesra pengguna untuk laman web atau aplikasi mudah alih anda.', delivery: '3 hari', revisions: 'Tidak terhad', location: 'Kuala Lumpur', orders: 187 },
+            { id: 2, seller: 'Wei Chen', avatar: 'WC', title: 'Saya akan bangunkan aplikasi web full-stack anda', rating: 4.8, reviews: 94, price: 650, level: 'Paling Laris', emoji: '💻', description: 'Pakar React, Node.js, Python. Saya akan bina aplikasi web lengkap anda dari awal.', delivery: '7 hari', revisions: '5', location: 'Pulau Pinang', orders: 94 },
+            { id: 3, seller: 'Mei Ling', avatar: 'ML', title: 'Saya akan optimasi SEO untuk laman web anda', rating: 4.7, reviews: 156, price: 420, level: 'Tahap 1', emoji: '📈', description: 'Pakar SEO. Saya akan tingkatkan kedudukan carian laman web anda dan tarik lebih trafik.', delivery: '5 hari', revisions: '3', location: 'Johor', orders: 156 },
+            { id: 4, seller: 'Priya Kaur', avatar: 'PK', title: 'Saya akan sunting video anda secara profesional', rating: 4.9, reviews: 78, price: 550, level: 'Tahap 2', emoji: '🎬', description: 'Penyunting video profesional. Saya akan sunting video untuk YouTube, iklan, atau media sosial anda.', delivery: '4 hari', revisions: 'Tidak terhad', location: 'Selangor', orders: 78 },
+            { id: 5, seller: 'Ahmad Faiz', avatar: 'AF', title: 'Saya akan tulis kandungan SEO untuk blog anda', rating: 4.8, reviews: 112, price: 320, level: 'Tahap 2', emoji: '✍️', description: 'Penulis kandungan profesional. Saya akan hasilkan artikel berkualiti tinggi yang dioptimumkan untuk enjin carian.', delivery: '3 hari', revisions: '3', location: 'Selangor', orders: 112 },
+            { id: 6, seller: 'Siti Aisyah', avatar: 'SA', title: 'Saya akan urus iklan Facebook dan Instagram anda', rating: 4.7, reviews: 89, price: 480, level: 'Tahap 1', emoji: '📱', description: 'Pakar pemasaran media sosial. Saya akan cipta dan urus kempen iklan yang berkesan untuk perniagaan anda.', delivery: '5 hari', revisions: '5', location: 'Kuala Lumpur', orders: 89 },
+            { id: 7, seller: 'Raj Kumar', avatar: 'RK', title: 'Saya akan ajar anda pengaturcaraan Python', rating: 4.9, reviews: 234, price: 280, level: 'Paling Laris', emoji: '🐍', description: 'Pakar Python dengan 8 tahun pengalaman. Saya akan ajar anda dari asas hingga mahir.', delivery: '2 hari', revisions: 'Tidak terhad', location: 'Cyberjaya', orders: 234 },
+            { id: 8, seller: 'Nurul Huda', avatar: 'NH', title: 'Saya akan terjemah dokumen BM-EN', rating: 4.8, reviews: 167, price: 150, level: 'Tahap 2', emoji: '🌐', description: 'Penterjemah profesional untuk dokumen perniagaan, akademik dan teknikal.', delivery: '2 hari', revisions: '2', location: 'Putrajaya', orders: 167 }
         ];
 
+        // Projek Malaysia
         let projects = [
-            { id: 1, title: 'E-commerce Website Development', budget: 8000, bids: 12, match: 98, tags: ['React', 'Node.js'], status: 'Open', description: 'Need a full-featured e-commerce website with payment integration.', posted: '2 hours ago', location: 'KL' },
-            { id: 2, title: 'Mobile App UI Design', budget: 3500, bids: 8, match: 96, tags: ['Figma', 'UI/UX'], status: 'Open', description: 'Design a modern mobile app interface for fitness tracking.', posted: '5 hours ago', location: 'Penang' },
-            { id: 3, title: 'SEO Optimization', budget: 2000, bids: 5, match: 94, tags: ['SEO', 'Content'], status: 'Urgent', description: 'Improve search engine rankings for an e-commerce site.', posted: '1 day ago', location: 'Remote' }
+            { id: 1, title: 'Perlu pembangun React untuk laman e-dagang', description: 'Mencari pembangun React yang berpengalaman untuk membina laman web e-dagang sepenuhnya dengan integrasi pembayaran.', budget: 8000, proposals: 12, type: 'Harga Tetap', experience: 'Sederhana', tags: ['React', 'Node.js', 'MongoDB'], posted: '2 jam lepas', location: 'Remote' },
+            { id: 2, title: 'Pereka UI mudah alih diperlukan untuk aplikasi kecergasan', description: 'Perlu pereka UI yang kreatif untuk mereka bentuk antara muka aplikasi kecergasan moden.', budget: 3500, proposals: 8, type: 'Harga Tetap', experience: 'Pakar', tags: ['Figma', 'UI/UX', 'Mudah Alih'], posted: '5 jam lepas', location: 'Remote' },
+            { id: 3, title: 'Pakar SEO untuk tingkatkan ranking laman web', description: 'Mencari pakar SEO untuk mengoptimumkan laman web e-dagang dan meningkatkan kedudukan carian.', budget: 2000, proposals: 5, type: 'Harga Tetap', experience: 'Sederhana', tags: ['SEO', 'Kandungan', 'Analitik'], posted: '1 hari lepas', location: 'Remote' },
+            { id: 4, title: 'Penterjemah Bahasa Melayu-Inggeris untuk dokumen perniagaan', description: 'Perlu penterjemah profesional untuk menterjemah dokumen perniagaan dari Bahasa Melayu ke Inggeris dan sebaliknya.', budget: 1500, proposals: 7, type: 'Harga Tetap', experience: 'Pakar', tags: ['Terjemahan', 'Bahasa Melayu', 'Inggeris'], posted: '3 jam lepas', location: 'Remote' },
+            { id: 5, title: 'Pereka grafik untuk logo dan identiti jenama', description: 'Mencari pereka grafik untuk mencipta logo dan identiti jenama untuk syarikat permulaan.', budget: 2500, proposals: 15, type: 'Harga Tetap', experience: 'Sederhana', tags: ['Logo', 'Reka Bentuk Grafik', 'Jenama'], posted: '6 jam lepas', location: 'Remote' },
+            { id: 6, title: 'Pembangun aplikasi mudah alih Flutter', description: 'Perlu pembangun Flutter untuk membina aplikasi mudah alih Android dan iOS.', budget: 12000, proposals: 9, type: 'Harga Tetap', experience: 'Pakar', tags: ['Flutter', 'Dart', 'Mudah Alih'], posted: '8 jam lepas', location: 'Remote' },
+            { id: 7, title: 'Jurugambar produk untuk e-dagang', description: 'Mencari jurugambar profesional untuk mengambil gambar produk untuk laman web e-dagang.', budget: 1800, proposals: 6, type: 'Harga Tetap', experience: 'Sederhana', tags: ['Fotografi', 'Produk', 'Suntingan'], posted: '12 jam lepas', location: 'Kuala Lumpur' },
+            { id: 8, title: 'Pakar keselamatan siber untuk audit sistem', description: 'Perlu pakar keselamatan siber untuk menjalankan audit keselamatan pada sistem kami.', budget: 5000, proposals: 4, type: 'Harga Tetap', experience: 'Pakar', tags: ['Keselamatan', 'Audit', 'Siber'], posted: '1 hari lepas', location: 'Remote' }
         ];
 
         let activities = [
-            { user: 'JT', action: 'Completed UI/UX project', time: '2 minutes ago' },
-            { user: 'WC', action: 'Started new development', time: '15 minutes ago' },
-            { user: 'ML', action: 'Posted marketing campaign', time: '1 hour ago' },
-            { user: 'PK', action: 'Uploaded video edit', time: '3 hours ago' }
+            { user: 'JT', action: 'Menyiapkan perkhidmatan reka bentuk UI/UX', time: '2 minit lepas' },
+            { user: 'WC', action: 'Memulakan projek pembangunan web baru', time: '15 minit lepas' },
+            { user: 'ML', action: 'Menghantar laporan projek SEO', time: '1 jam lepas' },
+            { user: 'PK', action: 'Menyunting video promosi baru', time: '3 jam lepas' },
+            { user: 'AF', action: 'Menulis kandungan blog untuk klien', time: '5 jam lepas' },
+            { user: 'SA', action: 'Melancarkan kempen iklan Facebook', time: '7 jam lepas' },
+            { user: 'RK', action: 'Mengajar kelas Python dalam talian', time: '9 jam lepas' },
+            { user: 'NH', action: 'Menyiapkan terjemahan dokumen', time: '11 jam lepas' }
         ];
 
         let appState = {
-            user: { name: 'Guest', role: 'guest', balance: 0, isLoggedIn: false },
-            stats: { services: 1234, projects: 56, freelancers: 892, platformFee: 45678 }
+            user: { name: 'Tetamu', role: 'guest', balance: 1000, isLoggedIn: false },
+            stats: { services: 12345, projects: 567, freelancers: 8942, platformFee: 456789 }
         };
 
         let currentServiceId = null;
         let currentProjectId = null;
 
-        // ========== Auth Functions ==========
+        // ========== Fungsi Auth ==========
         function switchAuthTab(tab) {
             document.querySelectorAll('.auth-tab').forEach(t => t.classList.remove('active'));
             document.querySelectorAll('.auth-form').forEach(f => f.classList.remove('active'));
@@ -1343,20 +1784,12 @@
             }
         }
 
-        function validateEmail(email) {
-            return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
-        }
-
-        function validatePhone(phone) {
-            return /^[0-9]{10,11}$/.test(phone.replace(/\D/g, ''));
-        }
-
         function login() {
             const email = document.getElementById('loginEmail').value.trim();
             const password = document.getElementById('loginPassword').value;
             
             if (!email || !password) {
-                showNotification('Please enter both email and password');
+                showNotification('Sila masukkan email dan kata laluan');
                 return;
             }
             
@@ -1365,13 +1798,13 @@
             if (user) {
                 appState.user = { ...user, isLoggedIn: true };
                 document.getElementById('userAvatar').textContent = user.name.charAt(0);
-                document.getElementById('userRole').textContent = user.role === 'owner' ? 'Owner' : user.role;
+                document.getElementById('userRole').textContent = user.role === 'owner' ? 'Pemilik' : user.role;
                 document.getElementById('authContainer').style.display = 'none';
                 document.getElementById('mainContent').style.display = 'block';
-                showNotification(`Welcome back, ${user.name}!`);
+                showNotification(`Selamat kembali, ${user.name}!`);
                 renderAll();
             } else {
-                showNotification('Invalid email or password');
+                showNotification('Email atau kata laluan salah');
             }
         }
 
@@ -1384,36 +1817,21 @@
             const phone = document.getElementById('regPhone').value.trim();
             
             if (!name || !email || !password || !confirm || !phone) {
-                showNotification('Please fill all required fields');
-                return;
-            }
-            
-            if (!validateEmail(email)) {
-                showNotification('Invalid email format');
+                showNotification('Sila isi semua maklumat yang diperlukan');
                 return;
             }
             
             if (password.length < 6) {
-                showNotification('Password must be at least 6 characters');
+                showNotification('Kata laluan mesti sekurang-kurangnya 6 aksara');
                 return;
             }
             
             if (password !== confirm) {
-                showNotification('Passwords do not match');
+                showNotification('Kata laluan tidak sepadan');
                 return;
             }
             
-            if (!validatePhone(phone)) {
-                showNotification('Invalid phone number (10-11 digits)');
-                return;
-            }
-            
-            if (users.some(u => u.email === email)) {
-                showNotification('Email already registered');
-                return;
-            }
-            
-            const newUser = { email, password, name, role, balance: 1000, consciousness: 50 };
+            const newUser = { email, password, name, role, balance: 1000 };
             users.push(newUser);
             
             appState.user = { ...newUser, isLoggedIn: true };
@@ -1421,7 +1839,7 @@
             document.getElementById('userRole').textContent = role;
             document.getElementById('authContainer').style.display = 'none';
             document.getElementById('mainContent').style.display = 'block';
-            showNotification(`Welcome, ${name}!`);
+            showNotification(`Selamat datang, ${name}!`);
             renderAll();
         }
 
@@ -1429,10 +1847,10 @@
             appState.user.isLoggedIn = false;
             document.getElementById('authContainer').style.display = 'flex';
             document.getElementById('mainContent').style.display = 'none';
-            showNotification('Logged out successfully');
+            showNotification('Berjaya log keluar');
         }
 
-        // ========== Render Functions ==========
+        // ========== Fungsi Render ==========
         function renderAll() {
             renderServices();
             renderProjects();
@@ -1446,18 +1864,34 @@
                 <div class="service-card" onclick="viewService(${s.id})">
                     <div class="service-image">
                         ${s.emoji}
-                        <span class="service-badge">Match ${s.match}%</span>
+                        <span class="service-badge">⭐ ${s.rating}</span>
+                        <span class="service-level">${s.level}</span>
                     </div>
                     <div class="service-content">
                         <div class="service-seller">
                             <div class="seller-avatar">${s.avatar}</div>
-                            <span>${s.name}</span>
-                            <span style="margin-left: auto; font-size: 0.75rem; color: var(--primary);">${s.level}</span>
+                            <div class="seller-info">
+                                <div class="seller-name">${s.seller}</div>
+                                <div class="seller-location"><i class="fas fa-map-marker-alt"></i> ${s.location}</div>
+                            </div>
                         </div>
                         <div class="service-title">${s.title}</div>
+                        <div class="service-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span>(${s.reviews} ulasan)</span>
+                        </div>
                         <div class="service-footer">
-                            <span class="service-rating"><i class="fas fa-star"></i> ${s.rating}</span>
-                            <span class="service-price">RM ${s.price}</span>
+                            <div class="service-price">
+                                <span class="price-label">Bermula dari</span>
+                                <span class="price-value">RM ${s.price}</span>
+                            </div>
+                            <div class="service-orders">
+                                <i class="fas fa-shopping-bag"></i> ${s.orders} pesanan
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1470,16 +1904,20 @@
                 <div class="project-item" onclick="viewProject(${p.id})">
                     <div class="project-header">
                         <span class="project-title">${p.title}</span>
-                        <span class="project-badge">${p.status}</span>
+                        <span class="project-budget">RM ${p.budget}</span>
                     </div>
+                    <div class="project-description">${p.description.substring(0, 100)}...</div>
                     <div class="project-meta">
-                        <span>Budget: RM ${p.budget}</span>
-                        <span>Bids: ${p.bids}</span>
-                        <span>${p.posted}</span>
+                        <span><i class="far fa-clock"></i> ${p.posted}</span>
+                        <span><i class="fas fa-tag"></i> ${p.type}</span>
+                        <span><i class="fas fa-chart-line"></i> ${p.experience}</span>
                     </div>
                     <div class="project-tags">
                         ${p.tags.map(t => `<span class="tag">${t}</span>`).join('')}
-                        <span class="tag" style="background: var(--primary-light); color: var(--primary);">AI Match ${p.match}%</span>
+                    </div>
+                    <div class="project-footer">
+                        <span class="project-proposals"><i class="fas fa-users"></i> ${p.proposals} cadangan</span>
+                        <span class="project-time"><i class="fas fa-clock"></i> ${p.posted}</span>
                     </div>
                 </div>
             `).join('');
@@ -1499,28 +1937,30 @@
         }
 
         function updateStats() {
-            document.getElementById('statServices').textContent = appState.stats.services;
+            document.getElementById('statServices').textContent = appState.stats.services.toLocaleString();
             document.getElementById('statProjects').textContent = appState.stats.projects;
-            document.getElementById('statFreelancers').textContent = appState.stats.freelancers;
+            document.getElementById('statFreelancers').textContent = appState.stats.freelancers.toLocaleString();
             document.getElementById('statPlatformFee').textContent = `RM ${(appState.stats.platformFee / 1000).toFixed(1)}k`;
         }
 
-        // ========== View Functions ==========
+        // ========== Fungsi Paparan ==========
         function viewService(id) {
             const service = services.find(s => s.id === id);
             if (service) {
                 currentServiceId = id;
                 document.getElementById('serviceModalTitle').textContent = service.title;
                 document.getElementById('serviceModalContent').innerHTML = `
-                    <p><strong>Freelancer:</strong> ${service.name}</p>
-                    <p><strong>Rating:</strong> ${service.rating} ⭐</p>
-                    <p><strong>Price:</strong> RM ${service.price}</p>
-                    <p><strong>Location:</strong> ${service.location}</p>
-                    <p><strong>Completed Projects:</strong> ${service.completed}</p>
-                    <p><strong>Description:</strong> ${service.description}</p>
-                    <p style="margin-top: 1rem; padding: 0.75rem; background: #f1f5f9; border-radius: var(--radius);">
-                        <strong>Platform Fee (5%):</strong> RM ${(service.price * 0.05).toFixed(2)} (goes to owner)
+                    <p><strong>Penjual:</strong> ${service.seller}</p>
+                    <p><strong>Penilaian:</strong> ${service.rating} ⭐ (${service.reviews} ulasan)</p>
+                    <p><strong>Harga:</strong> RM ${service.price}</p>
+                    <p><strong>Penghantaran:</strong> ${service.delivery}</p>
+                    <p><strong>Semakan Semula:</strong> ${service.revisions}</p>
+                    <p><strong>Lokasi:</strong> ${service.location}</p>
+                    <p><strong>Penerangan:</strong> ${service.description}</p>
+                    <p style="margin-top: 16px; padding: 16px; background: var(--primary-light); border-radius: var(--radius);">
+                        <strong>Yuran Platform (5%):</strong> RM ${(service.price * 0.05).toFixed(2)} (kepada pemilik)
                     </p>
+                    <p><strong>LHDN Auto:</strong> Akan dilapor</p>
                 `;
                 openModal('serviceModal');
             }
@@ -1532,21 +1972,23 @@
                 currentProjectId = id;
                 document.getElementById('projectModalTitle').textContent = project.title;
                 document.getElementById('projectModalContent').innerHTML = `
-                    <p><strong>Budget:</strong> RM ${project.budget}</p>
-                    <p><strong>Bids:</strong> ${project.bids}</p>
-                    <p><strong>Posted:</strong> ${project.posted}</p>
-                    <p><strong>Location:</strong> ${project.location}</p>
-                    <p><strong>Description:</strong> ${project.description}</p>
-                    <p><strong>Requirements:</strong> ${project.tags.join(', ')}</p>
-                    <p style="margin-top: 1rem; padding: 0.75rem; background: #f1f5f9; border-radius: var(--radius);">
-                        <strong>Platform Fee (5%):</strong> RM ${(project.budget * 0.05).toFixed(2)} (goes to owner)
+                    <p><strong>Bajet:</strong> RM ${project.budget}</p>
+                    <p><strong>Jenis:</strong> ${project.type}</p>
+                    <p><strong>Tahap Pengalaman:</strong> ${project.experience}</p>
+                    <p><strong>Cadangan:</strong> ${project.proposals}</p>
+                    <p><strong>Dihantar:</strong> ${project.posted}</p>
+                    <p><strong>Lokasi:</strong> ${project.location}</p>
+                    <p><strong>Penerangan:</strong> ${project.description}</p>
+                    <p><strong>Kemahiran Diperlukan:</strong> ${project.tags.join(', ')}</p>
+                    <p style="margin-top: 16px; padding: 16px; background: var(--primary-light); border-radius: var(--radius);">
+                        <strong>Yuran Platform (5%):</strong> RM ${(project.budget * 0.05).toFixed(2)} (kepada pemilik)
                     </p>
                 `;
                 openModal('projectModal');
             }
         }
 
-        // ========== Action Functions ==========
+        // ========== Fungsi Tindakan ==========
         function hireFreelancer() {
             const service = services.find(s => s.id === currentServiceId);
             if (service) {
@@ -1554,47 +1996,46 @@
                 if (appState.user.balance >= total) {
                     appState.user.balance -= total;
                     appState.stats.platformFee += service.price * 0.05;
-                    appState.stats.services--;
-                    showNotification(`Hired ${service.name}! RM ${service.price} paid. Platform fee RM ${(service.price * 0.05).toFixed(2)} goes to owner.`);
+                    showNotification(`Pesanan dibuat! RM ${service.price} dibayar. Yuran platform RM ${(service.price * 0.05).toFixed(2)} kepada pemilik. LHDN auto.`);
                     updateStats();
                     closeModal('serviceModal');
                 } else {
-                    showNotification('Insufficient balance');
+                    showNotification('Baki tidak mencukupi');
                 }
             }
         }
 
-        function bidProject() {
+        function submitProposal() {
             const project = projects.find(p => p.id === currentProjectId);
             if (project) {
-                project.bids++;
-                showNotification(`Bid placed on ${project.title}`);
+                project.proposals++;
+                showNotification(`Cadangan dihantar untuk ${project.title}`);
                 renderProjects();
                 closeModal('projectModal');
             }
         }
 
         function mintNFT() {
-            showNotification('NFT minted successfully! LHDN auto-reported.');
+            showNotification('NFT berjaya ditempa! LHDN auto dilapor.');
             closeModal('nftModal');
         }
 
         function voteDAO() {
-            showNotification('Your vote has been recorded');
+            showNotification('Undian anda telah direkodkan');
             closeModal('daoModal');
         }
 
         function continueUpload() {
-            showNotification('Consciousness upload continuing...');
+            showNotification('Muat naik kesedaran diteruskan...');
             closeModal('consciousnessModal');
         }
 
         function jumpToUniverse() {
-            showNotification('Jumping to parallel universe β-2');
+            showNotification('Melompat ke alam selari β-2');
             closeModal('parallelModal');
         }
 
-        // ========== Utility Functions ==========
+        // ========== Fungsi Utiliti ==========
         function showNotification(message) {
             const notification = document.createElement('div');
             notification.className = 'notification';
@@ -1612,21 +2053,21 @@
         }
 
         function navigateTo(page) {
-            showNotification(`Navigating to ${page}...`);
+            showNotification(`Navigasi ke ${page}...`);
         }
 
         function search() {
             const query = document.getElementById('searchInput').value;
             if (query.length > 2) {
-                showNotification(`Searching for "${query}"...`);
+                showNotification(`Mencari "${query}"...`);
             }
         }
 
         function showDetail(type) {
-            showNotification(`Viewing ${type} details...`);
+            showNotification(`Lihat butiran ${type}...`);
         }
 
-        // ========== Initialization ==========
+        // ========== Permulaan ==========
         if (!appState.user.isLoggedIn) {
             document.getElementById('authContainer').style.display = 'flex';
             document.getElementById('mainContent').style.display = 'none';
