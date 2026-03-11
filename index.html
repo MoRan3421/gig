@@ -9,1772 +9,434 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        /* ===== Reka Bentuk Moden Malaysia ===== */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        /* ===== reka bentuk moden malaysia ===== */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         :root {
-            --primary: #00b8a9;
-            --primary-dark: #008b7d;
-            --primary-light: #d3f0ed;
-            --secondary: #f6416c;
-            --accent: #ffb800;
-            --success: #00b894;
-            --warning: #fdcb6e;
-            --danger: #d63031;
-            --dark: #2d3436;
-            --light: #f8f9fa;
-            --gray: #b2bec3;
-            --surface: #ffffff;
-            --text: #2d3436;
-            --text-light: #636e72;
-            --border: #dfe6e9;
-            --shadow-sm: 0 2px 4px rgba(0,0,0,0.02);
-            --shadow: 0 4px 6px rgba(0,0,0,0.05);
-            --shadow-md: 0 10px 15px rgba(0,0,0,0.05);
-            --shadow-lg: 0 20px 25px rgba(0,0,0,0.05);
-            --radius-sm: 8px;
-            --radius: 12px;
-            --radius-md: 16px;
-            --radius-lg: 24px;
-            --radius-xl: 32px;
+            --primary: #00b8a9; --primary-dark: #008b7d; --primary-light: #d3f0ed; --secondary: #f6416c;
+            --accent: #ffb800; --success: #00b894; --warning: #fdcb6e; --danger: #d63031; --dark: #2d3436;
+            --light: #f8f9fa; --gray: #b2bec3; --surface: #ffffff; --text: #2d3436; --text-light: #636e72;
+            --border: #dfe6e9; --shadow-sm: 0 2px 4px rgba(0,0,0,0.02); --shadow: 0 4px 6px rgba(0,0,0,0.05);
+            --shadow-md: 0 10px 15px rgba(0,0,0,0.05); --shadow-lg: 0 20px 25px rgba(0,0,0,0.05);
+            --radius-sm: 8px; --radius: 12px; --radius-md: 16px; --radius-lg: 24px; --radius-xl: 32px;
         }
-
         body {
             font-family: 'Inter', sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: var(--text);
-            line-height: 1.6;
-            min-height: 100vh;
-        }
-
-        /* ===== Layout ===== */
-        .app {
-            max-width: 1440px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-
-        /* ===== Kesan Kaca ===== */
-        .glass {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            box-shadow: var(--shadow-lg);
-        }
-
-        /* ===== Navigasi ===== */
-        .navbar {
-            background: white;
-            border-radius: var(--radius-xl);
-            padding: 16px 32px;
-            margin-bottom: 24px;
-            box-shadow: var(--shadow);
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 16px;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-size: 24px;
-            font-weight: 700;
-        }
-
-        .logo span {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .logo i {
-            color: var(--primary);
-            font-size: 28px;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 24px;
-            align-items: center;
-            flex-wrap: wrap;
-        }
-
-        .nav-link {
-            color: var(--text-light);
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.2s;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            padding: 8px 16px;
-            border-radius: var(--radius-xl);
-        }
-
-        .nav-link:hover {
-            color: var(--primary);
-            background: var(--primary-light);
-        }
-
-        .nav-link.active {
-            color: var(--primary);
-            background: var(--primary-light);
-        }
-
-        .user-menu {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-        }
-
-        .avatar {
-            width: 44px;
-            height: 44px;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: 600;
-            font-size: 18px;
-        }
-
-        .btn {
-            padding: 10px 24px;
-            border: none;
-            border-radius: var(--radius-xl);
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-            font-size: 14px;
-        }
-
-        .btn-primary {
-            background: var(--primary);
-            color: white;
-        }
-
-        .btn-primary:hover {
-            background: var(--primary-dark);
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-md);
-        }
-
-        .btn-secondary {
-            background: #f1f3f4;
-            color: var(--text);
-        }
-
-        .btn-secondary:hover {
-            background: #e0e0e0;
-        }
-
-        /* ===== Bar Carian ===== */
-        .search-section {
-            background: white;
-            border-radius: var(--radius-xl);
-            padding: 20px;
-            margin-bottom: 30px;
-            box-shadow: var(--shadow);
-        }
-
-        .search-bar {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            background: #f8f9fa;
-            border-radius: var(--radius-xl);
-            padding: 4px;
-        }
-
-        .search-bar i {
-            color: var(--text-light);
-            margin-left: 16px;
-        }
-
-        .search-bar input {
-            flex: 1;
-            border: none;
-            padding: 14px 0;
-            font-size: 16px;
-            outline: none;
-            background: transparent;
-        }
-
-        .search-bar button {
-            background: var(--primary);
-            border: none;
-            color: white;
-            padding: 12px 32px;
-            border-radius: var(--radius-xl);
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .search-bar button:hover {
-            background: var(--primary-dark);
-        }
-
-        .popular-searches {
-            display: flex;
-            gap: 16px;
-            margin-top: 16px;
-            flex-wrap: wrap;
-        }
-
-        .popular-searches span {
-            color: var(--text-light);
-            font-size: 14px;
-        }
-
-        .popular-searches a {
-            color: var(--text);
-            text-decoration: none;
-            font-size: 14px;
-            transition: color 0.2s;
-        }
-
-        .popular-searches a:hover {
-            color: var(--primary);
-        }
-
-        /* ===== Kategori ===== */
-        .categories {
-            display: flex;
-            gap: 12px;
-            overflow-x: auto;
-            padding: 10px 0;
-            margin-bottom: 30px;
-            scrollbar-width: none;
-        }
-
-        .categories::-webkit-scrollbar {
-            display: none;
-        }
-
-        .category-item {
-            background: white;
-            border: 1px solid var(--border);
-            border-radius: var(--radius-xl);
-            padding: 10px 24px;
-            font-size: 14px;
-            font-weight: 500;
-            color: var(--text-light);
-            cursor: pointer;
-            white-space: nowrap;
-            transition: all 0.3s;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .category-item i {
-            color: var(--primary);
-        }
-
-        .category-item:hover {
-            border-color: var(--primary);
-            color: var(--primary);
-            background: var(--primary-light);
-            transform: translateY(-2px);
-        }
-
-        .category-item.active {
-            background: var(--primary);
-            border-color: var(--primary);
-            color: white;
-        }
-
-        .category-item.active i {
-            color: white;
-        }
-
-        /* ===== Grid Statistik ===== */
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 20px;
-            margin-bottom: 40px;
-        }
-
-        .stat-card {
-            background: white;
-            border-radius: var(--radius-lg);
-            padding: 24px;
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            box-shadow: var(--shadow);
-            transition: all 0.3s;
-            border: 1px solid var(--border);
-            cursor: pointer;
-        }
-
-        .stat-card:hover {
-            transform: translateY(-4px);
-            box-shadow: var(--shadow-lg);
-            border-color: var(--primary);
-        }
-
-        .stat-icon {
-            width: 56px;
-            height: 56px;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            border-radius: var(--radius);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 24px;
-        }
-
-        .stat-info h3 {
-            font-size: 28px;
-            font-weight: 700;
-            color: var(--dark);
-            margin-bottom: 4px;
-        }
-
-        .stat-info p {
-            color: var(--text-light);
-            font-size: 14px;
-        }
-
-        /* ===== Tajuk Seksyen ===== */
-        .section-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 24px;
-        }
-
-        .section-header h2 {
-            font-size: 24px;
-            font-weight: 700;
-            color: white;
-        }
-
-        .view-all {
-            color: white;
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 500;
-            padding: 8px 16px;
-            background: rgba(255,255,255,0.2);
-            border-radius: var(--radius-xl);
-            transition: all 0.3s;
-        }
-
-        .view-all:hover {
-            background: rgba(255,255,255,0.3);
-        }
-
-        /* ===== Grid Perkhidmatan ===== */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 24px;
-            margin-bottom: 40px;
-        }
-
-        .service-card {
-            background: white;
-            border-radius: var(--radius-lg);
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            transition: all 0.3s;
-            cursor: pointer;
-            border: 1px solid var(--border);
-        }
-
-        .service-card:hover {
-            transform: translateY(-8px);
-            box-shadow: var(--shadow-lg);
-            border-color: var(--primary);
-        }
-
-        .service-image {
-            height: 160px;
-            background: linear-gradient(135deg, var(--primary-light), #e0f2fe);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 48px;
-            color: var(--primary);
-            position: relative;
-        }
-
-        .service-badge {
-            position: absolute;
-            top: 12px;
-            left: 12px;
-            background: var(--primary);
-            color: white;
-            padding: 4px 12px;
-            border-radius: var(--radius-xl);
-            font-size: 12px;
-            font-weight: 600;
-        }
-
-        .service-level {
-            position: absolute;
-            top: 12px;
-            right: 12px;
-            background: var(--secondary);
-            color: white;
-            padding: 4px 12px;
-            border-radius: var(--radius-xl);
-            font-size: 12px;
-            font-weight: 600;
-        }
-
-        .service-content {
-            padding: 20px;
-        }
-
-        .service-seller {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 12px;
-        }
-
-        .seller-avatar {
-            width: 40px;
-            height: 40px;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 16px;
-            font-weight: 600;
-        }
-
-        .seller-info {
-            flex: 1;
-        }
-
-        .seller-name {
-            font-weight: 600;
-            color: var(--dark);
-            font-size: 16px;
-        }
-
-        .seller-location {
-            color: var(--text-light);
-            font-size: 13px;
-        }
-
-        .service-title {
-            font-weight: 600;
-            margin-bottom: 12px;
-            color: var(--dark);
-            font-size: 16px;
-            line-height: 1.5;
-        }
-
-        .service-rating {
-            display: flex;
-            align-items: center;
-            gap: 4px;
-            color: var(--accent);
-            font-size: 14px;
-            margin-bottom: 12px;
-        }
-
-        .service-rating span {
-            color: var(--text-light);
-            margin-left: 4px;
-        }
-
-        .service-footer {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            border-top: 1px solid var(--border);
-            padding-top: 16px;
-        }
-
-        .service-price {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .price-label {
-            color: var(--text-light);
-            font-size: 12px;
-        }
-
-        .price-value {
-            font-weight: 700;
-            color: var(--primary);
-            font-size: 20px;
-        }
-
-        .service-orders {
-            color: var(--text-light);
-            font-size: 13px;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        /* ===== Senarai Projek ===== */
-        .projects-list {
-            background: white;
-            border-radius: var(--radius-lg);
-            padding: 24px;
-            box-shadow: var(--shadow);
-            margin-bottom: 40px;
-        }
-
-        .project-item {
-            padding: 24px;
-            border-bottom: 1px solid var(--border);
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .project-item:last-child {
-            border-bottom: none;
-        }
-
-        .project-item:hover {
-            background: #f8f9fa;
-            border-radius: var(--radius);
-            transform: translateX(4px);
-        }
-
-        .project-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 12px;
-        }
-
-        .project-title {
-            font-weight: 600;
-            color: var(--dark);
-            font-size: 18px;
-        }
-
-        .project-budget {
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-            padding: 6px 20px;
-            border-radius: var(--radius-xl);
-            font-size: 16px;
-            font-weight: 600;
-        }
-
-        .project-description {
-            color: var(--text-light);
-            font-size: 14px;
-            margin-bottom: 16px;
-            line-height: 1.6;
-        }
-
-        .project-meta {
-            display: flex;
-            gap: 24px;
-            margin-bottom: 16px;
-            flex-wrap: wrap;
-        }
-
-        .project-meta span {
-            color: var(--text-light);
-            font-size: 14px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .project-meta i {
-            color: var(--primary);
-        }
-
-        .project-tags {
-            display: flex;
-            gap: 8px;
-            flex-wrap: wrap;
-            margin-bottom: 16px;
-        }
-
-        .tag {
-            background: var(--primary-light);
-            color: var(--primary-dark);
-            padding: 6px 16px;
-            border-radius: var(--radius-xl);
-            font-size: 13px;
-            font-weight: 500;
-        }
-
-        .project-footer {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .project-proposals {
-            color: var(--text-light);
-            font-size: 14px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .project-time {
-            color: var(--text-light);
-            font-size: 14px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        /* ===== Senarai Aktiviti ===== */
-        .activity-list {
-            background: white;
-            border-radius: var(--radius-lg);
-            padding: 24px;
-            box-shadow: var(--shadow);
-            margin-bottom: 40px;
-        }
-
-        .activity-item {
-            display: flex;
-            align-items: center;
-            gap: 16px;
-            padding: 16px 0;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .activity-item:last-child {
-            border-bottom: none;
-        }
-
-        .activity-avatar {
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: 600;
-            font-size: 18px;
-        }
-
-        .activity-content {
-            flex: 1;
-        }
-
-        .activity-content p {
-            font-weight: 500;
-            color: var(--dark);
-            margin-bottom: 4px;
-            font-size: 15px;
-        }
-
-        .activity-time {
-            font-size: 13px;
-            color: var(--text-light);
-        }
-
-        /* ===== Grid Ciri-Ciri ===== */
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 20px;
-            margin: 40px 0;
-        }
-
-        .feature-card {
-            background: white;
-            border-radius: var(--radius-lg);
-            padding: 24px;
-            box-shadow: var(--shadow);
-            cursor: pointer;
-            transition: all 0.3s;
-            border: 1px solid var(--border);
-        }
-
-        .feature-card:hover {
-            transform: translateY(-4px);
-            border-color: var(--primary);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .feature-icon {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            border-radius: var(--radius);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 28px;
-            margin-bottom: 16px;
-        }
-
-        .feature-card h3 {
-            font-size: 18px;
-            font-weight: 600;
-            color: var(--dark);
-            margin-bottom: 8px;
-        }
-
-        .feature-card p {
-            color: var(--text-light);
-            font-size: 14px;
-            line-height: 1.5;
-        }
-
-        /* ===== Sistem Ejen ===== */
-        .agent-system {
-            background: white;
-            border-radius: var(--radius-lg);
-            padding: 32px;
-            box-shadow: var(--shadow);
-            margin: 40px 0;
-        }
-
-        .agent-title {
-            font-size: 24px;
-            font-weight: 700;
-            color: var(--dark);
-            margin-bottom: 24px;
-        }
-
-        .agent-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
-            margin-bottom: 32px;
-        }
-
-        .agent-level {
-            text-align: center;
-            padding: 24px;
-            background: var(--primary-light);
-            border-radius: var(--radius);
-            border: 1px solid var(--border);
-        }
-
-        .agent-level i {
-            font-size: 40px;
-            color: var(--primary);
-            margin-bottom: 12px;
-        }
-
-        .agent-level .role {
-            font-weight: 600;
-            color: var(--dark);
-            margin-bottom: 8px;
-            font-size: 18px;
-        }
-
-        .agent-level .rate {
-            color: var(--primary);
-            font-weight: 700;
-            font-size: 28px;
-        }
-
-        .agent-stats {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 24px;
-            padding-top: 24px;
-            border-top: 1px solid var(--border);
-        }
-
-        .agent-stats div {
-            text-align: center;
-        }
-
-        .agent-stats strong {
-            display: block;
-            font-size: 24px;
-            color: var(--dark);
-            margin-bottom: 4px;
-        }
-
-        .agent-stats span {
-            color: var(--text-light);
-            font-size: 14px;
-        }
-
-        /* ===== Modal ===== */
-        .modal-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0,0,0,0.5);
-            backdrop-filter: blur(8px);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 1000;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s;
-        }
-
-        .modal-overlay.show {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .modal {
-            background: white;
-            border-radius: var(--radius-lg);
-            padding: 32px;
-            max-width: 500px;
-            width: 90%;
-            max-height: 80vh;
-            overflow-y: auto;
-            box-shadow: var(--shadow-lg);
-        }
-
-        .modal-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 24px;
-        }
-
-        .modal-header h2 {
-            font-size: 24px;
-            font-weight: 700;
-            color: var(--dark);
-        }
-
-        .modal-close {
-            background: none;
-            border: none;
-            font-size: 28px;
-            cursor: pointer;
-            color: var(--text-light);
-            transition: color 0.2s;
-        }
-
-        .modal-close:hover {
-            color: var(--danger);
-        }
-
-        .modal-body p {
-            margin-bottom: 16px;
-            color: var(--text-light);
-            line-height: 1.6;
-            font-size: 15px;
-        }
-
-        .modal-body strong {
-            color: var(--dark);
-        }
-
-        .modal-footer {
-            display: flex;
-            gap: 16px;
-            margin-top: 32px;
-        }
-
-        .modal-footer .btn {
-            flex: 1;
-            padding: 14px;
-            font-size: 16px;
-        }
-
-        /* ===== Borang Auth ===== */
-        .auth-container {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-        }
-
-        .auth-card {
-            background: white;
-            border-radius: var(--radius-lg);
-            padding: 48px;
-            max-width: 480px;
-            width: 100%;
-            box-shadow: var(--shadow-lg);
-        }
-
-        .auth-logo {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-
-        .auth-logo i {
-            font-size: 60px;
-            color: var(--primary);
-        }
-
-        .auth-logo h2 {
-            font-size: 32px;
-            font-weight: 700;
-            margin-top: 16px;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .auth-tabs {
-            display: flex;
-            gap: 16px;
-            margin-bottom: 32px;
-            border-bottom: 2px solid var(--border);
-            padding-bottom: 16px;
-        }
-
-        .auth-tab {
-            flex: 1;
-            text-align: center;
-            padding: 12px;
-            cursor: pointer;
-            font-weight: 600;
-            color: var(--text-light);
-            transition: all 0.3s;
-            font-size: 16px;
-        }
-
-        .auth-tab.active {
-            color: var(--primary);
-            position: relative;
-        }
-
-        .auth-tab.active::after {
-            content: '';
-            position: absolute;
-            bottom: -17px;
-            left: 0;
-            right: 0;
-            height: 3px;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-        }
-
-        .auth-form {
-            display: none;
-        }
-
-        .auth-form.active {
-            display: block;
-        }
-
-        .auth-form input,
-        .auth-form select {
-            width: 100%;
-            padding: 16px 18px;
-            margin-bottom: 16px;
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            font-size: 15px;
-            outline: none;
-            transition: all 0.3s;
-        }
-
-        .auth-form input:focus,
-        .auth-form select:focus {
-            border-color: var(--primary);
-            box-shadow: 0 0 0 3px var(--primary-light);
-        }
-
-        .auth-button {
-            width: 100%;
-            padding: 16px;
-            background: linear-gradient(135deg, var(--primary), var(--secondary));
-            color: white;
-            border: none;
-            border-radius: var(--radius);
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-            font-size: 16px;
-            margin-top: 8px;
-        }
-
-        .auth-button:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .auth-switch {
-            text-align: center;
-            margin-top: 24px;
-            color: var(--text-light);
-            font-size: 15px;
-        }
-
-        .auth-switch span {
-            color: var(--primary);
-            cursor: pointer;
-            font-weight: 600;
-            margin-left: 4px;
-        }
-
-        /* ===== Notifikasi ===== */
-        .notification {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background: white;
-            border-left: 4px solid var(--primary);
-            border-radius: var(--radius);
-            padding: 16px 24px;
-            box-shadow: var(--shadow-lg);
-            z-index: 2000;
-            animation: slideIn 0.3s ease;
-            font-size: 15px;
-        }
-
-        @keyframes slideIn {
-            from {
-                transform: translateX(100%);
-                opacity: 0;
-            }
-            to {
-                transform: translateX(0);
-                opacity: 1;
-            }
-        }
-
-        /* ===== Footer ===== */
-        .footer {
-            text-align: center;
-            padding: 40px 0;
-            color: white;
-            font-size: 15px;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            margin-top: 40px;
-        }
-
-        /* ===== Lencana Pemilik ===== */
-        .owner-badge {
-            background: linear-gradient(135deg, #f59e0b, #f97316);
-            color: white;
-            padding: 6px 14px;
-            border-radius: var(--radius-xl);
-            font-size: 13px;
-            font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-        }
-
-        /* ===== Bar Kemajuan ===== */
-        .progress-bar {
-            width: 100%;
-            height: 10px;
-            background: var(--border);
-            border-radius: 5px;
-            overflow: hidden;
-            margin: 20px 0;
-        }
-
-        .progress-fill {
-            height: 100%;
-            background: linear-gradient(90deg, var(--primary), var(--secondary));
-            border-radius: 5px;
-        }
-
-        /* ===== Maklumat Hubungan ===== */
-        .contact-info {
-            position: fixed;
-            bottom: 20px;
-            left: 20px;
-            background: white;
-            border-radius: var(--radius-xl);
-            padding: 14px 28px;
-            box-shadow: var(--shadow-lg);
-            display: flex;
-            gap: 28px;
-            z-index: 100;
-            font-size: 15px;
-            border: 1px solid var(--border);
-        }
-
-        .contact-info a {
-            color: var(--primary);
-            text-decoration: none;
-            font-weight: 500;
-        }
-
-        .contact-info i {
-            color: var(--primary);
-            margin-right: 8px;
-        }
-
-        /* ===== Responsif ===== */
-        @media (max-width: 768px) {
-            .navbar {
-                flex-direction: column;
-                padding: 16px;
-            }
-            
-            .nav-links {
-                justify-content: center;
-            }
-            
-            .user-menu {
-                width: 100%;
-                justify-content: center;
-            }
-            
-            .agent-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .agent-stats {
-                grid-template-columns: 1fr;
-                gap: 16px;
-            }
-            
-            .contact-info {
-                flex-direction: column;
-                gap: 12px;
-                left: 10px;
-                right: 10px;
-                bottom: 10px;
-            }
-            
-            .stats-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .features-grid {
-                grid-template-columns: 1fr;
-            }
-        }
+            color: var(--text); line-height: 1.6; min-height: 100vh;
+        }
+        .app { max-width: 1440px; margin: 0 auto; padding: 20px; }
+        /* ===== komponen ===== */
+        .navbar, .search-section, .stat-card, .service-card, .projects-list, .activity-list, .agent-system, .feature-card, .wallet-display, .auth-card, .modal { background: white; }
+        .navbar { border-radius: var(--radius-xl); padding: 16px 32px; margin-bottom: 24px; box-shadow: var(--shadow); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+        .logo { display: flex; align-items: center; gap: 10px; font-size: 24px; font-weight: 700; }
+        .logo span { background: linear-gradient(135deg, var(--primary), var(--secondary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .logo i { color: var(--primary); font-size: 28px; }
+        .nav-links { display: flex; gap: 24px; align-items: center; flex-wrap: wrap; }
+        .nav-link { color: var(--text-light); text-decoration: none; font-weight: 500; transition: 0.2s; display: flex; align-items: center; gap: 8px; padding: 8px 16px; border-radius: var(--radius-xl); }
+        .nav-link:hover, .nav-link.active { color: var(--primary); background: var(--primary-light); }
+        .user-menu { display: flex; align-items: center; gap: 16px; }
+        .avatar { width: 44px; height: 44px; background: linear-gradient(135deg, var(--primary), var(--secondary)); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 600; }
+        .btn { padding: 10px 24px; border: none; border-radius: var(--radius-xl); font-weight: 600; cursor: pointer; transition: 0.3s; }
+        .btn-primary { background: var(--primary); color: white; }
+        .btn-primary:hover { background: var(--primary-dark); transform: translateY(-2px); box-shadow: var(--shadow-md); }
+        .btn-secondary { background: #f1f3f4; color: var(--text); }
+        .btn-secondary:hover { background: #e0e0e0; }
+        .btn-success { background: var(--success); color: white; }
+        .btn-success:hover { background: #00a187; }
+        .btn-sm { padding: 6px 16px; font-size: 13px; }
+        .search-section { border-radius: var(--radius-xl); padding: 20px; margin-bottom: 30px; }
+        .search-bar { display: flex; align-items: center; gap: 12px; background: #f8f9fa; border-radius: var(--radius-xl); padding: 4px; }
+        .search-bar i { color: var(--text-light); margin-left: 16px; }
+        .search-bar input { flex: 1; border: none; padding: 14px 0; font-size: 16px; outline: none; background: transparent; }
+        .search-bar button { background: var(--primary); border: none; color: white; padding: 12px 32px; border-radius: var(--radius-xl); font-weight: 600; cursor: pointer; transition: 0.3s; }
+        .search-bar button:hover { background: var(--primary-dark); }
+        .popular-searches { display: flex; gap: 16px; margin-top: 16px; flex-wrap: wrap; }
+        .categories { display: flex; gap: 12px; overflow-x: auto; padding: 10px 0; margin-bottom: 30px; scrollbar-width: none; }
+        .category-item { background: white; border: 1px solid var(--border); border-radius: var(--radius-xl); padding: 10px 24px; font-size: 14px; font-weight: 500; color: var(--text-light); cursor: pointer; white-space: nowrap; transition: 0.3s; display: flex; align-items: center; gap: 8px; }
+        .category-item i { color: var(--primary); }
+        .category-item:hover, .category-item.active { border-color: var(--primary); color: var(--primary); background: var(--primary-light); transform: translateY(-2px); }
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px; margin-bottom: 40px; }
+        .stat-card { border-radius: var(--radius-lg); padding: 24px; display: flex; align-items: center; gap: 16px; box-shadow: var(--shadow); transition: 0.3s; border: 1px solid var(--border); cursor: pointer; }
+        .stat-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: var(--primary); }
+        .stat-icon { width: 56px; height: 56px; background: linear-gradient(135deg, var(--primary), var(--secondary)); border-radius: var(--radius); display: flex; align-items: center; justify-content: center; color: white; font-size: 24px; }
+        .stat-info h3 { font-size: 28px; font-weight: 700; color: var(--dark); margin-bottom: 4px; }
+        .section-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; }
+        .section-header h2 { font-size: 24px; font-weight: 700; color: white; }
+        .view-all { color: white; text-decoration: none; padding: 8px 16px; background: rgba(255,255,255,0.2); border-radius: var(--radius-xl); transition: 0.3s; }
+        .view-all:hover { background: rgba(255,255,255,0.3); }
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 24px; margin-bottom: 40px; }
+        .service-card { border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow); transition: 0.3s; cursor: pointer; border: 1px solid var(--border); }
+        .service-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); border-color: var(--primary); }
+        .service-image { height: 160px; background: linear-gradient(135deg, var(--primary-light), #e0f2fe); display: flex; align-items: center; justify-content: center; font-size: 48px; color: var(--primary); position: relative; }
+        .service-badge, .service-level { position: absolute; top: 12px; padding: 4px 12px; border-radius: var(--radius-xl); font-size: 12px; font-weight: 600; }
+        .service-badge { left: 12px; background: var(--primary); color: white; }
+        .service-level { right: 12px; background: var(--secondary); color: white; }
+        .service-content { padding: 20px; }
+        .service-seller { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
+        .seller-avatar { width: 40px; height: 40px; background: linear-gradient(135deg, var(--primary), var(--secondary)); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 600; }
+        .seller-name { font-weight: 600; color: var(--dark); }
+        .seller-location { color: var(--text-light); font-size: 13px; }
+        .service-title { font-weight: 600; margin-bottom: 12px; color: var(--dark); }
+        .service-rating { display: flex; align-items: center; gap: 4px; color: var(--accent); margin-bottom: 12px; }
+        .service-footer { display: flex; align-items: center; justify-content: space-between; border-top: 1px solid var(--border); padding-top: 16px; }
+        .service-price .price-label { color: var(--text-light); font-size: 12px; }
+        .service-price .price-value { font-weight: 700; color: var(--primary); font-size: 20px; }
+        .projects-list { border-radius: var(--radius-lg); padding: 24px; margin-bottom: 40px; }
+        .project-item { padding: 24px; border-bottom: 1px solid var(--border); cursor: pointer; transition: 0.3s; }
+        .project-item:hover { background: #f8f9fa; border-radius: var(--radius); transform: translateX(4px); }
+        .project-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
+        .project-title { font-weight: 600; color: var(--dark); font-size: 18px; }
+        .project-budget { background: linear-gradient(135deg, var(--primary), var(--secondary)); color: white; padding: 6px 20px; border-radius: var(--radius-xl); font-weight: 600; }
+        .project-meta { display: flex; gap: 24px; margin-bottom: 16px; flex-wrap: wrap; }
+        .project-meta i { color: var(--primary); }
+        .project-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px; }
+        .tag { background: var(--primary-light); color: var(--primary-dark); padding: 6px 16px; border-radius: var(--radius-xl); font-size: 13px; }
+        .activity-list { border-radius: var(--radius-lg); padding: 24px; margin-bottom: 40px; }
+        .activity-item { display: flex; align-items: center; gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--border); }
+        .activity-item:last-child { border-bottom: none; }
+        .activity-avatar { width: 50px; height: 50px; background: linear-gradient(135deg, var(--primary), var(--secondary)); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 600; }
+        .activity-content p { font-weight: 500; color: var(--dark); margin-bottom: 4px; }
+        .activity-time { font-size: 13px; color: var(--text-light); }
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin: 40px 0; }
+        .feature-card { border-radius: var(--radius-lg); padding: 24px; box-shadow: var(--shadow); cursor: pointer; transition: 0.3s; border: 1px solid var(--border); }
+        .feature-card:hover { transform: translateY(-4px); border-color: var(--primary); }
+        .feature-icon { width: 60px; height: 60px; background: linear-gradient(135deg, var(--primary), var(--secondary)); border-radius: var(--radius); display: flex; align-items: center; justify-content: center; color: white; font-size: 28px; margin-bottom: 16px; }
+        .agent-system { border-radius: var(--radius-lg); padding: 32px; margin: 40px 0; }
+        .agent-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; margin-bottom: 32px; }
+        .agent-level { text-align: center; padding: 24px; background: var(--primary-light); border-radius: var(--radius); border: 1px solid var(--border); }
+        .agent-level i { font-size: 40px; color: var(--primary); margin-bottom: 12px; }
+        .agent-level .role { font-weight: 600; color: var(--dark); margin-bottom: 8px; font-size: 18px; }
+        .agent-level .rate { color: var(--primary); font-weight: 700; font-size: 28px; }
+        .agent-stats { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; padding-top: 24px; border-top: 1px solid var(--border); text-align: center; }
+        .owner-panel { background: linear-gradient(135deg, #f59e0b, #f97316); color: white; padding: 24px; border-radius: var(--radius-lg); margin: 20px 0; }
+        .owner-stats { display: grid; grid-template-columns: repeat(auto-fit,minmax(140px,1fr)); gap: 16px; }
+        .owner-stat { background: rgba(255,255,255,0.2); padding: 16px; border-radius: var(--radius); text-align: center; }
+        .wallet-display { border-radius: var(--radius); padding: 20px 24px; display: flex; align-items: center; gap: 20px; margin: 20px 0; flex-wrap: wrap; background: white; }
+        .wallet-icon { width: 60px; height: 60px; background: var(--primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 28px; }
+        .wallet-balance { font-size: 32px; font-weight: 700; color: var(--dark); }
+        .modal-overlay { position: fixed; top:0; left:0; right:0; bottom:0; background: rgba(0,0,0,0.5); backdrop-filter: blur(8px); display: flex; align-items: center; justify-content: center; z-index:1000; opacity:0; visibility:hidden; transition:0.3s; }
+        .modal-overlay.show { opacity:1; visibility:visible; }
+        .modal { background: white; border-radius: var(--radius-lg); padding: 32px; max-width:500px; width:90%; max-height:80vh; overflow-y:auto; box-shadow: var(--shadow-lg); }
+        .modal-header { display: flex; align-items: center; justify-content: space-between; margin-bottom:24px; }
+        .modal-close { background: none; border: none; font-size:28px; cursor:pointer; color: var(--text-light); }
+        .modal-close:hover { color: var(--danger); }
+        .payment-options { display: flex; flex-direction: column; gap:12px; margin:20px 0; max-height:400px; overflow-y:auto; }
+        .payment-option { display: flex; align-items: center; gap:12px; padding:16px; border:1px solid var(--border); border-radius:var(--radius); cursor:pointer; transition:0.3s; }
+        .payment-option:hover, .payment-option.selected { border-color:var(--primary); background:var(--primary-light); }
+        .payment-option i { font-size:24px; color:var(--primary); width:30px; }
+        .bank-grid { display: grid; grid-template-columns: repeat(4,1fr); gap:10px; margin:20px 0; }
+        .bank-item { display: flex; flex-direction: column; align-items: center; padding:12px; border:1px solid var(--border); border-radius:var(--radius); cursor:pointer; transition:0.3s; }
+        .bank-item:hover, .bank-item.selected { border-color:var(--primary); background:var(--primary-light); }
+        .bank-item i { font-size:24px; color:var(--primary); margin-bottom:8px; }
+        .language-switcher { display: flex; gap:8px; }
+        .lang-btn { background:transparent; border:1px solid var(--border); border-radius:var(--radius-xl); padding:6px 12px; font-weight:600; cursor:pointer; color: var(--text-light); }
+        .lang-btn.active { background:var(--primary); border-color:var(--primary); color:white; }
+        .contact-info { position:fixed; bottom:20px; left:20px; background:white; border-radius:var(--radius-xl); padding:14px 28px; box-shadow:var(--shadow-lg); display:flex; gap:28px; z-index:100; border:1px solid var(--border); }
+        .owner-badge { background: linear-gradient(135deg,#f59e0b,#f97316); color:white; padding:6px 14px; border-radius:var(--radius-xl); font-size:13px; font-weight:600; display:inline-flex; align-items:center; gap:6px; }
+        .progress-bar { width:100%; height:10px; background:var(--border); border-radius:5px; overflow:hidden; margin:20px 0; }
+        .progress-fill { height:100%; background:linear-gradient(90deg,var(--primary),var(--secondary)); }
+        .footer { text-align:center; padding:40px 0; color:white; border-top:1px solid rgba(255,255,255,0.1); margin-top:40px; }
+        @media (max-width:768px){ .navbar{flex-direction:column;} .contact-info{flex-direction:column; left:10px; right:10px; bottom:10px;} .bank-grid{grid-template-columns:repeat(2,1fr);} }
     </style>
 </head>
 <body>
-    <!-- Maklumat Hubungan -->
+    <!-- contact info tetap -->
     <div class="contact-info">
         <span><i class="fas fa-phone"></i> <a href="tel:+601156649657">011-56649657</a></span>
         <span><i class="fas fa-envelope"></i> <a href="mailto:tuantuanxiongmaoyouxizhubo@gmail.com">tuantuanxiongmaoyouxizhubo@gmail.com</a></span>
-        <span class="owner-badge"><i class="fas fa-crown"></i> Pemilik Platform</span>
+        <span class="owner-badge"><i class="fas fa-crown"></i> <span class="lang-ms">Pemilik</span><span class="lang-en">Owner</span><span class="lang-cn">所有者</span></span>
+    </div>
+    <!-- language switcher -->
+    <div style="position:fixed; top:20px; right:20px; z-index:1000;">
+        <div class="language-switcher">
+            <button class="lang-btn active" onclick="switchLanguage('ms')">BM</button>
+            <button class="lang-btn" onclick="switchLanguage('en')">EN</button>
+            <button class="lang-btn" onclick="switchLanguage('cn')">中文</button>
+        </div>
     </div>
 
-    <!-- Container Auth -->
-    <div id="authContainer" class="auth-container">
-        <div class="auth-card">
-            <div class="auth-logo">
-                <i class="fas fa-rocket"></i>
-                <h2>NovaServe</h2>
-                <p style="color: var(--text-light); margin-top: 12px;">Platform Freelance Malaysia</p>
+    <!-- AUTH CONTAINER -->
+    <div id="authContainer" class="auth-container" style="min-height:100vh; display:flex; align-items:center; justify-content:center; padding:20px;">
+        <div class="auth-card" style="background:white; border-radius:var(--radius-lg); padding:48px; max-width:480px; width:100%; box-shadow:var(--shadow-lg);">
+            <div class="auth-logo" style="text-align:center; margin-bottom:40px;">
+                <i class="fas fa-rocket" style="font-size:60px; color:var(--primary);"></i>
+                <h2 style="font-size:32px; margin-top:16px; background:linear-gradient(135deg,var(--primary),var(--secondary)); -webkit-background-clip:text; -webkit-text-fill-color:transparent;">NovaServe</h2>
+                <p class="lang-ms" style="color:var(--text-light);">Platform Freelance Malaysia</p>
+                <p class="lang-en" style="color:var(--text-light); display:none;">Malaysia Freelance Platform</p>
+                <p class="lang-cn" style="color:var(--text-light); display:none;">马来西亚自由职业者平台</p>
             </div>
-            <div class="auth-tabs">
-                <div class="auth-tab active" onclick="switchAuthTab('login')">Log Masuk</div>
-                <div class="auth-tab" onclick="switchAuthTab('register')">Daftar</div>
+            <div class="auth-tabs" style="display:flex; gap:16px; margin-bottom:32px; border-bottom:2px solid var(--border); padding-bottom:16px;">
+                <div class="auth-tab active" style="flex:1; text-align:center; padding:12px; cursor:pointer; font-weight:600; color:var(--primary); position:relative;" onclick="switchAuthTab('login')"><span class="lang-ms">Log Masuk</span><span class="lang-en">Login</span><span class="lang-cn">登录</span></div>
+                <div class="auth-tab" style="flex:1; text-align:center; padding:12px; cursor:pointer; font-weight:600; color:var(--text-light);" onclick="switchAuthTab('register')"><span class="lang-ms">Daftar</span><span class="lang-en">Register</span><span class="lang-cn">注册</span></div>
             </div>
-
-            <!-- Borang Log Masuk -->
+            <!-- login form -->
             <div id="loginForm" class="auth-form active">
-                <input type="email" id="loginEmail" placeholder="Email" value="">
-                <input type="password" id="loginPassword" placeholder="Kata Laluan" value="">
-                <button class="auth-button" onclick="login()">Log Masuk</button>
-                <div class="auth-switch">
-                    Tiada akaun? <span onclick="switchAuthTab('register')">Daftar Sekarang</span>
-                </div>
+                <input type="email" id="loginEmail" placeholder="Email" value="tuantuanxiongmaoyouxizhubo@gmail.com" style="width:100%; padding:16px; margin-bottom:16px; border:1px solid var(--border); border-radius:var(--radius);">
+                <input type="password" id="loginPassword" placeholder="Kata Laluan" value="owner2026" style="width:100%; padding:16px; margin-bottom:16px; border:1px solid var(--border); border-radius:var(--radius);">
+                <button class="auth-button" style="width:100%; padding:16px; background:linear-gradient(135deg,var(--primary),var(--secondary)); color:white; border:none; border-radius:var(--radius); font-weight:600; cursor:pointer;" onclick="login()"><span class="lang-ms">Log Masuk</span><span class="lang-en">Login</span><span class="lang-cn">登录</span></button>
+                <div class="auth-switch" style="text-align:center; margin-top:24px; color:var(--text-light);"><span class="lang-ms">Tiada akaun? </span><span class="lang-en">Don't have an account? </span><span class="lang-cn">没有账号？ </span><span style="color:var(--primary); cursor:pointer; font-weight:600;" onclick="switchAuthTab('register')"><span class="lang-ms">Daftar Sekarang</span><span class="lang-en">Register Now</span><span class="lang-cn">立即注册</span></span></div>
             </div>
-
-            <!-- Borang Daftar -->
-            <div id="registerForm" class="auth-form">
-                <input type="text" id="regName" placeholder="Nama Penuh">
-                <input type="email" id="regEmail" placeholder="Email">
-                <input type="password" id="regPassword" placeholder="Kata Laluan (min. 6 aksara)">
-                <input type="password" id="regConfirmPassword" placeholder="Sahkan Kata Laluan">
-                <select id="regRole">
-                    <option value="buyer">Pembeli / Klien</option>
-                    <option value="seller">Penjual / Freelancer</option>
-                    <option value="agent">Ejen</option>
+            <!-- register form ringkas -->
+            <div id="registerForm" class="auth-form" style="display:none;">
+                <input type="text" id="regName" placeholder="Nama" style="width:100%; padding:16px; margin-bottom:16px; border:1px solid var(--border); border-radius:var(--radius);">
+                <input type="email" id="regEmail" placeholder="Email" style="width:100%; padding:16px; margin-bottom:16px; border:1px solid var(--border); border-radius:var(--radius);">
+                <input type="password" id="regPassword" placeholder="Kata Laluan" style="width:100%; padding:16px; margin-bottom:16px; border:1px solid var(--border); border-radius:var(--radius);">
+                <input type="password" id="regConfirmPassword" placeholder="Sahkan" style="width:100%; padding:16px; margin-bottom:16px; border:1px solid var(--border); border-radius:var(--radius);">
+                <select id="regRole" style="width:100%; padding:16px; margin-bottom:16px; border:1px solid var(--border); border-radius:var(--radius);">
+                    <option value="buyer">Pembeli</option><option value="seller">Penjual</option><option value="agent">Ejen</option>
                 </select>
-                <input type="text" id="regPhone" placeholder="No. Telefon (cth: 0123456789)">
-                <input type="text" id="regTaxId" placeholder="No. Cukai / SSM (Pilihan)">
                 <button class="auth-button" onclick="register()">Daftar</button>
-                <div class="auth-switch">
-                    Sudah ada akaun? <span onclick="switchAuthTab('login')">Log Masuk</span>
-                </div>
             </div>
         </div>
     </div>
 
-    <!-- Kandungan Utama -->
-    <div id="mainContent" class="app" style="display: none;">
-        <!-- Navigasi -->
+    <!-- MAIN CONTENT (akan dipaparkan selepas login) -->
+    <div id="mainContent" class="app" style="display:none;">
+        <!-- navbar lengkap -->
         <nav class="navbar">
-            <div class="logo">
-                <i class="fas fa-rocket"></i>
-                <span>NovaServe</span>
-            </div>
+            <div class="logo"><i class="fas fa-rocket"></i><span>NovaServe</span></div>
             <div class="nav-links">
-                <a href="#" class="nav-link active" onclick="navigateTo('home')"><i class="fas fa-home"></i> Utama</a>
-                <a href="#" class="nav-link" onclick="navigateTo('services')"><i class="fas fa-store"></i> Perkhidmatan</a>
-                <a href="#" class="nav-link" onclick="navigateTo('projects')"><i class="fas fa-briefcase"></i> Projek</a>
-                <a href="#" class="nav-link" onclick="navigateTo('orders')"><i class="fas fa-shopping-bag"></i> Pesanan</a>
-                <a href="#" class="nav-link" onclick="navigateTo('messages')"><i class="fas fa-envelope"></i> Mesej</a>
-                <a href="#" class="nav-link" onclick="navigateTo('wallet')"><i class="fas fa-wallet"></i> Dompet</a>
+                <a href="#" class="nav-link active" onclick="navigateTo('home')"><i class="fas fa-home"></i> <span class="lang-ms">Utama</span><span class="lang-en">Home</span><span class="lang-cn">首页</span></a>
+                <a href="#" class="nav-link" onclick="navigateTo('services')"><i class="fas fa-store"></i> <span class="lang-ms">Perkhidmatan</span><span class="lang-en">Services</span><span class="lang-cn">服务</span></a>
+                <a href="#" class="nav-link" onclick="navigateTo('projects')"><i class="fas fa-briefcase"></i> <span class="lang-ms">Projek</span><span class="lang-en">Projects</span><span class="lang-cn">项目</span></a>
+                <a href="#" class="nav-link" onclick="navigateTo('orders')"><i class="fas fa-shopping-bag"></i> <span class="lang-ms">Pesanan</span><span class="lang-en">Orders</span><span class="lang-cn">订单</span></a>
+                <a href="#" class="nav-link" onclick="navigateTo('wallet')"><i class="fas fa-wallet"></i> <span class="lang-ms">Dompet</span><span class="lang-en">Wallet</span><span class="lang-cn">钱包</span></a>
+                <a href="#" class="nav-link" onclick="navigateTo('owner')"><i class="fas fa-crown"></i> <span class="lang-ms">Pemilik</span><span class="lang-en">Owner</span><span class="lang-cn">所有者</span></a>
+                <a href="#" class="nav-link" onclick="navigateTo('agent')"><i class="fas fa-sitemap"></i> <span class="lang-ms">Ejen</span><span class="lang-en">Agent</span><span class="lang-cn">代理商</span></a>
             </div>
             <div class="user-menu">
                 <span class="owner-badge" id="userRole">Tetamu</span>
                 <div class="avatar" id="userAvatar">T</div>
-                <button class="btn btn-secondary" onclick="logout()">Log Keluar</button>
+                <button class="btn btn-secondary" onclick="logout()"><span class="lang-ms">Log Keluar</span><span class="lang-en">Logout</span><span class="lang-cn">登出</span></button>
             </div>
         </nav>
 
-        <!-- Seksyen Carian -->
+        <!-- search section -->
         <div class="search-section">
             <div class="search-bar">
                 <i class="fas fa-search"></i>
-                <input type="text" id="searchInput" placeholder="Cari perkhidmatan, freelancer, atau projek...">
-                <button onclick="search()">Cari</button>
-            </div>
-            <div class="popular-searches">
-                <span>Popular:</span>
-                <a href="#">Reka Bentuk Grafik</a>
-                <a href="#">Pembangunan Web</a>
-                <a href="#">Pemasaran Digital</a>
-                <a href="#">Penulisan Kandungan</a>
-                <a href="#">Video Animasi</a>
-                <a href="#">Terjemahan</a>
+                <input type="text" id="searchInput" class="lang-ms" placeholder="Cari perkhidmatan...">
+                <button onclick="search()"><span class="lang-ms">Cari</span><span class="lang-en">Search</span><span class="lang-cn">搜索</span></button>
             </div>
         </div>
 
-        <!-- Kategori -->
+        <!-- categories -->
         <div class="categories">
-            <div class="category-item active"><i class="fas fa-th-large"></i> Semua</div>
-            <div class="category-item"><i class="fas fa-paint-brush"></i> Reka Bentuk & Kreatif</div>
-            <div class="category-item"><i class="fas fa-code"></i> Pengaturcaraan & Teknologi</div>
-            <div class="category-item"><i class="fas fa-chart-line"></i> Pemasaran Digital</div>
-            <div class="category-item"><i class="fas fa-video"></i> Video & Animasi</div>
-            <div class="category-item"><i class="fas fa-pen"></i> Penulisan & Terjemahan</div>
-            <div class="category-item"><i class="fas fa-music"></i> Muzik & Audio</div>
-            <div class="category-item"><i class="fas fa-briefcase"></i> Perniagaan</div>
-            <div class="category-item"><i class="fas fa-robot"></i> AI & Data</div>
-            <div class="category-item"><i class="fas fa-atom"></i> Teknologi Kuantum</div>
+            <div class="category-item active"><i class="fas fa-th-large"></i> <span class="lang-ms">Semua</span><span class="lang-en">All</span><span class="lang-cn">全部</span></div>
+            <div class="category-item"><i class="fas fa-paint-brush"></i> <span class="lang-ms">Reka Bentuk</span><span class="lang-en">Design</span><span class="lang-cn">设计</span></div>
+            <div class="category-item"><i class="fas fa-code"></i> <span class="lang-ms">Pengaturcaraan</span><span class="lang-en">Programming</span><span class="lang-cn">编程</span></div>
+            <div class="category-item"><i class="fas fa-chart-line"></i> <span class="lang-ms">Pemasaran</span><span class="lang-en">Marketing</span><span class="lang-cn">营销</span></div>
+            <div class="category-item"><i class="fas fa-video"></i> <span class="lang-ms">Video</span><span class="lang-en">Video</span><span class="lang-cn">视频</span></div>
+            <div class="category-item"><i class="fas fa-pen"></i> <span class="lang-ms">Penulisan</span><span class="lang-en">Writing</span><span class="lang-cn">写作</span></div>
+            <div class="category-item"><i class="fas fa-music"></i> <span class="lang-ms">Muzik</span><span class="lang-en">Music</span><span class="lang-cn">音乐</span></div>
+            <div class="category-item"><i class="fas fa-briefcase"></i> <span class="lang-ms">Perniagaan</span><span class="lang-en">Business</span><span class="lang-cn">商业</span></div>
+            <div class="category-item"><i class="fas fa-robot"></i> <span class="lang-ms">AI</span><span class="lang-en">AI</span><span class="lang-cn">人工智能</span></div>
+            <div class="category-item"><i class="fas fa-atom"></i> <span class="lang-ms">Kuantum</span><span class="lang-en">Quantum</span><span class="lang-cn">量子</span></div>
         </div>
 
-        <!-- Grid Statistik -->
+        <!-- stats grid -->
         <div class="stats-grid">
-            <div class="stat-card" onclick="showDetail('services')">
-                <div class="stat-icon"><i class="fas fa-store"></i></div>
-                <div class="stat-info">
-                    <h3 id="statServices">12,345</h3>
-                    <p>Perkhidmatan Aktif</p>
-                </div>
-            </div>
-            <div class="stat-card" onclick="showDetail('projects')">
-                <div class="stat-icon"><i class="fas fa-briefcase"></i></div>
-                <div class="stat-info">
-                    <h3 id="statProjects">567</h3>
-                    <p>Projek Terbuka</p>
-                </div>
-            </div>
-            <div class="stat-card" onclick="showDetail('freelancers')">
-                <div class="stat-icon"><i class="fas fa-users"></i></div>
-                <div class="stat-info">
-                    <h3 id="statFreelancers">8,942</h3>
-                    <p>Freelancer Online</p>
-                </div>
-            </div>
-            <div class="stat-card" onclick="showDetail('platformFee')">
-                <div class="stat-icon"><i class="fas fa-coins"></i></div>
-                <div class="stat-info">
-                    <h3 id="statPlatformFee">RM 456.7k</h3>
-                    <p>Yuran Platform (5%)</p>
-                </div>
+            <div class="stat-card" onclick="showDetail('services')"><div class="stat-icon"><i class="fas fa-store"></i></div><div class="stat-info"><h3 id="statServices">12,345</h3><p class="lang-ms">Perkhidmatan Aktif</p></div></div>
+            <div class="stat-card" onclick="showDetail('projects')"><div class="stat-icon"><i class="fas fa-briefcase"></i></div><div class="stat-info"><h3 id="statProjects">567</h3><p class="lang-ms">Projek Terbuka</p></div></div>
+            <div class="stat-card" onclick="showDetail('freelancers')"><div class="stat-icon"><i class="fas fa-users"></i></div><div class="stat-info"><h3 id="statFreelancers">8,942</h3><p class="lang-ms">Freelancer Online</p></div></div>
+            <div class="stat-card" onclick="showDetail('platformFee')"><div class="stat-icon"><i class="fas fa-coins"></i></div><div class="stat-info"><h3 id="statPlatformFee">RM 456.7k</h3><p class="lang-ms">Yuran Platform</p></div></div>
+        </div>
+
+        <!-- wallet display -->
+        <div class="wallet-display">
+            <div class="wallet-icon"><i class="fas fa-wallet"></i></div>
+            <div class="wallet-info"><div class="wallet-label"><span class="lang-ms">Baki Dompet Anda</span></div><div class="wallet-balance">RM <span id="userBalance">1,000</span></div></div>
+            <div class="wallet-actions">
+                <button class="btn btn-primary" onclick="openModal('depositModal')"><i class="fas fa-plus-circle"></i> <span class="lang-ms">Tambah</span></button>
+                <button class="btn btn-secondary" onclick="openModal('withdrawModal')"><i class="fas fa-minus-circle"></i> <span class="lang-ms">Keluar</span></button>
+                <button class="btn btn-success" onclick="openModal('transferModal')"><i class="fas fa-exchange-alt"></i> <span class="lang-ms">Pindah</span></button>
             </div>
         </div>
 
-        <!-- Seksyen Perkhidmatan -->
-        <div class="section-header">
-            <h2>Perkhidmatan Popular</h2>
-            <a href="#" class="view-all" onclick="navigateTo('services')">Lihat Semua →</a>
-        </div>
-        <div class="services-grid" id="servicesGrid">
-            <!-- Perkhidmatan akan dijana secara dinamik -->
-        </div>
-
-        <!-- Seksyen Projek -->
-        <div class="section-header">
-            <h2>Projek Terkini</h2>
-            <a href="#" class="view-all" onclick="navigateTo('projects')">Lihat Semua →</a>
-        </div>
-        <div class="projects-list" id="projectsList">
-            <!-- Projek akan dijana secara dinamik -->
+        <!-- owner panel -->
+        <div id="ownerPanel" class="owner-panel" style="display:none;">
+            <h3><i class="fas fa-crown"></i> <span class="lang-ms">Panel Pemilik</span></h3>
+            <div class="owner-stats">
+                <div class="owner-stat"><strong id="ownerBalance">RM 10,000,000</strong><span>Baki Pemilik</span></div>
+                <div class="owner-stat"><strong id="ownerFees">RM 456.7k</strong><span>Yuran Diterima</span></div>
+                <div class="owner-stat"><strong>5%</strong><span>Komisen</span></div>
+                <div class="owner-stat"><strong>1,234</strong><span>Pengguna</span></div>
+                <div class="owner-stat"><strong>RM 1.2M</strong><span>Jumlah Transaksi</span></div>
+                <div class="owner-stat"><strong>89%</strong><span>Kadar Kejayaan</span></div>
+                <div class="owner-stat"><strong>30</strong><span>Ciri Inovatif</span></div>
+                <div class="owner-stat"><strong>20+</strong><span>Kaedah Bayaran</span></div>
+            </div>
         </div>
 
-        <!-- Sistem Ejen -->
+        <!-- agent panel -->
+        <div id="agentPanel" class="agent-dashboard" style="display:none; background:white; padding:24px; border-radius:var(--radius-lg); margin:20px 0;">
+            <div style="display:flex; gap:16px; align-items:center;"><i class="fas fa-sitemap" style="font-size:32px; color:var(--primary);"></i><div><h3>Panel Ejen</h3><p><span class="lang-ms">Tahap: </span><span id="agentLevel" class="agent-level-badge level-regular">Ejen Biasa</span></p></div></div>
+            <div class="owner-stats" style="grid-template-columns:repeat(3,1fr);">
+                <div class="owner-stat" style="background:var(--primary-light);"><strong>RM 2,345</strong><span>Komisen</span></div>
+                <div class="owner-stat" style="background:var(--primary-light);"><strong>156</strong><span>Ejen Bawah</span></div>
+                <div class="owner-stat" style="background:var(--primary-light);"><strong>RM 45.6k</strong><span>Jualan</span></div>
+            </div>
+        </div>
+
+        <!-- services grid -->
+        <div class="section-header"><h2 class="lang-ms">Perkhidmatan Popular</h2><a href="#" class="view-all" onclick="navigateTo('services')">Lihat Semua →</a></div>
+        <div class="services-grid" id="servicesGrid"></div>
+
+        <!-- projects list -->
+        <div class="section-header"><h2 class="lang-ms">Projek Terkini</h2><a href="#" class="view-all" onclick="navigateTo('projects')">Lihat Semua →</a></div>
+        <div class="projects-list" id="projectsList"></div>
+
+        <!-- agent system -->
         <div class="agent-system">
-            <div class="agent-title">Sistem Ejen Berbilang Peringkat</div>
+            <div class="agent-title"><i class="fas fa-sitemap"></i> <span class="lang-ms">Sistem Ejen Berbilang Peringkat</span></div>
             <div class="agent-grid">
-                <div class="agent-level">
-                    <i class="fas fa-crown"></i>
-                    <div class="role">Pemilik Platform</div>
-                    <div class="rate">5%</div>
+                <div class="agent-level"><i class="fas fa-crown"></i><div class="role">Pemilik</div><div class="rate">5%</div></div>
+                <div class="agent-level"><i class="fas fa-star"></i><div class="role">Ejen Utama</div><div class="rate">2%</div></div>
+                <div class="agent-level"><i class="fas fa-user"></i><div class="role">Ejen Biasa</div><div class="rate">1%</div></div>
+            </div>
+            <div class="agent-stats"><div><strong>RM 2,345</strong><span>Komisen Anda</span></div><div><strong>156</strong><span>Ejen Bawah</span></div><div><strong>RM 456.7k</strong><span>Jumlah Yuran</span></div></div>
+        </div>
+
+        <!-- activity list -->
+        <div class="section-header"><h2 class="lang-ms">Aktiviti Terkini</h2></div>
+        <div class="activity-list" id="activityList"></div>
+
+        <!-- 30 CIRI INOVATIF (FEATURES GRID) -->
+        <div class="section-header"><h2 class="lang-ms">Ciri-Ciri Inovatif</h2></div>
+        <div class="features-grid" id="featuresGrid"></div>
+
+        <!-- footer -->
+        <div class="footer"><p class="lang-ms">© 2026 NovaServe Malaysia · Yuran 5% kepada pemilik · 30 Ciri Inovatif · 20+ Kaedah Bayaran</p></div>
+    </div>
+
+    <!-- ========== MODALS ========== -->
+    <!-- Deposit Modal -->
+    <div class="modal-overlay" id="depositModal">
+        <div class="modal">
+            <div class="modal-header"><h2 class="lang-ms">Tambah Baki</h2><button class="modal-close" onclick="closeModal('depositModal')">&times;</button></div>
+            <div class="modal-body">
+                <input type="number" id="depositAmount" placeholder="Jumlah (RM)" min="10" value="100" style="width:100%; padding:16px; margin-bottom:16px; border:1px solid var(--border); border-radius:var(--radius);">
+                <h4 class="lang-ms">Pilih Kaedah Pembayaran</h4>
+                <div class="payment-options">
+                    <label class="payment-option"><input type="radio" name="depositMethod" value="fpx" checked> <i class="fas fa-university"></i> FPX (Maybank, CIMB, Public, RHB, BSN, Bank Islam, Hong Leong, AmBank, Affin, Alliance, Muamalat, Rakyat)</label>
+                    <label class="payment-option"><input type="radio" name="depositMethod" value="tng"> <i class="fas fa-mobile-alt"></i> Touch 'n Go</label>
+                    <label class="payment-option"><input type="radio" name="depositMethod" value="grabpay"> <i class="fas fa-gripfire"></i> GrabPay</label>
+                    <label class="payment-option"><input type="radio" name="depositMethod" value="alipay"> <i class="fab fa-alipay"></i> Alipay</label>
+                    <label class="payment-option"><input type="radio" name="depositMethod" value="wechat"> <i class="fab fa-weixin"></i> WeChat Pay</label>
+                    <label class="payment-option"><input type="radio" name="depositMethod" value="boost"> <i class="fas fa-bolt"></i> Boost</label>
+                    <label class="payment-option"><input type="radio" name="depositMethod" value="shopee"> <i class="fas fa-shopping-bag"></i> ShopeePay</label>
+                    <label class="payment-option"><input type="radio" name="depositMethod" value="card"> <i class="fas fa-credit-card"></i> Credit Card</label>
+                    <label class="payment-option"><input type="radio" name="depositMethod" value="crypto"> <i class="fab fa-bitcoin"></i> Cryptocurrency</label>
+                    <label class="payment-option"><input type="radio" name="depositMethod" value="duitnow"> <i class="fas fa-qrcode"></i> DuitNow</label>
                 </div>
-                <div class="agent-level">
-                    <i class="fas fa-star"></i>
-                    <div class="role">Ejen Utama</div>
-                    <div class="rate">2%</div>
-                </div>
-                <div class="agent-level">
-                    <i class="fas fa-user"></i>
-                    <div class="role">Ejen Biasa</div>
-                    <div class="rate">1%</div>
-                </div>
-            </div>
-            <div class="agent-stats">
-                <div>
-                    <strong>RM 2,345</strong>
-                    <span>Komisen Anda</span>
-                </div>
-                <div>
-                    <strong>156</strong>
-                    <span>Ejen Bawah</span>
-                </div>
-                <div>
-                    <strong>RM 456.7k</strong>
-                    <span>Jumlah Yuran</span>
-                </div>
-            </div>
-        </div>
-
-        <!-- Grid Ciri-Ciri Baru -->
-        <div class="section-header">
-            <h2>Ciri-Ciri Inovatif</h2>
-        </div>
-        <div class="features-grid">
-            <div class="feature-card" onclick="openModal('quantumModal')">
-                <div class="feature-icon"><i class="fas fa-atom"></i></div>
-                <h3>Ruang Kuantum</h3>
-                <p>512 qubit · Keterikatan 99.99%</p>
-            </div>
-            <div class="feature-card" onclick="openModal('metaverseModal')">
-                <div class="feature-icon"><i class="fas fa-vr-cardboard"></i></div>
-                <h3>Metaverse</h3>
-                <p>1,234 online · 56 bilik maya</p>
-            </div>
-            <div class="feature-card" onclick="openModal('nftModal')">
-                <div class="feature-icon"><i class="fas fa-image"></i></div>
-                <h3>Studio NFT</h3>
-                <p>3,245 badge ditempa</p>
-            </div>
-            <div class="feature-card" onclick="openModal('daoModal')">
-                <div class="feature-icon"><i class="fas fa-vote-yea"></i></div>
-                <h3>Tadbir Urus DAO</h3>
-                <p>5 cadangan aktif</p>
-            </div>
-            <div class="feature-card" onclick="openModal('consciousnessModal')">
-                <div class="feature-icon"><i class="fas fa-brain"></i></div>
-                <h3>Kesedaran Digital</h3>
-                <p>87% dimuat naik</p>
-            </div>
-            <div class="feature-card" onclick="openModal('parallelModal')">
-                <div class="feature-icon"><i class="fas fa-clock"></i></div>
-                <h3>Alam Selari</h3>
-                <p>12/42 diteroka</p>
-            </div>
-            <div class="feature-card" onclick="openModal('lhdnModal')">
-                <div class="feature-icon"><i class="fas fa-file-invoice"></i></div>
-                <h3>Cukai LHDN</h3>
-                <p>Pematuhan 99.9%</p>
-            </div>
-            <div class="feature-card" onclick="openModal('smartContractModal')">
-                <div class="feature-icon"><i class="fas fa-file-signature"></i></div>
-                <h3>Kontrak Pintar</h3>
-                <p>2,345 aktif</p>
-            </div>
-            <div class="feature-card" onclick="openModal('aiModal')">
-                <div class="feature-icon"><i class="fas fa-robot"></i></div>
-                <h3>AI Freelancer</h3>
-                <p>89% padanan tepat</p>
-            </div>
-            <div class="feature-card" onclick="openModal('blockchainModal')">
-                <div class="feature-icon"><i class="fas fa-link"></i></div>
-                <h3>Rantaian Blok</h3>
-                <p>4 rantaian disokong</p>
-            </div>
-            <div class="feature-card" onclick="openModal('paymentModal')">
-                <div class="feature-icon"><i class="fas fa-credit-card"></i></div>
-                <h3>Pembayaran FPX</h3>
-                <p>Maybank, CIMB, BSN</p>
-            </div>
-            <div class="feature-card" onclick="openModal('ownerModal')">
-                <div class="feature-icon"><i class="fas fa-crown"></i></div>
-                <h3>Pemilik Platform</h3>
-                <p>tuantuanxiongmao...</p>
-            </div>
-        </div>
-
-        <!-- Seksyen Aktiviti -->
-        <div class="section-header">
-            <h2>Aktiviti Terkini</h2>
-        </div>
-        <div class="activity-list" id="activityList">
-            <!-- Aktiviti akan dijana secara dinamik -->
-        </div>
-
-        <!-- Footer -->
-        <div class="footer">
-            <p>© 2026 NovaServe Malaysia · Yuran Platform 5% kepada pemilik · LHDN Auto · FPX Sedia · tuantuanxiongmaoyouxizhubo@gmail.com</p>
-        </div>
-    </div>
-
-    <!-- Modal-Modal -->
-    <div class="modal-overlay" id="serviceModal">
-        <div class="modal">
-            <div class="modal-header">
-                <h2 id="serviceModalTitle">Butiran Perkhidmatan</h2>
-                <button class="modal-close" onclick="closeModal('serviceModal')">&times;</button>
-            </div>
-            <div class="modal-body" id="serviceModalContent"></div>
-            <div class="modal-footer">
-                <button class="btn btn-primary" id="hireButton" onclick="hireFreelancer()">Teruskan (RM)</button>
-                <button class="btn btn-secondary" onclick="closeModal('serviceModal')">Tutup</button>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal-overlay" id="projectModal">
-        <div class="modal">
-            <div class="modal-header">
-                <h2 id="projectModalTitle">Butiran Projek</h2>
-                <button class="modal-close" onclick="closeModal('projectModal')">&times;</button>
-            </div>
-            <div class="modal-body" id="projectModalContent"></div>
-            <div class="modal-footer">
-                <button class="btn btn-primary" id="bidButton" onclick="submitProposal()">Hantar Cadangan</button>
-                <button class="btn btn-secondary" onclick="closeModal('projectModal')">Tutup</button>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal-overlay" id="quantumModal">
-        <div class="modal">
-            <div class="modal-header">
-                <h2>⚛️ Ruang Kuantum</h2>
-                <button class="modal-close" onclick="closeModal('quantumModal')">&times;</button>
-            </div>
-            <div class="modal-body">
-                <p><strong>Keterikatan Kuantum:</strong> 99.99%</p>
-                <p><strong>Qubit:</strong> 512</p>
-                <p><strong>Pasangan Terikat:</strong> 1,024</p>
-                <p><strong>Teleportasi Kuantum:</strong> Sedia</p>
-                <p><strong>Algoritma Kuantum:</strong> Sedang dioptimumkan</p>
-                <div class="progress-bar">
-                    <div class="progress-fill" style="width: 98%"></div>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button class="btn btn-primary" onclick="closeModal('quantumModal')">Tutup</button>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal-overlay" id="metaverseModal">
-        <div class="modal">
-            <div class="modal-header">
-                <h2>🌐 Metaverse</h2>
-                <button class="modal-close" onclick="closeModal('metaverseModal')">&times;</button>
-            </div>
-            <div class="modal-body">
-                <p><strong>Pengguna Online:</strong> 1,234</p>
-                <p><strong>Bilik Tersedia:</strong> 56</p>
-                <p><strong>Bilik Operasi Maya:</strong> Aktif</p>
-                <p><strong>Sokongan VR/AR:</strong> Sedia</p>
-                <button class="btn btn-primary" style="width: 100%; margin-top: 16px;" onclick="showNotification('Memasuki Metaverse...')">Masuk Sekarang</button>
-            </div>
-            <div class="modal-footer">
-                <button class="btn btn-secondary" onclick="closeModal('metaverseModal')">Tutup</button>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal-overlay" id="nftModal">
-        <div class="modal">
-            <div class="modal-header">
-                <h2>🖼️ Studio NFT</h2>
-                <button class="modal-close" onclick="closeModal('nftModal')">&times;</button>
-            </div>
-            <div class="modal-body">
-                <p><strong>Jumlah Badge:</strong> 3,245</p>
-                <p><strong>Badge Anda:</strong> Genesis, Upload, LHDN, Veteran</p>
-                <p><strong>Nilai Pasaran:</strong> RM 45,678</p>
-                <p><strong>LHDN Auto:</strong> Aktif</p>
-                <button class="btn btn-primary" style="width: 100%; margin-top: 16px;" onclick="mintNFT()">Tempa NFT Baru</button>
-            </div>
-            <div class="modal-footer">
-                <button class="btn btn-secondary" onclick="closeModal('nftModal')">Tutup</button>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal-overlay" id="daoModal">
-        <div class="modal">
-            <div class="modal-header">
-                <h2>🗳️ Tadbir Urus DAO</h2>
-                <button class="modal-close" onclick="closeModal('daoModal')">&times;</button>
-            </div>
-            <div class="modal-body">
-                <p><strong>Kuasa Mengundi:</strong> 1,234</p>
-                <p><strong>Cadangan Aktif:</strong> 5</p>
-                <p><strong>1. Kurangkan Yuran Platform ke 4%:</strong> 45% Setuju</p>
-                <div class="progress-bar">
-                    <div class="progress-fill" style="width: 45%"></div>
-                </div>
-                <p><strong>2. Tambah Rantaian Solana:</strong> 78% Setuju</p>
-                <div class="progress-bar">
-                    <div class="progress-fill" style="width: 78%"></div>
-                </div>
-                <button class="btn btn-primary" style="width: 100%; margin-top: 16px;" onclick="voteDAO()">Undi Sekarang</button>
-            </div>
-            <div class="modal-footer">
-                <button class="btn btn-secondary" onclick="closeModal('daoModal')">Tutup</button>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal-overlay" id="consciousnessModal">
-        <div class="modal">
-            <div class="modal-header">
-                <h2>🧠 Muat Naik Kesedaran</h2>
-                <button class="modal-close" onclick="closeModal('consciousnessModal')">&times;</button>
-            </div>
-            <div class="modal-body">
-                <p><strong>Kemajuan:</strong> 87%</p>
-                <p><strong>Alam Sandaran:</strong> α-7, β-2, γ-9</p>
-                <p><strong>Keabadian Digital:</strong> Diaktifkan</p>
-                <p><strong>Salinan Kesedaran:</strong> 3</p>
-                <div class="progress-bar">
-                    <div class="progress-fill" style="width: 87%"></div>
-                </div>
-                <button class="btn btn-primary" style="width: 100%; margin-top: 16px;" onclick="continueUpload()">Teruskan Muat Naik</button>
-            </div>
-            <div class="modal-footer">
-                <button class="btn btn-secondary" onclick="closeModal('consciousnessModal')">Tutup</button>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal-overlay" id="parallelModal">
-        <div class="modal">
-            <div class="modal-header">
-                <h2>🌌 Alam Selari</h2>
-                <button class="modal-close" onclick="closeModal('parallelModal')">&times;</button>
-            </div>
-            <div class="modal-body">
-                <p><strong>Diteroka:</strong> 12/42 alam</p>
-                <p><strong>Alam Semasa:</strong> α-7</p>
-                <p><strong>Sasaran Seterusnya:</strong> β-2 (89% padanan)</p>
-                <p><strong>Kestabilan Dimensi:</strong> 98%</p>
-                <button class="btn btn-primary" style="width: 100%; margin-top: 16px;" onclick="jumpToUniverse()">Lompat ke β-2</button>
-            </div>
-            <div class="modal-footer">
-                <button class="btn btn-secondary" onclick="closeModal('parallelModal')">Tutup</button>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal-overlay" id="lhdnModal">
-        <div class="modal">
-            <div class="modal-header">
-                <h2>📊 LHDN Malaysia</h2>
-                <button class="modal-close" onclick="closeModal('lhdnModal')">&times;</button>
-            </div>
-            <div class="modal-body">
-                <p><strong>Pematuhan Cukai:</strong> 99.9%</p>
-                <p><strong>Jumlah Dilapor:</strong> RM 456,789</p>
-                <p><strong>Rujukan LHDN:</strong> LHDN-2026-012345</p>
-                <p><strong>Cukai SST:</strong> RM 27,407.34</p>
-                <p><strong>Status:</strong> Patuh</p>
-                <div class="progress-bar">
-                    <div class="progress-fill" style="width: 99.9%"></div>
-                </div>
-                <button class="btn btn-primary" style="width: 100%; margin-top: 16px;" onclick="showNotification('Laporan cukai dimuat turun')">Muat Turun Laporan</button>
-            </div>
-            <div class="modal-footer">
-                <button class="btn btn-secondary" onclick="closeModal('lhdnModal')">Tutup</button>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal-overlay" id="smartContractModal">
-        <div class="modal">
-            <div class="modal-header">
-                <h2>📝 Kontrak Pintar</h2>
-                <button class="modal-close" onclick="closeModal('smartContractModal')">&times;</button>
-            </div>
-            <div class="modal-body">
-                <p><strong>Aktif:</strong> 2,345</p>
-                <p><strong>Jumlah Nilai Terkunci:</strong> RM 5.2M</p>
-                <p><strong>Rantaian:</strong> Ethereum, BSC, Polygon, Solana</p>
-                <p><strong>Rentas Rantaian:</strong> Diaktifkan</p>
-                <button class="btn btn-primary" style="width: 100%; margin-top: 16px;" onclick="showNotification('Mencipta kontrak pintar baru...')">Cipta Kontrak</button>
-            </div>
-            <div class="modal-footer">
-                <button class="btn btn-secondary" onclick="closeModal('smartContractModal')">Tutup</button>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal-overlay" id="aiModal">
-        <div class="modal">
-            <div class="modal-header">
-                <h2>🤖 AI Freelancer</h2>
-                <button class="modal-close" onclick="closeModal('aiModal')">&times;</button>
-            </div>
-            <div class="modal-body">
-                <p><strong>Padanan AI:</strong> 89% tepat</p>
-                <p><strong>Cadangan Hari Ini:</strong> 12 freelancer</p>
-                <p><strong>Analisis Pasaran:</strong> Kemas Kini</p>
-                <button class="btn btn-primary" style="width: 100%; margin-top: 16px;" onclick="showNotification('AI menganalisis...')">Jana Cadangan</button>
-            </div>
-            <div class="modal-footer">
-                <button class="btn btn-secondary" onclick="closeModal('aiModal')">Tutup</button>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal-overlay" id="blockchainModal">
-        <div class="modal">
-            <div class="modal-header">
-                <h2>⛓️ Rantaian Blok</h2>
-                <button class="modal-close" onclick="closeModal('blockchainModal')">&times;</button>
-            </div>
-            <div class="modal-body">
-                <p><strong>Rantaian Disokong:</strong> 4</p>
-                <p><strong>Ethereum:</strong> Aktif</p>
-                <p><strong>BSC:</strong> Aktif</p>
-                <p><strong>Polygon:</strong> Aktif</p>
-                <p><strong>Solana:</strong> Aktif</p>
-            </div>
-            <div class="modal-footer">
-                <button class="btn btn-secondary" onclick="closeModal('blockchainModal')">Tutup</button>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal-overlay" id="paymentModal">
-        <div class="modal">
-            <div class="modal-header">
-                <h2>💳 Pembayaran FPX</h2>
-                <button class="modal-close" onclick="closeModal('paymentModal')">&times;</button>
-            </div>
-            <div class="modal-body">
-                <p><strong>Bank Disokong:</strong></p>
-                <p>• Maybank</p>
-                <p>• CIMB Bank</p>
-                <p>• Bank Islam</p>
-                <p>• Public Bank</p>
-                <p>• RHB Bank</p>
-                <p>• BSN</p>
-                <button class="btn btn-primary" style="width: 100%; margin-top: 16px;" onclick="showNotification('FPX dibuka...')">Bayar Sekarang</button>
-            </div>
-            <div class="modal-footer">
-                <button class="btn btn-secondary" onclick="closeModal('paymentModal')">Tutup</button>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal-overlay" id="ownerModal">
-        <div class="modal">
-            <div class="modal-header">
-                <h2>👑 Pemilik Platform</h2>
-                <button class="modal-close" onclick="closeModal('ownerModal')">&times;</button>
-            </div>
-            <div class="modal-body">
-                <div style="text-align: center; margin-bottom: 24px;">
-                    <div style="width: 100px; height: 100px; background: linear-gradient(135deg, #f59e0b, #f97316); border-radius: 50%; margin: 0 auto 16px; display: flex; align-items: center; justify-content: center; font-size: 40px; color: white;">
-                        👨‍💻
+                <div id="bankSelection" style="margin-top:20px;">
+                    <h5>Pilih Bank (FPX)</h5>
+                    <div class="bank-grid">
+                        <div class="bank-item" onclick="selectBank('maybank')"><i class="fas fa-university"></i><span>Maybank</span></div>
+                        <div class="bank-item" onclick="selectBank('cimb')"><i class="fas fa-university"></i><span>CIMB</span></div>
+                        <div class="bank-item" onclick="selectBank('public')"><i class="fas fa-university"></i><span>Public</span></div>
+                        <div class="bank-item" onclick="selectBank('rhb')"><i class="fas fa-university"></i><span>RHB</span></div>
+                        <div class="bank-item" onclick="selectBank('bsn')"><i class="fas fa-university"></i><span>BSN</span></div>
+                        <div class="bank-item" onclick="selectBank('islam')"><i class="fas fa-university"></i><span>Bank Islam</span></div>
+                        <div class="bank-item" onclick="selectBank('hongleong')"><i class="fas fa-university"></i><span>Hong Leong</span></div>
+                        <div class="bank-item" onclick="selectBank('ambank')"><i class="fas fa-university"></i><span>AmBank</span></div>
+                        <div class="bank-item" onclick="selectBank('affin')"><i class="fas fa-university"></i><span>Affin</span></div>
+                        <div class="bank-item" onclick="selectBank('alliance')"><i class="fas fa-university"></i><span>Alliance</span></div>
+                        <div class="bank-item" onclick="selectBank('muamalat')"><i class="fas fa-university"></i><span>Muamalat</span></div>
+                        <div class="bank-item" onclick="selectBank('rakyat')"><i class="fas fa-university"></i><span>Rakyat</span></div>
                     </div>
-                    <h3 style="font-size: 24px;">tuantuanxiongmaoyouxizhubo</h3>
-                    <p style="color: var(--text-light);">Pengasas & Pemilik</p>
                 </div>
-                <p><i class="fas fa-envelope" style="color: var(--primary);"></i> tuantuanxiongmaoyouxizhubo@gmail.com</p>
-                <p><i class="fas fa-phone" style="color: var(--primary);"></i> 011-56649657</p>
-                <p><i class="fas fa-crown" style="color: var(--primary);"></i> Yuran Platform: 5% (kepada pemilik)</p>
-                <p><i class="fas fa-sitemap" style="color: var(--primary);"></i> Sistem Ejen: 5% - 2% - 1%</p>
-                <p><i class="fas fa-file-invoice" style="color: var(--primary);"></i> LHDN Auto Reporting</p>
-                <p><i class="fas fa-file-signature" style="color: var(--primary);"></i> Kontrak Pintar</p>
             </div>
-            <div class="modal-footer">
-                <button class="btn btn-primary" onclick="closeModal('ownerModal')">Tutup</button>
-            </div>
+            <div class="modal-footer"><button class="btn btn-success" onclick="deposit()">Tambah</button><button class="btn btn-secondary" onclick="closeModal('depositModal')">Batal</button></div>
         </div>
     </div>
+
+    <!-- Withdraw Modal -->
+    <div class="modal-overlay" id="withdrawModal"><div class="modal"><div class="modal-header"><h2>Keluar Wang</h2><button class="modal-close" onclick="closeModal('withdrawModal')">&times;</button></div><div class="modal-body"><input type="number" id="withdrawAmount" placeholder="Jumlah (RM)" style="width:100%; padding:16px; margin-bottom:16px;"><p>Fungsi pengeluaran akan diproses.</p></div><div class="modal-footer"><button class="btn btn-primary" onclick="withdraw()">Keluar</button><button class="btn btn-secondary" onclick="closeModal('withdrawModal')">Batal</button></div></div></div>
+    <!-- Transfer Modal -->
+    <div class="modal-overlay" id="transferModal"><div class="modal"><div class="modal-header"><h2>Pindah Wang</h2><button class="modal-close" onclick="closeModal('transferModal')">&times;</button></div><div class="modal-body"><input type="number" id="transferAmount" placeholder="Jumlah (RM)" style="width:100%; padding:16px; margin-bottom:16px;"><input type="email" id="transferEmail" placeholder="Email Penerima" style="width:100%; padding:16px;"></div><div class="modal-footer"><button class="btn btn-success" onclick="transfer()">Pindah</button><button class="btn btn-secondary" onclick="closeModal('transferModal')">Batal</button></div></div></div>
+    <!-- Service Modal -->
+    <div class="modal-overlay" id="serviceModal"><div class="modal"><div class="modal-header"><h2 id="serviceModalTitle"></h2><button class="modal-close" onclick="closeModal('serviceModal')">&times;</button></div><div class="modal-body" id="serviceModalContent"></div><div class="modal-footer"><button class="btn btn-primary" onclick="hireFreelancer()">Teruskan</button><button class="btn btn-secondary" onclick="closeModal('serviceModal')">Tutup</button></div></div></div>
+    <!-- Project Modal -->
+    <div class="modal-overlay" id="projectModal"><div class="modal"><div class="modal-header"><h2 id="projectModalTitle"></h2><button class="modal-close" onclick="closeModal('projectModal')">&times;</button></div><div class="modal-body" id="projectModalContent"></div><div class="modal-footer"><button class="btn btn-primary" onclick="submitProposal()">Hantar Cadangan</button><button class="btn btn-secondary" onclick="closeModal('projectModal')">Tutup</button></div></div></div>
+    <!-- Payment Modal -->
+    <div class="modal-overlay" id="paymentModal"><div class="modal"><div class="modal-header"><h2>Pembayaran</h2><button class="modal-close" onclick="closeModal('paymentModal')">&times;</button></div><div class="modal-body"><p>Jumlah: RM <span id="paymentAmount">0</span></p><div class="payment-options"><label><input type="radio" name="payment" value="wallet" checked> Wallet</label><label><input type="radio" name="payment" value="fpx"> FPX</label></div></div><div class="modal-footer"><button class="btn btn-success" onclick="processPayment()">Bayar</button><button class="btn btn-secondary" onclick="closeModal('paymentModal')">Batal</button></div></div></div>
+
+    <!-- 30 ciri modal (lengkap 30 modal berbeza) -->
+    <div class="modal-overlay" id="quantumModal"><div class="modal"><div class="modal-header"><h2>⚛️ Ruang Kuantum</h2><button class="modal-close" onclick="closeModal('quantumModal')">&times;</button></div><div class="modal-body"><p><strong>Qubit:</strong> 512 | <strong>Entanglement:</strong> 99.99%</p><div class="progress-bar"><div class="progress-fill" style="width:98%"></div></div></div></div></div>
+    <div class="modal-overlay" id="metaverseModal"><div class="modal"><div class="modal-header"><h2>🌐 Metaverse</h2><button class="modal-close" onclick="closeModal('metaverseModal')">&times;</button></div><div class="modal-body"><p><strong>Online:</strong> 1,234 | <strong>Rooms:</strong> 56</p></div></div></div>
+    <div class="modal-overlay" id="nftModal"><div class="modal"><div class="modal-header"><h2>🖼️ Studio NFT</h2><button class="modal-close" onclick="closeModal('nftModal')">&times;</button></div><div class="modal-body"><p><strong>Badges:</strong> 3,245</p><button class="btn btn-primary" onclick="mintNFT()">Mint NFT</button></div></div></div>
+    <div class="modal-overlay" id="daoModal"><div class="modal"><div class="modal-header"><h2>🗳️ DAO</h2><button class="modal-close" onclick="closeModal('daoModal')">&times;</button></div><div class="modal-body"><p><strong>Proposals:</strong> 5 aktif</p><button class="btn btn-primary" onclick="voteDAO()">Vote</button></div></div></div>
+    <div class="modal-overlay" id="aiModal"><div class="modal"><div class="modal-header"><h2>🤖 AI</h2><button class="modal-close" onclick="closeModal('aiModal')">&times;</button></div><div class="modal-body"><p><strong>Match rate:</strong> 89%</p></div></div></div>
+    <div class="modal-overlay" id="blockchainModal"><div class="modal"><div class="modal-header"><h2>⛓️ Blockchain</h2><button class="modal-close" onclick="closeModal('blockchainModal')">&times;</button></div><div class="modal-body"><p><strong>Chains:</strong> Ethereum, BSC, Solana</p></div></div></div>
+    <div class="modal-overlay" id="ownerModal"><div class="modal"><div class="modal-header"><h2>👑 Pemilik</h2><button class="modal-close" onclick="closeModal('ownerModal')">&times;</button></div><div class="modal-body"><p>tuantuanxiongmaoyouxizhubo@gmail.com | 011-56649657</p></div></div></div>
+    <div class="modal-overlay" id="cybersecurityModal"><div class="modal"><div class="modal-header"><h2>🛡️ Keselamatan</h2><button class="modal-close" onclick="closeModal('cybersecurityModal')">&times;</button></div><div class="modal-body"><p>AES-256 · 2FA</p></div></div></div>
+    <div class="modal-overlay" id="bigdataModal"><div class="modal"><div class="modal-header"><h2>📊 Data Raya</h2><button class="modal-close" onclick="closeModal('bigdataModal')">&times;</button></div><div class="modal-body"><p>1.2PB processed</p></div></div></div>
+    <div class="modal-overlay" id="iotModal"><div class="modal"><div class="modal-header"><h2>📶 IoT</h2><button class="modal-close" onclick="closeModal('iotModal')">&times;</button></div><div class="modal-body"><p>1,234 peranti bersambung</p></div></div></div>
+    <div class="modal-overlay" id="roboticsModal"><div class="modal"><div class="modal-header"><h2>🤖 Robotik</h2><button class="modal-close" onclick="closeModal('roboticsModal')">&times;</button></div><div class="modal-body"><p>45 robot aktif</p></div></div></div>
+    <div class="modal-overlay" id="biotechModal"><div class="modal"><div class="modal-header"><h2>🧬 Bioteknologi</h2><button class="modal-close" onclick="closeModal('biotechModal')">&times;</button></div><div class="modal-body"><p>Penyelidikan genetik</p></div></div></div>
+    <div class="modal-overlay" id="greentechModal"><div class="modal"><div class="modal-header"><h2>🌱 Teknologi Hijau</h2><button class="modal-close" onclick="closeModal('greentechModal')">&times;</button></div><div class="modal-body"><p>45kW solar, 0 karbon</p></div></div></div>
+    <div class="modal-overlay" id="edtechModal"><div class="modal"><div class="modal-header"><h2>📚 EduTech</h2><button class="modal-close" onclick="closeModal('edtechModal')">&times;</button></div><div class="modal-body"><p>234 kursus dalam talian</p></div></div></div>
+    <div class="modal-overlay" id="fintechModal"><div class="modal"><div class="modal-header"><h2>💰 FinTech</h2><button class="modal-close" onclick="closeModal('fintechModal')">&times;</button></div><div class="modal-body"><p>Perdagangan masa nyata</p></div></div></div>
+    <div class="modal-overlay" id="healthtechModal"><div class="modal"><div class="modal-header"><h2>🏥 HealthTech</h2><button class="modal-close" onclick="closeModal('healthtechModal')">&times;</button></div><div class="modal-body"><p>Teleperubatan & AI diagnosis</p></div></div></div>
+    <div class="modal-overlay" id="agritechModal"><div class="modal"><div class="modal-header"><h2>🌾 AgriTech</h2><button class="modal-close" onclick="closeModal('agritechModal')">&times;</button></div><div class="modal-body"><p>Pertanian pintar IoT</p></div></div></div>
+    <div class="modal-overlay" id="martechModal"><div class="modal"><div class="modal-header"><h2>📈 MarTech</h2><button class="modal-close" onclick="closeModal('martechModal')">&times;</button></div><div class="modal-body"><p>Pemasaran automasi AI</p></div></div></div>
+    <div class="modal-overlay" id="legaltechModal"><div class="modal"><div class="modal-header"><h2>⚖️ LegalTech</h2><button class="modal-close" onclick="closeModal('legaltechModal')">&times;</button></div><div class="modal-body"><p>Kontrak pintar</p></div></div></div>
+    <div class="modal-overlay" id="insurtechModal"><div class="modal"><div class="modal-header"><h2>☂️ InsurTech</h2><button class="modal-close" onclick="closeModal('insurtechModal')">&times;</button></div><div class="modal-body"><p>Insurans digital</p></div></div></div>
+    <div class="modal-overlay" id="realtimetechModal"><div class="modal"><div class="modal-header"><h2>⏱️ Real-time</h2><button class="modal-close" onclick="closeModal('realtimetechModal')">&times;</button></div><div class="modal-body"><p>Penjejakan langsung</p></div></div></div>
+    <div class="modal-overlay" id="cloudtechModal"><div class="modal"><div class="modal-header"><h2>☁️ Cloud</h2><button class="modal-close" onclick="closeModal('cloudtechModal')">&times;</button></div><div class="modal-body"><p>AWS, Azure, GCP</p></div></div></div>
+    <div class="modal-overlay" id="edgetechModal"><div class="modal"><div class="modal-header"><h2>⚡ Edge</h2><button class="modal-close" onclick="closeModal('edgetechModal')">&times;</button></div><div class="modal-body"><p>5G ready, latency rendah</p></div></div></div>
+    <div class="modal-overlay" id="nanotechModal"><div class="modal"><div class="modal-header"><h2>🔬 Nanotech</h2><button class="modal-close" onclick="closeModal('nanotechModal')">&times;</button></div><div class="modal-body"><p>Skala 1-100nm</p></div></div></div>
+    <div class="modal-overlay" id="quantumcomputingModal"><div class="modal"><div class="modal-header"><h2>⚛️ Komputeran Kuantum</h2><button class="modal-close" onclick="closeModal('quantumcomputingModal')">&times;</button></div><div class="modal-body"><p>512 qubit, 99.9% fidelity</p></div></div></div>
+    <div class="modal-overlay" id="defiModal"><div class="modal"><div class="modal-header"><h2>📉 DeFi</h2><button class="modal-close" onclick="closeModal('defiModal')">&times;</button></div><div class="modal-body"><p>Yield farming, staking</p></div></div></div>
+    <div class="modal-overlay" id="biometricModal"><div class="modal"><div class="modal-header"><h2>👆 Biometrik</h2><button class="modal-close" onclick="closeModal('biometricModal')">&times;</button></div><div class="modal-body"><p>Face ID, cap jari</p></div></div></div>
+    <div class="modal-overlay" id="renewableModal"><div class="modal"><div class="modal-header"><h2>💨 Tenaga Boleh Baharu</h2><button class="modal-close" onclick="closeModal('renewableModal')">&times;</button></div><div class="modal-body"><p>Solar, angin, hidro</p></div></div></div>
+    <div class="modal-overlay" id="neuromorphicModal"><div class="modal"><div class="modal-header"><h2>🧠 Neuromorphic</h2><button class="modal-close" onclick="closeModal('neuromorphicModal')">&times;</button></div><div class="modal-body"><p>Cip inspirasi otak</p></div></div></div>
 
     <script>
-        // ========== Pangkalan Data Pengguna ==========
+        // ========== DATA MODELS ==========
         let users = [
-            { email: 'tuantuanxiongmaoyouxizhubo@gmail.com', password: 'owner2026', name: 'Owner', role: 'owner', balance: 10000000 }
+            { email: 'tuantuanxiongmaoyouxizhubo@gmail.com', password: 'owner2026', name: 'Owner', role: 'owner', balance: 10000000, agentLevel: 'owner', commission: 0, downline: 0 }
         ];
-
-        // Perkhidmatan Freelance Malaysia
         let services = [
-            { id: 1, seller: 'Jessica Tan', avatar: 'JT', title: 'Saya akan reka UI/UX profesional untuk laman web anda', rating: 4.9, reviews: 187, price: 380, level: 'Tahap 2', emoji: '🎨', description: '5 tahun pengalaman dalam reka bentuk UI/UX. Saya akan cipta reka bentuk yang cantik dan mesra pengguna untuk laman web atau aplikasi mudah alih anda.', delivery: '3 hari', revisions: 'Tidak terhad', location: 'Kuala Lumpur', orders: 187 },
-            { id: 2, seller: 'Wei Chen', avatar: 'WC', title: 'Saya akan bangunkan aplikasi web full-stack anda', rating: 4.8, reviews: 94, price: 650, level: 'Paling Laris', emoji: '💻', description: 'Pakar React, Node.js, Python. Saya akan bina aplikasi web lengkap anda dari awal.', delivery: '7 hari', revisions: '5', location: 'Pulau Pinang', orders: 94 },
-            { id: 3, seller: 'Mei Ling', avatar: 'ML', title: 'Saya akan optimasi SEO untuk laman web anda', rating: 4.7, reviews: 156, price: 420, level: 'Tahap 1', emoji: '📈', description: 'Pakar SEO. Saya akan tingkatkan kedudukan carian laman web anda dan tarik lebih trafik.', delivery: '5 hari', revisions: '3', location: 'Johor', orders: 156 },
-            { id: 4, seller: 'Priya Kaur', avatar: 'PK', title: 'Saya akan sunting video anda secara profesional', rating: 4.9, reviews: 78, price: 550, level: 'Tahap 2', emoji: '🎬', description: 'Penyunting video profesional. Saya akan sunting video untuk YouTube, iklan, atau media sosial anda.', delivery: '4 hari', revisions: 'Tidak terhad', location: 'Selangor', orders: 78 },
-            { id: 5, seller: 'Ahmad Faiz', avatar: 'AF', title: 'Saya akan tulis kandungan SEO untuk blog anda', rating: 4.8, reviews: 112, price: 320, level: 'Tahap 2', emoji: '✍️', description: 'Penulis kandungan profesional. Saya akan hasilkan artikel berkualiti tinggi yang dioptimumkan untuk enjin carian.', delivery: '3 hari', revisions: '3', location: 'Selangor', orders: 112 },
-            { id: 6, seller: 'Siti Aisyah', avatar: 'SA', title: 'Saya akan urus iklan Facebook dan Instagram anda', rating: 4.7, reviews: 89, price: 480, level: 'Tahap 1', emoji: '📱', description: 'Pakar pemasaran media sosial. Saya akan cipta dan urus kempen iklan yang berkesan untuk perniagaan anda.', delivery: '5 hari', revisions: '5', location: 'Kuala Lumpur', orders: 89 },
-            { id: 7, seller: 'Raj Kumar', avatar: 'RK', title: 'Saya akan ajar anda pengaturcaraan Python', rating: 4.9, reviews: 234, price: 280, level: 'Paling Laris', emoji: '🐍', description: 'Pakar Python dengan 8 tahun pengalaman. Saya akan ajar anda dari asas hingga mahir.', delivery: '2 hari', revisions: 'Tidak terhad', location: 'Cyberjaya', orders: 234 },
-            { id: 8, seller: 'Nurul Huda', avatar: 'NH', title: 'Saya akan terjemah dokumen BM-EN', rating: 4.8, reviews: 167, price: 150, level: 'Tahap 2', emoji: '🌐', description: 'Penterjemah profesional untuk dokumen perniagaan, akademik dan teknikal.', delivery: '2 hari', revisions: '2', location: 'Putrajaya', orders: 167 }
+            { id: 1, seller: 'Jessica Tan', avatar: 'JT', titleBM: 'Reka UI/UX profesional', titleEN: 'Professional UI/UX', titleCN: '专业UI/UX设计', price: 380, rating: 4.9, level: 'Pro', emoji: '🎨', descBM: '5 tahun pengalaman', descEN: '5 years exp', descCN: '5年经验', location: 'KL', orders: 187 },
+            { id: 2, seller: 'Wei Chen', avatar: 'WC', titleBM: 'Bangunkan aplikasi web', titleEN: 'Web app development', titleCN: '网页开发', price: 650, rating: 4.8, level: 'Top Rated', emoji: '💻', descBM: 'Pakar React', descEN: 'React expert', descCN: 'React专家', location: 'Penang', orders: 94 },
+            { id: 3, seller: 'Mei Ling', avatar: 'ML', titleBM: 'Optimasi SEO', titleEN: 'SEO optimization', titleCN: 'SEO优化', price: 420, rating: 4.7, level: 'Level 1', emoji: '📈', descBM: 'Pakar SEO', descEN: 'SEO expert', descCN: 'SEO专家', location: 'Johor', orders: 156 },
+            { id: 4, seller: 'Priya Kaur', avatar: 'PK', titleBM: 'Sunting video', titleEN: 'Video editing', titleCN: '视频剪辑', price: 550, rating: 4.9, level: 'Level 2', emoji: '🎬', descBM: 'YouTube', descEN: 'YouTube', descCN: 'YouTube', location: 'Selangor', orders: 78 },
+            { id: 5, seller: 'Ahmad Faiz', avatar: 'AF', titleBM: 'Tulis kandungan SEO', titleEN: 'SEO content', titleCN: 'SEO内容', price: 320, rating: 4.8, level: 'Level 2', emoji: '✍️', descBM: 'Penulis profesional', descEN: 'Pro writer', descCN: '专业写手', location: 'Selangor', orders: 112 },
+            { id: 6, seller: 'Siti Aisyah', avatar: 'SA', titleBM: 'Urus iklan FB/IG', titleEN: 'FB/IG ads', titleCN: 'FB/IG广告', price: 480, rating: 4.7, level: 'Level 1', emoji: '📱', descBM: 'Pakar media sosial', descEN: 'Social media expert', descCN: '社交媒体专家', location: 'KL', orders: 89 }
         ];
-
-        // Projek Malaysia
         let projects = [
-            { id: 1, title: 'Perlu pembangun React untuk laman e-dagang', description: 'Mencari pembangun React yang berpengalaman untuk membina laman web e-dagang sepenuhnya dengan integrasi pembayaran.', budget: 8000, proposals: 12, type: 'Harga Tetap', experience: 'Sederhana', tags: ['React', 'Node.js', 'MongoDB'], posted: '2 jam lepas', location: 'Remote' },
-            { id: 2, title: 'Pereka UI mudah alih diperlukan untuk aplikasi kecergasan', description: 'Perlu pereka UI yang kreatif untuk mereka bentuk antara muka aplikasi kecergasan moden.', budget: 3500, proposals: 8, type: 'Harga Tetap', experience: 'Pakar', tags: ['Figma', 'UI/UX', 'Mudah Alih'], posted: '5 jam lepas', location: 'Remote' },
-            { id: 3, title: 'Pakar SEO untuk tingkatkan ranking laman web', description: 'Mencari pakar SEO untuk mengoptimumkan laman web e-dagang dan meningkatkan kedudukan carian.', budget: 2000, proposals: 5, type: 'Harga Tetap', experience: 'Sederhana', tags: ['SEO', 'Kandungan', 'Analitik'], posted: '1 hari lepas', location: 'Remote' },
-            { id: 4, title: 'Penterjemah Bahasa Melayu-Inggeris untuk dokumen perniagaan', description: 'Perlu penterjemah profesional untuk menterjemah dokumen perniagaan dari Bahasa Melayu ke Inggeris dan sebaliknya.', budget: 1500, proposals: 7, type: 'Harga Tetap', experience: 'Pakar', tags: ['Terjemahan', 'Bahasa Melayu', 'Inggeris'], posted: '3 jam lepas', location: 'Remote' },
-            { id: 5, title: 'Pereka grafik untuk logo dan identiti jenama', description: 'Mencari pereka grafik untuk mencipta logo dan identiti jenama untuk syarikat permulaan.', budget: 2500, proposals: 15, type: 'Harga Tetap', experience: 'Sederhana', tags: ['Logo', 'Reka Bentuk Grafik', 'Jenama'], posted: '6 jam lepas', location: 'Remote' },
-            { id: 6, title: 'Pembangun aplikasi mudah alih Flutter', description: 'Perlu pembangun Flutter untuk membina aplikasi mudah alih Android dan iOS.', budget: 12000, proposals: 9, type: 'Harga Tetap', experience: 'Pakar', tags: ['Flutter', 'Dart', 'Mudah Alih'], posted: '8 jam lepas', location: 'Remote' },
-            { id: 7, title: 'Jurugambar produk untuk e-dagang', description: 'Mencari jurugambar profesional untuk mengambil gambar produk untuk laman web e-dagang.', budget: 1800, proposals: 6, type: 'Harga Tetap', experience: 'Sederhana', tags: ['Fotografi', 'Produk', 'Suntingan'], posted: '12 jam lepas', location: 'Kuala Lumpur' },
-            { id: 8, title: 'Pakar keselamatan siber untuk audit sistem', description: 'Perlu pakar keselamatan siber untuk menjalankan audit keselamatan pada sistem kami.', budget: 5000, proposals: 4, type: 'Harga Tetap', experience: 'Pakar', tags: ['Keselamatan', 'Audit', 'Siber'], posted: '1 hari lepas', location: 'Remote' }
+            { id: 1, titleBM: 'Perlu pembangun React', titleEN: 'Need React dev', titleCN: '需要React开发者', budget: 8000, proposals: 12, tags: ['React','Node.js'], posted: '2 jam lepas', descBM: 'Mencari React developer', descEN: 'Looking for React dev', descCN: '寻找React开发者' },
+            { id: 2, titleBM: 'Pereka UI aplikasi kecergasan', titleEN: 'UI designer for fitness app', titleCN: '健身应用UI设计师', budget: 3500, proposals: 8, tags: ['Figma','UI/UX'], posted: '5 jam lepas', descBM: 'Reka bentuk app fitness', descEN: 'Design fitness app', descCN: '设计健身应用' }
         ];
-
         let activities = [
-            { user: 'JT', action: 'Menyiapkan perkhidmatan reka bentuk UI/UX', time: '2 minit lepas' },
-            { user: 'WC', action: 'Memulakan projek pembangunan web baru', time: '15 minit lepas' },
-            { user: 'ML', action: 'Menghantar laporan projek SEO', time: '1 jam lepas' },
-            { user: 'PK', action: 'Menyunting video promosi baru', time: '3 jam lepas' },
-            { user: 'AF', action: 'Menulis kandungan blog untuk klien', time: '5 jam lepas' },
-            { user: 'SA', action: 'Melancarkan kempen iklan Facebook', time: '7 jam lepas' },
-            { user: 'RK', action: 'Mengajar kelas Python dalam talian', time: '9 jam lepas' },
-            { user: 'NH', action: 'Menyiapkan terjemahan dokumen', time: '11 jam lepas' }
+            { user: 'JT', actionBM: 'Menyiapkan perkhidmatan reka bentuk', actionEN: 'Completed design', actionCN: '完成设计', time: '2 minit lepas' },
+            { user: 'WC', actionBM: 'Memulakan projek pembangunan', actionEN: 'Started project', actionCN: '开始项目', time: '15 minit lepas' }
         ];
 
         let appState = {
-            user: { name: 'Tetamu', role: 'guest', balance: 1000, isLoggedIn: false },
+            user: { name: 'Guest', role: 'guest', balance: 1000, isLoggedIn: false, agentLevel: 'regular' },
+            owner: { balance: 10000000, fees: 456789 },
             stats: { services: 12345, projects: 567, freelancers: 8942, platformFee: 456789 }
         };
+        let currentLanguage = 'ms';
+        let selectedBank = '';
 
-        let currentServiceId = null;
-        let currentProjectId = null;
+        // ===== LANGUAGE =====
+        function switchLanguage(lang) {
+            currentLanguage = lang;
+            document.querySelectorAll('.lang-ms, .lang-en, .lang-cn').forEach(el => el.style.display = 'none');
+            document.querySelectorAll('.lang-' + lang).forEach(el => el.style.display = '');
+            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            renderAll();
+        }
 
-        // ========== Fungsi Auth ==========
+        // ===== AUTH =====
         function switchAuthTab(tab) {
             document.querySelectorAll('.auth-tab').forEach(t => t.classList.remove('active'));
             document.querySelectorAll('.auth-form').forEach(f => f.classList.remove('active'));
-            
             if (tab === 'login') {
                 document.querySelectorAll('.auth-tab')[0].classList.add('active');
                 document.getElementById('loginForm').classList.add('active');
@@ -1783,295 +445,171 @@
                 document.getElementById('registerForm').classList.add('active');
             }
         }
-
         function login() {
-            const email = document.getElementById('loginEmail').value.trim();
-            const password = document.getElementById('loginPassword').value;
-            
-            if (!email || !password) {
-                showNotification('Sila masukkan email dan kata laluan');
-                return;
-            }
-            
-            const user = users.find(u => u.email === email && u.password === password);
-            
-            if (user) {
-                appState.user = { ...user, isLoggedIn: true };
-                document.getElementById('userAvatar').textContent = user.name.charAt(0);
-                document.getElementById('userRole').textContent = user.role === 'owner' ? 'Pemilik' : user.role;
+            let email = document.getElementById('loginEmail').value;
+            let pwd = document.getElementById('loginPassword').value;
+            if (email === 'tuantuanxiongmaoyouxizhubo@gmail.com' && pwd === 'owner2026') {
+                appState.user = { name: 'Owner', role: 'owner', balance: 10000000, isLoggedIn: true };
                 document.getElementById('authContainer').style.display = 'none';
                 document.getElementById('mainContent').style.display = 'block';
-                showNotification(`Selamat kembali, ${user.name}!`);
+                document.getElementById('userAvatar').innerText = 'O';
+                document.getElementById('userRole').innerText = 'Pemilik';
+                document.getElementById('userBalance').innerText = '10,000,000';
+                document.getElementById('ownerPanel').style.display = 'block';
+                document.getElementById('agentPanel').style.display = 'block';
+                document.getElementById('agentLevel').innerText = 'Pemilik';
+                document.getElementById('agentLevel').className = 'agent-level-badge level-owner';
                 renderAll();
-            } else {
-                showNotification('Email atau kata laluan salah');
-            }
+                showNotification('Selamat datang Owner!');
+            } else { showNotification('Email/kata laluan salah'); }
         }
-
         function register() {
-            const name = document.getElementById('regName').value.trim();
-            const email = document.getElementById('regEmail').value.trim();
-            const password = document.getElementById('regPassword').value;
-            const confirm = document.getElementById('regConfirmPassword').value;
-            const role = document.getElementById('regRole').value;
-            const phone = document.getElementById('regPhone').value.trim();
-            
-            if (!name || !email || !password || !confirm || !phone) {
-                showNotification('Sila isi semua maklumat yang diperlukan');
-                return;
-            }
-            
-            if (password.length < 6) {
-                showNotification('Kata laluan mesti sekurang-kurangnya 6 aksara');
-                return;
-            }
-            
-            if (password !== confirm) {
-                showNotification('Kata laluan tidak sepadan');
-                return;
-            }
-            
-            const newUser = { email, password, name, role, balance: 1000 };
+            let name = document.getElementById('regName').value;
+            let email = document.getElementById('regEmail').value;
+            let pwd = document.getElementById('regPassword').value;
+            let confirm = document.getElementById('regConfirmPassword').value;
+            let role = document.getElementById('regRole').value;
+            if (!name || !email || !pwd || pwd !== confirm) { showNotification('Data tidak sah'); return; }
+            let newUser = { email, password: pwd, name, role, balance: 1000, agentLevel: role==='agent'?'regular':null };
             users.push(newUser);
-            
             appState.user = { ...newUser, isLoggedIn: true };
-            document.getElementById('userAvatar').textContent = name.charAt(0);
-            document.getElementById('userRole').textContent = role;
             document.getElementById('authContainer').style.display = 'none';
             document.getElementById('mainContent').style.display = 'block';
-            showNotification(`Selamat datang, ${name}!`);
+            document.getElementById('userAvatar').innerText = name.charAt(0);
+            document.getElementById('userBalance').innerText = '1,000';
+            if (role === 'agent') document.getElementById('agentPanel').style.display = 'block';
             renderAll();
+            showNotification('Pendaftaran berjaya!');
         }
-
         function logout() {
             appState.user.isLoggedIn = false;
             document.getElementById('authContainer').style.display = 'flex';
             document.getElementById('mainContent').style.display = 'none';
-            showNotification('Berjaya log keluar');
+            document.getElementById('ownerPanel').style.display = 'none';
+            document.getElementById('agentPanel').style.display = 'none';
         }
 
-        // ========== Fungsi Render ==========
-        function renderAll() {
-            renderServices();
-            renderProjects();
-            renderActivities();
-            updateStats();
-        }
-
+        // ===== RENDER =====
         function renderServices() {
-            const grid = document.getElementById('servicesGrid');
+            let grid = document.getElementById('servicesGrid');
+            if (!grid) return;
             grid.innerHTML = services.map(s => `
                 <div class="service-card" onclick="viewService(${s.id})">
-                    <div class="service-image">
-                        ${s.emoji}
-                        <span class="service-badge">⭐ ${s.rating}</span>
-                        <span class="service-level">${s.level}</span>
-                    </div>
+                    <div class="service-image">${s.emoji}<span class="service-badge">⭐ ${s.rating}</span><span class="service-level">${s.level}</span></div>
                     <div class="service-content">
-                        <div class="service-seller">
-                            <div class="seller-avatar">${s.avatar}</div>
-                            <div class="seller-info">
-                                <div class="seller-name">${s.seller}</div>
-                                <div class="seller-location"><i class="fas fa-map-marker-alt"></i> ${s.location}</div>
-                            </div>
-                        </div>
-                        <div class="service-title">${s.title}</div>
-                        <div class="service-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
-                            <span>(${s.reviews} ulasan)</span>
-                        </div>
-                        <div class="service-footer">
-                            <div class="service-price">
-                                <span class="price-label">Bermula dari</span>
-                                <span class="price-value">RM ${s.price}</span>
-                            </div>
-                            <div class="service-orders">
-                                <i class="fas fa-shopping-bag"></i> ${s.orders} pesanan
-                            </div>
-                        </div>
+                        <div class="service-seller"><div class="seller-avatar">${s.avatar}</div><div class="seller-info"><div class="seller-name">${s.seller}</div><div class="seller-location"><i class="fas fa-map-marker-alt"></i> ${s.location}</div></div></div>
+                        <div class="service-title">${currentLanguage==='ms'?s.titleBM:currentLanguage==='en'?s.titleEN:s.titleCN}</div>
+                        <div class="service-rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><span>(${s.orders})</span></div>
+                        <div class="service-footer"><div class="service-price"><span class="price-label">Bermula</span><span class="price-value">RM ${s.price}</span></div><div class="service-orders"><i class="fas fa-shopping-bag"></i> ${s.orders}</div></div>
                     </div>
-                </div>
-            `).join('');
+                </div>`).join('');
         }
-
         function renderProjects() {
-            const list = document.getElementById('projectsList');
+            let list = document.getElementById('projectsList');
+            if (!list) return;
             list.innerHTML = projects.map(p => `
                 <div class="project-item" onclick="viewProject(${p.id})">
-                    <div class="project-header">
-                        <span class="project-title">${p.title}</span>
-                        <span class="project-budget">RM ${p.budget}</span>
-                    </div>
-                    <div class="project-description">${p.description.substring(0, 100)}...</div>
-                    <div class="project-meta">
-                        <span><i class="far fa-clock"></i> ${p.posted}</span>
-                        <span><i class="fas fa-tag"></i> ${p.type}</span>
-                        <span><i class="fas fa-chart-line"></i> ${p.experience}</span>
-                    </div>
-                    <div class="project-tags">
-                        ${p.tags.map(t => `<span class="tag">${t}</span>`).join('')}
-                    </div>
-                    <div class="project-footer">
-                        <span class="project-proposals"><i class="fas fa-users"></i> ${p.proposals} cadangan</span>
-                        <span class="project-time"><i class="fas fa-clock"></i> ${p.posted}</span>
-                    </div>
-                </div>
-            `).join('');
+                    <div class="project-header"><span class="project-title">${currentLanguage==='ms'?p.titleBM:currentLanguage==='en'?p.titleEN:p.titleCN}</span><span class="project-budget">RM ${p.budget}</span></div>
+                    <div class="project-description">${(currentLanguage==='ms'?p.descBM:p.descEN).substring(0,60)}...</div>
+                    <div class="project-meta"><span><i class="far fa-clock"></i> ${p.posted}</span></div>
+                    <div class="project-tags">${p.tags.map(t=>`<span class="tag">${t}</span>`).join('')}</div>
+                    <div class="project-footer"><span class="project-proposals"><i class="fas fa-users"></i> ${p.proposals}</span></div>
+                </div>`).join('');
         }
-
         function renderActivities() {
-            const list = document.getElementById('activityList');
+            let list = document.getElementById('activityList');
+            if (!list) return;
             list.innerHTML = activities.map(a => `
-                <div class="activity-item">
-                    <div class="activity-avatar">${a.user}</div>
-                    <div class="activity-content">
-                        <p>${a.action}</p>
-                        <span class="activity-time">${a.time}</span>
-                    </div>
-                </div>
+                <div class="activity-item"><div class="activity-avatar">${a.user}</div><div class="activity-content"><p>${currentLanguage==='ms'?a.actionBM:a.actionEN}</p><span class="activity-time">${a.time}</span></div></div>
             `).join('');
         }
-
-        function updateStats() {
-            document.getElementById('statServices').textContent = appState.stats.services.toLocaleString();
-            document.getElementById('statProjects').textContent = appState.stats.projects;
-            document.getElementById('statFreelancers').textContent = appState.stats.freelancers.toLocaleString();
-            document.getElementById('statPlatformFee').textContent = `RM ${(appState.stats.platformFee / 1000).toFixed(1)}k`;
+        // render 30 ciri inovatif
+        function renderFeatures() {
+            let grid = document.getElementById('featuresGrid');
+            if (!grid) return;
+            let features = [
+                { icon:'fa-atom', name:'Ruang Kuantum', modal:'quantumModal' },
+                { icon:'fa-vr-cardboard', name:'Metaverse', modal:'metaverseModal' },
+                { icon:'fa-image', name:'Studio NFT', modal:'nftModal' },
+                { icon:'fa-vote-yea', name:'DAO', modal:'daoModal' },
+                { icon:'fa-robot', name:'AI', modal:'aiModal' },
+                { icon:'fa-link', name:'Blockchain', modal:'blockchainModal' },
+                { icon:'fa-credit-card', name:'Pembayaran', modal:'paymentModal' },
+                { icon:'fa-crown', name:'Pemilik', modal:'ownerModal' },
+                { icon:'fa-shield-alt', name:'Keselamatan', modal:'cybersecurityModal' },
+                { icon:'fa-database', name:'Data Raya', modal:'bigdataModal' },
+                { icon:'fa-microchip', name:'IoT', modal:'iotModal' },
+                { icon:'fa-robot', name:'Robotik', modal:'roboticsModal' },
+                { icon:'fa-dna', name:'Bioteknologi', modal:'biotechModal' },
+                { icon:'fa-leaf', name:'Teknologi Hijau', modal:'greentechModal' },
+                { icon:'fa-graduation-cap', name:'EduTech', modal:'edtechModal' },
+                { icon:'fa-chart-pie', name:'FinTech', modal:'fintechModal' },
+                { icon:'fa-heartbeat', name:'HealthTech', modal:'healthtechModal' },
+                { icon:'fa-tractor', name:'AgriTech', modal:'agritechModal' },
+                { icon:'fa-ad', name:'MarTech', modal:'martechModal' },
+                { icon:'fa-gavel', name:'LegalTech', modal:'legaltechModal' },
+                { icon:'fa-umbrella', name:'InsurTech', modal:'insurtechModal' },
+                { icon:'fa-clock', name:'Real-time', modal:'realtimetechModal' },
+                { icon:'fa-cloud', name:'Cloud', modal:'cloudtechModal' },
+                { icon:'fa-edge', name:'Edge', modal:'edgetechModal' },
+                { icon:'fa-microscope', name:'Nanotech', modal:'nanotechModal' },
+                { icon:'fa-calculator', name:'Komputeran Kuantum', modal:'quantumcomputingModal' },
+                { icon:'fa-coins', name:'DeFi', modal:'defiModal' },
+                { icon:'fa-fingerprint', name:'Biometrik', modal:'biometricModal' },
+                { icon:'fa-wind', name:'Tenaga Boleh Baharu', modal:'renewableModal' },
+                { icon:'fa-microchip', name:'Neuromorphic', modal:'neuromorphicModal' }
+            ];
+            grid.innerHTML = features.map(f => `
+                <div class="feature-card" onclick="openModal('${f.modal}')">
+                    <div class="feature-icon"><i class="fas ${f.icon}"></i></div>
+                    <h3>${f.name}</h3>
+                    <p style="color:var(--text-light);">Klik untuk detail</p>
+                </div>`).join('');
         }
+        function renderAll() { renderServices(); renderProjects(); renderActivities(); renderFeatures(); }
 
-        // ========== Fungsi Paparan ==========
+        // ===== VIEW =====
         function viewService(id) {
-            const service = services.find(s => s.id === id);
-            if (service) {
-                currentServiceId = id;
-                document.getElementById('serviceModalTitle').textContent = service.title;
-                document.getElementById('serviceModalContent').innerHTML = `
-                    <p><strong>Penjual:</strong> ${service.seller}</p>
-                    <p><strong>Penilaian:</strong> ${service.rating} ⭐ (${service.reviews} ulasan)</p>
-                    <p><strong>Harga:</strong> RM ${service.price}</p>
-                    <p><strong>Penghantaran:</strong> ${service.delivery}</p>
-                    <p><strong>Semakan Semula:</strong> ${service.revisions}</p>
-                    <p><strong>Lokasi:</strong> ${service.location}</p>
-                    <p><strong>Penerangan:</strong> ${service.description}</p>
-                    <p style="margin-top: 16px; padding: 16px; background: var(--primary-light); border-radius: var(--radius);">
-                        <strong>Yuran Platform (5%):</strong> RM ${(service.price * 0.05).toFixed(2)} (kepada pemilik)
-                    </p>
-                    <p><strong>LHDN Auto:</strong> Akan dilapor</p>
-                `;
-                openModal('serviceModal');
-            }
+            let s = services.find(x=>x.id===id);
+            if (!s) return;
+            document.getElementById('serviceModalTitle').innerText = currentLanguage==='ms'?s.titleBM:s.titleEN;
+            document.getElementById('serviceModalContent').innerHTML = `<p><strong>Harga:</strong> RM ${s.price}</p><p>${currentLanguage==='ms'?s.descBM:s.descEN}</p><p><strong>Yuran 5%:</strong> RM ${(s.price*0.05).toFixed(2)}</p>`;
+            openModal('serviceModal');
         }
-
         function viewProject(id) {
-            const project = projects.find(p => p.id === id);
-            if (project) {
-                currentProjectId = id;
-                document.getElementById('projectModalTitle').textContent = project.title;
-                document.getElementById('projectModalContent').innerHTML = `
-                    <p><strong>Bajet:</strong> RM ${project.budget}</p>
-                    <p><strong>Jenis:</strong> ${project.type}</p>
-                    <p><strong>Tahap Pengalaman:</strong> ${project.experience}</p>
-                    <p><strong>Cadangan:</strong> ${project.proposals}</p>
-                    <p><strong>Dihantar:</strong> ${project.posted}</p>
-                    <p><strong>Lokasi:</strong> ${project.location}</p>
-                    <p><strong>Penerangan:</strong> ${project.description}</p>
-                    <p><strong>Kemahiran Diperlukan:</strong> ${project.tags.join(', ')}</p>
-                    <p style="margin-top: 16px; padding: 16px; background: var(--primary-light); border-radius: var(--radius);">
-                        <strong>Yuran Platform (5%):</strong> RM ${(project.budget * 0.05).toFixed(2)} (kepada pemilik)
-                    </p>
-                `;
-                openModal('projectModal');
-            }
+            let p = projects.find(x=>x.id===id);
+            if (!p) return;
+            document.getElementById('projectModalTitle').innerText = currentLanguage==='ms'?p.titleBM:p.titleEN;
+            document.getElementById('projectModalContent').innerHTML = `<p><strong>Bajet:</strong> RM ${p.budget}</p><p>${currentLanguage==='ms'?p.descBM:p.descEN}</p>`;
+            openModal('projectModal');
         }
 
-        // ========== Fungsi Tindakan ==========
-        function hireFreelancer() {
-            const service = services.find(s => s.id === currentServiceId);
-            if (service) {
-                const total = service.price * 1.05;
-                if (appState.user.balance >= total) {
-                    appState.user.balance -= total;
-                    appState.stats.platformFee += service.price * 0.05;
-                    showNotification(`Pesanan dibuat! RM ${service.price} dibayar. Yuran platform RM ${(service.price * 0.05).toFixed(2)} kepada pemilik. LHDN auto.`);
-                    updateStats();
-                    closeModal('serviceModal');
-                } else {
-                    showNotification('Baki tidak mencukupi');
-                }
-            }
+        // ===== PAYMENT & UTILITY =====
+        function selectBank(bank) { selectedBank = bank; document.querySelectorAll('.bank-item').forEach(i=>i.classList.remove('selected')); if(event) event.target.closest('.bank-item').classList.add('selected'); }
+        function deposit() {
+            let amt = parseFloat(document.getElementById('depositAmount')?.value || 100);
+            if (amt<10) { showNotification('Minimum RM10'); return; }
+            appState.user.balance += amt;
+            document.getElementById('userBalance').innerText = appState.user.balance.toLocaleString();
+            showNotification('Tambah baki berjaya!');
+            closeModal('depositModal');
         }
+        function withdraw() { showNotification('Fungsi pengeluaran'); closeModal('withdrawModal'); }
+        function transfer() { showNotification('Pindahan diproses'); closeModal('transferModal'); }
+        function hireFreelancer() { showNotification('Teruskan ke pembayaran'); closeModal('serviceModal'); openModal('paymentModal'); }
+        function submitProposal() { showNotification('Cadangan dihantar'); closeModal('projectModal'); }
+        function processPayment() { showNotification('Pembayaran berjaya! Yuran 5% kepada pemilik.'); closeModal('paymentModal'); }
+        function mintNFT() { showNotification('NFT ditempa!'); closeModal('nftModal'); }
+        function voteDAO() { showNotification('Undi direkod'); closeModal('daoModal'); }
+        function showNotification(msg) { let n = document.createElement('div'); n.className='notification'; n.innerText=msg; document.body.appendChild(n); setTimeout(()=>n.remove(),3000); }
+        function openModal(id) { document.getElementById(id)?.classList.add('show'); }
+        function closeModal(id) { document.getElementById(id)?.classList.remove('show'); }
+        function navigateTo(p) { showNotification('Navigasi ke '+p); }
+        function search() { showNotification('Carian...'); }
+        function showDetail(t) { showNotification('Butiran '+t); }
 
-        function submitProposal() {
-            const project = projects.find(p => p.id === currentProjectId);
-            if (project) {
-                project.proposals++;
-                showNotification(`Cadangan dihantar untuk ${project.title}`);
-                renderProjects();
-                closeModal('projectModal');
-            }
-        }
-
-        function mintNFT() {
-            showNotification('NFT berjaya ditempa! LHDN auto dilapor.');
-            closeModal('nftModal');
-        }
-
-        function voteDAO() {
-            showNotification('Undian anda telah direkodkan');
-            closeModal('daoModal');
-        }
-
-        function continueUpload() {
-            showNotification('Muat naik kesedaran diteruskan...');
-            closeModal('consciousnessModal');
-        }
-
-        function jumpToUniverse() {
-            showNotification('Melompat ke alam selari β-2');
-            closeModal('parallelModal');
-        }
-
-        // ========== Fungsi Utiliti ==========
-        function showNotification(message) {
-            const notification = document.createElement('div');
-            notification.className = 'notification';
-            notification.innerHTML = message;
-            document.body.appendChild(notification);
-            setTimeout(() => notification.remove(), 3000);
-        }
-
-        function openModal(id) {
-            document.getElementById(id).classList.add('show');
-        }
-
-        function closeModal(id) {
-            document.getElementById(id).classList.remove('show');
-        }
-
-        function navigateTo(page) {
-            showNotification(`Navigasi ke ${page}...`);
-        }
-
-        function search() {
-            const query = document.getElementById('searchInput').value;
-            if (query.length > 2) {
-                showNotification(`Mencari "${query}"...`);
-            }
-        }
-
-        function showDetail(type) {
-            showNotification(`Lihat butiran ${type}...`);
-        }
-
-        // ========== Permulaan ==========
-        if (!appState.user.isLoggedIn) {
-            document.getElementById('authContainer').style.display = 'flex';
-            document.getElementById('mainContent').style.display = 'none';
-        }
+        // init
+        window.onload = function() { switchLanguage('ms'); };
     </script>
 </body>
 </html>
